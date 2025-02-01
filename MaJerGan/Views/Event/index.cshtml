@@ -27,6 +27,11 @@
                 <td>
                     <a href="@Url.Action("Details", "Event", new { id = item.Id })" class="btn btn-info">ดูรายละเอียด</a>
                 </td>
+                <td>
+                    <form asp-action="Delete" asp-controller="Event" method="post">
+                        <input type="hidden" name="id" value="@item.Id" />
+                        <button type="submit" class="btn btn-danger">ลบ</button>
+                </td>
             </tr>
         }
     </tbody>
