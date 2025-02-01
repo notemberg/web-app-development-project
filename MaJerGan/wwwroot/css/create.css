@@ -98,3 +98,85 @@ textarea:focus {
 .submit-btn:hover {
     background-color: #0056b3;
 }
+
+
+/* tag */
+/* 🚀 สไตล์ของ Carousel */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    overflow: hidden;
+    background: #eee;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.carousel {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-content {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    padding: 5px;
+}
+
+/* 🚀 ปุ่มแท็ก */
+.tag-btn {
+    background-color: #d1d1d1;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    min-width: 80px;
+    text-align: center;
+}
+
+.tag-btn:hover {
+    background-color: #bfbfbf;
+}
+
+.tag-btn.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* 🚀 ปุ่มเลื่อนซ้าย-ขวา */
+.carousel-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* 🚀 แท็กที่เลือก */
+#selected-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.selected-tag {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.remove-tag {
+    cursor: pointer;
+    margin-left: 8px;
+    font-weight: bold;
+}

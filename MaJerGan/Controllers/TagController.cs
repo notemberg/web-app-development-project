@@ -39,9 +39,12 @@ namespace MaJerGan.Controllers
                 return Conflict("This tag already exists");
             }
 
+            newTag.Name = newTag.Name.Trim(); // ✅ ตัดช่องว่างออกเพื่อความปลอดภัย
             _context.Tags.Add(newTag);
             _context.SaveChanges();
-            return Ok(newTag.Name);
+
+            return Ok(new { name = newTag.Name }); // ✅ คืนค่าเป็น JSON ที่แน่ใจว่าเป็น string
         }
+
     }
 }

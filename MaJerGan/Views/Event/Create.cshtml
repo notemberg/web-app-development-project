@@ -8,8 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Event</title>
     <link rel="stylesheet" href="~/css/create.css" />
+    
 </head>
-
+<script src="~/js/loadTag.js">
+</script>
 <body>
 
     <div class="content">
@@ -24,7 +26,13 @@
                 <textarea asp-for="Description" rows="4"></textarea>
 
                 <label>🏷️ เลือกแท็กกิจกรรม:</label>
-                <div id="tag-container"></div>
+                <div class="carousel-container">
+                    <button id="prev-btn" class="carousel-btn">❮</button>
+                    <div class="carousel">
+                        <div id="tag-carousel" class="carousel-content"></div>
+                    </div>
+                    <button id="next-btn" class="carousel-btn">❯</button>
+                </div>
 
                 <!-- ระบบเพิ่มแท็ก -->
                 <label>➕ หรือเพิ่มแท็กของคุณเอง:</label>
@@ -57,8 +65,8 @@
 
 </html>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
+@* <script>
+    document.addEventListener("DOMContentLoaded",function () {
         const tagContainer = document.getElementById("tag-container");
         const selectedTagsContainer = document.getElementById("selected-tags-container");
         const selectedTagsInput = document.getElementById("selected-tags");
@@ -76,7 +84,7 @@
                     createTagButton(tag);
                 });
             } catch (error) {
-                console.error("Error loading tags:", error);
+                console.error("Error loading tags:",error);
             }
         }
 
@@ -85,13 +93,13 @@
             button.className = "tag-btn";
             button.innerText = tag;
             button.dataset.tag = tag;
-            button.addEventListener("click", function () {
-                toggleTag(tag, button);
+            button.addEventListener("click",function () {
+                toggleTag(tag,button);
             });
             tagContainer.appendChild(button);
         }
 
-        function toggleTag(tag, button) {
+        function toggleTag(tag,button) {
             if (selectedTags.has(tag)) {
                 selectedTags.delete(tag);
                 button.classList.remove("active");
@@ -115,14 +123,14 @@
         }
 
         // ✅ เพิ่มแท็กใหม่เข้า Database และอัปเดตหน้าเว็บทันที
-        customTagInput.addEventListener("keypress", async function (e) {
+        customTagInput.addEventListener("keypress",async function (e) {
             if (e.key === "Enter" && this.value.trim() !== "") {
                 let newTag = this.value.trim();
                 this.value = ""; // ล้างค่า input
                 e.preventDefault(); // ป้องกันการ submit form
 
                 try {
-                    const response = await fetch("/api/tags", {
+                    const response = await fetch("/api/tags",{
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ name: newTag })
@@ -130,8 +138,8 @@
 
                     if (response.ok) {
                         const addedTag = await response.json();
-                        createTagButton(addedTag); // ✅ เพิ่มแท็กใหม่โดยตรง
-                        selectedTags.add(addedTag); // ✅ อัปเดต selectedTags ทันที
+                        createTagButton(addedTag.name); // ✅ ใช้ `.name` เพื่อให้แน่ใจว่าเป็น string
+                        selectedTags.add(addedTag.name); // ✅ ใช้ `.name` เช่นกัน
                         updateTags();
                     } else if (response.status === 409) {
                         alert("แท็กนี้มีอยู่แล้ว!");
@@ -139,13 +147,13 @@
                         throw new Error("Error adding tag");
                     }
                 } catch (error) {
-                    console.error("Error:", error);
+                    console.error("Error:",error);
                 }
             }
         });
 
         // ✅ ลบแท็กที่เลือก
-        selectedTagsContainer.addEventListener("click", function (e) {
+        selectedTagsContainer.addEventListener("click",function (e) {
             if (e.target.classList.contains("remove-tag")) {
                 let tag = e.target.getAttribute("data-tag");
                 selectedTags.delete(tag);
@@ -157,31 +165,5 @@
         // ✅ โหลดแท็กเมื่อเปิดหน้าเว็บ
         loadTags();
     });
-</script>
+</script> *@
 
-
-
-
-<style>
-    #tag-container {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-bottom: 10px;
-    }
-
-    .tag-btn {
-        background-color: #f0f0f0;
-        border: none;
-        padding: 10px 15px;
-        cursor: pointer;
-        border-radius: 8px;
-        font-size: 14px;
-        transition: 0.3s;
-    }
-
-    .tag-btn.active {
-        background-color: #007bff;
-        color: white;
-    }
-</style>
