@@ -6,28 +6,7 @@
     <title>Event Homepage</title>
     <link rel="stylesheet" href="~/css/index.css">
 </head>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-    const prevButton = document.querySelector(".prev");
-    const nextButton = document.querySelector(".next");
-    const slidesContainer = document.querySelector(".slides-container");
-    
-    let scrollAmount = 0;
-    const slideWidth = 110; // Approx width of one slide including margin
-    const maxScroll = slidesContainer.scrollWidth - slidesContainer.clientWidth;
-    
-    prevButton.addEventListener("click", function () {
-        scrollAmount -= slideWidth;
-        if (scrollAmount < 0) scrollAmount = 0;
-        slidesContainer.scrollTo({ left: scrollAmount, behavior: "smooth" });
-    });
-    
-    nextButton.addEventListener("click", function () {
-        scrollAmount += slideWidth;
-        if (scrollAmount > maxScroll) scrollAmount = maxScroll;
-        slidesContainer.scrollTo({ left: scrollAmount, behavior: "smooth" });
-    });
-});
+<script src="~/js/site.js">
 
 </script>
 <body>
@@ -44,6 +23,14 @@
     <section class="carousel">
         <button class="prev">&#10094;</button>
         <div class="slides-container">
+            <div class="slide">[1]</div>
+            <div class="slide">[2]</div>
+            <div class="slide">[3]</div>
+            <div class="slide">[4]</div>
+            <div class="slide">[5]</div>
+            <div class="slide">[6]</div>
+            <div class="slide">[7]</div>
+            <div class="slide">[8]</div>
             <div class="slide">[1]</div>
             <div class="slide">[2]</div>
             <div class="slide">[3]</div>

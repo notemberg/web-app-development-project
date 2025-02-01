@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using MvcMovie.Models;
+using MaJerGan.Models;
 
-namespace MvcMovie.Controllers;
+namespace MaJerGan.Controllers;
 
 public class HomeController : Controller
 {
@@ -15,7 +15,6 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        // return View();
         return View();
     }
 

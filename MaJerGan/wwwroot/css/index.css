@@ -1,17 +1,25 @@
+/* รีเซ็ตค่าเริ่มต้น */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    padding-top: 60px; 
 }
 
+/* Header */
 header {
+    position: fixed;  
+    top: 0;
+    left: 0;
+    width: 100%;  
+    background-color: #333;
+    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    background-color: #333;
-    color: white;
+    z-index: 1000;  /* ให้ Header อยู่ด้านหน้าสุด */
 }
 
 .logo {
@@ -20,94 +28,156 @@ header {
 }
 
 input[type="text"] {
-    flex: 1;
-    margin: 0 15px;
-    padding: 10px;
+    padding: 8px;
+    width: 300px;
     border-radius: 5px;
-    border: none;
+    border: 1px solid #ccc;
 }
 
 nav button {
-    background-color: #555;
-    color: white;
+    background: none;
     border: none;
-    padding: 10px;
-    margin: 0 5px;
+    color: white;
+    font-size: 16px;
     cursor: pointer;
-    border-radius: 5px;
+    margin: 0 5px;
 }
 
+/* Carousel Section */
 .carousel {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
-    background-color: white;
-    position: relative;
+    margin: 20px 0;
 }
 
 .slides-container {
     display: flex;
-    overflow: hidden;
+    overflow-x: auto;
+    scroll-behavior: smooth;
     width: 80%;
-    gap: 10px;
+    white-space: nowrap;
+    background: #ddd;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .slide {
-    width: 100px;
+    min-width: 100px;
     height: 50px;
-    background-color: #ddd;
-    text-align: center;
-    line-height: 50px;
-    border-radius: 5px;
-}
-
-.prev, .next {
-    background-color: #555;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    position: absolute;
-}
-
-.prev { left: 10px; }
-.next { right: 10px; }
-
-.events, .recommendations {
+    margin: 5px;
+    background: #bbb;
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+button.prev, button.next {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px 15px;
+}
+
+/* Events Section */
+.events {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
     padding: 20px;
-    background-color: white;
-    margin: 10px;
+    background: white;
     border-radius: 10px;
 }
 
-.categories div, .hot-content {
-    background-color: #ddd;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
+.upcoming, .invitation {
+    width: 48%;
 }
 
+.event-list, .invite-list {
+    background: #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Recommendations Section */
+.recommendations {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+}
+
+.interest {
+    width: 60%;
+}
+
+.categories {
+    display: flex;
+    gap: 10px;
+}
+
+.categories div {
+    background: #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.hot {
+    width: 35%;
+    background: #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Floating Add Event Button */
 .add-event {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #ff6600;
-    color: white;
-    border: none;
-    padding: 15px;
+    width: 70px;
+    height: 70px;
+    background-color: white;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 24px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    border: none;
 }
 
+/* Footer */
 footer {
     display: flex;
     justify-content: space-between;
     background-color: #333;
     color: white;
     padding: 20px;
+    margin-top: 20px;
+}
+
+.contact h3 {
+    margin-bottom: 5px;
+}
+
+.slides-container {
+    display: flex;
+    overflow-x: auto;  
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    
+    -ms-overflow-style: none;  
+}
+
+.slides-container::-webkit-scrollbar {
+    display: none;  /* สำหรับ Chrome, Safari, Opera */
 }
