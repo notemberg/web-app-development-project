@@ -29,5 +29,7 @@ namespace MaJerGan.Data
         }
 
         public DbSet<Event> Events { get; set; }  // ✅ ตรวจสอบว่ามี Event
+        public DbSet<Tag> Tags { get; set; } // ✅ เพิ่มนี้เข้าไป
+
     }
 }

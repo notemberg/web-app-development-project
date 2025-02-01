@@ -104,6 +104,18 @@ namespace MaJerGan.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        [Route("Details/{id}")]
+        public IActionResult Details(int id)
+        {
+            var eventDetails = _context.Events.FirstOrDefault(e => e.Id == id);
+            if (eventDetails == null)
+            {
+                return NotFound();
+            }
+            return View(eventDetails);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
@@ -118,5 +130,6 @@ namespace MaJerGan.Controllers
 
             return RedirectToAction("Index");
         }
+
     }
 }

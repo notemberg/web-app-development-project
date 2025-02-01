@@ -141,8 +141,12 @@ E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\scopedcss\bundle\MaJerGan.styles.css
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\scopedcss\projectbundle\MaJerGan.bundle.scp.css
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\lhuti2a1lu-2uyb7tt7b7.gz
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\2635fgc8iq-31p1yma9zs.gz
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\okj455fyts-488jguj1ck.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\m6val75pur-b9sayid5wm.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\7o7g7zxfgn-61n19gt1b8.gz
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\1ea6cqzyfo-fxoyrbokxq.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\k3aenjf74k-bqjiyaj88i.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\cex1rxtjww-c2jlpeoesf.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\b4lpi0wuva-erw9l3u2r3.gz
@@ -202,6 +206,8 @@ E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\qzsr4hzg88-muycvpuwrr.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\oe1px7mk9k-87fc7y1x7t.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\71w2y8elmz-mlv21k5csn.gz
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\r1nz17a8jq-d4ocph6tct.gz
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\ra783nlopf-d4ocph6tct.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\staticwebassets.build.json
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\staticwebassets.development.json
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\staticwebassets.build.endpoints.json
@@ -217,9 +223,3 @@ E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\MaJerGan.pdb
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\MaJerGan.genruntimeconfig.cache
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\ref\MaJerGan.dll
-E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\1ea6cqzyfo-fxoyrbokxq.gz
-E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\r1nz17a8jq-d4ocph6tct.gz
-E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\ra783nlopf-d4ocph6tct.gz
-E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\lhuti2a1lu-2uyb7tt7b7.gz
-E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\2635fgc8iq-81vb7vi2jk.gz
-E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\okj455fyts-bkld225mv7.gz

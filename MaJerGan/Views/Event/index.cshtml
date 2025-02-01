@@ -1,32 +1,33 @@
 @model IEnumerable<MaJerGan.Models.Event>
 
-<h2>รายการกิจกรรม</h2>
+@{
+    ViewData["Title"] = "รายการกิจกรรม";
+}
 
-<table border="1">
-    <tr>
-        <th>ชื่อกิจกรรม</th>
-        <th>รายละเอียด</th>
-        <th>จำนวนที่รับ</th>
-        <th>วันหมดอายุ</th>
-        <th>จัดการ</th>
-    </tr>
-    @foreach (var evt in Model)
-    {
+<h2>📌 รายการกิจกรรม</h2>
+
+<table class="table">
+    <thead>
         <tr>
-            <td>@evt.Title</td>
-            <td>@evt.Description</td>
-            <td>@evt.MaxParticipants</td>
-            <td>@evt.ExpiryDate.ToShortDateString()</td>
-            <td>
-                <!-- ปุ่มลบ -->
-                <form asp-action="Delete" asp-controller="Event" method="post" onsubmit="return confirm('คุณต้องการลบกิจกรรมนี้หรือไม่?');">
-                    <input type="hidden" name="id" value="@evt.Id" />
-                    <button type="submit" style="background-color: red; color: white; border: none; padding: 5px 10px; cursor: pointer;">ลบ</button>
-                </form>
-            </td>
+            <th>ชื่อกิจกรรม</th>
+            <th>วันที่จัด</th>
+            <th>ปิดรับสมัคร</th>
+            <th>จำนวนผู้เข้าร่วม</th>
+            <th>รายละเอียด</th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.EventTime.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@item.ExpiryDate.ToString("dd/MM/yyyy")</td>
+                <td>@item.MaxParticipants</td>
+                <td>
+                    <a href="@Url.Action("Details", "Event", new { id = item.Id })" class="btn btn-info">ดูรายละเอียด</a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
-
-
-<a href="/Event/Create">สร้างกิจกรรมใหม่</a>
