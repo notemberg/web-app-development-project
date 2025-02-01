@@ -4,42 +4,33 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - YourWebsite</title>
+
     <link rel="stylesheet" href="~/css/nav.css" />
+
+    @RenderSection("Styles", required: false) <!-- สำหรับ CSS ของแต่ละหน้า -->
 </head>
 
 <body>
-    @* <header>
-        <div>
-            <a class="navbar-brand" href="@Url.Action("Index", "Home")">home</a>
-            <button class="navbar-toggler" id="navbar-toggle">☰</button>
-        </div>
-        <div>
-            <ul>
-                <li class="nav-item">
-                    <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a asp-area="" asp-controller="Home" asp-action="privacy">privacy</a>
-                </li>
-            </ul>
-        </div>
-    </header> *@
+    <!-- ✅ Header อยู่ทุกหน้า -->
+    <header class="main-header">
+        <div class="logo">Logo</div>
+        <input id="search-bar" type="text" placeholder="Search Your Interest">
+        <nav>
+            <button class="nav-btn">Noti</button>
+            <button class="nav-btn">Chat</button>
+            <button class="nav-btn">4C</button>
+        </nav>
+    </header>
 
+    <!-- ✅ Main Content -->
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    @* <footer class="footer text-muted">
-        <div class="container">
-            &copy; 2568 - MvcMovie - <a href="@Url.Action("Privacy", "Home")">Privacy</a>
-        </div>
-    </footer> *@
-
-    <script>
-
-    </script>
+    @RenderSection("Scripts", required: false)
 </body>
 
 </html>

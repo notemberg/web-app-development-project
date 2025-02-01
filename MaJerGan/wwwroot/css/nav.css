@@ -1,42 +1,49 @@
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  display: inline;
-  padding: 10px;
-}
-
-.nav-item {
-  padding: 10px;
-  background: #000;
-  padding: 0% 5%;
-}
-
-#navbar-items {
+/* ✅ Header อยู่ด้านบนของทุกหน้า */
+.main-header {
+  width: 100%;
+  height: 80px;
+  background-color: #333;
+  color: white;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: fixed; /* ทำให้ Header คงที่ */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* ให้ Header อยู่ด้านบนสุด */
 }
 
-@media (max-width: 768px) {
-  #navbar-items {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      background-color: #f8f9fa;
-  }
-
-  #navbar-items.active {
-      display: flex;
-  }
-
-  #navbar-items li {
-      text-align: center;
-      width: 100%;
-  }
-
-  #navbar-toggle {
-      display: block;
-  }
+.main-header .logo {
+  font-size: 22px;
+  font-weight: bold;
 }
+
+#search-bar{
+  width: 250px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  margin-left: auto; /* ทำให้ตำแหน่งอยู่ตรงกลาง */
+  margin-right: auto; /* ป้องกันขยับ */
+}
+
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.nav-btn:hover {
+  text-decoration: underline;
+}
+
+/* ✅ ป้องกัน Header บังเนื้อหา */
+/* .container {
+  padding-top: 50px; 
+} */
