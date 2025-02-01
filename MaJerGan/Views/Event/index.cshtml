@@ -1,0 +1,32 @@
+@model IEnumerable<MaJerGan.Models.Event>
+
+<h2>รายการกิจกรรม</h2>
+
+<table border="1">
+    <tr>
+        <th>ชื่อกิจกรรม</th>
+        <th>รายละเอียด</th>
+        <th>จำนวนที่รับ</th>
+        <th>วันหมดอายุ</th>
+        <th>จัดการ</th>
+    </tr>
+    @foreach (var evt in Model)
+    {
+        <tr>
+            <td>@evt.Title</td>
+            <td>@evt.Description</td>
+            <td>@evt.MaxParticipants</td>
+            <td>@evt.ExpiryDate.ToShortDateString()</td>
+            <td>
+                <!-- ปุ่มลบ -->
+                <form asp-action="Delete" asp-controller="Event" method="post" onsubmit="return confirm('คุณต้องการลบกิจกรรมนี้หรือไม่?');">
+                    <input type="hidden" name="id" value="@evt.Id" />
+                    <button type="submit" style="background-color: red; color: white; border: none; padding: 5px 10px; cursor: pointer;">ลบ</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+
+<a href="/Event/Create">สร้างกิจกรรมใหม่</a>

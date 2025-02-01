@@ -1,29 +1,50 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using MaJerGan.Data;
+using MaJerGan.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// ✅ ตั้งค่า Database
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// ✅ ตั้งค่า Identity
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
+
+// ✅ เพิ่ม Controllers & Views
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// ✅ ตั้งค่า Error Handling
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
+// ✅ ตั้งค่า Static Files (เพื่อโหลด CSS, JS, Images)
 app.UseHttpsRedirection();
-app.UseRouting();
+app.UseStaticFiles();  // ❗ ต้องมี เพื่อให้ CSS ทำงาน
 
+app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapStaticAssets();
+// ✅ ตั้งค่า Default Route
+app.MapControllerRoute(
+    name: "create_event",
+    pattern: "Create",
+    defaults: new { controller = "Event", action = "Create" }
+);
 
+// ✅ ตั้งค่า Default Route (ควรอยู่ล่างสุด)
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
 app.Run();

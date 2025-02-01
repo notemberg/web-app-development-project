@@ -1,0 +1,126 @@
+@model MaJerGan.Models.Event
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 60%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .tags, .options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            background-color: #ddd;
+            padding: 7px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button {
+            width: 100%;
+            background-color: #007BFF;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>สร้างกิจกรรมใหม่</h2>
+
+        <form asp-action="Create" method="post">
+            <label>ชื่อกิจกรรม:</label>
+            <input asp-for="Title" required />
+
+            <label>รายละเอียด:</label>
+            <textarea asp-for="Description" rows="4"></textarea>
+
+            <label>Tags:</label>
+            <div class="tags">
+                <input asp-for="Tags" placeholder="ใส่ Tag คั่นด้วย , เช่น 'Sports,Music'" />
+            </div>
+
+            <label>จำนวนสมาชิกที่รับ:</label>
+            <input asp-for="MaxParticipants" type="number" required />
+
+            <label>เวลาของกิจกรรม:</label>
+            <input asp-for="EventTime" type="datetime-local" required />
+
+            <label>วันหมดอายุ:</label>
+            <input asp-for="ExpiryDate" type="datetime-local" required />
+
+            <label>ข้อมูลเพิ่มเติม:</label>
+            <textarea asp-for="ExtraInfo" rows="3"></textarea>
+
+            <button type="submit">โพสต์เลย!</button>
+        </form>
+    </div>
+
+</body>
+</html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("input").forEach(input => {
+            input.setAttribute("autocomplete", "off");
+        });
+    });
+</script>
