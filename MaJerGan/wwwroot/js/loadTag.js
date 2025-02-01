@@ -14,25 +14,27 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
             const response = await fetch("/api/tags");
             allTags = await response.json();
-            renderTags();
+            renderTags("");
         } catch (error) {
             console.error("Error loading tags:", error);
         }
     }
 
-    // ✅ สร้างปุ่มแท็กใน Carousel
-    function renderTags() {
+    // ✅ ฟังก์ชันกรองแท็กใน Carousel
+    function renderTags(filterText) {
         tagCarousel.innerHTML = "";
-        allTags.forEach(tag => {
-            let button = document.createElement("button");
-            button.className = "tag-btn";
-            button.innerText = tag;
-            button.dataset.tag = tag;
-            button.addEventListener("click", function () {
-                toggleTag(tag, button);
+        allTags
+            .filter(tag => tag.toLowerCase().includes(filterText.toLowerCase())) // กรองแท็กตามการพิมพ์
+            .forEach(tag => {
+                let button = document.createElement("button");
+                button.className = "tag-btn";
+                button.innerText = tag;
+                button.dataset.tag = tag;
+                button.addEventListener("click", function () {
+                    toggleTag(tag, button);
+                });
+                tagCarousel.appendChild(button);
             });
-            tagCarousel.appendChild(button);
-        });
     }
 
     function toggleTag(tag, button) {
@@ -58,31 +60,59 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedTagsInput.value = Array.from(selectedTags).join(",");
     }
 
-    // ✅ เพิ่มแท็กใหม่เข้า Database
+    // ✅ ฟังก์ชันเลือกแท็กอัตโนมัติถ้ามีพิมพ์อยู่แล้ว
+    function autoSelectTag(tagName) {
+        let tagButton = document.querySelector(`.tag-btn[data-tag="${tagName}"]`);
+        if (tagButton) {
+            tagButton.classList.add("active");
+            selectedTags.add(tagName);
+            updateTags();
+        }
+    }
+
+    // ✅ กรองแท็กและเลือกอัตโนมัติเมื่อผู้ใช้พิมพ์
+    tagSearch.addEventListener("input", function () {
+        let searchValue = tagSearch.value.trim();
+        renderTags(searchValue);
+
+        // ถ้าแท็กนี้มีอยู่แล้ว → เลือกอัตโนมัติ
+        if (allTags.includes(searchValue)) {
+            autoSelectTag(searchValue);
+        }
+    });
+
+    // ✅ เพิ่มแท็กใหม่เข้า Database และเลือกให้อัตโนมัติ
     tagSearch.addEventListener("keypress", async function (e) {
         if (e.key === "Enter" && tagSearch.value.trim() !== "") {
             let newTag = tagSearch.value.trim();
             tagSearch.value = "";
             e.preventDefault();
 
-            try {
-                const response = await fetch("/api/tags", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ name: newTag })
-                });
+            if (allTags.includes(newTag)) {
+                // ถ้ามีแท็กอยู่แล้ว → เลือกแท็กนั้นเลย
+                autoSelectTag(newTag);
+            } else {
+                // ถ้าเป็นแท็กใหม่ → เพิ่มเข้า Database และเลือกให้อัตโนมัติ
+                try {
+                    const response = await fetch("/api/tags", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ name: newTag })
+                    });
 
-                if (response.ok) {
-                    const addedTag = await response.json();
-                    allTags.push(addedTag.name);
-                    renderTags();
-                } else if (response.status === 409) {
-                    alert("แท็กนี้มีอยู่แล้ว!");
-                } else {
-                    throw new Error("Error adding tag");
+                    if (response.ok) {
+                        const addedTag = await response.json();
+                        allTags.push(addedTag.name);
+                        renderTags("");
+                        autoSelectTag(addedTag.name);
+                    } else if (response.status === 409) {
+                        alert("แท็กนี้มีอยู่แล้ว!");
+                    } else {
+                        throw new Error("Error adding tag");
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
                 }
-            } catch (error) {
-                console.error("Error:", error);
             }
         }
     });

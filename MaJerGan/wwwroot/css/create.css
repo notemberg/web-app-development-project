@@ -106,11 +106,22 @@ textarea:focus {
     display: flex;
     align-items: center;
     justify-content: center;
+    scroll-behavior: smooth;
     margin: 10px 0;
     overflow: hidden;
     background: #eee;
     padding: 10px;
     border-radius: 10px;
+}
+
+.carousel-container ::-webkit-scrollbar {
+    background-color: transparent;
+}
+
+.carousel-container ::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+    
 }
 
 .carousel {
