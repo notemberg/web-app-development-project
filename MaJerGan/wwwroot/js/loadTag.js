@@ -26,18 +26,24 @@ document.addEventListener("DOMContentLoaded", function () {
         allTags
             .filter(tag => tag.toLowerCase().includes(filterText.toLowerCase())) // กรองแท็กตามการพิมพ์
             .forEach(tag => {
-                let button = document.createElement("button");
+                let button = document.createElement("div");
                 button.className = "tag-btn";
                 button.innerText = tag;
                 button.dataset.tag = tag;
                 button.addEventListener("click", function () {
                     toggleTag(tag, button);
                 });
+
+                if (selectedTags.has(tag)) {
+                    button.classList.add("active");
+                }
+                
                 tagCarousel.appendChild(button);
             });
     }
 
     function toggleTag(tag, button) {
+        
         if (selectedTags.has(tag)) {
             selectedTags.delete(tag);
             button.classList.remove("active");
@@ -56,9 +62,11 @@ document.addEventListener("DOMContentLoaded", function () {
             tagElement.innerHTML = `${tag} <span class="remove-tag" data-tag="${tag}">❌</span>`;
             selectedTagsContainer.appendChild(tagElement);
         });
-
+    
+        // ✅ ตรวจสอบว่าค่าแท็กที่เลือกถูกบันทึกใน `<input hidden>`
         selectedTagsInput.value = Array.from(selectedTags).join(",");
     }
+    
 
     // ✅ ฟังก์ชันเลือกแท็กอัตโนมัติถ้ามีพิมพ์อยู่แล้ว
     function autoSelectTag(tagName) {
@@ -76,9 +84,9 @@ document.addEventListener("DOMContentLoaded", function () {
         renderTags(searchValue);
 
         // ถ้าแท็กนี้มีอยู่แล้ว → เลือกอัตโนมัติ
-        if (allTags.includes(searchValue)) {
-            autoSelectTag(searchValue);
-        }
+        // if (allTags.includes(searchValue)) {
+        //     autoSelectTag(searchValue);
+        // }
     });
 
     // ✅ เพิ่มแท็กใหม่เข้า Database และเลือกให้อัตโนมัติ
