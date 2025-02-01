@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\MvcMovie.csproj",
-      "projectName": "MvcMovie",
-      "projectPath": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\MvcMovie.csproj",
+      "projectUniqueName": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\MaJerGan.csproj",
+      "projectName": "MaJerGan",
+      "projectPath": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\MaJerGan.csproj",
       "packagesPath": "C:\\Users\\Sliber\\.nuget\\packages\\",
       "outputPath": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\obj\\",
       "projectStyle": "PackageReference",
