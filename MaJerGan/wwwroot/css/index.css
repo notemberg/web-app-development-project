@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    flex: 1;
+    margin: 0 15px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+nav button {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: white;
+    position: relative;
+}
+
+.slides-container {
+    display: flex;
+    overflow: hidden;
+    width: 80%;
+    gap: 10px;
+}
+
+.slide {
+    width: 100px;
+    height: 50px;
+    background-color: #ddd;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px;
+}
+
+.prev, .next {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.events, .recommendations {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.categories div, .hot-content {
+    background-color: #ddd;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.add-event {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}

@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Homepage</title>
+    <link rel="stylesheet" href="~/css/index.css">
+</head>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const prevButton = document.querySelector(".prev");
+    const nextButton = document.querySelector(".next");
+    const slidesContainer = document.querySelector(".slides-container");
+    
+    let scrollAmount = 0;
+    const slideWidth = 110; // Approx width of one slide including margin
+    const maxScroll = slidesContainer.scrollWidth - slidesContainer.clientWidth;
+    
+    prevButton.addEventListener("click", function () {
+        scrollAmount -= slideWidth;
+        if (scrollAmount < 0) scrollAmount = 0;
+        slidesContainer.scrollTo({ left: scrollAmount, behavior: "smooth" });
+    });
+    
+    nextButton.addEventListener("click", function () {
+        scrollAmount += slideWidth;
+        if (scrollAmount > maxScroll) scrollAmount = maxScroll;
+        slidesContainer.scrollTo({ left: scrollAmount, behavior: "smooth" });
+    });
+});
+
+</script>
+<body>
+    <header>
+        <div class="logo">Logo</div>
+        <input type="text" placeholder="Search Your Interest">
+        <nav>
+            <button>Noti</button>
+            <button>Chat</button>
+            <button>4C</button>
+        </nav>
+    </header>
+    
+    <section class="carousel">
+        <button class="prev">&#10094;</button>
+        <div class="slides-container">
+            <div class="slide">[1]</div>
+            <div class="slide">[2]</div>
+            <div class="slide">[3]</div>
+            <div class="slide">[4]</div>
+            <div class="slide">[5]</div>
+            <div class="slide">[6]</div>
+            <div class="slide">[7]</div>
+            <div class="slide">[8]</div>
+        </div>
+        <button class="next">&#10095;</button>
+    </section>
+    
+    <section class="events">
+        <div class="upcoming">
+            <h2>Your Upcoming Events</h2>
+            <div class="event-list">[Events]</div>
+        </div>
+        <div class="invitation">
+            <h2>Recent Invitation</h2>
+            <div class="invite-list">[Invitations]</div>
+        </div>
+    </section>
+    
+    <section class="recommendations">
+        <div class="interest">
+            <h2>You may be interested</h2>
+            <div class="categories">
+                <div>Sports</div>
+                <div>BoardGame</div>
+                <div>Dinner</div>
+            </div>
+        </div>
+        <div class="hot">
+            <h2>Hot</h2>
+            <div class="hot-content">[Hot Content]</div>
+        </div>
+    </section>
+    
+    <button class="add-event">+</button>
+    
+    <footer>
+        <div class="contact">
+            <h3>Contact Us</h3>
+            <p>📞 088-888-8888</p>
+            <p>📧 email@address.com</p>
+        </div>
+        <div class="team">Our Team</div>
+    </footer>
+</body>
+</html>

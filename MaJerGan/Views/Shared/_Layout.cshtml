@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/MvcMovie.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/nav.css" />
+</head>
+
+<body>
+    @* <header>
+        <div>
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">home</a>
+            <button class="navbar-toggler" id="navbar-toggle">☰</button>
+        </div>
+        <div>
+            <ul>
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-area="" asp-controller="Home" asp-action="privacy">privacy</a>
+                </li>
+            </ul>
+        </div>
+    </header> *@
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer text-muted">
+        <div class="container">
+            &copy; 2568 - MvcMovie - <a href="@Url.Action("Privacy", "Home")">Privacy</a>
+        </div>
+    </footer>
+
+    <script>
+        // เพิ่มการเปิด/ปิดเมนูด้วย JavaScript
+        document.getElementById('navbar-toggle').addEventListener('click',function () {
+            const navbarItems = document.getElementById('navbar-items');
+            navbarItems.classList.toggle('active');
+        });
+
+    </script>
+</body>
+
+</html>
