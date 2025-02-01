@@ -1,11 +1,20 @@
 /* รีเซ็ตค่าเริ่มต้น */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
+
+* {
     padding: 0;
-    background-color: #f4f4f4;
-    padding-top: 60px; 
-    
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px 0px;
+    padding-bottom: 0px;
+    margin: 0;
 }
 
 /* Header */
@@ -23,27 +32,18 @@ header {
     z-index: 1000;  /* ให้ Header อยู่ด้านหน้าสุด */
 }
 
-.logo {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-input[type="text"] {
+/* input[type="text"] {
     padding: 8px;
     width: 300px;
     border-radius: 5px;
     border: 1px solid #ccc;
-}
+} */
 
-nav button {
-    background: none;
-    border: none;
-    color: rgb(255, 255, 255);
-    font-size: 16px;
-    cursor: pointer;
-    margin: 0 5px;
+.container {
+    width: 100%;
+    background-color: white;
+    padding-top: 50px;  
 }
-
 /* Carousel Section */
 .carousel {
     display: flex;

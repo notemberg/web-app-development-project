@@ -1,4 +1,14 @@
 /* ✅ Header อยู่ด้านบนของทุกหน้า */
+
+body {
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
 .main-header {
   width: 100%;
   height: 80px;
@@ -8,6 +18,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  padding-right: 50px;
   position: fixed; /* ทำให้ Header คงที่ */
   top: 0;
   left: 0;
@@ -17,26 +28,44 @@
 .main-header .logo {
   font-size: 22px;
   font-weight: bold;
+   color: white;
+}
+
+.main-header .logo:hover {
+  text-decoration: none;
+  color: rgb(255, 0, 0);
 }
 
 #search-bar{
-  width: 250px;
+  width: 70%;
   padding: 10px;
   border-radius: 5px;
   border: none;
   font-size: 16px;
-  margin-left: auto; /* ทำให้ตำแหน่งอยู่ตรงกลาง */
-  margin-right: auto; /* ป้องกันขยับ */
+  margin: 0 auto; /* ทำให้ตำแหน่งอยู่ตรงกลาง */
 }
 
+/* input[type="text"] {
+  padding: 8px;
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+} */
+input:focus {
+  outline: none;
+}
 
 .nav-btn {
-  background: none;
+  background: rgb(0, 0, 0);
   border: none;
   color: white;
   font-size: 16px;
   cursor: pointer;
   padding: 5px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin: 3px;
 }
 
 .nav-btn:hover {

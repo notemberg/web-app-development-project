@@ -2,7 +2,8 @@
 
 /* รีเซ็ตค่าเริ่มต้นของเบราว์เซอร์ */
 * {
-    margin: 0;
+    height: auto;
+    width: auto;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
