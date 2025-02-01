@@ -7,10 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Event</title>
-    @section Styles {
     <link rel="stylesheet" href="~/css/create.css" />
-}
-    
 </head>
 
 <body>
@@ -26,8 +23,18 @@
                 <label>📝 รายละเอียด:</label>
                 <textarea asp-for="Description" rows="4"></textarea>
 
-                <label>🏷️ Tags:</label>
-                <input asp-for="Tags" placeholder="ใส่ Tag คั่นด้วย , เช่น 'Sports,Music'" />
+                <label>🏷️ เลือกแท็กกิจกรรม:</label>
+                <div id="tag-container"></div>
+
+                <!-- ระบบเพิ่มแท็ก -->
+                <label>➕ หรือเพิ่มแท็กของคุณเอง:</label>
+                <input type="text" id="custom-tag-input" placeholder="พิมพ์แท็กแล้วกด Enter" />
+
+                <!-- แสดงแท็กที่เลือก -->
+                <div id="selected-tags-container"></div>
+
+                <!-- Input ที่จะส่งค่าแท็กที่เลือก -->
+                <input type="hidden" asp-for="Tags" id="selected-tags" />
 
                 <label>👥 จำนวนสมาชิกที่รับ:</label>
                 <input asp-for="MaxParticipants" type="number" required />
@@ -51,9 +58,130 @@
 </html>
 
 <script>
-    document.addEventListener("DOMContentLoaded",function () {
-        document.querySelectorAll("input").forEach(input => {
-            input.setAttribute("autocomplete","off");
+    document.addEventListener("DOMContentLoaded", function () {
+        const tagContainer = document.getElementById("tag-container");
+        const selectedTagsContainer = document.getElementById("selected-tags-container");
+        const selectedTagsInput = document.getElementById("selected-tags");
+        const customTagInput = document.getElementById("custom-tag-input");
+
+        let selectedTags = new Set();
+
+        // ✅ โหลดแท็กจาก API และอัปเดตหน้าเว็บ
+        async function loadTags() {
+            try {
+                const response = await fetch("/api/tags");
+                const tags = await response.json();
+                tagContainer.innerHTML = ""; // ล้างปุ่มแท็กเก่า
+                tags.forEach(tag => {
+                    createTagButton(tag);
+                });
+            } catch (error) {
+                console.error("Error loading tags:", error);
+            }
+        }
+
+        function createTagButton(tag) {
+            let button = document.createElement("button");
+            button.className = "tag-btn";
+            button.innerText = tag;
+            button.dataset.tag = tag;
+            button.addEventListener("click", function () {
+                toggleTag(tag, button);
+            });
+            tagContainer.appendChild(button);
+        }
+
+        function toggleTag(tag, button) {
+            if (selectedTags.has(tag)) {
+                selectedTags.delete(tag);
+                button.classList.remove("active");
+            } else {
+                selectedTags.add(tag);
+                button.classList.add("active");
+            }
+            updateTags();
+        }
+
+        function updateTags() {
+            selectedTagsContainer.innerHTML = "";
+            selectedTags.forEach(tag => {
+                let tagElement = document.createElement("div");
+                tagElement.className = "selected-tag";
+                tagElement.innerHTML = `${tag} <span class="remove-tag" data-tag="${tag}">❌</span>`;
+                selectedTagsContainer.appendChild(tagElement);
+            });
+
+            selectedTagsInput.value = Array.from(selectedTags).join(",");
+        }
+
+        // ✅ เพิ่มแท็กใหม่เข้า Database และอัปเดตหน้าเว็บทันที
+        customTagInput.addEventListener("keypress", async function (e) {
+            if (e.key === "Enter" && this.value.trim() !== "") {
+                let newTag = this.value.trim();
+                this.value = ""; // ล้างค่า input
+                e.preventDefault(); // ป้องกันการ submit form
+
+                try {
+                    const response = await fetch("/api/tags", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ name: newTag })
+                    });
+
+                    if (response.ok) {
+                        const addedTag = await response.json();
+                        createTagButton(addedTag); // ✅ เพิ่มแท็กใหม่โดยตรง
+                        selectedTags.add(addedTag); // ✅ อัปเดต selectedTags ทันที
+                        updateTags();
+                    } else if (response.status === 409) {
+                        alert("แท็กนี้มีอยู่แล้ว!");
+                    } else {
+                        throw new Error("Error adding tag");
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
+                }
+            }
         });
+
+        // ✅ ลบแท็กที่เลือก
+        selectedTagsContainer.addEventListener("click", function (e) {
+            if (e.target.classList.contains("remove-tag")) {
+                let tag = e.target.getAttribute("data-tag");
+                selectedTags.delete(tag);
+                document.querySelector(`.tag-btn[data-tag="${tag}"]`)?.classList.remove("active");
+                updateTags();
+            }
+        });
+
+        // ✅ โหลดแท็กเมื่อเปิดหน้าเว็บ
+        loadTags();
     });
 </script>
+
+
+
+
+<style>
+    #tag-container {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .tag-btn {
+        background-color: #f0f0f0;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+
+    .tag-btn.active {
+        background-color: #007bff;
+        color: white;
+    }
+</style>
