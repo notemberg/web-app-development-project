@@ -22,32 +22,67 @@ namespace MaJerGan.Controllers
             return View();
         }
 
+        // [HttpPost]
+        // public async Task<IActionResult> Register(User user)
+        // {
+        //     if (!ModelState.IsValid)
+        //     {
+        //         var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
+        //         Console.WriteLine("Validation Errors: " + string.Join(", ", errors)); // Log เช็ค Errors
+        //         return View(user);
+        //     }
+
+        //     // ✅ เช็คว่า Password ไม่เป็น null
+        //     if (string.IsNullOrEmpty(user.Password))
+        //     {
+        //         ModelState.AddModelError("Password", "Password is required.");
+        //         return View(user);
+        //     }
+
+        //     // ✅ แฮชรหัสผ่านก่อนบันทึก
+        //     user.SetPassword(user.Password);
+
+        //     _context.Users.Add(user);
+        //     await _context.SaveChangesAsync();
+
+        //     Console.WriteLine("User Saved to Database: " + user.Email);
+        //     return RedirectToAction("Login");
+        // }
         [HttpPost]
-        public async Task<IActionResult> Register(User user, List<string> tags)
+        public async Task<IActionResult> Register(User user)
         {
-            if (tags.Count > 10)
+            if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("UserTags", "You can select up to 10 tags.");
+                var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
+                Console.WriteLine("Validation Errors: " + string.Join(", ", errors)); // Log เช็ค Errors
                 return View(user);
             }
 
-            if (ModelState.IsValid)
+            // ✅ ตรวจสอบว่าฟิลด์ Password ไม่เป็น null
+            if (string.IsNullOrEmpty(user.Password))
             {
-                user.SetPassword(user.Password); // Hash รหัสผ่าน
-                _context.Users.Add(user);
-                await _context.SaveChangesAsync();
-
-                foreach (var tag in tags)
-                {
-                    _context.UserTags.Add(new UserTag { UserId = user.Id, Tag = tag });
-                }
-
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Login");
+                ModelState.AddModelError("Password", "Password is required.");
+                return View(user);
             }
 
-            return View(user);
+            // ✅ Log ก่อน Hash Password
+            Console.WriteLine($"Before Hashing - Password: {user.Password}");
+
+            // ✅ แฮชรหัสผ่านก่อนบันทึก
+            user.SetPassword(user.Password);
+
+            // ✅ Log หลัง Hash Password
+            Console.WriteLine($"After Hashing - PasswordHash: {user.PasswordHash}");
+
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
+            Console.WriteLine("User Saved to Database: " + user.Email);
+            return RedirectToAction("Login");
         }
+
+
+
 
         // ✅ หน้า Login
         public IActionResult Login(string email, string password)

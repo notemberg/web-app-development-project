@@ -4,15 +4,15 @@
     <input asp-for="Username" placeholder="Username" required />
     <input asp-for="Password" type="password" placeholder="Password" required />
     <input asp-for="DateOfBirth" type="date" required />
-    
-    <label>Select up to 10 Tags:</label>
-    <select name="tags" multiple required>
-        <option value="Sports">Sports</option>
-        <option value="Gaming">Gaming</option>
-        <option value="Music">Music</option>
-        <option value="Tech">Tech</option>
-        <option value="Food">Food</option>
-    </select>
-
     <button type="submit">Register</button>
 </form>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <ul>
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <li>@error.ErrorMessage</li>
+        }
+    </ul>
+}

@@ -9,6 +9,7 @@ E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Debug\net9
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Debug\net9.0\MaJerGan.pdb
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Debug\net9.0\Azure.Core.dll
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Debug\net9.0\Azure.Identity.dll
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Debug\net9.0\BCrypt.Net-Next.dll
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Debug\net9.0\Humanizer.dll
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
@@ -141,9 +142,14 @@ E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\scopedcss\bundle\MaJerGan.styles.css
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\scopedcss\projectbundle\MaJerGan.bundle.scp.css
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\lhuti2a1lu-pe9bsbjlgc.gz
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\2635fgc8iq-c5wooy4aoq.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\okj455fyts-488jguj1ck.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\m6val75pur-b9sayid5wm.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\7o7g7zxfgn-61n19gt1b8.gz
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\10zlbeaorg-1lxecirbqp.gz
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\1ea6cqzyfo-2jtse8noxv.gz
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\1r9dq2ouuu-g2a3cqqt1t.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\k3aenjf74k-bqjiyaj88i.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\cex1rxtjww-c2jlpeoesf.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\b4lpi0wuva-erw9l3u2r3.gz
@@ -220,9 +226,3 @@ E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\MaJerGan.pdb
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\MaJerGan.genruntimeconfig.cache
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\ref\MaJerGan.dll
-E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\lhuti2a1lu-pe9bsbjlgc.gz
-E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\2635fgc8iq-c5wooy4aoq.gz
-E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\10zlbeaorg-1lxecirbqp.gz
-E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\1r9dq2ouuu-g2a3cqqt1t.gz
-E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Debug\net9.0\BCrypt.Net-Next.dll
-E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\1ea6cqzyfo-2jtse8noxv.gz

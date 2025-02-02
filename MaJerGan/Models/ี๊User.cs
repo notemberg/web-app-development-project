@@ -15,7 +15,7 @@ namespace MaJerGan.Models
         public string Email { get; set; }
 
         [Required, MinLength(6)]
-        public string PasswordHash { get; set; }  // เก็บรหัสผ่านที่ถูก Hash แล้ว
+        public string PasswordHash { get; set; }
 
         [Required, MaxLength(50)]
         public string Username { get; set; }
@@ -23,9 +23,10 @@ namespace MaJerGan.Models
         [Required]
         public DateTime DateOfBirth { get; set; }
 
-        [NotMapped]
-        public string Password { get; set; }  // ไม่บันทึกลงฐานข้อมูล
+        [NotMapped] // ✅ ไม่บันทึกลงฐานข้อมูล
+        public string Password { get; set; }
 
+        // ✅ เชื่อมความสัมพันธ์กับ UserTags
         public List<UserTag> UserTags { get; set; } = new List<UserTag>();
 
         public void SetPassword(string password)

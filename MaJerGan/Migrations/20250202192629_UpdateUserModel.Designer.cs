@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MaJerGan.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250202185532_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250202192629_UpdateUserModel")]
+    partial class UpdateUserModel
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
