@@ -119,9 +119,11 @@ button.prev, button.next {
     display: flex;
     justify-content: space-between;
     margin: 20px;
-    padding: 20px;
+    /* padding: 20px; */
+    padding: 0 7vw;
     background: white;
     border-radius: 10px;
+    height: 30vh;
 }
 
 .upcoming, .invitation {
@@ -143,6 +145,7 @@ button.prev, button.next {
     padding: 20px;
     background: white;
     border-radius: 10px;
+    height: 40vh;
 }
 
 .interest {
@@ -218,14 +221,17 @@ button.prev, button.next {
 /* tag */
 
 .carousel-container {
+    max-width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     scroll-behavior: smooth;
-    margin: 10px 0;
+    margin: 20px ;
+    margin-left: 7vw;
+    margin-right: 7vw;
     overflow: hidden;
     background: #eee;
-    padding: 10px;
+    /* padding: 0 80px; */
     border-radius: 10px;
 }
 
@@ -260,8 +266,8 @@ button.prev, button.next {
     padding: 10px 15px;
     cursor: pointer;
     border-radius: 6px;
-    font-size: 14px;
-    min-width: 80px;
+    font-size: 16px;
+    min-width: 100px;
     text-align: center;
 }
 
@@ -281,6 +287,8 @@ button.prev, button.next {
     font-size: 24px;
     cursor: pointer;
     padding: 5px;
+    height: 50px;
+    width: 50px;
 }
 
 /* 🚀 แท็กที่เลือก */
@@ -300,3 +308,4 @@ button.prev, button.next {
     align-items: center;
     font-size: 14px;
 }
+

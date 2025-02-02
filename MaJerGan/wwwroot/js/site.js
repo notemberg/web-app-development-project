@@ -45,17 +45,16 @@
     try {
       const response = await fetch("/api/tags");
       allTags = await response.json();
-      renderTags("");
+      renderTags();
     } catch (error) {
       console.error("Error loading tags:", error);
     }
   }
 
   // render tags
-  function renderTags(filterText) {
+  function renderTags() {
     tagCarousel.innerHTML = "";
     allTags
-      .filter((tag) => tag.toLowerCase().includes(filterText.toLowerCase()))
       .forEach((tag) => {
         let button = document.createElement("div");
         button.className = "tag-btn";
@@ -64,10 +63,12 @@
         button.addEventListener("click", function () {
           toggleTag(tag, button);
         });
-
         tagCarousel.appendChild(button);
       });
   }
+
+  
+
   prevBtn.addEventListener("click", function () {
     tagCarousel.scrollBy({ left: -150, behavior: "smooth" });
   });
@@ -76,8 +77,21 @@
     tagCarousel.scrollBy({ left: 150, behavior: "smooth" });
   });
 
-  renderTags("");
+  let scrollAmount = tagCarousel.scrollLeft; // ตั้งค่าเริ่มต้นเป็นตำแหน่ง scroll ปัจจุบัน
+  const slideWidth = 150; // กำหนดความกว้างของ slide
+  const maxScroll = tagCarousel.scrollWidth - tagCarousel.clientWidth;
+  
+  tagCarousel.addEventListener("scroll", function () {
+    scrollAmount = tagCarousel.scrollLeft;
+  });
 
+  tagCarousel.addEventListener("wheel", function (event) {
+    event.preventDefault(); // ป้องกันการเลื่อนหน้าเว็บ
+    tagCarousel.scrollLeft += event.deltaY; // ใช้ deltaY เพื่อเลื่อนแท็บไปทางซ้าย-ขวา
+});
+
+
+  loadTags();
   addEventButton.addEventListener("click", function () {
     window.location.href = "/Create";
   });

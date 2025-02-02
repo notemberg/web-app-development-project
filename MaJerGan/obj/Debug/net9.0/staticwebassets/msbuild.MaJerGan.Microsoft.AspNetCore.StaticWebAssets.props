@@ -30,8 +30,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>31p1yma9zs</Fingerprint>
-      <Integrity>CXGTtXNjEEyXvQd87PMfxteM4Z6QbhPztWOR0m3SU2E=</Integrity>
+      <Fingerprint>c5wooy4aoq</Fingerprint>
+      <Integrity>wFh9q647uSIBYzzLTm3YF7rTGkOp3Q46FBV9MnB23n8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\index.css'))</OriginalItemSpec>
@@ -90,6 +90,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\closeAutoFill.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MaJerGan</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MaJerGan</BasePath>
+      <RelativePath>js/closeAutoFill.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>1lxecirbqp</Fingerprint>
+      <Integrity>e9oQPUNkodOQExj5X92QFBR961mhcipTQilb9sBDmiQ=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\closeAutoFill.js'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))">
       <SourceType>Package</SourceType>
       <SourceId>MaJerGan</SourceId>
@@ -102,8 +120,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>fxoyrbokxq</Fingerprint>
-      <Integrity>TcbeFJjwI4alkb8miHReaPsGrdwZwWjtBpxiAZ9SFdc=</Integrity>
+      <Fingerprint>2jtse8noxv</Fingerprint>
+      <Integrity>fuK91DTPmr5TlQuv6i9QOEULxQjbACDb3GNcZzROOCQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</OriginalItemSpec>
@@ -120,8 +138,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>wq7goyss3u</Fingerprint>
-      <Integrity>OCu8NT2qLC1WGyQxc+T+Az3YhFfZ7B4HQr0IU/ITFjE=</Integrity>
+      <Fingerprint>g2a3cqqt1t</Fingerprint>
+      <Integrity>SJYLry9qNwW0bVdwYpi9jrbJ8o2NEggFQhvqQvSeUS8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Tag.js'))</OriginalItemSpec>
