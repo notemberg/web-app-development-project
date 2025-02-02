@@ -1,18 +1,25 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewData["Title"] = "Event Homepage";
+    ViewData["ShowFooter"] = true;
+}
+
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Homepage</title>
-    
+
     <link rel="stylesheet" href="~/css/index.css">
 </head>
-<script src="~/js/site.js">
+<script src="~/js/site.js"></script>
 
-</script>
+
+
+
 <body>
-    
-    <section class="carousel">
+    @* <section class="carousel">
         <button class="prev">&#10094;</button>
         <div class="slides-container">
             <div class="slide">[1]</div>
@@ -33,8 +40,16 @@
             <div class="slide">[8]</div>
         </div>
         <button class="next">&#10095;</button>
-    </section>
-    
+    </section> *@
+
+    <div class="carousel-container">
+        <button id="prev-btn" class="carousel-btn">❮</button>
+        <div class="carousel">
+            <div id="tag-carousel" class="carousel-content"></div>
+        </div>
+        <button id="next-btn" class="carousel-btn">❯</button>
+    </div>
+
     <section class="events">
         <div class="upcoming">
             <h2>Your Upcoming Events</h2>
@@ -45,7 +60,7 @@
             <div class="invite-list">[Invitations]</div>
         </div>
     </section>
-    
+
     <section class="recommendations">
         <div class="interest">
             <h2>You may be interested</h2>
@@ -60,16 +75,9 @@
             <div class="hot-content">[Hot Content]</div>
         </div>
     </section>
-    
+
     <button class="add-event">+</button>
-    
-    <footer>
-        <div class="contact">
-            <h3>Contact Us</h3>
-            <p>📞 088-888-8888</p>
-            <p>📧 email@address.com</p>
-        </div>
-        <div class="team">Our Team</div>
-    </footer>
+
 </body>
+
 </html>
