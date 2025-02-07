@@ -1,6 +1,68 @@
+// using Microsoft.AspNetCore.Authorization;
+// using Microsoft.AspNetCore.Identity;
+// using Microsoft.AspNetCore.Mvc;
+// using Microsoft.EntityFrameworkCore;
+// using MaJerGan.Data;
+// using MaJerGan.Models;
+// using System.Linq;
+// using System.Threading.Tasks;
+
+// namespace MaJerGan.Controllers
+// {
+//     public class EventController : Controller
+//     {
+//         private readonly ApplicationDbContext _context;
+//         private readonly UserManager<ApplicationUser> _userManager;
+
+//         public EventController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+//         {
+//             _context = context;
+//             _userManager = userManager;
+//         }
+
+//         public async Task<IActionResult> Index()
+//         {
+//             var events = await _context.Events.Where(e => !e.IsClosed && e.ExpiryDate > DateTime.Now).ToListAsync();
+//             return View(events);
+//         }
+
+//         [Authorize]
+//         public IActionResult Create()
+//         {
+//             return View();
+//         }
+
+//         [Authorize]
+//         [HttpPost]
+//         public async Task<IActionResult> Create(Event model)
+//         {
+//             if (ModelState.IsValid)
+//             {
+//                 _context.Events.Add(model);
+//                 await _context.SaveChangesAsync();
+//                 return RedirectToAction("Index");
+//             }
+//             return View(model);
+//         }
+
+//         [Authorize]
+//         public async Task<IActionResult> Join(int id)
+//         {
+//             var user = await _userManager.GetUserAsync(User);
+//             var evt = await _context.Events.Include(e => e.Participants).FirstOrDefaultAsync(e => e.Id == id);
+
+//             if (evt != null && evt.Participants.Count < evt.MaxParticipants)
+//             {
+//                 _context.EventParticipants.Add(new EventParticipant { UserId = user.Id, EventId = id });
+//                 await _context.SaveChangesAsync();
+//             }
+
+//             return RedirectToAction("Index");
+//         }
+//     }
+// }
 
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MaJerGan.Data;
 using MaJerGan.Models;
@@ -12,16 +74,13 @@ namespace MaJerGan.Controllers
     public class EventController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<ApplicationUser> _userManager;
 
-
-        public EventController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        public EventController(ApplicationDbContext context)
         {
             _context = context;
-            _userManager = userManager;
         }
 
-        [Authorize]
+        // [Authorize]  // ให้เฉพาะผู้ที่ Login เท่านั้นที่สร้างกิจกรรมได้
         public IActionResult Create()
         {
             return View();
@@ -34,32 +93,10 @@ namespace MaJerGan.Controllers
         }
 
         [HttpPost]
-        [Authorize]
-        // public async Task<IActionResult> Create(Event model)
-        // {
-        //     if (ModelState.IsValid)
-        //     {
-        //         _context.Events.Add(model);
-        //         await _context.SaveChangesAsync();
-        //         return RedirectToAction("Index");
-        //     }
-        //     return View(model);
-        // }
         public async Task<IActionResult> Create(Event model)
         {
-            // ✅ ดึงข้อมูล User ที่ล็อกอิน
-            var user = await _userManager.GetUserAsync(User);
-
-            if (user == null)
-            {
-                return RedirectToAction("Login", "Auth");
-            }
-
             if (ModelState.IsValid)
             {
-                model.CreatedByUserId = user.Id; // ✅ ใช้ UserId จาก Identity
-                model.CreatedAt = DateTime.Now;
-
                 _context.Events.Add(model);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
