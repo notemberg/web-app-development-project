@@ -40,6 +40,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();  // ❗ ต้องมี เพื่อให้ CSS ทำงาน
 
 app.UseRouting();
+
+app.UseSession();
+
 app.UseAuthentication();
 app.UseAuthorization();
 

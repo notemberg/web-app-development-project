@@ -97,7 +97,7 @@ namespace MaJerGan.Controllers
             // ✅ เก็บ Session หลังล็อกอินสำเร็จ
             HttpContext.Session.SetInt32("UserId", user.Id);
             HttpContext.Session.SetString("Username", user.Username);
-
+    
             return RedirectToAction("Dashboard", "User");
         }
 
