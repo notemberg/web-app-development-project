@@ -13,6 +13,10 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Login";
+});
 
 // ✅ ตั้งค่า Database
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

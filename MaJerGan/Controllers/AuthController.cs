@@ -22,49 +22,10 @@ namespace MaJerGan.Controllers
             return View();
         }
 
-        // [HttpPost]
-        // public async Task<IActionResult> Register(User user)
-        // {
-        //     if (!ModelState.IsValid)
-        //     {
-        //         var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
-        //         Console.WriteLine("Validation Errors: " + string.Join(", ", errors)); // Log เช็ค Errors
-        //         return View(user);
-        //     }
-
-        //     // ✅ เช็คว่า Password ไม่เป็น null
-        //     if (string.IsNullOrEmpty(user.Password))
-        //     {
-        //         ModelState.AddModelError("Password", "Password is required.");
-        //         return View(user);
-        //     }
-
-        //     // ✅ แฮชรหัสผ่านก่อนบันทึก
-        //     user.SetPassword(user.Password);
-
-        //     _context.Users.Add(user);
-        //     await _context.SaveChangesAsync();
-
-        //     Console.WriteLine("User Saved to Database: " + user.Email);
-        //     return RedirectToAction("Login");
-        // }
         [HttpPost]
         public async Task<IActionResult> Register(User user)
         {
-            // if (!ModelState.IsValid)
-            // {
-            //     var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
-            //     Console.WriteLine("Validation Errors form Auth: " + string.Join(", ", errors)); // Log เช็ค Errors
-            //     return View(user);
-            // }
-
-            // // ✅ ตรวจสอบว่าฟิลด์ Password ไม่เป็น null
-            // if (string.IsNullOrEmpty(user.Password))
-            // {
-            //     ModelState.AddModelError("Password", "Password is required.");
-            //     return View(user);
-            // }
-
+            
             // ✅ Log ก่อน Hash Password
             Console.WriteLine($"Before Hashing - Password: {user.Password}");
 

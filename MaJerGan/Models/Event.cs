@@ -43,6 +43,8 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MaJerGan.Models
 {
