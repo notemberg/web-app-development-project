@@ -43,6 +43,8 @@
 
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MaJerGan.Models
 {
@@ -76,6 +78,11 @@ namespace MaJerGan.Models
         public string ExtraInfo { get; set; } // ข้อมูลเพิ่มเติม
 
         public DateTime CreatedAt { get; set; } = DateTime.Now; // วันที่สร้างกิจกรรม
+
+        public string CreatedByUserId { get; set; } // รหัสผู้สร้างกิจกรรม
+
+        [ForeignKey("CreatedByUserId")]
+        public ApplicationUser CreatedByUser { get; set; } // ผู้สร้างกิจกรรม
     }
 }
 

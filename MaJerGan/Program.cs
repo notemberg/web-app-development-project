@@ -13,6 +13,13 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
+// ✅ กำหนดให้ใช้ Identity และตั้งค่า LoginPath
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Auth/Login"; // ✅ กำหนดให้ Redirect ไปที่ /Auth/Login
+});
+
+
 
 // ✅ ตั้งค่า Database
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
