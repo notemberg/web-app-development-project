@@ -98,7 +98,7 @@ namespace MaJerGan.Controllers
             HttpContext.Session.SetInt32("UserId", user.Id);
             HttpContext.Session.SetString("Username", user.Username);
     
-            return RedirectToAction("Dashboard", "User");
+            return RedirectToAction("index", "HOME");
         }
 
         // ✅ ออกจากระบบ

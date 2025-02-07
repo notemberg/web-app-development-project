@@ -76,6 +76,8 @@ namespace MaJerGan.Models
         public string ExtraInfo { get; set; } // ข้อมูลเพิ่มเติม
 
         public DateTime CreatedAt { get; set; } = DateTime.Now; // วันที่สร้างกิจกรรม
+
+        
     }
 }
 
