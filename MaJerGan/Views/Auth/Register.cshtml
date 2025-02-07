@@ -16,3 +16,12 @@
         }
     </ul>
 }
+
+@* print data  *@
+@if (Model != null)
+{
+    <p>@Model.Email</p>
+    <p>@Model.Username</p>
+    <p>@Model.Password</p>
+    <p>@Model.DateOfBirth</p>
+}

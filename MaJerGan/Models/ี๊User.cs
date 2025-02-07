@@ -31,7 +31,7 @@ namespace MaJerGan.Models
 
         public void SetPassword(string password)
         {
-            PasswordHash = BCrypt.Net.BCrypt.HashPassword(password);
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword(password); 
         }
 
         public bool VerifyPassword(string password)

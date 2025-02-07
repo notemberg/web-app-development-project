@@ -20,8 +20,22 @@ namespace MaJerGan.Controllers
         [HttpGet]
         public IActionResult GetTags()
         {
-            var tags = _context.Tags.Select(t => t.Name).ToList();
-            return Ok(tags);
+            try
+            {
+                if (_context.Database.CanConnect())
+                {
+                    var tags = _context.Tags.Select(t => t.Name).ToList();
+                    return Ok(tags);
+                }
+                else
+                {
+                    return StatusCode(500, "Database connection failed");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal Server Error: {ex.Message}");
+            }
         }
 
         // ✅ เพิ่มแท็กใหม่เข้า Database

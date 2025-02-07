@@ -51,19 +51,19 @@ namespace MaJerGan.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(User user)
         {
-            if (!ModelState.IsValid)
-            {
-                var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
-                Console.WriteLine("Validation Errors: " + string.Join(", ", errors)); // Log เช็ค Errors
-                return View(user);
-            }
+            // if (!ModelState.IsValid)
+            // {
+            //     var errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage);
+            //     Console.WriteLine("Validation Errors form Auth: " + string.Join(", ", errors)); // Log เช็ค Errors
+            //     return View(user);
+            // }
 
-            // ✅ ตรวจสอบว่าฟิลด์ Password ไม่เป็น null
-            if (string.IsNullOrEmpty(user.Password))
-            {
-                ModelState.AddModelError("Password", "Password is required.");
-                return View(user);
-            }
+            // // ✅ ตรวจสอบว่าฟิลด์ Password ไม่เป็น null
+            // if (string.IsNullOrEmpty(user.Password))
+            // {
+            //     ModelState.AddModelError("Password", "Password is required.");
+            //     return View(user);
+            // }
 
             // ✅ Log ก่อน Hash Password
             Console.WriteLine($"Before Hashing - Password: {user.Password}");

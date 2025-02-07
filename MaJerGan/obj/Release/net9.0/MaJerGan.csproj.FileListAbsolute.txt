@@ -149,7 +149,6 @@ E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Release\ne
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Release\net9.0\compressed\7o7g7zxfgn-61n19gt1b8.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Release\net9.0\compressed\10zlbeaorg-1lxecirbqp.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Release\net9.0\compressed\1ea6cqzyfo-2jtse8noxv.gz
-E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Release\net9.0\compressed\1r9dq2ouuu-g2a3cqqt1t.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Release\net9.0\compressed\k3aenjf74k-bqjiyaj88i.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Release\net9.0\compressed\cex1rxtjww-c2jlpeoesf.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Release\net9.0\compressed\b4lpi0wuva-erw9l3u2r3.gz
@@ -232,3 +231,16 @@ E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Release\ne
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Release\net9.0\publish\MaJerGan.deps.json
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Release\net9.0\publish\MaJerGan.runtimeconfig.json
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Release\net9.0\publish\MaJerGan.staticwebassets.endpoints.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Release\net9.0\publish\publish\web.config
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Release\net9.0\publish\publish\appsettings.Development.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Release\net9.0\publish\publish\appsettings.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Release\net9.0\publish\publish\MaJerGan.deps.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Release\net9.0\publish\publish\MaJerGan.runtimeconfig.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Release\net9.0\publish\publish\MaJerGan.staticwebassets.endpoints.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Release\net9.0\publish\publish\publish\web.config
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Release\net9.0\publish\publish\publish\appsettings.Development.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Release\net9.0\publish\publish\publish\appsettings.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Release\net9.0\publish\publish\publish\MaJerGan.deps.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Release\net9.0\publish\publish\publish\MaJerGan.runtimeconfig.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Release\net9.0\publish\publish\publish\MaJerGan.staticwebassets.endpoints.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Release\net9.0\compressed\1r9dq2ouuu-edkm62lj5m.gz

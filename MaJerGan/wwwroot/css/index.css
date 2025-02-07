@@ -11,8 +11,8 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* ✅ ป้องกันการเลื่อนแนวนอน */
-    overflow-y: hidden;
+    /* overflow-x: hidden; ✅ ป้องกันการเลื่อนแนวนอน */
+    /* overflow-y: hidden; */
 }
 
 
@@ -21,8 +21,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    
+    /* min-height: 100vh; */
+    height: auto;
     padding: 20px 0px;
     padding-bottom: 0px;
     margin: 0;
@@ -65,14 +65,14 @@ header {
     flex-direction: column;
     justify-content: space-between; /* ✅ ให้ footer อยู่ล่างสุด */
     background-color: white;
-
+    height: 2000px;
     padding-top: 70px;
 }
 
 main {
     flex: 1; /* ✅ ให้ main ขยายเต็มพื้นที่ที่เหลือ */
     justify-content: space-between;
-    min-height: calc(100vh - 60px); /* ✅ ลบความสูงของ header/footer ออกจาก viewport */
+    /* min-height: calc(100vh - 60px); ✅ ลบความสูงของ header/footer ออกจาก viewport */
 }
 
 /* Carousel Section */
@@ -123,7 +123,7 @@ button.prev, button.next {
     padding: 0 7vw;
     background: white;
     border-radius: 10px;
-    height: 30vh;
+    /* height: 30vh; */
 }
 
 .upcoming, .invitation {
@@ -145,7 +145,7 @@ button.prev, button.next {
     padding: 20px;
     background: white;
     border-radius: 10px;
-    height: 40vh;
+    /* height: 40vh; */
 }
 
 .interest {
