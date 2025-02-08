@@ -67,6 +67,7 @@ using Microsoft.AspNetCore.Mvc;
 using MaJerGan.Data;
 using MaJerGan.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace MaJerGan.Controllers
@@ -96,13 +97,29 @@ namespace MaJerGan.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Event model)
         {
-            if (ModelState.IsValid)
+            // if (ModelState.IsValid)
+            // {
+            //     _context.Events.Add(model);
+            //     await _context.SaveChangesAsync();
+            //     return RedirectToAction("Index");
+            // }
+            // return View(model);
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+
+            if (userIdClaim == null)
             {
-                _context.Events.Add(model);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index");
+                return Unauthorized(); // ถ้าไม่มี User ID ให้ปฏิเสธการสร้างกิจกรรม
             }
-            return View(model);
+
+            int userId = int.Parse(userIdClaim.Value); // แปลงค่าจาก string เป็น int
+
+            // ✅ กำหนดผู้สร้างกิจกรรม
+            model.CreatedBy = userId;
+
+            _context.Events.Add(model);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
