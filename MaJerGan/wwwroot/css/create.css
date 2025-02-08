@@ -65,14 +65,14 @@ textarea:focus {
     outline: none;
 }
 
-.tags {
+.container .tags {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
     margin-bottom: 15px;
 }
 
-.tag {
+.container .tag {
     background-color: #ddd;
     padding: 8px 15px;
     border-radius: 20px;
@@ -81,7 +81,7 @@ textarea:focus {
 }
 
 /* ✅ ปุ่มในฟอร์ม */
-.submit-btn {
+.container .submit-btn {
     width: 100%;
     background-color: #007BFF;
     color: white;
@@ -102,7 +102,7 @@ textarea:focus {
 
 /* tag */
 /* 🚀 สไตล์ของ Carousel */
-.carousel-container {
+.container .carousel-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -114,22 +114,22 @@ textarea:focus {
     border-radius: 10px;
 }
 
-.carousel-container ::-webkit-scrollbar {
+.container .carousel-container ::-webkit-scrollbar {
     background-color: transparent;
 }
 
-.carousel-container ::-webkit-scrollbar-thumb {
+.container .carousel-container ::-webkit-scrollbar-thumb {
     background-color: #ccc;
     border-radius: 10px;
     
 }
 
-.carousel {
+.container .carousel {
     overflow: hidden;
     width: 100%;
 }
 
-.carousel-content {
+.container .carousel-content {
     display: flex;
     gap: 10px;
     overflow-x: auto;
@@ -139,7 +139,7 @@ textarea:focus {
 }
 
 /* 🚀 ปุ่มแท็ก */
-.tag-btn {
+.container .tag-btn {
     background-color: #d1d1d1;
     border: none;
     padding: 10px 15px;
@@ -150,17 +150,17 @@ textarea:focus {
     text-align: center;
 }
 
-.tag-btn:hover {
+.container .tag-btn:hover {
     background-color: #bfbfbf;
 }
 
-.tag-btn.active {
+.container .tag-btn.active {
     background-color: #007bff;
     color: white;
 }
 
 /* 🚀 ปุ่มเลื่อนซ้าย-ขวา */
-.carousel-btn {
+.container .carousel-btn {
     background: none;
     border: none;
     font-size: 24px;
@@ -169,14 +169,14 @@ textarea:focus {
 }
 
 /* 🚀 แท็กที่เลือก */
-#selected-tags-container {
+.container #selected-tags-container {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
     margin-top: 10px;
 }
 
-.selected-tag {
+.container .selected-tag {
     background-color: #007bff;
     color: white;
     padding: 5px 10px;
@@ -186,7 +186,7 @@ textarea:focus {
     font-size: 14px;
 }
 
-.remove-tag {
+.container .remove-tag {
     cursor: pointer;
     margin-left: 8px;
     font-weight: bold;

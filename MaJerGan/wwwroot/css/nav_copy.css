@@ -1,0 +1,211 @@
+/* ✅ Reset */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  /* font-family: Arial, sans-serif; */
+  font-family: 'Suez One';
+}
+
+/* ✅ Header */
+.main-body .main-header {
+  width: 100%;
+  height: 80px;
+  background-color: #F1AEC5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* ✅ Logo */
+.main-body  .logo {
+  font-size: 40px;
+  color: #FFF493;
+  text-decoration: none;
+  font-family: 'Suez One';
+  text-shadow: 2px 2px 2px rgba(108, 108, 108, 0.5);
+}
+
+.main-body .logo span {
+  font-weight: bold;
+}
+
+/* ✅ Search Bar */
+.main-body > .main-header > #search-bar {
+  flex-grow: 1;
+  max-width: 700px;
+  padding: 10px;
+  border-radius: 15px;
+  border: none;
+  font-size: 16px;
+  margin: 0 20px;
+  height: 40px;
+}
+
+/* search bar */
+.main-body > #search-bar:focus {
+  outline: none;
+}
+
+/* ✅ Icons */
+.nav-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  width: 50px;
+  max-width: 50px;
+  height: 50px;
+  max-height: 50px;
+  margin: 0 5px;
+}
+
+/* ✅ Profile Picture */
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 3px solid white;
+}
+
+/* ✅ Carousel */
+.nav-carousel-container {
+  width: 100%;
+  margin-top: 80px;
+  height: 70px;
+  background-color: #F1AEC5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: white;
+  padding: 0;
+  z-index: 1000;
+}
+
+.nav-carousel {
+  overflow: hidden;
+  width: 60%;
+  gap: 10px;
+}
+
+.nav-carousel-content {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+  padding: 5px;
+}
+
+.nav-carousel-tag {
+  width: 80px;
+  height: 30px;
+  border-radius: 15px;
+}
+
+.nav-yellow {
+  background-color: #FFF493
+}
+
+.nav-white {
+  background-color: white;
+}
+
+#nav-prev-btn {
+  background-color: #FFF493;
+  font-size: 24px;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+
+}
+
+#nav-next-btn {
+  background-color: #FFF493;
+  font-size: 24px;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+}
+
+/* .tag-btn {
+  color : #000;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 100px;
+  font-size: 16px;
+  min-width: 100px;
+  text-align: center;
+} */
+
+
+/* .tag-btn {
+  color: rgb(92, 92, 92);
+  display: inline-block; 
+  padding: 10px 15px;     
+  border-radius: 100px;    
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  min-width: 70px;        
+} */
+
+.nav-tag-btn {
+  color: rgb(92, 92, 92);
+  display: inline-flex;
+  /* ✅ ให้ขนาดแท็กปรับตามข้อความ */
+  align-items: center;
+  /* ✅ จัดข้อความให้อยู่ตรงกลาง */
+  justify-content: center;
+  width: auto;
+  /* ✅ ขนาดอัตโนมัติ */
+  padding: 10px 15px;
+  /* ✅ ปรับขนาดขอบ */
+  border-radius: 25px;
+  /* ✅ มุมโค้งมน */
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+  /* ✅ ป้องกันการขึ้นบรรทัดใหม่ */
+  overflow: hidden;
+  /* ✅ ป้องกันข้อความล้น */
+  text-overflow: ellipsis;
+  /* ✅ ทำให้ข้อความที่ยาวเกินไปแสดง ... */
+}
+
+.nav-tag-btn:hover {
+  background-color: #bfbfbf;
+}
+
+/* ✅ Carousel Buttons */
+.nav-carousel-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: black;
+}

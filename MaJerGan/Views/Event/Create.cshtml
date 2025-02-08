@@ -1,5 +1,9 @@
 @model MaJerGan.Models.Event
 
+@{
+    ViewData["Title"] = "Create Event";
+    ViewData["ShowHeader"] = "True";
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,9 +14,8 @@
     <link rel="stylesheet" href="~/css/create.css" />
     
 </head>
-<script src="~/js/Tag.js">
-<Script Src="~/js/closeAutoFill.js">
-</script>
+<script src="~/js/Tag.js"></script>
+<script Src="~/js/closeAutoFill.js"></script>
 <body>
 
     <div class="content">
@@ -58,6 +61,8 @@
                 <textarea asp-for="ExtraInfo" rows="3"></textarea>
 
                 <button type="submit" class="submit-btn">🚀 โพสต์เลย!</button>
+
+                
             </form>
         </div>
     </div>
