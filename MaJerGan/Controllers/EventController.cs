@@ -80,12 +80,13 @@ namespace MaJerGan.Controllers
             _context = context;
         }
 
-        // [Authorize]  // ให้เฉพาะผู้ที่ Login เท่านั้นที่สร้างกิจกรรมได้
+        [Authorize]  // ให้เฉพาะผู้ที่ Login เท่านั้นที่สร้างกิจกรรมได้
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var events = await _context.Events.ToListAsync();

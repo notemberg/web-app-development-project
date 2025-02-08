@@ -18,14 +18,29 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LoginPath = "/Login";
 });
 
+
+builder.Services.AddAuthentication("MyCookieAuth")
+    .AddCookie("MyCookieAuth", options =>
+    {
+        options.LoginPath = "/Auth/Login"; 
+        options.LogoutPath = "/Auth/Logout"; 
+        options.AccessDeniedPath = "/Auth/AccessDenied";
+        options.Cookie.Name = "MyCookieAuth"; // ตั้งชื่อคุกกี้
+        options.Cookie.HttpOnly = true;
+        options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // เปลี่ยนเป็น `.None` ถ้าใช้ HTTP
+    });
+
+builder.Services.AddAuthorization();
+
+
 // ✅ ตั้งค่า Database
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // ✅ ตั้งค่า Identity
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddDefaultTokenProviders();
+// builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+//     .AddEntityFrameworkStores<ApplicationDbContext>()
+//     .AddDefaultTokenProviders();
 
 // ✅ เพิ่ม Controllers & Views
 builder.Services.AddControllersWithViews();

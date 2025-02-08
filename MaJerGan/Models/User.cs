@@ -20,7 +20,7 @@ namespace MaJerGan.Models
         [Required, MaxLength(50)]
         public string Username { get; set; }
 
-        [Required]
+        // [Required]
         public DateTime DateOfBirth { get; set; }
 
         [NotMapped] // ✅ ไม่บันทึกลงฐานข้อมูล

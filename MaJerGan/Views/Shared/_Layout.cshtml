@@ -4,34 +4,36 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - YourWebsite</title>
+    <title>@ViewData["Title"]</title>
 
     <link rel="stylesheet" href="~/css/nav.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    @RenderSection("Styles", required: false) 
+    @RenderSection("Styles", required: false)
 
 </head>
 
 <body>
-    <!-- ✅ Header อยู่ทุกหน้า -->
-    <header class="main-header">
-        <a href="/" class="logo">
-            Logo
-        </a>
-        <input id="search-bar" type="text" placeholder="Search Your Interest">
-        <nav>
-            <button class="nav-btn">
-                <i class="bi bi-bell"></i> 
-            </button>
-            <button class="nav-btn">
-                <i class="bi bi-chat-dots"></i> 
-            </button>
-            <button class="nav-btn">
-                <i class="bi bi-person-circle"></i>
-            </button>
-        </nav>
-    </header>
-
+    @if ((string)(ViewData["ShowHeader"] ?? "False") == "True")
+    {
+        @* <!-- ✅ Header อยู่ทุกหน้า --> *@
+        <header class="main-header">
+            <a href="/" class="logo">
+                Logo
+            </a>
+            <input id="search-bar" type="text" placeholder="Search Your Interest">
+            <nav>
+                <button class="nav-btn">
+                    <i class="bi bi-bell"></i>
+                </button>
+                <button class="nav-btn">
+                    <i class="bi bi-chat-dots"></i>
+                </button>
+                <button class="nav-btn">
+                    <i class="bi bi-person-circle"></i>
+                </button>
+            </nav>
+        </header>
+    }
     <!-- ✅ Main Content -->
     <div class="container">
         <main role="main" class="pb-3">

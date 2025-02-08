@@ -1,10 +1,88 @@
-@model MaJerGan.Models.User
-<form asp-action="Register" method="post">
-    <input asp-for="Email" placeholder="Email" required />
-    <input asp-for="Username" placeholder="Username" required />
-    <input asp-for="Password" type="password" placeholder="Password" required />
-    <input asp-for="DateOfBirth" type="date" required />
-    <button type="submit">Register</button>
-</form>
+@{
+    ViewData["Title"] = "Sign Up";
+    ViewData["ShowHeader"] = "False";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="~/css/Auth/register.css">
+    <link href='https://fonts.googleapis.com/css?family=Sulphur Point' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Suez One' rel='stylesheet'>
+
+</head>
+
+<script src="~/js/Auth/Register.js"></script>
+
+<body>
+
+    @* <div class="signup-container">
+        <h2>Sign up</h2>
+
+        <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter your username" required>
+        </div>
+
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+
+        <!-- กล่อง Password & Confirm Password -->
+        <div class="password-container">
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="input-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+            </div>
+        </div>
+
+        <button class="signup-btn" onclick="validateForm()">Next</button>
+        <a href="#" class="login-link">Already have an account?</a>
+    </div> *@
+    <div class="header">Meet <span style="color: #FF6B6B;">ME!</span></div>
+
+    
+    <div class="signup-container">
+        <h2>Sign up</h2>
+
+        <div class="input-group">
+            <input type="text" id="username" placeholder=" " required>
+            <label for="username">Username</label>
+        </div>
+
+        <div class="input-group">
+            <input type="email" id="email" placeholder=" " required>
+            <label for="email">Email</label>
+        </div>
+
+        <div class="password-container">
+            <div class="input-group">
+                <input type="password" id="password" placeholder=" " required>
+                <label for="password">Password</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="confirm-password" placeholder=" " required>
+                <label for="confirm-password">Confirm Password</label>
+            </div>
+        </div>
+
+        <button class="signup-btn" onclick="validateForm()">Next</button>
+        <a href="#" class="login-link">Already have an account?</a>
+    </div>
 
 
+
+</body>
+
+</html>
