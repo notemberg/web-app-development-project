@@ -42,7 +42,10 @@ namespace MaJerGan.Models
 
         [ForeignKey("CreatedBy")]
         public virtual User Creator { get; set; }
-         
+        
+
+        // ✅ เพิ่มตัวนับยอดเข้าชม
+        public int ViewCount { get; set; } = 0;
         
     }
 }

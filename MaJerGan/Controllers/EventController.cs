@@ -124,13 +124,18 @@ namespace MaJerGan.Controllers
 
         [HttpGet]
         [Route("Details/{id}")]
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
             var eventDetails = _context.Events.FirstOrDefault(e => e.Id == id);
             if (eventDetails == null)
             {
                 return NotFound();
             }
+            // ✅ เพิ่มจำนวนเข้าชม
+
+            eventDetails.ViewCount++;
+            _context.Events.Update(eventDetails);
+            await _context.SaveChangesAsync();
             return View(eventDetails);
         }
 
