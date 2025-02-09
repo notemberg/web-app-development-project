@@ -65,11 +65,43 @@ namespace MaJerGan.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<int>("ViewCount")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CreatedBy");
 
                     b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("MaJerGan.Models.EventParticipant", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("JoinedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EventId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("EventParticipant");
                 });
 
             modelBuilder.Entity("MaJerGan.Models.Tag", b =>
@@ -350,6 +382,25 @@ namespace MaJerGan.Migrations
                     b.Navigation("Creator");
                 });
 
+            modelBuilder.Entity("MaJerGan.Models.EventParticipant", b =>
+                {
+                    b.HasOne("MaJerGan.Models.Event", "Event")
+                        .WithMany("Participants")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MaJerGan.Models.User", "User")
+                        .WithMany("JoinedEvents")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Event");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("MaJerGan.Models.UserTag", b =>
                 {
                     b.HasOne("MaJerGan.Models.User", "User")
@@ -412,8 +463,15 @@ namespace MaJerGan.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("MaJerGan.Models.Event", b =>
+                {
+                    b.Navigation("Participants");
+                });
+
             modelBuilder.Entity("MaJerGan.Models.User", b =>
                 {
+                    b.Navigation("JoinedEvents");
+
                     b.Navigation("UserTags");
                 });
 #pragma warning restore 612, 618

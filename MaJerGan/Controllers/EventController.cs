@@ -126,7 +126,9 @@ namespace MaJerGan.Controllers
         [Route("Details/{id}")]
         public async Task<IActionResult> Details(int id)
         {
-            var eventDetails = _context.Events.FirstOrDefault(e => e.Id == id);
+            var eventDetails = _context.Events
+            .Include(e => e.Creator)
+            .FirstOrDefault(e => e.Id == id);
             if (eventDetails == null)
             {
                 return NotFound();

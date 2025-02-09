@@ -31,13 +31,16 @@ namespace MaJerGan.Models
 
         public void SetPassword(string password)
         {
-            PasswordHash = BCrypt.Net.BCrypt.HashPassword(password); 
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword(password);
         }
 
         public bool VerifyPassword(string password)
         {
             return BCrypt.Net.BCrypt.Verify(password, PasswordHash);
         }
+
+        // ✅ เพิ่มความสัมพันธ์กับ EventParticipant
+        public virtual List<EventParticipant> JoinedEvents { get; set; } = new List<EventParticipant>();
     }
 
     public class UserTag

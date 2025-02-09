@@ -5,12 +5,16 @@
       "PackagePath": "staticwebassets\\MaJerGan.d4ocph6tct.bundle.scp.css"
     },
     {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Auth\\login.css",
+      "PackagePath": "staticwebassets\\css\\Auth\\login.css"
+    },
+    {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Auth\\register.css",
       "PackagePath": "staticwebassets\\css\\Auth\\register.css"
     },
     {
-      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\create.css",
-      "PackagePath": "staticwebassets\\css\\create.css"
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Event\\create.css",
+      "PackagePath": "staticwebassets\\css\\Event\\create.css"
     },
     {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\index.css",
@@ -31,6 +35,10 @@
     {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Auth\\Login.js",
+      "PackagePath": "staticwebassets\\js\\Auth\\Login.js"
     },
     {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Auth\\Register.js",

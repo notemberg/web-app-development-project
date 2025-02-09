@@ -47,6 +47,7 @@ namespace MaJerGan.Models
         // ✅ เพิ่มตัวนับยอดเข้าชม
         public int ViewCount { get; set; } = 0;
         
+        public virtual List<EventParticipant> Participants { get; set; } = new List<EventParticipant>();
     }
 }
 

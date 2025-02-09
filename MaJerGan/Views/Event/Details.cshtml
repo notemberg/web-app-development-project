@@ -1,4 +1,4 @@
-@model MaJerGan.Models.Event
+@* @model MaJerGan.Models.Event
 
 @{
     ViewData["Title"] = "รายละเอียดกิจกรรม";
@@ -9,13 +9,16 @@
 <div class="card">
     <div class="card-body">
         <h3>@Model.Title</h3>
+        <p>จำนวนเข้าชม: @Model.ViewCount views</p>
         <p><strong>รายละเอียด:</strong> @Model.Description</p>
         <p><strong>แท็ก:</strong> @Model.Tags</p>
         <p><strong>วันที่จัด:</strong> @Model.EventTime.ToString("dd/MM/yyyy HH:mm")</p>
         <p><strong>ปิดรับสมัคร:</strong> @Model.ExpiryDate.ToString("dd/MM/yyyy")</p>
-        <p><strong>จำนวนผู้เข้าร่วมสูงสุด:</strong> @Model.MaxParticipants คน</p>
+        <p><strong>จำนวนผู้เข้าร่วมสูงสุด:</strong> @Model.MaxParticipants </p>
         <p><strong>ข้อมูลเพิ่มเติม:</strong> @Model.ExtraInfo</p>
+        <p><strong>สร้างเมื่อ:</strong> @Model.CreatedAt</p>
+        <p><strong>สร้างโดย:</strong> @Model.Creator.Username</p>
 
         <a href="@Url.Action("Index", "Event")" class="btn btn-primary">🔙 กลับไปหน้าหลัก</a>
     </div>
-</div>
+</div> *@
