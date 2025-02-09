@@ -90,7 +90,10 @@ namespace MaJerGan.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            var events = await _context.Events.ToListAsync();
+            var events = await _context.Events
+            .Include(e => e.Creator) // ✅ ดึงข้อมูลผู้สร้าง
+            .Include(e => e.Participants) // ✅ ดึงข้อมูลผู้เข้าร่วม
+            .ToListAsync();
             return View(events);
         }
 
@@ -126,9 +129,11 @@ namespace MaJerGan.Controllers
         [Route("Details/{id}")]
         public async Task<IActionResult> Details(int id)
         {
-            var eventDetails = _context.Events
-            .Include(e => e.Creator)
-            .FirstOrDefault(e => e.Id == id);
+            var eventDetails = await _context.Events
+        .Include(e => e.Creator) // ดึงข้อมูลผู้สร้างกิจกรรม
+        .Include(e => e.Participants)
+        .ThenInclude(p => p.User) // ดึงข้อมูลของ User ที่เข้าร่วม
+        .FirstOrDefaultAsync(e => e.Id == id);
             if (eventDetails == null)
             {
                 return NotFound();
@@ -154,6 +159,39 @@ namespace MaJerGan.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction("Index");
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> Join(int eventId)
+        {
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            int userId = int.Parse(userIdClaim.Value);
+
+            var existingParticipation = await _context.EventParticipants
+                .FirstOrDefaultAsync(p => p.EventId == eventId && p.UserId == userId);
+
+            if (existingParticipation != null)
+            {
+                return BadRequest("คุณได้เข้าร่วมกิจกรรมนี้แล้ว");
+            }
+
+            var participation = new EventParticipant
+            {
+                EventId = eventId,
+                UserId = userId,
+                Status = 1 // ✅ อนุมัติอัตโนมัติ
+            };
+
+            _context.EventParticipants.Add(participation);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Details", new { id = eventId });
         }
 
     }

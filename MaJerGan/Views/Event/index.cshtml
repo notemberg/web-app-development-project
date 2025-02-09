@@ -1,4 +1,4 @@
-@model IEnumerable<MaJerGan.Models.Event>
+@* @model IEnumerable<MaJerGan.Models.Event>
 
 @{
     ViewData["Title"] = "รายการกิจกรรม";
@@ -36,4 +36,30 @@
             </tr>
         }
     </tbody>
-</table>
+</table> *@
+
+@model List<MaJerGan.Models.Event>
+
+@foreach (var eventItem in Model)
+{
+    <div class="card">
+        <div class="card-body">
+            <h3>@eventItem.Title <span style="color: gray;">สร้างโดย @eventItem.Creator.Username</span></h3>
+            <p><strong>👤</strong> @eventItem.Participants.Count / @eventItem.MaxParticipants</p>
+            <p><strong>📍</strong> @(eventItem.Tags ?? "ไม่มีแท็ก")</p>
+            <p><strong>👀</strong> @eventItem.ViewCount views</p>
+
+            <a href="@Url.Action("Details", "Event", new { id = eventItem.Id })" class="btn btn-primary">
+                ดูรายละเอียด
+            </a>
+
+            <!-- ✅ ปุ่ม Join -->
+            <form asp-action="Join" asp-controller="Event" method="post" style="display:inline;">
+                <input type="hidden" name="eventId" value="@eventItem.Id" />
+                <button type="submit" class="btn btn-success">เข้าร่วมกิจกรรม</button>
+            </form>
+        </div>
+    </div>
+}
+
+

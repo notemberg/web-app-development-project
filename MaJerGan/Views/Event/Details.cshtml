@@ -22,3 +22,25 @@
         <a href="@Url.Action("Index", "Event")" class="btn btn-primary">🔙 กลับไปหน้าหลัก</a>
     </div>
 </div> *@
+
+<h2>@Model.Title</h2>
+<p>สร้างโดย: @Model.Creator.Username</p>
+<p>จำนวนเข้าชม: @Model.ViewCount views</p>
+
+<h3>ผู้เข้าร่วม</h3>
+<ul>
+    @foreach (var participant in Model.Participants)
+    {
+        <li>
+            @participant.User.Username (@participant.JoinedAt.ToShortDateString())
+            @if (participant.Status == 0)
+            {
+                <span style="color: orange;">(รออนุมัติ)</span>
+            }
+            else
+            {
+                <span style="color: green;">(อนุมัติแล้ว)</span>
+            }
+        </li>
+    }
+</ul>
