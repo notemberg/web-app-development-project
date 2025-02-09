@@ -14,8 +14,11 @@
     @RenderSection("Styles", required: false)
 
 </head>
-
-<script src="~/js/Home/index.js"></script>
+@if ((string)(ViewData["ShowHeader"] ?? "False") == "True")
+{
+    <script src="~/js/Home/index.js"></script>
+}
+@* <script src="~/js/Home/index.js"></script> *@
 
 <body class="main-body">
     @if ((string)(ViewData["ShowHeader"] ?? "False") == "True")

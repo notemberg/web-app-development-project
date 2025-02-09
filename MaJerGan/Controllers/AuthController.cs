@@ -78,6 +78,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using MaJerGan.Data;
 using MaJerGan.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MaJerGan.Controllers
 {
@@ -92,6 +93,12 @@ namespace MaJerGan.Controllers
 
         [HttpGet]
         public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Login()
         {
             return View();
         }
@@ -122,33 +129,85 @@ namespace MaJerGan.Controllers
 
 
         // [HttpPost]
-        public async Task<IActionResult> Login(string email, string password)
-        {
-            var user = _context.Users.FirstOrDefault(u => u.Email == email);
+        // public async Task<IActionResult> Login(string email, string password)
+        // {
+        //     var user = _context.Users.FirstOrDefault(u => u.Email == email);
 
-            if (user == null || !user.VerifyPassword(password)) // 🔹 เปลี่ยนเป็น Hash จริงถ้ามี
+        //     if (user == null || !user.VerifyPassword(password)) // 🔹 เปลี่ยนเป็น Hash จริงถ้ามี
+        //     {
+        //         ModelState.AddModelError("LoginError", "Invalid email or password");
+        //         return View();
+        //     }
+
+        //     // ✅ สร้าง `Claims` เพื่อนำไปใช้กับ `Authorize`
+        //     var claims = new List<Claim>
+        //     {
+        //          new Claim(ClaimTypes.Name, user.Username),
+        //          new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+        //     };
+
+        //     var claimsIdentity = new ClaimsIdentity(claims, "MyCookieAuth");
+        //     var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
+
+        //     Console.WriteLine($"User {user.Username} logged in successfully.");
+
+        //     await HttpContext.SignInAsync("MyCookieAuth", claimsPrincipal);
+
+
+        //     return RedirectToAction("Index", "Home"); // 🔹 ไปที่หน้าแรก
+        // }
+
+
+        [Route("api/login")]
+        [HttpPost]
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        {
+            if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("LoginError", "Invalid email or password");
-                return View();
+                return BadRequest(new { message = "ข้อมูลไม่ถูกต้อง" });
             }
 
-            // ✅ สร้าง `Claims` เพื่อนำไปใช้กับ `Authorize`
-            var claims = new List<Claim>
+            // 🔹 ค้นหาผู้ใช้จาก Username หรือ Email
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.Email == request.Identifier || u.Username == request.Identifier);
+
+            // 🔹 ถ้าไม่พบผู้ใช้ หรือไม่มีข้อมูลรหัสผ่าน
+            if (user == null || string.IsNullOrEmpty(user.PasswordHash))
             {
-                 new Claim(ClaimTypes.Name, user.Username),
-                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
-            };
+                return Unauthorized(new { message = "Invalid username/email or password" });
+            }
+
+            // 🔹 ตรวจสอบรหัสผ่านก่อน Verify (ป้องกัน `null` Error)
+            if (!BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
+            {
+                return Unauthorized(new { message = "Invalid username/email or password" });
+            }
+
+            // ✅ สร้าง Claims สำหรับ Authentication
+            var claims = new List<Claim>
+    {
+         new Claim(ClaimTypes.Name, user.Username),
+         new Claim(ClaimTypes.Email, user.Email ?? ""),
+         new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+    };
 
             var claimsIdentity = new ClaimsIdentity(claims, "MyCookieAuth");
             var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
-
 
             Console.WriteLine($"User {user.Username} logged in successfully.");
 
             await HttpContext.SignInAsync("MyCookieAuth", claimsPrincipal);
 
+            return Ok(new { message = "Login สำเร็จ!", user = user.Username });
+        }
 
-            return RedirectToAction("Index", "Home"); // 🔹 ไปที่หน้าแรก
+
+        // ✅ Model สำหรับ Login
+        public class LoginRequest
+        {
+            public string Identifier { get; set; } // ใช้ได้ทั้ง Username และ Email
+            public string Password { get; set; }
         }
 
         [HttpGet]

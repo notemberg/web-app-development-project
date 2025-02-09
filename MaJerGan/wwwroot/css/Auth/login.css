@@ -25,7 +25,7 @@ body {
 }
 
 /* กล่องสมัครสมาชิก */
-.signup-container {
+.login-container {
     margin: auto;
     background: rgba(255, 255, 255, 0.95);
     padding: 30px;
@@ -101,7 +101,7 @@ h2 {
 }
 
 /* ปุ่มสมัคร */
-.signup-btn {
+.login-btn {
     background: #FF6B6B;
     color: white;
     border: none;
@@ -112,7 +112,7 @@ h2 {
 }
 
 /* ลิงก์เข้าสู่ระบบ */
-.login-link {
+.signup-link {
     display: block;
     margin-top: 12px;
     color: #FF6B6B;
@@ -121,6 +121,6 @@ h2 {
     text-align: left;
 }
 
-.login-link:hover {
+.signup-link:hover {
     text-decoration: underline;
 }
