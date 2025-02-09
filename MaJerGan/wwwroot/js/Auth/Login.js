@@ -1,6 +1,7 @@
 async function login() {
     let identifier = document.getElementById("identifier").value;
     let password = document.getElementById("password").value;
+    let returnUrl = new URLSearchParams(window.location.search).get("ReturnUrl"); // ✅ ดึงค่า ReturnUrl
 
     if (!identifier || !password) {
         alert("กรุณากรอก Username หรือ Email และรหัสผ่าน");
@@ -18,7 +19,8 @@ async function login() {
 
         if (response.ok) {
             alert("เข้าสู่ระบบสำเร็จ!");
-            window.location.href = "/home"; // ไปหน้าหลัก
+            // window.location.href = "/home"; // ไปหน้าหลัก
+            window.location.href = returnUrl || "/home";
         } else {
             alert("เกิดข้อผิดพลาด: " + result.message);
         }

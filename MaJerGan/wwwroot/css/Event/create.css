@@ -2,8 +2,8 @@
 
 /* รีเซ็ตค่าเริ่มต้นของเบราว์เซอร์ */
 * {
-    height: auto;
-    width: auto;
+    /* height: auto;
+    width: auto; */
     padding: 0;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
@@ -146,8 +146,9 @@ textarea:focus {
     cursor: pointer;
     border-radius: 6px;
     font-size: 14px;
-    min-width: 80px;
+
     text-align: center;
+    width: auto;
 }
 
 .container .tag-btn:hover {
