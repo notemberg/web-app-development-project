@@ -6,6 +6,7 @@ using BCrypt.Net;
 
 namespace MaJerGan.Models
 {
+
     public class User
     {
         [Key]
@@ -20,14 +21,29 @@ namespace MaJerGan.Models
         [Required, MaxLength(50)]
         public string Username { get; set; }
 
-        // [Required]
+        [Required]
         public DateTime DateOfBirth { get; set; }
+
+        [Required]
+        public string Gender { get; set; } // ✅ เปลี่ยนเป็น Enum
+
+        // optional
+        [Phone]
+        [MaxLength(15)] // ✅ ปรับให้รองรับเบอร์โทรมากขึ้น
+        public string Phone { get; set; }
 
         [NotMapped] // ✅ ไม่บันทึกลงฐานข้อมูล
         public string Password { get; set; }
 
         // ✅ เชื่อมความสัมพันธ์กับ UserTags
         public List<UserTag> UserTags { get; set; } = new List<UserTag>();
+
+        // ✅ เพิ่มความสัมพันธ์กับ EventParticipant
+        public virtual List<EventParticipant> JoinedEvents { get; set; } = new List<EventParticipant>();
+
+        // ✅ เพิ่ม CreatedAt และ UpdatedAt
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
         public void SetPassword(string password)
         {
@@ -38,9 +54,6 @@ namespace MaJerGan.Models
         {
             return BCrypt.Net.BCrypt.Verify(password, PasswordHash);
         }
-
-        // ✅ เพิ่มความสัมพันธ์กับ EventParticipant
-        public virtual List<EventParticipant> JoinedEvents { get; set; } = new List<EventParticipant>();
     }
 
     public class UserTag

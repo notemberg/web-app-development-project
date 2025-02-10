@@ -38,6 +38,11 @@ namespace MaJerGan.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<UserTag>()
+                .HasOne(ut => ut.User)
+                .WithMany(u => u.UserTags)
+                .HasForeignKey(ut => ut.UserId)
+             .OnDelete(DeleteBehavior.Cascade);
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<EventParticipant>()

@@ -1,77 +1,3 @@
-// using Microsoft.AspNetCore.Mvc;
-// using MaJerGan.Data;
-// using MaJerGan.Models;
-// using System.Linq;
-// using System.Threading.Tasks;
-
-// namespace MaJerGan.Controllers
-// {
-//     public class AuthController : Controller
-//     {
-//         private readonly ApplicationDbContext _context;
-
-//         public AuthController(ApplicationDbContext context)
-//         {
-//             _context = context;
-//         }
-
-//         // ✅ หน้า Register
-//         [HttpGet]
-//         public IActionResult Register()
-//         {
-//             return View();
-//         }
-
-//         [HttpPost]
-//         public async Task<IActionResult> Register(User user)
-//         {
-
-//             // ✅ Log ก่อน Hash Password
-//             Console.WriteLine($"Before Hashing - Password: {user.Password}");
-
-//             // ✅ แฮชรหัสผ่านก่อนบันทึก
-//             user.SetPassword(user.Password);
-
-//             // ✅ Log หลัง Hash Password
-//             Console.WriteLine($"After Hashing - PasswordHash: {user.PasswordHash}");
-
-//             _context.Users.Add(user);
-//             await _context.SaveChangesAsync();
-
-//             Console.WriteLine("User Saved to Database: " + user.Email);
-//             return RedirectToAction("Login");
-//         }
-
-
-
-
-//         // ✅ หน้า Login
-//         public IActionResult Login(string email, string password)
-//         {
-//             var user = _context.Users.FirstOrDefault(u => u.Email == email);
-//             if (user == null || !user.VerifyPassword(password))
-//             {
-//                 ModelState.AddModelError("LoginError", "Invalid email or password");
-//                 return View();
-//             }
-
-//             // ✅ เก็บ Session หลังล็อกอินสำเร็จ
-//             HttpContext.Session.SetInt32("UserId", user.Id);
-//             HttpContext.Session.SetString("Username", user.Username);
-
-//             return RedirectToAction("index", "HOME");
-//         }
-
-//         // ✅ ออกจากระบบ
-//         public IActionResult Logout()
-//         {
-//             HttpContext.Session.Clear(); // ล้างข้อมูล Session
-//             return RedirectToAction("Login");
-//         }
-//     }
-// }
-
-
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
@@ -105,25 +31,57 @@ namespace MaJerGan.Controllers
 
         [Route("api/register")]
         [HttpPost]
-        public async Task<IActionResult> Register([FromBody] User user)
-        {
-            if (_context.Users.Any(u => u.Email == user.Email))
+        // public async Task<IActionResult> Register([FromBody] User user)
+        // {
+        //     if (_context.Users.Any(u => u.Email == user.Email))
+        //     {
+        //         return BadRequest(new { message = "Email นี้ถูกใช้งานแล้ว!" });
+        //     }
+
+        //     if (_context.Users.Any(u => u.Username == user.Username))
+        //     {
+        //         return BadRequest(new { message = "Username นี้ถูกใช้แล้ว!" });
+        //     }
+
+        //     // ✅ แฮชรหัสผ่านก่อนบันทึก
+        //     user.SetPassword(user.Password);
+
+        //     _context.Users.Add(user);
+        //     await _context.SaveChangesAsync();
+
+        //     return Ok(new { message = "สมัครสมาชิกสำเร็จ!" });
+        // }
+        public async Task<IActionResult> Register([FromBody] User request)
+        {   
+            request.SetPassword(request.Password);
+
+            try
             {
-                return BadRequest(new { message = "Email นี้ถูกใช้งานแล้ว!" });
-            }
+                // ตรวจสอบอีเมลซ้ำ
+                if (await _context.Users.AnyAsync(u => u.Email == request.Email))
+                    return BadRequest(new { message = "Email นี้ถูกใช้ไปแล้ว!" });
 
-            if (_context.Users.Any(u => u.Username == user.Username))
+                // สร้าง User ใหม่
+                var user = new User
+                {
+                    Username = request.Username,
+                    Email = request.Email,
+                    Gender = request.Gender,
+                    Phone = request.Phone,
+                    DateOfBirth = request.DateOfBirth
+                };
+
+                user.SetPassword(request.Password);
+
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { message = "สมัครสมาชิกสำเร็จ!" });
+            }
+            catch (Exception ex)
             {
-                return BadRequest(new { message = "Username นี้ถูกใช้แล้ว!" });
+                return StatusCode(500, new { message = "เกิดข้อผิดพลาดภายในเซิร์ฟเวอร์", error = ex.Message });
             }
-
-            // ✅ แฮชรหัสผ่านก่อนบันทึก
-            user.SetPassword(user.Password);
-
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-
-            return Ok(new { message = "สมัครสมาชิกสำเร็จ!" });
         }
 
 
