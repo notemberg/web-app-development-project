@@ -24,6 +24,12 @@ namespace MaJerGan.Controllers
         }
 
         [HttpGet]
+        public IActionResult Interests()
+        {
+            return View();
+        }
+
+        [HttpGet]
         public IActionResult Login()
         {
             return View();

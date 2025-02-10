@@ -14,8 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // ✅ โหลดแท็กจาก API
   async function loadTags() {
     try {
-      // const response = await fetch("/api/tags");
-      // const response = await fetch("http://localhost:8080/api/tags"); // หากใช้พอร์ต 8080
       const response = await fetch(window.location.origin + "/api/tags");
       allTags = await response.json();
       renderTags("");

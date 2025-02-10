@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Sign Up";
+    ViewData["ShowHeader"] = "False";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="~/css/Auth/Interests.css">
+
+</head>
+
+<script src="~/js/Auth/Register.js"></script>
+
+<body>
+
+    <div class="header">Meet <span style="color: #FF6B6B;">ME!</span></div>
+
+
+    <div class="interests-container">
+        <h2>choose your interests</h2>
+        <div id="tag-container">
+            <input type="text" id="search-tags" placeholder="search tags here">
+            <div id="tag-carousel" class="tag-container"></div>
+            <button class="create-account">Create Account</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

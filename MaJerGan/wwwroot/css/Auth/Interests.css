@@ -1,0 +1,93 @@
+/* ชื่อเว็ป */
+.header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    font-family: 'Suez One';
+}
+
+/* ตั้งค่าพื้นหลังไล่สี */
+body {
+    font-family: 'Sulphur Point';
+    background: linear-gradient(to bottom left, #ffaab8, #C1FFC1);
+    flex-flow: column-reverse;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh; /* ใช้ min-height แทน height */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* กล่องสมัครสมาชิก */
+.interests-container {
+    margin: auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* หัวข้อ */
+h2 {
+    font-family: 'Sulphur Point';
+    color: #FF6B6B;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.back-button {
+    align-self: flex-start;
+    cursor: pointer;
+}
+
+#search-tags {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tag-btn {
+    padding: 8px 16px;
+    background: #fde2e4;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+.tag-btn.active {
+    background: #fe7f92;
+    color: white;
+}
+
+.create-account {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #fe7f92;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+
+
+
