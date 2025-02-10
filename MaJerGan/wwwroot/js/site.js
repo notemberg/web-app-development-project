@@ -3,7 +3,7 @@
   const addEventButton = document.querySelector(".add-event");
 
   addEventButton.addEventListener("click", function () {
-    window.location.href = "/Create";
+    window.location.href = "/event/Create";
   });
 });
 
@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
             events.forEach((event, index) => {
                 const eventCard = document.createElement("div");
                 eventCard.classList.add("hot-event-card");
+                eventCard.dataset.eventId = event.id;
 
                 // ✅ แปลง `tags` จาก String เป็น Array และสร้างปุ่มแท็ก
                 const tagButtons = (event.tags || "").split(",").map(tag => 
@@ -26,18 +27,26 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="hot-rank">${index + 1}</div>
                     <div class="hot-event-content">
                         <div class="event-header">
-                            <h3 class="event-title">${event.title}</h3>
-                            <p class="creator">สร้างโดย <span class="username">${event.creator}</span></p>
+                            <h3 class="event-title">${event.title} <span class="creator">สร้างโดย ${event.creator}</span></h3>
                             <span class="event-views">${event.viewCount} <br>views</span>
                         </div>
                         <div class="event-body">
-                        <p class="participants">👤 ${event.currentParticipants} / ${event.maxParticipants} @Location</p>
+                        <div class="participants">👤 ${event.currentParticipants} / ${event.maxParticipants} @${event.location}</div>
                         <div class="tags-container">Tags:${tagButtons}</div>
                         </div>
                     </div>
                 `;
 
                 hotContent.appendChild(eventCard);
+            });
+
+            document.querySelectorAll(".hot-event-card").forEach(card => {
+                card.addEventListener("click", function (e) {
+                    // ตรวจสอบว่าไม่ได้กดปุ่มแท็ก
+                    if (!e.target.classList.contains("tag-button")) {
+                        window.location.href = `/Event/Details/${this.dataset.eventId}`;
+                    }
+                });
             });
         })
         .catch(error => {

@@ -1,0 +1,126 @@
+/* ชื่อเว็ป */
+.header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    font-family: 'Suez One';
+}
+
+/* ตั้งค่าพื้นหลังไล่สี */
+body {
+    /* font-family: Arial, sans-serif; */
+    font-family: 'Sulphur Point';
+    background: linear-gradient(to bottom left, #ffaab8, #C1FFC1);
+    flex-flow: column-reverse;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh; /* ใช้ min-height แทน height */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* กล่องสมัครสมาชิก */
+.signup-container {
+    margin: auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* หัวข้อ */
+h2 {
+    font-family: 'Sulphur Point';
+    color: #FF6B6B;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* กำหนด Floating Label */
+.input-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+/* ช่องกรอกข้อมูล */
+.input-group input {
+    width: 100%;
+    padding: 12px 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #ffffff;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    outline: none;
+}
+
+/* ปรับแต่ง Label ให้ดูเนียนขึ้น */
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #aaa;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    background: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+/* เมื่อ input ถูก focus หรือมีข้อมูล */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: 0px;
+    font-size: 12px;
+    color: #FF6B6B;
+    padding: 0 5px;
+}
+
+/* กล่อง Password & Confirm Password */
+.password-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.password-container .input-group {
+    width: 48%;
+    box-sizing: border-box;
+}
+
+/* ปุ่มสมัคร */
+.signup-btn {
+    background: #FF6B6B;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* ลิงก์เข้าสู่ระบบ */
+.login-link {
+    display: block;
+    margin-top: 12px;
+    color: #FF6B6B;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: left;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}

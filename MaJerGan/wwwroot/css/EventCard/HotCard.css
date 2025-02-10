@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
 
 
 /* ✅ ปรับการ์ดให้มีระยะห่างจากขอบ */
@@ -12,25 +13,31 @@
     padding-top : 0px;
     padding-right: 2px;
     padding-left: 45px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     width: 100%;
     max-width: none;
     /* font-family: 'Sulphur Point'; */
     justify-content: flex-start;
     /* position: relative; ทำให้ลูกที่ absolute อยู่ภายในการ์ด */
+    cursor: pointer;
+}
+
+.hot-event-card:hover {
+    scale: 1.02;
 }
 
 /* ✅ ทำให้วงกลมลอยออกจากการ์ด */
 .hot-rank {
+    font-family: 'Caprasimo';
     position: absolute;
     top: -10px; /* ขยับขึ้น */
     left: -10px; /* ขยับไปซ้าย */
-    background: #FFD166;
-    color: #333;
+    background: #FFF493;
+    color: #F1AEC5;
     font-weight: bold;
-    font-size: 20px;
-    width: 45px;
-    height: 45px;
+    font-size: 26px;
+    width: 50px;
+    height: 50px;
     line-height: 45px;
     border-radius: 50%;
     text-align: center;
@@ -40,7 +47,7 @@
 
 /* ✅ พื้นที่ของเนื้อหากิจกรรม */
 .hot-event-content {
-    font-family: 'Sulphur Point'!important;;
+    
     flex-grow: 1;
 }
 
@@ -53,6 +60,7 @@
 
 /* ✅ ชื่อกิจกรรม */
 .event-title {
+    font-family: 'Sulphur Point';
     margin-top: 5px;
     font-size: 30px;
     font-weight: bold;
@@ -69,17 +77,21 @@
 
 /* ✅ ชื่อผู้สร้าง */
 .creator {
+    font-family: 'Sulphur Point';
     font-size: 14px;
-    color: gray;
+    color: rgb(0, 0, 0);
+    font-weight: normal;
 }
 
 .event-body {
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
 /* ✅ จำนวนผู้เข้าร่วม */
 .participants {
+    font-family: 'Sulphur Point';
     font-size: 14px;
     color: #666;
     margin-bottom: 4px;
@@ -87,11 +99,13 @@
 
 /* ✅ แท็กกิจกรรม */
 .tags-container {
+    font-family: 'Sulphur Point';
     display: flex;
     align-items: center;
     gap: 6px;
     flex-wrap: wrap;
-    margin-top: 4px;
+    font-size: 14px;
+    /* margin-top: 4px; */
 }
 
 /* ✅ ปรับแท็กให้เป็นสีเทาโค้งมน */

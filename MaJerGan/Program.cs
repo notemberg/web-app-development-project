@@ -27,7 +27,8 @@ builder.Services.AddAuthentication("MyCookieAuth")
         options.AccessDeniedPath = "/Auth/AccessDenied";
         options.Cookie.Name = "MyCookieAuth"; // ตั้งชื่อคุกกี้
         options.Cookie.HttpOnly = true;
-        options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // เปลี่ยนเป็น `.None` ถ้าใช้ HTTP
+        // options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // เปลี่ยนเป็น `.None` ถ้าใช้ HTTP
+        options.Cookie.SecurePolicy = CookieSecurePolicy.None;
     });
 
 builder.Services.AddAuthorization();
@@ -66,11 +67,11 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 // ✅ ตั้งค่า Default Route
-app.MapControllerRoute(
-    name: "create_event",
-    pattern: "Create",
-    defaults: new { controller = "Event", action = "Create" }
-);
+// app.MapControllerRoute(
+//     name: "create_event",
+//     pattern: "Create",
+//     defaults: new { controller = "Event", action = "Create" }
+// );
 
 // ✅ ตั้งค่า Default Route (ควรอยู่ล่างสุด)
 app.MapControllerRoute(

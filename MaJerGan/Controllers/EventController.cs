@@ -126,7 +126,7 @@ namespace MaJerGan.Controllers
         }
 
         [HttpGet]
-        [Route("Details/{id}")]
+        [Route("Event/Details/{id}")]
         public async Task<IActionResult> Details(int id)
         {
             var eventDetails = await _context.Events
@@ -207,6 +207,7 @@ namespace MaJerGan.Controllers
                     e.Tags,
                     e.ViewCount,
                     e.MaxParticipants,
+                    e.Location,
                     CurrentParticipants = e.Participants.Count,
                     creator = e.Creator.Username // ✅ เพิ่มชื่อผู้สร้าง
                 })

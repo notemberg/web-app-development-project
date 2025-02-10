@@ -1,0 +1,117 @@
+
+
+/* ✅ ปรับการ์ดให้มีระยะห่างจากขอบ */
+.hot-event-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    padding-top : 0px;
+    padding-right: 2px;
+    padding-left: 45px;
+    margin-bottom: 12px;
+    width: 100%;
+    max-width: none;
+    /* font-family: 'Sulphur Point'; */
+    justify-content: flex-start;
+    /* position: relative; ทำให้ลูกที่ absolute อยู่ภายในการ์ด */
+}
+
+/* ✅ ทำให้วงกลมลอยออกจากการ์ด */
+.hot-rank {
+    position: absolute;
+    top: -10px; /* ขยับขึ้น */
+    left: -10px; /* ขยับไปซ้าย */
+    background: #FFD166;
+    color: #333;
+    font-weight: bold;
+    font-size: 20px;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ✅ พื้นที่ของเนื้อหากิจกรรม */
+.hot-event-content {
+    
+    flex-grow: 1;
+}
+
+/* ✅ ส่วนหัวของการ์ด (ชื่อกิจกรรม + views) */
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ✅ ชื่อกิจกรรม */
+.event-title {
+    font-family: 'Sulphur Point';
+    margin-top: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+/* ✅ จำนวน Views */
+.event-views {
+    font-size: 14px;
+    font-weight: bold;
+    color: #28a745; /* สีเขียว */
+}
+
+/* ✅ ชื่อผู้สร้าง */
+.creator {
+    font-family: 'Sulphur Point';
+    font-size: 14px;
+    color: gray;
+}
+
+.event-body {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ✅ จำนวนผู้เข้าร่วม */
+.participants {
+    font-family: 'Sulphur Point';
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+/* ✅ แท็กกิจกรรม */
+.tags-container {
+    font-family: 'Sulphur Point';
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    /* margin-top: 4px; */
+}
+
+/* ✅ ปรับแท็กให้เป็นสีเทาโค้งมน */
+.tag-button {
+    background-color: #E0E0E0;
+    color: #333;
+    border: none;
+    border-radius: 12px;
+    padding: 6px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.tag-button:hover {
+    background-color: #BDBDBD;
+}

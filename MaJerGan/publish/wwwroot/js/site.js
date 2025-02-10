@@ -1,98 +1,51 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
-  const prevButton = document.querySelector(".prev");
-  const nextButton = document.querySelector(".next");
-  const slidesContainer = document.querySelector(".slides-container");
+
   const addEventButton = document.querySelector(".add-event");
 
-  // let scrollAmount = slidesContainer.scrollLeft; // ตั้งค่าเริ่มต้นเป็นตำแหน่ง scroll ปัจจุบัน
-  // const slideWidth = 110; // กำหนดความกว้างของ slide
-  // const maxScroll = slidesContainer.scrollWidth - slidesContainer.clientWidth;
-
-  // // อัปเดต scrollAmount ทุกครั้งที่เลื่อน ScrollBar ด้วย mouse wheel
-  // slidesContainer.addEventListener("scroll", function () {
-  //   scrollAmount = slidesContainer.scrollLeft;
-  // });
-
-  // // ปุ่มเลื่อนซ้าย
-  // prevButton.addEventListener("click", function () {
-  //   scrollAmount -= slideWidth;
-  //   if (scrollAmount < 0) scrollAmount = 0;
-  //   slidesContainer.scrollTo({ left: scrollAmount, behavior: "smooth" });
-  // });
-
-  // // ปุ่มเลื่อนขวา
-  // nextButton.addEventListener("click", function () {
-  //   scrollAmount += slideWidth;
-  //   if (scrollAmount > maxScroll) scrollAmount = maxScroll;
-  //   slidesContainer.scrollTo({ left: scrollAmount, behavior: "smooth" });
-  // });
-
-  // // ใช้ Mouse Wheel เพื่อเลื่อนแนวนอนแทนเลื่อนขึ้น-ลง
-  // slidesContainer.addEventListener("wheel", function (event) {
-  //   event.preventDefault(); // ป้องกันการเลื่อนหน้าเว็บ
-  //   slidesContainer.scrollLeft += event.deltaY; // ใช้ deltaY เพื่อเลื่อนแท็บไปทางซ้าย-ขวา
-  // });
-
-  // tag
-  const tagCarousel = document.getElementById("tag-carousel");
-  const prevBtn = document.getElementById("prev-btn");
-  const nextBtn = document.getElementById("next-btn");
-
-  let allTags = [];
-
-  // ✅ โหลดแท็กจาก API
-  async function loadTags() {
-    try {
-      const response = await fetch("/api/tags");
-      allTags = await response.json();
-      renderTags();
-    } catch (error) {
-      console.error("Error loading tags:", error);
-    }
-  }
-
-  // render tags
-  function renderTags() {
-    tagCarousel.innerHTML = "";
-    allTags
-      .forEach((tag) => {
-        let button = document.createElement("div");
-        button.className = "tag-btn";
-        button.innerText = tag;
-        button.dataset.tag = tag;
-        button.addEventListener("click", function () {
-          toggleTag(tag, button);
-        });
-        tagCarousel.appendChild(button);
-      });
-  }
-
-  
-
-  prevBtn.addEventListener("click", function () {
-    tagCarousel.scrollBy({ left: -150, behavior: "smooth" });
-  });
-
-  nextBtn.addEventListener("click", function () {
-    tagCarousel.scrollBy({ left: 150, behavior: "smooth" });
-  });
-
-  let scrollAmount = tagCarousel.scrollLeft; // ตั้งค่าเริ่มต้นเป็นตำแหน่ง scroll ปัจจุบัน
-  const slideWidth = 150; // กำหนดความกว้างของ slide
-  const maxScroll = tagCarousel.scrollWidth - tagCarousel.clientWidth;
-  
-  tagCarousel.addEventListener("scroll", function () {
-    scrollAmount = tagCarousel.scrollLeft;
-  });
-
-  tagCarousel.addEventListener("wheel", function (event) {
-    event.preventDefault(); // ป้องกันการเลื่อนหน้าเว็บ
-    tagCarousel.scrollLeft += event.deltaY; // ใช้ deltaY เพื่อเลื่อนแท็บไปทางซ้าย-ขวา
-});
-
-
-  loadTags();
   addEventButton.addEventListener("click", function () {
     window.location.href = "/Create";
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("/Event/GetHotEvents")
+        .then(response => response.json())
+        .then(events => {
+            const hotContent = document.querySelector(".hot-content");
+            hotContent.innerHTML = ""; // ล้างข้อมูลเก่า
+
+            events.forEach((event, index) => {
+                const eventCard = document.createElement("div");
+                eventCard.classList.add("hot-event-card");
+
+                // ✅ แปลง `tags` จาก String เป็น Array และสร้างปุ่มแท็ก
+                const tagButtons = (event.tags || "").split(",").map(tag => 
+                    `<button class="tag-button">${tag.trim()}</button>`).join(" ");
+
+                eventCard.innerHTML = `
+                    <div class="hot-rank">${index + 1}</div>
+                    <div class="hot-event-content">
+                        <div class="event-header">
+                            <h3 class="event-title">${event.title}</h3>
+                            <p class="creator">สร้างโดย <span class="username">${event.creator}</span></p>
+                            <span class="event-views">${event.viewCount} <br>views</span>
+                        </div>
+                        <div class="event-body">
+                        <div class="participants">👤 ${event.currentParticipants} / ${event.maxParticipants} @Location</div>
+                        <div class="tags-container">Tags:${tagButtons}</div>
+                        </div>
+                    </div>
+                `;
+
+                hotContent.appendChild(eventCard);
+            });
+        })
+        .catch(error => {
+            console.error("Error fetching hot events:", error);
+        });
+});
+
+
+
+
+
