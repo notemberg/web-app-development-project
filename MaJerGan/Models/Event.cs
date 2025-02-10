@@ -11,7 +11,7 @@ namespace MaJerGan.Models
         public int Id { get; set; } // รหัสกิจกรรม (Primary Key)
 
         [Required]
-        [StringLength(100)]
+        [StringLength(20)]
         public string Title { get; set; } // ชื่อกิจกรรม
 
         [Required]
@@ -29,8 +29,11 @@ namespace MaJerGan.Models
         public DateTime EventTime { get; set; } // เวลาของกิจกรรม
 
         [Required]
+        public string Location { get; set; } // สถานที่จัดกิจกรรม
+
         public DateTime ExpiryDate { get; set; } // วันปิดรับสมัคร
 
+        public bool IsClosed { get; set; } = false; // สถานะการปิดรับสมัคร
         [StringLength(500)]
         public string ExtraInfo { get; set; } // ข้อมูลเพิ่มเติม
 

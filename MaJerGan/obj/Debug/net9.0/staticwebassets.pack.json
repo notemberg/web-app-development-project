@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\Auth\\register.css"
     },
     {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\EventCard\\HotCard.css",
+      "PackagePath": "staticwebassets\\css\\EventCard\\HotCard.css"
+    },
+    {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Event\\create.css",
       "PackagePath": "staticwebassets\\css\\Event\\create.css"
     },

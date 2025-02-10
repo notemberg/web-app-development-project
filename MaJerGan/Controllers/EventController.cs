@@ -194,5 +194,27 @@ namespace MaJerGan.Controllers
             return RedirectToAction("Details", new { id = eventId });
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetHotEvents()
+        {
+            var hotEvents = await _context.Events
+                .OrderByDescending(e => e.ViewCount) // ✅ เรียงลำดับจากยอดวิวสูงสุด
+                .Take(5) // ✅ เอาแค่ 5 อันดับแรก
+                .Select(e => new
+                {
+                    e.Id,
+                    e.Title,
+                    e.Tags,
+                    e.ViewCount,
+                    e.MaxParticipants,
+                    CurrentParticipants = e.Participants.Count,
+                    creator = e.Creator.Username // ✅ เพิ่มชื่อผู้สร้าง
+                })
+                .ToListAsync();
+
+            return Json(hotEvents);
+        }
+
+
     }
 }
