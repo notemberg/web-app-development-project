@@ -1,6 +1,6 @@
 @{
     ViewData["Title"] = "Sign Up";
-    ViewData["ShowHeader"] = "False";
+    ViewData["ShowHeader"] = "false";
 }
 
 <!DOCTYPE html>
@@ -14,22 +14,31 @@
 
 </head>
 
-<script src="~/js/Auth/Register.js"></script>
+<script src="~/js/closeAutoFill.js"></script>
 
 <body>
 
     <div class="header">Meet <span style="color: #FF6B6B;">ME!</span></div>
 
-
     <div class="interests-container">
+        <div class="back-button" onclick="goBack()">← back</div>
         <h2>choose your interests</h2>
+
         <div id="tag-container">
-            <input type="text" id="search-tags" placeholder="search tags here">
-            <div id="tag-carousel" class="tag-container"></div>
+            <div class="search-container">
+                <input type="text" id="search-tags" placeholder="Search interests..." onkeyup="showSuggestions()">
+                <div id="suggestions" class="suggestion-box"></div>
+            </div>
+            <div id="tag-carousel-interest"></div>
             <button class="create-account">Create Account</button>
         </div>
     </div>
 
+    <!-- ✅ ย้าย script มาที่ท้าย body -->
+    <script src="~/js/Auth/Register.js"></script>
+    <script src="~/js/Auth/Interests.js"></script>
+
 </body>
+
 
 </html>

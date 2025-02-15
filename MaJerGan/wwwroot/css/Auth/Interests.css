@@ -1,4 +1,3 @@
-/* ชื่อเว็ป */
 .header {
     position: absolute;
     top: 20px;
@@ -26,7 +25,7 @@ body {
 /* กล่องสมัครสมาชิก */
 .interests-container {
     margin: auto;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.70);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
@@ -48,43 +47,105 @@ h2 {
     cursor: pointer;
 }
 
-#search-tags {
+.search-container {
+    position: relative;
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
 }
 
-.tag-container {
+#search-tags {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+.suggestion-box {
+    position: absolute;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #555;
+    border-radius: 5px;
+    display: none; /* ซ่อนโดยค่าเริ่มต้น */
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+}
+
+.suggestion-item:hover {
+    background: #ababab;
+}
+
+
+#tag-container{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+#tag-carousel-interest{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
 }
 
-.tag-btn {
-    padding: 8px 16px;
-    background: #fde2e4;
-    border: none;
-    border-radius: 20px;
+.back-button {
+    font-size: 16px;
+    color: #333;
     cursor: pointer;
-    outline: none;
+    margin-bottom: 20px;
 }
 
+.tag-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #fff; /* หรือสีอื่นที่คุณใช้อยู่ */
+    border-radius: 20px;
+    border: 1px solid #ccc; /* กรอบเล็กๆ หากต้องการ */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เงาเบาๆ */
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.tag-btn:hover {
+    background-color: #f0f0f0; /* สีพื้นหลังเมื่อวางเมาส์ */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* เงาเพิ่มขึ้นเมื่อวางเมาส์ */
+}
+
+
 .tag-btn.active {
-    background: #fe7f92;
+    background-color: #f4979c;
     color: white;
 }
 
 .create-account {
-    margin-top: 20px;
     padding: 10px 20px;
-    background: #fe7f92;
+    background-color: #f4979c;
     color: white;
     border: none;
     border-radius: 20px;
     cursor: pointer;
+    margin-top: 20px;
 }
 
 
