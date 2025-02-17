@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       // ✅ เพิ่มปุ่มลบ
       let removeBtn = document.createElement("span");
-      removeBtn.innerText = " ❌";
+      removeBtn.textContent  = " ❌";
       removeBtn.className = "remove-btn";
       removeBtn.onclick = () => {
         customSelectedTags.delete(tag); // ✅ ลบออกจาก `customSelectedTags`
@@ -188,8 +188,9 @@ document.addEventListener("DOMContentLoaded", function () {
           return;
       }
 
-      userData.userTags = Array.from(selectedTags).map(tag => ({ tag })) 
-
+      // userData.userTags = Array.from(selectedTags).map(tag => ({ tag })) 
+      userData.userTags = selectedTags.map(tag => ({ tag: tag.replace(" ❌", "").trim() }));
+      console.log("User data:", userData);
       try {
           console.log("Sending data to server:", userData);
           let response = await fetch(window.location.origin + "/api/register", {
@@ -209,6 +210,8 @@ document.addEventListener("DOMContentLoaded", function () {
               });
           } else {
               showPopup("เกิดข้อผิดพลาด", result.message || "ไม่สามารถสมัครสมาชิกได้", "error");
+              window.location.href = "register";
+
           }
       } catch (error) {
           console.error("Error:", error);
