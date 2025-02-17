@@ -35,37 +35,36 @@ namespace MaJerGan.Controllers
             return View();
         }
 
+        [Route("api/check-register")]
+        [HttpPost]
+        public async Task<IActionResult> CheckEmail([FromBody] User request)
+        {
+            if (await _context.Users.AnyAsync(u => u.Email == request.Email))
+                return BadRequest(new { message = "Email นี้ถูกใช้ไปแล้ว!" });
+
+            if (await _context.Users.AnyAsync(u => u.Username == request.Username))
+                return BadRequest(new { message = "Username นี้ถูกใช้ไปแล้ว!" });  
+            
+            return Ok(new { message = "สามารถใช้ Email และ Username นี้ได้" });
+        }
+        
         [Route("api/register")]
         [HttpPost]
-        // public async Task<IActionResult> Register([FromBody] User user)
-        // {
-        //     if (_context.Users.Any(u => u.Email == user.Email))
-        //     {
-        //         return BadRequest(new { message = "Email นี้ถูกใช้งานแล้ว!" });
-        //     }
 
-        //     if (_context.Users.Any(u => u.Username == user.Username))
-        //     {
-        //         return BadRequest(new { message = "Username นี้ถูกใช้แล้ว!" });
-        //     }
-
-        //     // ✅ แฮชรหัสผ่านก่อนบันทึก
-        //     user.SetPassword(user.Password);
-
-        //     _context.Users.Add(user);
-        //     await _context.SaveChangesAsync();
-
-        //     return Ok(new { message = "สมัครสมาชิกสำเร็จ!" });
-        // }
         public async Task<IActionResult> Register([FromBody] User request)
         {   
             request.SetPassword(request.Password);
 
             try
             {
+                Console.WriteLine("Registering new user...");
+
                 // ตรวจสอบอีเมลซ้ำ
                 if (await _context.Users.AnyAsync(u => u.Email == request.Email))
                     return BadRequest(new { message = "Email นี้ถูกใช้ไปแล้ว!" });
+
+                if (await _context.Users.AnyAsync(u => u.Username == request.Username))
+                    return BadRequest(new { message = "Username นี้ถูกใช้ไปแล้ว!" });
 
                 // สร้าง User ใหม่
                 var user = new User
@@ -78,10 +77,20 @@ namespace MaJerGan.Controllers
                 };
 
                 user.SetPassword(request.Password);
+                
 
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
 
+                if (request.UserTags != null)
+                {
+                    foreach (var tag in request.UserTags)
+                    {
+                        tag.UserId = user.Id;
+                        _context.UserTags.Add(tag);
+                    }
+                    await _context.SaveChangesAsync();
+                }
                 return Ok(new { message = "สมัครสมาชิกสำเร็จ!" });
             }
             catch (Exception ex)
