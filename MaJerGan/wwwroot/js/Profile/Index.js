@@ -1,5 +1,9 @@
 // เปิด Modal
 function openPasswordModal() {
+    document.getElementById("password").value = "";
+    document.getElementById("new-password").value = "";
+    document.getElementById("confirm-password").value = "";
+
     document.getElementById("passwordModal").style.display = "flex";
 }
 
