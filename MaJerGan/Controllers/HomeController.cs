@@ -24,10 +24,16 @@ public class HomeController : Controller
     }
 
     public IActionResult Create()
-        {
-            return View();
-        }
-    
+    {
+        return View();
+    }
+
+    public IActionResult Profile()
+    {
+        return RedirectToAction("Index", "Profile");
+    }
+
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

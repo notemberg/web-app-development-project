@@ -1,0 +1,154 @@
+@{
+    ViewData["Title"] = "Profile Setting";
+    ViewData["ShowHeader"] = "True";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Setting</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="~/css/Profile/Index.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <div class="profile-container">
+        <div class="profile-title">Your Profile</div>
+
+        <div class="profile-content">
+            <div class="profile-picture">
+                <img id="profileImg" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Picture">
+            </div>
+
+            <div class="profile-box">
+                <div class="profile-info">
+                    <div class="edit-icon-container" id="edit-btn" onclick="enableEdit()">
+                        <i class="fas fa-pencil-alt edit-icon" id="edit-btn"></i>
+                    </div>
+
+
+                    <label>Username</label>
+                    <input type="text" id="username" value="@Model.Username" disabled>
+
+                    <label>E-mail</label>
+                    <input type="email" id="email" value="@Model.Email" disabled>
+
+                    <label>Phone</label>
+                    <input type="text" id="phone" value="@Model.Phone" disabled>
+
+                    <div class="profile-row">
+                        <div>
+                            <label>Date of Birth</label>
+                            <input type="text" id="dob" value="@Model.DateOfBirth.ToString("dd/MM/yyyy")" disabled>
+                        </div>
+                        <div>
+                            <label>Gender</label>
+                            <input type="text" id="gender" value="@Model.Gender" disabled>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-footer">
+                    <button id="change-password" class="change-password" onclick="openPasswordModal()">Change
+                        Password</button>
+                    <button id="update-btn" class="update-profile" style="display: none;"
+                        onclick="saveProfile()">Update</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popup Modal -->
+        <div id="passwordModal" class="modal">
+            <div class="modal-content">
+                <!-- ปุ่มปิดโมดอล -->
+                <span class="close" onclick="closeModal()">&times;</span>
+
+                <div class="password-container">
+                    <input type="hidden" id="userId" value="@Model.Id">
+                    <label>Password</label>
+                    <div class="password-field">
+                        <input type="password" class="password-input" id="password">
+                        <i class="fa-solid fa-eye password-toggle" onclick="togglePassword('password', this)"></i>
+                    </div>
+
+                    <label>New Password</label>
+                    <div class="password-field">
+                        <input type="password" class="password-input" id="new-password">
+                        <i class="fa-solid fa-eye password-toggle" onclick="togglePassword('new-password', this)"></i>
+                    </div>
+
+                    <label>Confirm New Password</label>
+                    <div class="password-field">
+                        <input type="password" class="password-input" id="confirm-password">
+                        <i class="fa-solid fa-eye password-toggle"
+                            onclick="togglePassword('confirm-password', this)"></i>
+                    </div>
+                    <div class="password-footer">
+                        <button class="update-password" onclick="submitChangePassword()">Change
+                            Password</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <script src="~/js/Profile/Index.js"></script>
+    <script>
+        async function submitChangePassword() {
+            let userId = document.getElementById("userId").value;
+            let oldPassword = document.getElementById("password").value;
+            let newPassword = document.getElementById("new-password").value;
+            let confirmPassword = document.getElementById("confirm-password").value;
+
+            if (newPassword !== confirmPassword) {
+                alert("New passwords do not match!");
+                return;
+            }
+
+            let requestData = {
+                userId: userId,
+                oldPassword: oldPassword,
+                newPassword: newPassword,
+                confirmNewPassword: confirmPassword
+            };
+
+            try {
+                let response = await fetch("/profile/changepassword",{  // ✅ เปลี่ยนเส้นทางให้ตรงกับ API
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": document.querySelector('input[name="__RequestVerificationToken"]')?.value || ""
+                    },
+                    body: JSON.stringify(requestData)
+                });
+
+                let result = await response.json();
+                if (result.success) {
+                    alert("✅ " + result.message);
+                    closeModal();
+                } else {
+                    alert("❌ " + result.message);
+                }
+            } catch (error) {
+                console.error("Error:",error);
+                alert("❌ Failed to change password.");
+            }
+        }
+
+
+    </script>
+
+
+
+</body>
+
+</html>
