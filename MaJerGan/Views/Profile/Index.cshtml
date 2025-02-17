@@ -102,52 +102,6 @@
 
 
     <script src="~/js/Profile/Index.js"></script>
-    <script>
-        async function submitChangePassword() {
-            let userId = document.getElementById("userId").value;
-            let oldPassword = document.getElementById("password").value;
-            let newPassword = document.getElementById("new-password").value;
-            let confirmPassword = document.getElementById("confirm-password").value;
-
-            if (newPassword !== confirmPassword) {
-                alert("New passwords do not match!");
-                return;
-            }
-
-            let requestData = {
-                userId: userId,
-                oldPassword: oldPassword,
-                newPassword: newPassword,
-                confirmNewPassword: confirmPassword
-            };
-
-            try {
-                let response = await fetch("/profile/changepassword",{  // ✅ เปลี่ยนเส้นทางให้ตรงกับ API
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-CSRF-TOKEN": document.querySelector('input[name="__RequestVerificationToken"]')?.value || ""
-                    },
-                    body: JSON.stringify(requestData)
-                });
-
-                let result = await response.json();
-                if (result.success) {
-                    alert("✅ " + result.message);
-                    closeModal();
-                } else {
-                    alert("❌ " + result.message);
-                }
-            } catch (error) {
-                console.error("Error:",error);
-                alert("❌ Failed to change password.");
-            }
-        }
-
-
-    </script>
-
-
 
 </body>
 
