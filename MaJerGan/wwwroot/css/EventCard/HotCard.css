@@ -61,8 +61,8 @@
 /* ✅ ชื่อกิจกรรม */
 .event-title {
     font-family: 'Sulphur Point';
-    text-overflow: ellipsis;
-    width: 70%;
+    /* text-overflow: ellipsis; */
+    /* width: 70%; */
     margin-top: 5px;
     font-size: 30px;
     font-weight: bold;

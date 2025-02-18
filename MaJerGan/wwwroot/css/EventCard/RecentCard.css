@@ -1,4 +1,5 @@
 .recent-event-card {
+    min-height: 124px;
     background: white;
     padding: 15px;
     border-radius: 15px;

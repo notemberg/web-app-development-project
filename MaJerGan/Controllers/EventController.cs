@@ -233,6 +233,7 @@ namespace MaJerGan.Controllers
                     e.Title,
                     e.EventTime,
                     e.Location,
+                    CurrentParticipants = e.Participants.Count,
                     Creator = e.Creator != null ? e.Creator.Username : "Unknown"
                 })
                 .ToListAsync();
