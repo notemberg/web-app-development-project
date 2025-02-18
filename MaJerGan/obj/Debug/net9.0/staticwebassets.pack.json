@@ -21,20 +21,20 @@
       "PackagePath": "staticwebassets\\css\\EventCard\\HotCard.css"
     },
     {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\EventCard\\RecentCard.css",
+      "PackagePath": "staticwebassets\\css\\EventCard\\RecentCard.css"
+    },
+    {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Event\\create.css",
       "PackagePath": "staticwebassets\\css\\Event\\create.css"
     },
     {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Home\\index.css",
+      "PackagePath": "staticwebassets\\css\\Home\\index.css"
+    },
+    {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Profile\\Index.css",
       "PackagePath": "staticwebassets\\css\\Profile\\Index.css"
-    },
-    {
-      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\index.css",
-      "PackagePath": "staticwebassets\\css\\index.css"
-    },
-    {
-      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\nav.css",
-      "PackagePath": "staticwebassets\\css\\nav.css"
     },
     {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\nav_copy.css",
@@ -65,6 +65,10 @@
       "PackagePath": "staticwebassets\\js\\Auth\\Register.js"
     },
     {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Home\\app.js",
+      "PackagePath": "staticwebassets\\js\\Home\\app.js"
+    },
+    {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Home\\index.js",
       "PackagePath": "staticwebassets\\js\\Home\\index.js"
     },
@@ -73,16 +77,16 @@
       "PackagePath": "staticwebassets\\js\\Profile\\Index.js"
     },
     {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Shared\\index.js",
+      "PackagePath": "staticwebassets\\js\\Shared\\index.js"
+    },
+    {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Tag.js",
       "PackagePath": "staticwebassets\\js\\Tag.js"
     },
     {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\closeAutoFill.js",
       "PackagePath": "staticwebassets\\js\\closeAutoFill.js"
-    },
-    {
-      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\site.js",
-      "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\lib\\bootstrap\\LICENSE",

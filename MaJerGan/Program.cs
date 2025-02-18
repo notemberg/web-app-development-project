@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MaJerGan.Data;
 using MaJerGan.Models;
+using System.Net.WebSockets;
+using MaJerGan.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,8 +24,8 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddAuthentication("MyCookieAuth")
     .AddCookie("MyCookieAuth", options =>
     {
-        options.LoginPath = "/Auth/Login"; 
-        options.LogoutPath = "/Auth/Logout"; 
+        options.LoginPath = "/Auth/Login";
+        options.LogoutPath = "/Auth/Logout";
         options.AccessDeniedPath = "/Auth/AccessDenied";
         options.Cookie.Name = "MyCookieAuth"; // ตั้งชื่อคุกกี้
         options.Cookie.HttpOnly = true;
@@ -65,6 +67,33 @@ app.UseSession();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+
+
+app.UseWebSockets();
+app.Use(async (context, next) =>
+{
+    if (context.Request.Path == "/ws")
+    {
+        if (context.WebSockets.IsWebSocketRequest)
+        {
+            WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync();
+            var handler = new WebSocketHandler();
+            await handler.Handle(context, webSocket);
+        }
+        else
+        {
+            context.Response.StatusCode = 400;
+        }
+    }
+    else
+    {
+        await next();
+    }
+});
+
+
+
 
 // ✅ ตั้งค่า Default Route
 // app.MapControllerRoute(

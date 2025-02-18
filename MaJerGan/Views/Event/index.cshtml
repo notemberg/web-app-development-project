@@ -58,8 +58,11 @@
                 <input type="hidden" name="eventId" value="@eventItem.Id" />
                 <button type="submit" class="btn btn-success">เข้าร่วมกิจกรรม</button>
             </form>
+
+            <form asp-action="Delete" asp-controller="Event" method="post">
+                <input type="hidden" name="id" value="@eventItem.Id" />
+                <button type="submit" class="btn btn-danger">ลบ</button>
+            </form>
         </div>
     </div>
 }
-
-

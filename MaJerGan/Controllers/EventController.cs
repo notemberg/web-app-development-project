@@ -5,6 +5,7 @@ using MaJerGan.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using MaJerGan.Middleware;
 
 namespace MaJerGan.Controllers
 {
@@ -58,6 +59,8 @@ namespace MaJerGan.Controllers
             _context.Events.Add(model);
             _context.SaveChanges();
 
+            await WebSocketHandler.BroadcastMessage("New Event Added!");
+
             return RedirectToAction("Index");
         }
 
@@ -94,6 +97,7 @@ namespace MaJerGan.Controllers
             _context.Events.Remove(eventToDelete);
             await _context.SaveChangesAsync();
 
+            await WebSocketHandler.BroadcastMessage("Event Deleted!");
             return RedirectToAction("Index");
         }
 
@@ -127,6 +131,8 @@ namespace MaJerGan.Controllers
             _context.EventParticipants.Add(participation);
             await _context.SaveChangesAsync();
 
+            await WebSocketHandler.BroadcastMessage("Event Joined!");
+
             return RedirectToAction("Details", new { id = eventId });
         }
 
@@ -152,6 +158,87 @@ namespace MaJerGan.Controllers
             return Json(hotEvents);
         }
 
+
+
+        [HttpGet]
+        public async Task<IActionResult> GetRecentEvents(string orderBy = "desc")
+        {
+            bool isAscending = orderBy.ToLower() == "asc";
+            DateTime today = DateTime.UtcNow;
+
+            var eventsQuery = _context.Events
+                .Include(e => e.Creator) // ✅ โหลดข้อมูล Creator
+                .Include(e => e.Participants) // ✅ โหลดข้อมูล Participants
+                .Where(e => e.ExpiryDate >= today) // ✅ กรองเฉพาะกิจกรรมที่ยังไม่หมดอายุ
+                .AsQueryable();
+
+            var orderedEvents = isAscending
+                ? await eventsQuery.OrderBy(e => e.CreatedAt).Take(3).ToListAsync()
+                : await eventsQuery.OrderByDescending(e => e.CreatedAt).Take(3).ToListAsync();
+
+            // ✅ Debug เช็คจำนวน Event ที่โหลดมาได้
+            Console.WriteLine($"🟢 Events Loaded: {orderedEvents.Count}");
+
+            if (orderedEvents == null || !orderedEvents.Any())
+            {
+                Console.WriteLine("❌ No events found after filtering.");
+                return Json(new { message = "No events available" });
+            }
+
+            var events = orderedEvents
+    .Select(e => new
+    {
+        e.Id,
+        Title = string.IsNullOrEmpty(e.Title) ? "No Title" : e.Title, // ✅ ป้องกัน null
+        Description = string.IsNullOrEmpty(e.Description) ? "No Description" : e.Description, // ✅ ป้องกัน null
+        e.EventTime,
+        Tags = string.IsNullOrEmpty(e.Tags) ? "No Tags" : e.Tags, // ✅ ป้องกัน null
+        //e.ViewCount,
+        e.MaxParticipants,
+        Location = string.IsNullOrEmpty(e.Location) ? "No Location" : e.Location, // ✅ ป้องกัน null
+        //e.ExpiryDate,
+        e.CreatedAt,
+        CurrentParticipants = e.Participants?.Count ?? 0, // ✅ ป้องกัน null
+        Creator = e.Creator?.Username ?? "Unknown Creator" // ✅ ป้องกัน null
+    })
+    .ToList();
+
+
+            return Json(events);
+        }
+
+        [Authorize] // ✅ ป้องกันเฉพาะผู้ใช้ที่ล็อกอิน
+        [HttpGet]
+        public async Task<IActionResult> GetEventUpcoming()
+        {
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized("❌ User not authenticated");
+            }
+
+            int userId = int.Parse(userIdClaim.Value); // ✅ แปลงค่า User ID เป็น int
+            Console.WriteLine($"🆔 Authenticated User ID: {userId}");
+
+            var today = DateTime.UtcNow;
+
+            var events = await _context.Events
+                .Include(e => e.Creator)
+                .Include(e => e.Participants)
+                .Where(e => e.EventTime > today) // ✅ อีเวนต์ต้องอยู่ในอนาคต
+                .Where(e => e.Participants != null && e.Participants.Any(p => p.UserId == userId)) // ✅ เช็คว่ามีผู้ใช้คนนี้ไหม
+                .Select(e => new
+                {
+                    e.Id,
+                    e.Title,
+                    e.EventTime,
+                    e.Location,
+                    Creator = e.Creator != null ? e.Creator.Username : "Unknown"
+                })
+                .ToListAsync();
+
+            return Json(events);
+        }
 
     }
 }
