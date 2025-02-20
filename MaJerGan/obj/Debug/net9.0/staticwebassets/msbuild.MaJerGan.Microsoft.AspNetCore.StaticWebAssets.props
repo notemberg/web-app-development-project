@@ -84,8 +84,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>2rvip5rrk0</Fingerprint>
-      <Integrity>wjFhn8hmmvW8TPj5K6lnLQW+hFOV1KJsCoVvDp8OlCA=</Integrity>
+      <Fingerprint>rimadw7o6g</Fingerprint>
+      <Integrity>g61OPuU+z5lsYTWurZA0msjSgV0UdSdCRLxLLh26EC0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\EventCard\HotCard.css'))</OriginalItemSpec>

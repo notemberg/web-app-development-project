@@ -207,13 +207,13 @@ namespace MaJerGan.Controllers
             return Json(events);
         }
 
-        [Authorize] // ✅ ป้องกันเฉพาะผู้ใช้ที่ล็อกอิน
         [HttpGet]
         public async Task<IActionResult> GetEventUpcoming()
         {
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
             if (userIdClaim == null)
             {
+                Console.WriteLine($"❌ User not authenticated");
                 return Unauthorized("❌ User not authenticated");
             }
 

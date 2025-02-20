@@ -56,13 +56,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 /* ✅ ชื่อกิจกรรม */
 .event-title {
     font-family: 'Sulphur Point';
-    /* text-overflow: ellipsis; */
-    /* width: 70%; */
+    text-overflow: ellipsis;
+    width: 70%;
+    text-align: left;
     margin-top: 5px;
     font-size: 30px;
     font-weight: bold;

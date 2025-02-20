@@ -176,15 +176,22 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  fetch("/Event/GetEventUpcoming") // ✅ ดึงข้อมูลจาก API
-    .then((response) => response.json())
+  fetch("/Event/GetEventUpcoming")
+    .then((response) => {
+      if (response.status === 401) {
+        // ✅ ถ้ายังไม่ได้ล็อกอิน ให้แสดงการ์ดแจ้งเตือน
+        showMessageCard("กรุณาเข้าสู่ระบบก่อน เพื่อดูอีเวนต์ของคุณ", true);
+        throw new Error("❌ User is not logged in");
+      }
+      return response.json();
+    })
     .then((events) => {
       const eventContainer = document.querySelector(".upcoming-content");
       eventContainer.innerHTML = ""; // ✅ ล้างข้อมูลเก่าก่อนโหลดใหม่
 
       if (!events || events.length === 0) {
-        eventContainer.innerHTML =
-          "<p style='text-align:center; color:gray;'>ไม่มีอีเวนต์ล่าสุด</p>";
+        // ✅ ถ้าไม่มีอีเวนต์ ให้แสดงการ์ดแจ้งเตือน
+        showMessageCard("ยังไม่มีอีเวนต์ที่กำลังจะเกิดขึ้น");
         return;
       }
 
@@ -192,24 +199,45 @@ document.addEventListener("DOMContentLoaded", function () {
         const eventCard = document.createElement("div");
         eventCard.classList.add("upcoming-event-card");
 
-        // ✅ แปลงวันที่ให้เป็นฟอร์แมตที่ต้องการ
         const formattedEventTime = formatEventTime(event.eventTime);
 
         eventCard.innerHTML = `
-                    <h3 class="event-title">${event.title} <span class="Time">${formattedEventTime}</span></h3>
-                    <p class="event-info">สร้างโดย <span class="event-creator">${event.creator}</span> 
-                        <i class="fa-solid fa-user"></i> ${event.currentParticipants} @${event.location}
-                    </p>
-                    <div class="event-details-container">
-                        <a href="/Event/Details/${event.id}" class="event-details">more details...</a>
-                    </div>
-                `;
+            <h3 class="event-title">${event.title} <span class="Time">${formattedEventTime}</span></h3>
+            <p class="event-info">สร้างโดย <span class="event-creator">${event.creator}</span> 
+                <i class="fa-solid fa-user"></i> ${event.currentParticipants} @${event.location}
+            </p>
+            <div class="event-details-container">
+                <a href="/Event/Details/${event.id}" class="event-details">more details...</a>
+            </div>
+        `;
 
         eventContainer.appendChild(eventCard);
       });
     })
     .catch((error) => console.error("❌ Error fetching events:", error));
 });
+
+// ✅ ฟังก์ชันแสดงข้อความเตือนเป็นการ์ด
+function showMessageCard(message, isLoginMessage = false) {
+  const eventContainer = document.querySelector(".upcoming-content");
+  eventContainer.innerHTML = "";
+  const messageCard = document.createElement("div");
+  messageCard.classList.add("upcoming-event-card", "message-card");
+
+  messageCard.innerHTML = `
+        <h3 class="event-title">${message}</h3>
+        ${
+          isLoginMessage
+            ? `<div class="login-container">
+                  <a href="/auth/login" class="login-button">เข้าสู่ระบบ</a>
+               </div>`
+            : ""
+        }
+    `;
+
+  eventContainer.appendChild(messageCard);
+}
+
 
 // ✅ ฟังก์ชันแปลงเวลา
 function formatEventTime(isoDate) {
