@@ -59,3 +59,5 @@ appsettings.Development.json
 
 # Ignore logs or other generated files
 logs/
+
+.env
