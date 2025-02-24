@@ -283,7 +283,7 @@ E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\nlzma004qm-i5844kqvhw.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\lf9m8xzwxb-qm5ffl9g15.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\u6ha2nimsd-076v5wrbls.gz
-E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\g9a1l7an1c-ch4kkesdl9.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\hpndoo4fdd-8x8t1rs6co.gz
-E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\fo4ibkcuin-6gt3wj7sc5.gz
-E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\2yme4b8tjy-rimadw7o6g.gz
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\2yme4b8tjy-08bil3auuw.gz
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\g9a1l7an1c-zgpv444yri.gz
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\fo4ibkcuin-qm0wnu9y5z.gz

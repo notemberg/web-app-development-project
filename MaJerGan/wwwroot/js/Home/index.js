@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const formattedEventTime = formatEventTime(event.eventTime);
 
         eventCard.innerHTML = `
-            <h3 class="event-title">${event.title} <span class="Time">${formattedEventTime}</span></h3>
+            <h3 class="event-title"><span class="title-name">${event.title}</span> <span class="Time">${formattedEventTime}</span></h3>
             <p class="event-info">สร้างโดย <span class="event-creator">${event.creator}</span> 
                 <i class="fa-solid fa-user"></i> ${event.currentParticipants} @${event.location}
             </p>
