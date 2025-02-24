@@ -139,7 +139,10 @@ namespace MaJerGan.Controllers
         [HttpGet]
         public async Task<IActionResult> GetHotEvents()
         {
+            DateTime today = DateTime.UtcNow;
+
             var hotEvents = await _context.Events
+                .Where(e => e.ExpiryDate >= today && !e.IsClosed) // ✅ เพิ่มเงื่อนไขให้ดึงเฉพาะกิจกรรมที่ยังเปิดอยู่
                 .OrderByDescending(e => e.ViewCount) // ✅ เรียงลำดับจากยอดวิวสูงสุด
                 .Take(5) // ✅ เอาแค่ 5 อันดับแรก
                 .Select(e => new
