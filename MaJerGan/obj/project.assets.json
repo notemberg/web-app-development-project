@@ -4929,19 +4929,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sliber\\.nuget\\packages\\": {}
+    "C:\\Users\\pakuton\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\MaJerGan.csproj",
+      "projectUniqueName": "C:\\Users\\pakuton\\Desktop\\ce\\web-app-development-project\\Majergan\\MaJerGan.csproj",
       "projectName": "MaJerGan",
-      "projectPath": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\MaJerGan.csproj",
-      "packagesPath": "C:\\Users\\Sliber\\.nuget\\packages\\",
-      "outputPath": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\obj\\",
+      "projectPath": "C:\\Users\\pakuton\\Desktop\\ce\\web-app-development-project\\Majergan\\MaJerGan.csproj",
+      "packagesPath": "C:\\Users\\pakuton\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pakuton\\Desktop\\ce\\web-app-development-project\\Majergan\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Sliber\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pakuton\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5011,7 +5016,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.103/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

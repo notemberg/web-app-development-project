@@ -12,14 +12,14 @@ namespace MaJerGan.Models
 
         [Required]
         [StringLength(20)]
-        public string Title { get; set; } // ชื่อกิจกรรม
+        public string Title { get; set; } = string.Empty; // ชื่อกิจกรรม
 
         [Required]
         [StringLength(500)]
-        public string Description { get; set; } // รายละเอียด
+        public string Description { get; set; } = string.Empty; // รายละเอียด
 
         [StringLength(200)]
-        public string Tags { get; set; } // แท็กของกิจกรรม (เก็บเป็น String เช่น "Sport,Music")
+        public string Tags { get; set; } = string.Empty; // แท็กของกิจกรรม (เก็บเป็น String เช่น "Sport,Music")
 
         [Required]
         [Range(1, 1000)]
@@ -29,13 +29,13 @@ namespace MaJerGan.Models
         public DateTime EventTime { get; set; } // เวลาของกิจกรรม
 
         [Required]
-        public string Location { get; set; } // สถานที่จัดกิจกรรม
+        public string Location { get; set; } = string.Empty; // สถานที่จัดกิจกรรม
 
         public DateTime ExpiryDate { get; set; } // วันปิดรับสมัคร
 
         public bool IsClosed { get; set; } = false; // สถานะการปิดรับสมัคร
         [StringLength(500)]
-        public string ExtraInfo { get; set; } // ข้อมูลเพิ่มเติม
+        public string ExtraInfo { get; set; } = string.Empty; // ข้อมูลเพิ่มเติม
 
         public DateTime CreatedAt { get; set; } = DateTime.Now; // วันที่สร้างกิจกรรม
 
@@ -44,8 +44,10 @@ namespace MaJerGan.Models
         public int CreatedBy { get; set; }
 
         [ForeignKey("CreatedBy")]
-        public virtual User Creator { get; set; }
+        public virtual User Creator { get; set; } = new User();
         
+        public int HostId { get; set; }
+        public User Host { get; set; } = new User();
 
         // ✅ เพิ่มตัวนับยอดเข้าชม
         public int ViewCount { get; set; } = 0;
