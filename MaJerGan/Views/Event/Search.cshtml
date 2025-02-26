@@ -8,6 +8,8 @@
 <head>
     <link rel="stylesheet" href="~/css/Event/Search.css">
 </head>
+<script Src="~/js/Home/SearchPage.js"></script>
+
 
 <!-- ตัวเลือกในการจัดเรียง -->
 <div class="sort-options">
@@ -20,13 +22,13 @@
     <a href="@Url.Action("Search", "Event", new { searchQuery = Context.Request.Query["searchQuery"], selectedTag = Context.Request.Query["selectedTag"], 
                sortOrder = (Context.Request.Query["sortOrder"] == "popular") ? "" : "popular" })"
        class="@((Context.Request.Query["sortOrder"] == "popular") ? "active" : "")">
-        popular
+        Popular
     </a>
     
     <a href="@Url.Action("Search", "Event", new { searchQuery = Context.Request.Query["searchQuery"], selectedTag = Context.Request.Query["selectedTag"], 
                sortOrder = (Context.Request.Query["sortOrder"] == "NerestEvent") ? "" : "NerestEvent" })"
        class="@((Context.Request.Query["sortOrder"] == "NerestEvent") ? "active" : "")">
-        NerestEvent
+        NearestEvent
     </a>
 </div>
 
@@ -43,7 +45,7 @@
         <div class="event-card">
             <div class="event-content">
                 <div class="event-header">
-                    <h3 class="event-title">@eventItem.Title</h3>
+                    <h3 class="event-title">@eventItem.Title  <span class="Time">@eventItem.EventTime.ToString("MM/dd/yyyy") at @eventItem.EventTime.ToString("hh:mm tt")</span></h3>
                 </div>
                 <div class="event-body">
                     <div class="creator">Host By: @eventItem.Creator.Username</div>

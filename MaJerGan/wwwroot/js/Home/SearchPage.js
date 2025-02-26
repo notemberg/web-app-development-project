@@ -1,23 +1,22 @@
-function sortEvents(sortOrder) {
-    // สร้างคำขอ XMLHttpRequest สำหรับการส่งข้อมูลแบบ AJAX
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "/Event/Search?searchQuery=" + encodeURIComponent('@Context.Request.Query["searchQuery"]') +
-            "&selectedTag=" + encodeURIComponent('@Context.Request.Query["selectedTag"]') +
-            "&sortOrder=" + encodeURIComponent(sortOrder), true);
-    
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            // ถ้าคำขอสำเร็จ, ทำการอัปเดตเนื้อหาภายใน #events-container
-            document.getElementById('events-container').innerHTML = xhr.responseText;
-            
-            // เปลี่ยนสีปุ่มที่ถูกเลือก
-            var links = document.querySelectorAll('.sort-options a');
-            links.forEach(function(link) {
-                link.classList.remove('active');
-            });
-            document.querySelector('a[data-sort="' + sortOrder + '"]').classList.add('active');
-        }
-    };
 
-    xhr.send(); // ส่งคำขอ AJAX
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const tagContainer = document.querySelectorAll('.tags-container');
+    
+    tagContainer.forEach(function(container) {
+        const tags = container.querySelectorAll('.tag-button');
+        const maxTags = 5; // ตั้งค่าให้แสดง 3 tag ก่อน ถ้ามีมากกว่านั้นจะซ่อนไว้
+        const tagCount = tags.length;
+
+        if (tagCount > maxTags) {
+            let moreTag = document.createElement('span');
+            moreTag.classList.add('span-more-tag');
+            moreTag.innerHTML = `+${tagCount - maxTags} more`;
+            // moreTag.style.background = '#ccc'; // ใส่สีที่เหมาะสม
+            container.appendChild(moreTag);
+
+            for (let i = maxTags; i < tagCount; i++) {
+                tags[i].style.display = 'none'; // ซ่อน tag ที่เกิน
+            }
+        }
+    });
+});

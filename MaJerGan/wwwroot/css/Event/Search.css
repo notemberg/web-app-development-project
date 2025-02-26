@@ -162,3 +162,26 @@
 .event-card {
     cursor: pointer; /* ทำให้การ์ดสามารถคลิกได้ */
 }
+
+.Time {
+    width: 30%;
+    font-size: 24px;
+    color: gray;
+    font-weight: normal;
+}
+
+.event-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: gray;
+    margin-top: 10px;
+}
+.event-footer .event-views {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.span-more-tag {
+    padding: 5px 10px;
+}
