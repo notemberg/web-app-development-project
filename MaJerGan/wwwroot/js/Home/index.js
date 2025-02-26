@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (!events || events.length === 0) {
         // ✅ ถ้าไม่มีอีเวนต์ ให้แสดงการ์ดแจ้งเตือน
-        showMessageCard("ยังไม่มีอีเวนต์ที่กำลังจะเกิดขึ้น");
+        showMessageCard("No Upcoming Events");
         return;
       }
 

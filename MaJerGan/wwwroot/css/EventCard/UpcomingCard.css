@@ -2,13 +2,13 @@
     min-height: 124px;
     background: white;
     padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* border-radius: 15px; */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     margin-bottom: 32px;
     display: flex;
     flex-direction: column;
     position: relative;
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
     width: 100%;
     cursor: pointer;
 }
