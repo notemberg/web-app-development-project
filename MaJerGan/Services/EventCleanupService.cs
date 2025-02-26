@@ -48,7 +48,7 @@ namespace MaJerGan.Services
 
                 // await Task.Delay(TimeSpan.FromMinutes(5), stoppingToken);
                 // await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
-                await Task.Delay(TimeSpan.FromSeconds(10), stoppingToken);
+                await Task.Delay(TimeSpan.FromSeconds(600), stoppingToken);
             }
         }
 

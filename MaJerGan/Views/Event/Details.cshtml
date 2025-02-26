@@ -3,6 +3,8 @@
 @{
     ViewData["Title"] = Model.Title;
     ViewData["ShowHeader"] = "True";
+    ViewData["ShowNavCarousel"] = "True";
+
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -72,6 +74,9 @@
                 <input type="hidden" name="eventId" value="@Model.Id" />
                 <button type="submit" class="join-btn">🚀 เข้าร่วมกิจกรรม</button>
             </form>
+
+            <a href="@Url.Action("Chat", "Event", new { id = Model.Id })" class="btn btn-primary">💬 เข้าสู่แชท</a>
+
 
         </div>
     </div>

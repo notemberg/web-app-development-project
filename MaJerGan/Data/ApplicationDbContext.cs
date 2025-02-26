@@ -36,6 +36,9 @@ namespace MaJerGan.Data
         public DbSet<User> Users { get; set; }
         public DbSet<UserTag> UserTags { get; set; }
 
+        public DbSet<Message> Messages { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UserTag>()
@@ -56,6 +59,19 @@ namespace MaJerGan.Data
                 .WithMany(u => u.JoinedEvents)
                 .HasForeignKey(ep => ep.UserId)
                 .OnDelete(DeleteBehavior.Restrict); // ✅ แทนที่ CASCADE ด้วย RESTRICT
+
+            // ✅ ลบข้อความทั้งหมดเมื่อ Event ถูกลบ
+            modelBuilder.Entity<Message>()
+                .HasOne(m => m.Event)
+                .WithMany()
+                .HasForeignKey(m => m.EventId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Message>()
+                .HasOne(m => m.User)
+                .WithMany()
+                .HasForeignKey(m => m.UserId)
+                .OnDelete(DeleteBehavior.Restrict); // ✅ แทนที่ CASCADE ด้วย SET NULL
         }
 
     }

@@ -37,7 +37,7 @@ body {
 }
 
 /* ✅ Search Bar */
-.main-body > .main-header > #search-bar {
+/* .main-body > .main-header > form> #search-bar {
   flex-grow: 1;
   max-width: 700px;
   padding: 10px;
@@ -47,8 +47,26 @@ body {
   margin: 0 20px;
   height: 40px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+} */
+
+/* ✅ Search Bar */
+.main-body > .main-header  > #search-form {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  max-width: 700px;
+  margin: 0 20px;
 }
 
+.main-body > .main-header > #search-form > #search-bar {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 15px;
+  border: none;
+  font-size: 16px;
+  height: 40px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
 /* search bar */
 .main-body > #search-bar:focus {
   outline: none;

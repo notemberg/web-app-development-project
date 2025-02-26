@@ -244,5 +244,61 @@ namespace MaJerGan.Controllers
             return Json(events);
         }
 
+        [Authorize]
+        [HttpGet]
+        public IActionResult Chat(int id)
+        {
+            var eventExists = _context.Events.Any(e => e.Id == id);
+            if (!eventExists)
+            {
+                return NotFound();
+            }
+
+            return View(id); // ส่ง EventId ไปที่ View
+        }
+
+        public async Task<IActionResult> Search(string searchQuery, string sortOrder)
+        {
+            var events = _context.Events
+                .Include(e => e.Creator)
+                .Include(e => e.Participants)
+                .Where(e => e.ExpiryDate >= DateTime.UtcNow) // กรองเฉพาะกิจกรรมที่ยังไม่หมดอายุ
+                .Where(e => !e.IsClosed) // กรองเฉพาะกิจกรรมที่ยังไม่ปิดรับสมัคร
+                .AsQueryable();
+
+            // ตรวจสอบว่า searchQuery หรือ selectedTag ไม่เป็น null และทำการกรอง
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                events = events.Where(e => e.Title.Contains(searchQuery));
+            }
+
+            // การจัดเรียงตาม sortOrder
+            switch (sortOrder)
+            {
+                case "recent":
+                    events = events.OrderBy(e => e.CreatedAt);
+                    break;
+                case "popular":
+                    events = events.OrderByDescending(e => e.ViewCount);
+                    break;
+                case "NerestEvent":
+                    events = events.OrderBy(e => e.EventTime);
+                    break;
+                default:
+                    events = events.OrderBy(e => e.Title);
+                    break;
+            }
+
+            var eventList = await events.ToListAsync();
+            if (eventList == null)
+            {
+                // ค่าที่ส่งไปยัง View ควรมีข้อมูล ถ้าไม่มีให้ส่งข้อมูลที่เหมาะสม
+                eventList = new List<MaJerGan.Models.Event>();
+            }
+
+            return View(eventList); // ส่งข้อมูลไปยัง View
+        }
+
+
     }
 }
