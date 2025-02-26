@@ -1,0 +1,97 @@
+.recent-event-card {
+    min-height: 124px;
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid #ddd;
+    width: 100%;
+    cursor: pointer;
+}
+
+.recent-event-card:hover {
+    scale: 1.02;
+}
+
+.event-time {
+    position: absolute;
+    top: -26px; /* เลื่อนขึ้นไปให้ชิดขอบการ์ด */
+    right: 10px; /* จัดให้ชิดขวา */
+    font-size: 14px;
+    color: green;
+    font-weight: bold;
+}
+
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.recent-event-card .event-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.Time {
+    width: 30%;
+    font-size: 24px;
+    color: gray;
+    font-weight: normal;
+}
+
+.event-body {
+    font-size: 14px;
+    color: gray;
+    margin-top: 5px;
+}
+
+.creator {
+    font-size: 18px;
+}
+
+.participants {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.tags-container {
+    display: flex;
+}
+
+.tag-button {
+    background: #ddd;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-right: 5px;
+    font-size: 12px;
+    cursor: default;
+}
+
+.fa-user {
+    color: #666;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+
+.location {
+    display: inline-block;
+    max-width: 150px; /* จำกัดความยาวของชื่อสถานที่ */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* ถ้ายาวเกิน ให้ขึ้น "..." */
+    font-size: 14px;
+    font-weight: normal;
+    color: #555;
+}

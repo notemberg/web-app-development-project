@@ -287,6 +287,7 @@ E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\2yme4b8tjy-08bil3auuw.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\g9a1l7an1c-zgpv444yri.gz
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\fo4ibkcuin-qm0wnu9y5z.gz
+<<<<<<< HEAD
 D:\ComEngineering student\2D semester 2\WebApp\Project\miniProj\web-app-development-project\MaJerGan\bin\Debug\net9.0\appsettings.Development.json
 D:\ComEngineering student\2D semester 2\WebApp\Project\miniProj\web-app-development-project\MaJerGan\bin\Debug\net9.0\appsettings.json
 D:\ComEngineering student\2D semester 2\WebApp\Project\miniProj\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\web.config
@@ -580,3 +581,13 @@ D:\ComEngineering student\2D semester 2\WebApp\Project\miniProj\web-app-developm
 D:\ComEngineering student\2D semester 2\WebApp\Project\miniProj\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\1r9dq2ouuu-22hsnwyfpu.gz
 D:\ComEngineering student\2D semester 2\WebApp\Project\miniProj\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\djlitzo4n2-ozt0fj6rw7.gz
 D:\ComEngineering student\2D semester 2\WebApp\Project\miniProj\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\g1fqgf88dx-nf7vutiyml.gz
+=======
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Debug\net9.0\DotNetEnv.dll
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Debug\net9.0\Sprache.dll
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\web.config
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\appsettings.Development.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\appsettings.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.deps.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.runtimeconfig.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.staticwebassets.endpoints.json
+>>>>>>> b0c57d315c74a83f3935350bb7b85251e5aca824

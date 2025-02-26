@@ -56,11 +56,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 /* ✅ ชื่อกิจกรรม */
 .event-title {
     font-family: 'Sulphur Point';
+    text-overflow: ellipsis;
+    width: 70%;
+    text-align: left;
     margin-top: 5px;
     font-size: 30px;
     font-weight: bold;
@@ -76,7 +80,7 @@
 }
 
 /* ✅ ชื่อผู้สร้าง */
-.creator {
+.hot-event-card .creator {
     font-family: 'Sulphur Point';
     font-size: 14px;
     color: rgb(0, 0, 0);
