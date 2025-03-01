@@ -1,4 +1,4 @@
-@model List<MaJerGan.Models.Event>
+@* @model List<MaJerGan.Models.Event>
 
 @{
     ViewData["Title"] = "Meet ME!";
@@ -86,4 +86,44 @@
             </div>
         </a>
     }
+</div> *@
+
+@model List<MaJerGan.Models.Event>
+
+@{
+    ViewData["Title"] = "Meet ME!";
+    ViewData["ShowHeader"] = "True";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Event/Search.css">
+</head>
+
+<script src="~/js/Event/SearchPage.js"></script>
+<form id="search-form">
+
+    <div id="tag-filters">
+        <label>กรองตามแท็ก:</label><br>
+        @foreach (var tag in ViewBag.Tags)
+        {
+           <input type="checkbox" name="selectedTags" value="@tag.Id"
+                   @(Context.Request.Query["selectedTags"].ToList().Contains(tag.Id.ToString()) ? "checked" : "")> @tag.Name <br>
+        }
+    </div>
+</form>
+
+<!-- ตัวเลือกการจัดเรียง -->
+<div class="sort-options">
+    <a href="#" class="sort-link" data-sort="recent">Recent</a>
+    <a href="#" class="sort-link" data-sort="popular">Popular</a>
+    <a href="#" class="sort-link" data-sort="NerestEvent">Nearest Event</a>
+
+    <input type="hidden" id="sortOrder" name="sortOrder" value="recent">
+
 </div>
+
+<!-- ส่วนแสดงผลลัพธ์ -->
+<div id="search-results">
+    @await Html.PartialAsync("_SearchResults", Model)
+</div>
+

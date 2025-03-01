@@ -30,7 +30,7 @@
                 Meet ME!
             </a>
             @* <input id="search-bar" type="text" placeholder=" Search Your Interest"> *@
-            <form method="get" action="@Url.Action("Search", "Event")" id="search-form">
+            <form method="get" action="@Url.Action("SearchPage", "Event")" id="search-form">
                 <input id="search-bar" name="searchQuery" type="text" placeholder=" Search Your Interest"
                     value="@Context.Request.Query["searchQuery"]" autocomplete="off" />
             </form>
