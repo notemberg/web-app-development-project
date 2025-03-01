@@ -8,68 +8,82 @@
 <head>
     <link rel="stylesheet" href="~/css/Event/Search.css">
 </head>
-<script Src="~/js/Home/SearchPage.js"></script>
+<script src="~/js/Home/SearchPage.js"></script>
 
+<form id="search-form">
+    
+    <div id="tag-filters">
+        <label>กรองตามแท็ก:</label><br>
+        @foreach (var tag in ViewBag.Tags)
+        {
+            <input type="checkbox" name="selectedTags" value="@tag.Id"
+                   @(Context.Request.Query["selectedTags"].ToList().Contains(tag.Id.ToString()) ? "checked" : "")> @tag.Name <br>
+        }
+    </div>
+
+    <button type="submit">🔍 ค้นหา</button>
+</form>
 
 <!-- ตัวเลือกในการจัดเรียง -->
 <div class="sort-options">
-    <a href="@Url.Action("Search", "Event", new { searchQuery = Context.Request.Query["searchQuery"], selectedTag = Context.Request.Query["selectedTag"], 
-               sortOrder = (Context.Request.Query["sortOrder"] == "recent") ? "" : "recent" })"
+    <a href="@Url.Action("Search", "Event", new { 
+        searchQuery = Context.Request.Query["searchQuery"], 
+        selectedTags = Context.Request.Query["selectedTags"],  
+        sortOrder = (Context.Request.Query["sortOrder"] == "recent") ? "" : "recent" })"
        class="@((Context.Request.Query["sortOrder"] == "recent") ? "active" : "")">
         Recent
     </a>
-    
-    <a href="@Url.Action("Search", "Event", new { searchQuery = Context.Request.Query["searchQuery"], selectedTag = Context.Request.Query["selectedTag"], 
-               sortOrder = (Context.Request.Query["sortOrder"] == "popular") ? "" : "popular" })"
+
+    <a href="@Url.Action("Search", "Event", new { 
+        searchQuery = Context.Request.Query["searchQuery"], 
+        selectedTags = Context.Request.Query["selectedTags"],  
+        sortOrder = (Context.Request.Query["sortOrder"] == "popular") ? "" : "popular" })"
        class="@((Context.Request.Query["sortOrder"] == "popular") ? "active" : "")">
         Popular
     </a>
-    
-    <a href="@Url.Action("Search", "Event", new { searchQuery = Context.Request.Query["searchQuery"], selectedTag = Context.Request.Query["selectedTag"], 
-               sortOrder = (Context.Request.Query["sortOrder"] == "NerestEvent") ? "" : "NerestEvent" })"
+
+    <a href="@Url.Action("Search", "Event", new { 
+        searchQuery = Context.Request.Query["searchQuery"], 
+        selectedTags = Context.Request.Query["selectedTags"],  
+        sortOrder = (Context.Request.Query["sortOrder"] == "NerestEvent") ? "" : "NerestEvent" })"
        class="@((Context.Request.Query["sortOrder"] == "NerestEvent") ? "active" : "")">
         NearestEvent
     </a>
 </div>
 
-<!-- แสดงผลลัพธ์การค้นหา -->
-@if (Model.Count == 0)
-{
-    <div class="no-result">ไม่พบผลลัพธ์</div>
-}
-
-@foreach (var eventItem in Model)
-{
-    <!-- เพิ่มลิงก์รอบการ์ด -->
-    <a href="@Url.Action("Details", "Event", new { id = eventItem.Id })" class="event-card-link">
-        <div class="event-card">
-            <div class="event-content">
-                <div class="event-header">
-                    <h3 class="event-title">@eventItem.Title  <span class="Time">@eventItem.EventTime.ToString("MM/dd/yyyy") at @eventItem.EventTime.ToString("hh:mm tt")</span></h3>
-                </div>
-                <div class="event-body">
-                    <div class="creator">Host By: @eventItem.Creator.Username</div>
-                    <div class="participants">
-                        <i class="fa-solid fa-user"></i> @eventItem.Participants.Count / @eventItem.MaxParticipants
+<div id="search-results">
+    @foreach (var eventItem in Model)
+    {
+        <a href="@Url.Action("Details", "Event", new { id = eventItem.Id })" class="event-card-link">
+            <div class="event-card">
+                <div class="event-content">
+                    <div class="event-header">
+                        <h3 class="event-title">@eventItem.Title  <span class="Time">@eventItem.EventTime.ToString("MM/dd/yyyy") at @eventItem.EventTime.ToString("hh:mm tt")</span></h3>
                     </div>
-                    <div class="location"> @eventItem.Location</div>
-            
-                    <div class="tags-container">
-                        @if (!string.IsNullOrEmpty(eventItem.Tags))
-                        {
-                            var tags = eventItem.Tags.Split(',');
-                            foreach (var tag in tags)
+                    <div class="event-body">
+                        <div class="creator">Host By: @eventItem.Creator.Username</div>
+                        <div class="participants">
+                            <i class="fa-solid fa-user"></i> @eventItem.Participants.Count / @eventItem.MaxParticipants
+                        </div>
+                        <div class="location"> @eventItem.Location</div>
+                
+                        <div class="tags-container">
+                            @if (!string.IsNullOrEmpty(eventItem.Tags))
                             {
-                                <button class="tag-button">@tag.Trim()</button> <!-- ตัดช่องว่างออก -->
+                                var tags = eventItem.Tags.Split(',');
+                                foreach (var tag in tags)
+                                {
+                                    <button class="tag-button">@tag.Trim()</button>
+                                }
                             }
-                        }
-                        else
-                        {
-                            <span>ไม่มีแท็ก</span>
-                        }
+                            else
+                            {
+                                <span>ไม่มีแท็ก</span>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </a>
-}
+        </a>
+    }
+</div>

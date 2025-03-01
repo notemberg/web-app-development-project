@@ -84,8 +84,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>x8jvpscs43</Fingerprint>
-      <Integrity>zyMrVuqgNyP9yd5Vu8+Zncd8npZqzT8zTZYkDBQQdq0=</Integrity>
+      <Fingerprint>ddtuodi3qf</Fingerprint>
+      <Integrity>z8NooNm8/ujJkW5FSLwAIeW07w8Bs2UKVi6HQ+Wr4tE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Event\Search.css'))</OriginalItemSpec>
@@ -156,11 +156,29 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>qm5ffl9g15</Fingerprint>
-      <Integrity>Qj3LxxVYWA99jlm56Ov+pi25gji5Nsby2LUpBqltciM=</Integrity>
+      <Fingerprint>dhlldmu9zn</Fingerprint>
+      <Integrity>AcUJMzgiEOQzEsADISURN/u1Lu4kUwf1alJieB0+mxI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Home\index.css'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Home\test.json'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MaJerGan</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MaJerGan</BasePath>
+      <RelativePath>css/Home/test.json</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>rpcyh8ial4</Fingerprint>
+      <Integrity>IRpcQ2TkzduHU4GfpUb8FVE4ei4Hq3OvB4qylRP26Y8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Home\test.json'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\nav_copy.css'))">
       <SourceType>Package</SourceType>
@@ -372,8 +390,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>o51g3y15an</Fingerprint>
-      <Integrity>JJtBgFfy6JGE1zeESmXw+H22lZlxK9bdOJ2N9W0NscM=</Integrity>
+      <Fingerprint>cseqqoo5p4</Fingerprint>
+      <Integrity>pLgJwouTEf2aLkMm7+p2L0fWpNM9fBnKHcDaXrDBDus=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Home\SearchPage.js'))</OriginalItemSpec>

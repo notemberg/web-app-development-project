@@ -19,7 +19,7 @@ namespace MaJerGan.Models
         public string Description { get; set; } // รายละเอียด
 
         [StringLength(200)]
-        public string Tags { get; set; } // แท็กของกิจกรรม (เก็บเป็น String เช่น "Sport,Music")
+        public string? Tags { get; set; } // แท็กของกิจกรรม (เก็บเป็น String เช่น "Sport,Music")
 
         [Required]
         [Range(1, 1000)]
@@ -51,6 +51,8 @@ namespace MaJerGan.Models
         public int ViewCount { get; set; } = 0;
         
         public virtual List<EventParticipant> Participants { get; set; } = new List<EventParticipant>();
+
+        public virtual List<EventTag> EventTags { get; set; } = new List<EventTag>();
     }
 }
 

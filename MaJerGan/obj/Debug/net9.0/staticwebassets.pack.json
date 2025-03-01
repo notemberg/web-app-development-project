@@ -41,6 +41,10 @@
       "PackagePath": "staticwebassets\\css\\Home\\index.css"
     },
     {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Home\\test.json",
+      "PackagePath": "staticwebassets\\css\\Home\\test.json"
+    },
+    {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Profile\\Index.css",
       "PackagePath": "staticwebassets\\css\\Profile\\Index.css"
     },
