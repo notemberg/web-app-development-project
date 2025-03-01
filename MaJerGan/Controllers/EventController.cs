@@ -334,10 +334,11 @@ namespace MaJerGan.Controllers
         // }
 
         [HttpGet("Event/SearchPage")]
-        public async Task<IActionResult> SearchPage(string searchQuery)
+        public async Task<IActionResult> SearchPage(string searchQuery,string sortOrder)
         {
             ViewBag.Tags = _context.Tags.ToList(); // ✅ โหลดแท็กทั้งหมด
-
+            ViewBag.sortOrder = sortOrder;
+            
             var events = _context.Events
                 .Include(e => e.Creator)
                 .Include(e => e.Participants)

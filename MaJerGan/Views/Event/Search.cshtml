@@ -100,7 +100,9 @@
 </head>
 
 <script src="~/js/Event/SearchPage.js"></script>
-<form id="search-form">
+<form id="search-form"> 
+
+    <input type="hidden" id="sortOrder" name="sortOrder" value="@ViewBag.SortOrder">
 
     <div id="tag-filters">
         <label>กรองตามแท็ก:</label><br>
@@ -114,13 +116,13 @@
 
 <!-- ตัวเลือกการจัดเรียง -->
 <div class="sort-options">
-    <a href="#" class="sort-link" data-sort="recent">Recent</a>
-    <a href="#" class="sort-link" data-sort="popular">Popular</a>
-    <a href="#" class="sort-link" data-sort="NerestEvent">Nearest Event</a>
+    <a href="#" class="sort-link @(ViewBag.SortOrder == "recent" ? "active" : "")" data-sort="recent">Recent</a>
+    <a href="#" class="sort-link @(ViewBag.SortOrder == "popular" ? "active" : "")" data-sort="popular">Popular</a>
+    <a href="#" class="sort-link @(ViewBag.SortOrder == "NerestEvent" ? "active" : "")" data-sort="NerestEvent">Nearest Event</a>
 
-    <input type="hidden" id="sortOrder" name="sortOrder" value="recent">
-
+    <input type="hidden" id="sortOrder" name="sortOrder" value="@ViewBag.SortOrder">
 </div>
+
 
 <!-- ส่วนแสดงผลลัพธ์ -->
 <div id="search-results">

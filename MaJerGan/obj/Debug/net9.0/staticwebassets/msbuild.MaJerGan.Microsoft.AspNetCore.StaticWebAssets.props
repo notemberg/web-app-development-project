@@ -354,8 +354,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>uvan4wccxi</Fingerprint>
-      <Integrity>JqWrh99ENnyvBEeaiYz+UBHgWj1rulh5uiu/Ai+sS/M=</Integrity>
+      <Fingerprint>ekdrpmx8t1</Fingerprint>
+      <Integrity>kqFNmsc2p6Coz+fH8onw0pX6vpUqZ5RQUHS0UzzglZE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Event\SearchPage.js'))</OriginalItemSpec>

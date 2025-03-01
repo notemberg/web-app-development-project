@@ -92,3 +92,7 @@ function updateSearchResults() {
         .catch(error => console.error("Error fetching search results:", error));
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    let sortOrder = document.getElementById("sortOrder").value;
+    updateSearchResults(); // ✅ โหลดผลลัพธ์ทันที
+});
