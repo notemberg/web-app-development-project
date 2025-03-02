@@ -4,8 +4,8 @@
     ViewData["Title"] = "Create Event";
     ViewData["ShowHeader"] = "True";
     ViewData["ShowNavCarousel"] = "True";
-}
 
+}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,91 +14,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Event</title>
     <link rel="stylesheet" href="~/css/Event/create.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@400;500;600&display=swap" rel="stylesheet">
+    
 </head>
-<script src="~/js/Tag.js"></script>
+<script src="~/js/Tag_Old.js"></script>
 <script Src="~/js/closeAutoFill.js"></script>
-<script Src="~/js/Event/showPics.js"></script>
-<script Src="~/js/Event/dateCheck.js"></script>
 <body>
+
     <div class="content">
-        <h2>Create Post</h2>
-        
-        <form asp-action="Create" method="post">
+        <div class="form-container">
+            <h2>✨ สร้างกิจกรรมใหม่ ✨</h2>
 
-<div class="test">
- <div class="title-container">
-    <!-- Title Input -->
-    <input type="text" class="title-input" placeholder="Title*" required>
+            <form asp-action="Create" method="post">
+                <label>📌 ชื่อกิจกรรม:</label>
+                <input asp-for="Title" required />
 
+                <label>📝 รายละเอียด:</label>
+                <textarea asp-for="Description" rows="4"></textarea>
 
-    <!-- Date & Time Inputs (Moves to the Right) -->
-    <div class="date-time-container">
-        <div class="date-input">
-            <label for="event-date">
-                 @* <i class="fa-solid fa-calendar"></i>  *@
-                <input type="date" id="event-date" required>
-            </label>
-            @* <input type="date" id="event-date" required> *@
-        </div>
-
-        <div class="time-input">
-            <label for="event-time">
-                 @* <i class="fa-solid fa-clock"></i> *@
-                <input type="time" id="event-time" required>
-            </label>
-            @* <input type="time" id="event-time" required> *@
-        </div>
-    </div>
-   
-</div>
-    <!-- Participants Input -->
-    <div class="participants-container">
-        <i class="fa-solid fa-user"></i>
-        <input type="number" id="participants" min="1" max="100" placeholder="" required>
-    </div>
-</div>
-
-
-
-            <div class="description-container">
-                <textarea class="description-input" placeholder="Description.....  (Optional)"></textarea>
-                <div class="camera-icon">
-                    <img src="/image/upload-pic2.png" alt="Add Image" id="image-preview">
-                    @* <input type="file" id="image-upload" accept="image/*"> *@
+                <label>🏷️ เลือกแท็กกิจกรรม:</label>
+                <div class="carousel-container">
+                    <button id="prev-btn" class="carousel-btn">❮</button>
+                    <div class="carousel">
+                        <div id="tag-carousel" class="carousel-content"></div>
+                    </div>
+                    <button id="next-btn" class="carousel-btn">❯</button>
                 </div>
 
-            </div>
-<div class="tag-container">
-    <!-- ปุ่ม Add Tag -->
-    <button type="button" id="add-tag-btn" class="add-tag-btn">+ Add Tag</button>
+                <!-- ระบบเพิ่มแท็ก -->
+                <label>➕ ค้นหาหรือเพิ่มแท็กของคุณเอง:</label>
+                <input type="text" id="custom-tag-input" placeholder="พิมพ์แท็กแล้วกด Enter" />
 
-    <!-- ✅ Floating Search Box -->
-    <div id="tag-search-container" class="tag-search-container">
-        <input type="text" id="custom-tag-input" placeholder="Search...">
+                <!-- แสดงแท็กที่เลือก -->
+                <div id="selected-tags-container"></div>
+
+                <!-- Input ที่จะส่งค่าแท็กที่เลือก -->
+                <input type="hidden" name="selectedTags" id="selected-tags" />
+
+                <label>👥 จำนวนสมาชิกที่รับ:</label>
+                <input asp-for="MaxParticipants" type="number" required />
+
+                <label>🕒 เวลาของกิจกรรม:</label>
+                <input asp-for="EventTime" type="datetime-local" required />
+
+                <label>⏳ วันหมดอายุ:</label>
+                <input asp-for="ExpiryDate" type="datetime-local" required />
+
+                <label>📍 สถานที่จัดกิจกรรม:</label>
+                <input asp-for="Location" required />
+
+                <label>💡 ข้อมูลเพิ่มเติม:</label>
+                <textarea asp-for="ExtraInfo" rows="3"></textarea>
+
+                <button type="submit" class="submit-btn">🚀 โพสต์เลย!</button>
+
+
+            </form>
+        </div>
     </div>
 
-    <!-- ✅ แสดงแท็กที่เลือก (อยู่ข้างล่างปุ่ม Add Tag) -->
-    <div id="selected-tags-container" class="selected-tags-container"></div>
-    <input type="hidden" id="selected-tags">
-</div>
-
-
-    <!-- ✅ ปุ่มเลือกสถานที่ (อยู่ใต้แท็ก) -->
-    <button type="button" id="choose-location-btn" class="location-btn">
-        Choose Location (Required)
-    </button>
-    
-            <!-- ✅ ปุ่ม Submit -->
-            <button type="submit" class="submit-btn">Create Post</button>
-
-        
-        </form> <!-- ✅ ปิด form ตรงนี้ถูกต้อง -->
-
-    </div> <!-- ✅ ปิด div .content ถูกต้อง -->
 </body>
 
 </html>

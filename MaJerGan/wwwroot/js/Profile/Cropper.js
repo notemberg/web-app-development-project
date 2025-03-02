@@ -44,50 +44,59 @@ function drawImage() {
     ctx.arc(150, 150, 150, 0, Math.PI * 2);
     ctx.clip();
 
-    // ✅ วาดรูปภาพ
     ctx.drawImage(img, imgX, imgY, imgWidth, imgHeight);
-
-    // ✅ สร้าง Gradient ให้ขอบจางลง
-    let gradient = ctx.createRadialGradient(150, 150, 130, 150, 150, 150);
-    gradient.addColorStop(0.85, "rgba(0, 0, 0, 0)");  // โปร่งใสตรงกลาง
-    gradient.addColorStop(1, "rgba(0, 0, 0, 0.5)"); // ขอบจางลง
-
-    // ✅ ใช้ Composite เพื่อทำให้ขอบจาง
-    ctx.globalCompositeOperation = "destination-out";
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.globalCompositeOperation = "source-over"; // รีเซ็ตโหมดปกติ
 
     ctx.restore();
 }
 
+// ✅ รองรับการเลื่อน (Pan) ทั้ง Mouse และ Touch
+canvas.addEventListener("mousedown", startDrag);
+canvas.addEventListener("mousemove", drag);
+canvas.addEventListener("mouseup", stopDrag);
+canvas.addEventListener("mouseleave", stopDrag);
 
-// ✅ เพิ่มฟังก์ชัน Pan (เลื่อนรูป)
-canvas.addEventListener("mousedown", function (e) {
+// ✅ รองรับมือถือ (Touch)
+canvas.addEventListener("touchstart", startDrag, { passive: false });
+canvas.addEventListener("touchmove", drag, { passive: false });
+canvas.addEventListener("touchend", stopDrag);
+
+function startDrag(e) {
     isDragging = true;
-    lastX = e.offsetX;
-    lastY = e.offsetY;
-});
+    let pos = getEventPosition(e);
+    lastX = pos.x;
+    lastY = pos.y;
+}
 
-canvas.addEventListener("mousemove", function (e) {
-    if (isDragging) {
-        let dx = e.offsetX - lastX;
-        let dy = e.offsetY - lastY;
-        imgX += dx;
-        imgY += dy;
-        lastX = e.offsetX;
-        lastY = e.offsetY;
-        drawImage();
+function drag(e) {
+    if (!isDragging) return;
+    e.preventDefault(); // ป้องกันเว็บเลื่อนเอง
+
+    let pos = getEventPosition(e);
+    let dx = pos.x - lastX;
+    let dy = pos.y - lastY;
+    imgX += dx;
+    imgY += dy;
+    lastX = pos.x;
+    lastY = pos.y;
+    
+    drawImage();
+}
+
+function stopDrag() {
+    isDragging = false;
+}
+
+// ✅ ฟังก์ชันช่วยให้ใช้ได้ทั้ง Mouse และ Touch
+function getEventPosition(e) {
+    if (e.touches) {
+        return {
+            x: e.touches[0].clientX - canvas.getBoundingClientRect().left,
+            y: e.touches[0].clientY - canvas.getBoundingClientRect().top
+        };
+    } else {
+        return { x: e.offsetX, y: e.offsetY };
     }
-});
-
-canvas.addEventListener("mouseup", function () {
-    isDragging = false;
-});
-
-canvas.addEventListener("mouseleave", function () {
-    isDragging = false;
-});
+}
 
 // ✅ ปรับ Zoom ด้วย Range Slider
 function setZoom(value) {
@@ -98,12 +107,11 @@ function setZoom(value) {
 // ✅ อัปโหลดภาพหลังจาก Crop
 function cropAndUpload() {
     canvas.toBlob((blob) => {
-        const file = new File([blob], "profile.png", { type: "image/png" }); // ✅ ใช้ PNG เพื่อรักษาความโปร่งใส
+        const file = new File([blob], "profile.png", { type: "image/png" });
         uploadImage(file);
         closeCropModal();
     }, "image/png", 1.0);
 }
-
 
 function uploadImage(file) {
     const formData = new FormData();

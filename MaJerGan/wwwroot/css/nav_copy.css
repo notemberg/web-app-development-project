@@ -286,17 +286,68 @@ body {
   background: rgb(255, 163, 25); /* เปลี่ยนสีเมื่อ hover */
 }
 
+/* ✅ ซ่อน Sidebar ในจอใหญ่ */
+.sidebar {
+  position: fixed;
+  left: -250px;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background: #1a237e;
+  color: white;
+  padding-top: 20px;
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+/* ✅ แสดง Sidebar เมื่อเปิด */
+.sidebar.open {
+  left: 0;
+}
+
+* ✅ ปิด Sidebar */
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+/* ✅ ซ่อนปุ่ม Hamburger Menu ในจอใหญ่ */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    /* position: absolute; */
+    top: 10px;
+    left: 10px;
+    z-index: 1001;
+    margin-right: 5px;
+}
+
+
 @media screen and (max-width: 768px) {
+
+  
   .main-body .main-header {
+    height: 60px;
     padding: 0 20px;
   }
 
   .main-body .logo {
-    font-size: 30px;
+    font-size: 20px;
   }
 
   .nav-carousel-container {
-    height: 50px;
+    height: 60px;
+    margin-top: 60px;
   }
 
   .nav-carousel-tag {
@@ -339,5 +390,13 @@ body {
     padding: 5px;
     font-size: 14px;
   }
+
+  .menu-toggle {
+    display: block;
+}
+
+.desktop-nav {
+    display: none;
+}
   
 }
