@@ -1,4 +1,5 @@
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\MaJerGan.exe
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\web.config
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\publish\publish\publish\publish\publish\publish\publish\publish\web.config
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\publish\publish\publish\publish\publish\publish\publish\web.config
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\publish\publish\publish\publish\publish\publish\web.config
@@ -49,12 +50,18 @@ E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\publis
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.deps.json
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.runtimeconfig.json
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.staticwebassets.endpoints.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\appsettings.Development.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\appsettings.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.deps.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.runtimeconfig.json
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.staticwebassets.endpoints.json
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\MaJerGan.dll
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\MaJerGan.runtimeconfig.json
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\MaJerGan.pdb
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\Azure.Core.dll
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\Azure.Identity.dll
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\BCrypt.Net-Next.dll
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\CloudinaryDotNet.dll
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\DotNetEnv.dll
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\Microsoft.Bcl.AsyncInterfaces.dll
@@ -73,6 +80,7 @@ E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\Micros
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\Microsoft.IdentityModel.Tokens.dll
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\Microsoft.SqlServer.Server.dll
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\Microsoft.Win32.SystemEvents.dll
+E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\Newtonsoft.Json.dll
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\Sprache.dll
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\System.ClientModel.dll
 E:\Study\CE_2\webapp\project\web-app-development-project\MaJerGan\publish\System.Configuration.ConfigurationManager.dll

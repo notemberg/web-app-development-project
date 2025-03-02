@@ -40,8 +40,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/Study/CE_2/webapp/project/web-app-development-project/MaJerGan/Views/Event/Chat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcQ2hhdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/Study/CE_2/webapp/project/web-app-development-project/MaJerGan/Views/Event/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Study/CE_2/webapp/project/web-app-development-project/MaJerGan/Views/Event/Create_old.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcQ3JlYXRlX29sZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/Study/CE_2/webapp/project/web-app-development-project/MaJerGan/Views/Event/Details.cshtml]
@@ -50,6 +58,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/Study/CE_2/webapp/project/web-app-development-project/MaJerGan/Views/Event/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcaW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Study/CE_2/webapp/project/web-app-development-project/MaJerGan/Views/Event/Search.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcU2VhcmNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Study/CE_2/webapp/project/web-app-development-project/MaJerGan/Views/Event/_SearchResults.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcX1NlYXJjaFJlc3VsdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/Study/CE_2/webapp/project/web-app-development-project/MaJerGan/Views/Home/Index.cshtml]

@@ -9,6 +9,7 @@
       "MaJerGan/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
+          "CloudinaryDotNet": "1.27.4",
           "DotNetEnv": "3.1.1",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "9.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.1",
@@ -59,6 +60,19 @@
           "lib/net6.0/BCrypt.Net-Next.dll": {
             "assemblyVersion": "4.0.3.0",
             "fileVersion": "4.0.3.0"
+          }
+        }
+      },
+      "CloudinaryDotNet/1.27.4": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "System.Net.Http": "4.3.4",
+          "System.Text.RegularExpressions": "4.3.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/CloudinaryDotNet.dll": {
+            "assemblyVersion": "1.27.4.0",
+            "fileVersion": "1.27.4.0"
           }
         }
       },
@@ -1680,6 +1694,13 @@
       "sha512": "sha512-W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
       "path": "bcrypt.net-next/4.0.3",
       "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
+    },
+    "CloudinaryDotNet/1.27.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yg8ueu70WBJStNGcp+E8kqRCRiFST6LX+Tup8XrXVLjY1Pumas1d6GTjfrsq54hDm42kWc1BtRpaKw6dmm7v5Q==",
+      "path": "cloudinarydotnet/1.27.4",
+      "hashPath": "cloudinarydotnet.1.27.4.nupkg.sha512"
     },
     "DotNetEnv/3.1.1": {
       "type": "package",

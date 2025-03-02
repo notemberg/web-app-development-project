@@ -27,6 +27,8 @@ namespace MaJerGan.Models
         [Required]
         public string Gender { get; set; } // ✅ เปลี่ยนเป็น Enum
 
+        [MaxLength(500)]
+        public string ProfilePicturee { get; set; } = "https://cdn-icons-png.flaticon.com/512/847/847969.png";
         // optional
         [Phone]
         [MaxLength(15)] // ✅ ปรับให้รองรับเบอร์โทรมากขึ้น

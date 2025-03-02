@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "2jZknvWrbbk=",
+  "dgSpecHash": "rxn17t0O3wE=",
   "success": true,
   "projectFilePath": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\MaJerGan.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sliber\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Sliber\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\Sliber\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
+    "C:\\Users\\Sliber\\.nuget\\packages\\cloudinarydotnet\\1.27.4\\cloudinarydotnet.1.27.4.nupkg.sha512",
     "C:\\Users\\Sliber\\.nuget\\packages\\dotnetenv\\3.1.1\\dotnetenv.3.1.1.nupkg.sha512",
     "C:\\Users\\Sliber\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Sliber\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\9.0.1\\microsoft.aspnetcore.cryptography.internal.9.0.1.nupkg.sha512",

@@ -210,8 +210,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>kpq9art6tf</Fingerprint>
-      <Integrity>iCq2P7l7UrGMFCEscdEV2RJXi5luWn7SttWV3qh8wls=</Integrity>
+      <Fingerprint>4cyttlvgtl</Fingerprint>
+      <Integrity>7AvsRmGY4mPZXeA0MNJvUsyetY4X/lFTclV0CWrK81Q=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\nav_copy.css'))</OriginalItemSpec>
@@ -228,8 +228,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>w6qgfuljq8</Fingerprint>
-      <Integrity>aGC/7TuDeNffx2LTrd8XUESspF6GsoXaKecURY8ILOo=</Integrity>
+      <Fingerprint>hmhc5w4ic1</Fingerprint>
+      <Integrity>x7bVWIUuwwbR/w3U2iHMQLtijG346qGdBZtHTd8rPb0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Profile\Index.css'))</OriginalItemSpec>
@@ -504,6 +504,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Home\SearchPage.js'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Profile\Cropper.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MaJerGan</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MaJerGan</BasePath>
+      <RelativePath>js/Profile/Cropper.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>3waj1gje2h</Fingerprint>
+      <Integrity>40490f2x9sUKJdR+mI810w6MLEaBPLuIHp5Qwa35cEw=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Profile\Cropper.js'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Profile\Index.js'))">
       <SourceType>Package</SourceType>
       <SourceId>MaJerGan</SourceId>
@@ -516,8 +534,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>q1ljurn4vd</Fingerprint>
-      <Integrity>TosUIBLfpH1Vb7qWvrw5mOPUU6WjCVtO2ZYotQmZtzw=</Integrity>
+      <Fingerprint>xhcff9edia</Fingerprint>
+      <Integrity>BUABdZh+KaxL70oMDGCVYr0qqHfej2eQJCbzHpfhp7Q=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Profile\Index.js'))</OriginalItemSpec>
@@ -534,8 +552,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>i5844kqvhw</Fingerprint>
-      <Integrity>ukn/OiSdW9T9GfGI5peOqzgFPgove2WF9CHST9g9C2M=</Integrity>
+      <Fingerprint>mmhsyf8wzv</Fingerprint>
+      <Integrity>wjmlT+fWd8TFO6FV7OMtq4WzcWhNpmFNd9DnZRLT8N0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Shared\index.js'))</OriginalItemSpec>

@@ -1,12 +1,11 @@
 
-
-/* รีเซ็ตค่าเริ่มต้นของเบราว์เซอร์ */
 * {
     /* height: auto;
     width: auto; */
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    /* font-family: 'Sulphur Point', sans-serif; */
+    font-family: "IBM Plex Sans Thai Looped", serif;
 }
 
 /* จัดให้ฟอร์มอยู่ตรงกลางของหน้า */
@@ -18,38 +17,58 @@ body {
     min-height: 100vh;
     padding: 20px;
 }
+.ibm-plex-sans-thai-looped-regular {
+    font-family: "IBM Plex Sans Thai Looped", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .ibm-plex-sans-thai-looped-medium {
+    font-family: "IBM Plex Sans Thai Looped", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .ibm-plex-sans-thai-looped-semibold {
+    font-family: "IBM Plex Sans Thai Looped", serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
 
 .container {
-    width: 60%;
-    max-width: 700px;
-    background-color: white;
+    width: 70%;
+    max-width: 900px;
+    /* background-color: white; */
     padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    /* border-radius: 15px; */
+    /* box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); */
     margin: auto;
-    margin-top: 180px;
+    margin-top: 100px;
+    
 }
 
 h2 {
-    text-align: center;
+    /* text-align: center; */
     margin-bottom: 20px;
     font-size: 26px;
-    font-weight: bold;
+    /* font-weight: bold; */
     color: #333;
-}
 
+}
+/* 
 label {
     display: block;
     margin-top: 10px;
     font-weight: bold;
     font-size: 16px;
     color: #444;
-}
+} */
 
 input,
 textarea {
     width: 100%;
-    padding: 12px;
+    /* padding: 12px; */
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -83,7 +102,7 @@ textarea:focus {
 /* ✅ ปุ่มในฟอร์ม */
 .container .submit-btn {
     width: 100%;
-    background-color: #007BFF;
+    background-color: #F1AEC5;
     color: white;
     padding: 15px;
     border: none;
@@ -102,6 +121,7 @@ textarea:focus {
 
 /* tag */
 /* 🚀 สไตล์ของ Carousel */
+/* 
 .container .carousel-container {
     display: flex;
     align-items: center;
@@ -136,7 +156,7 @@ textarea:focus {
     scroll-behavior: smooth;
     white-space: nowrap;
     padding: 5px;
-}
+} */
 
 /* 🚀 ปุ่มแท็ก */
 .container .tag-btn {
@@ -159,8 +179,8 @@ textarea:focus {
     background-color: #007bff;
     color: white;
 }
+/*
 
-/* 🚀 ปุ่มเลื่อนซ้าย-ขวา */
 .container .carousel-btn {
     background: none;
     border: none;
@@ -169,26 +189,386 @@ textarea:focus {
     padding: 5px;
 }
 
-/* 🚀 แท็กที่เลือก */
 .container #selected-tags-container {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
     margin-top: 10px;
+    
 }
 
 .container .selected-tag {
-    background-color: #007bff;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
+    background-color: #D4D4D4;
+    color: rgb(22, 22, 22);
+    padding: 5px 15px;
+    border-radius: 50px;
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .container .remove-tag {
     cursor: pointer;
-    margin-left: 8px;
+    margin-left: 3px;
     font-weight: bold;
+    font-size: 14px;
+}
+*/
+/*Pinggggggggggggggggggggggggggggggg*/
+.title-container {
+    display: flex;
+    align-items: center;
+    background-color: #F1AEC5;
+    border-radius: 20px;
+    padding: 10px 30px;
+    min-height: 70px; /* ปรับความสูงให้รองรับ date-time */
+    width: 100%;
+    /* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); */
+    justify-content: space-between;
+    position: relative; /* ✅ กำหนดให้ date-time อ้างอิงตำแหน่งจากตรงนี้ */
+    overflow: hidden; /* ป้องกัน element หลุดออกไป */
+}
+
+
+.title-container .title-input {
+    flex: 1; 
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    color: 	#fffad1; 
+    font-weight: bold;
+
+}
+
+.title-container .title-input:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: rgb(96, 96, 96);
+    opacity: 50%;
+}
+
+
+/* Participants Input - Same Row as Title */
+.participants-container {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    padding: 5px 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+.participants-container i {
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.participants-container input {
+    border: none;
+    text-align: center;
+    font-size: 25px;
+    background: transparent;
+    width: auto;
+    outline: none;
+}
+/* Date & Time Inputs - Right Side */
+.date-time-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 20%;
+}
+
+/* Styling for Date and Time Inputs */
+.date-input, .time-input {
+    display: flex;
+    align-items: center; /* ✅ จัดให้อยู่กึ่งกลางแนวตั้ง */
+    justify-content: space-between; /* ✅ กระจายไอคอนและ input ให้สมดุล */
+    background: white;
+    border-radius: 8px;
+    padding: 3px 10px; /* ✅ เพิ่ม padding ให้ input ขยับขึ้น */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    width: auto;
+    height: 30px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* Icons inside date and time inputs */
+.date-input i, .time-input i {
+    font-size: 14px;
+}
+
+/* ✅ ปรับ input ให้ตรงกลางสีขาว */
+.date-input input, .time-input input {
+    border: none;
+    background: transparent;
+    font-size: 12px;
+    outline: none;
+    cursor: pointer;
+    width: 100%; /* ✅ ให้ input เต็ม container */
+    height: 100%; /* ✅ ทำให้ input สูงเท่ากับ container */
+    text-align: center; /* ✅ จัดให้ input อยู่ตรงกลาง */
+    padding: 0; /* ✅ ลบ padding ที่อาจทำให้ input ไม่ตรงกลาง */
+    margin: 0;
+}
+
+
+.description-container {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column; /* ให้จัดเรียงจากบนลงล่าง */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 15px;
+    min-height: 250px; /* กำหนดความสูงขั้นต่ำ */
+    width: 100%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* กำหนดพื้นที่สำหรับเขียนข้อความ */
+.description-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    color: #2d2d2d;
+    font-weight: 400;
+    resize: none;
+    padding: 10px;
+    padding-left: 30px;
+    min-height: 180px; /* ให้พื้นที่พอสำหรับประมาณ 10 บรรทัด */
+}
+/* ลบเส้นขอบเวลาพิมพ์ */
+.description-input:focus {
+    outline: none;
+}
+
+.camera-icon {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+    margin-left: 40px;
+    cursor: pointer;
+    overflow: hidden;
+    align-self: flex-start;
+}
+
+.camera-icon img {
+    width: 100px;
+    height: 100px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* ทำให้ input file ซ่อนอยู่แต่ยังคลิกได้ 
+.camera-icon input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* เมื่อมีรูปภาพที่อัปโหลดให้แสดงเต็มพื้นที่ 
+.camera-icon img.uploaded {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+}
+
+*/
+/* ✅ จัดตำแหน่งแท็กคอนเทนเนอร์ */
+.tag-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    max-width: 400px;
+    padding: 10px;
+}
+
+/* ✅ ปุ่ม Add Tag */
+.add-tag-btn {
+    background: #b2b2b2;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* ✅ Floating Search Box */
+.tag-search-container {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 40%;
+    width: 250px;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    transform: translateX(10px);
+}
+
+/* ✅ แสดง Floating Box เมื่อ Hover หรือ Click */
+/* .add-tag-btn:hover + .tag-search-container,
+.add-tag-btn:focus + .tag-search-container,
+.tag-search-container:hover {
+    display: block;
+    opacity: 1;
+    transform: translateX(0px);
+} */
+
+/* ✅ ช่องค้นหา */
+.tag-search-container input {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+}
+
+/* ✅ แท็กที่เลือกจะแสดงใต้ปุ่ม Add Tag */
+.selected-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px; /* ให้ห่างจากปุ่ม Add Tag */
+}
+
+/* ✅ สไตล์ของแท็กที่เลือก */
+.selected-tag {
+    background: #D4D4D4;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+/* ✅ ปุ่มเลือกสถานที่ */
+.location-btn {
+    background: #ff9ecb; /* สีชมพู */
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    font-family: 'Arial', sans-serif;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* เงาเบาๆ */
+    display: block;
+    margin-top: 15px; /* เว้นระยะห่างจากแท็ก */
+    text-align: center;
+}
+
+/* ✅ เมื่อ Hover เปลี่ยนสี */
+.location-btn:hover {
+    background: #ff85bc; /* ชมพูเข้มขึ้น */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Container to hold date & time input */
+.date-time-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* margin-left: 15px; */
+}
+
+/* Styling for Date and Time Picker */
+.date-input, .time-input {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 10px;
+    padding: 5px 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Icons inside date and time inputs */
+.date-input i, .time-input i {
+    /* margin-right: 5px; */
+    font-size: 16px;
+}
+
+/* Remove default styles of date & time inputs */
+.date-input input, .time-input input {
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+    justify-content: space-between;
+    overflow: hidden; 
+}
+
+/* Styling for Participants Input */
+.participants-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin-left: 10px;
+    text-align: center;
+    background: white;
+}
+
+.participants-container i {
+    font-size: 25px;
+    margin-bottom: 5px;
+    color: #636363;
+}
+
+.participants-container input {
+    border: none;
+    text-align: center;
+    font-size: 14px;
+    background: #EFEFEF;
+    width: auto;
+    outline: none;
+}
+.test{
+        display: flex;
+        flex-direction: row;
+      }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

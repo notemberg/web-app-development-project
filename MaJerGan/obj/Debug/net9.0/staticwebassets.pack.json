@@ -113,6 +113,10 @@
       "PackagePath": "staticwebassets\\js\\Home\\index.js"
     },
     {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Profile\\Cropper.js",
+      "PackagePath": "staticwebassets\\js\\Profile\\Cropper.js"
+    },
+    {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Profile\\Index.js",
       "PackagePath": "staticwebassets\\js\\Profile\\Index.js"
     },
