@@ -1,0 +1,77 @@
+@model MaJerGan.Models.Event
+
+@{
+    ViewData["Title"] = "Create Event";
+    ViewData["ShowHeader"] = "True";
+    ViewData["ShowNavCarousel"] = "True";
+
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event</title>
+    <link rel="stylesheet" href="~/css/Event/create.css" />
+    
+</head>
+<script src="~/js/Tag.js"></script>
+<script Src="~/js/closeAutoFill.js"></script>
+<body>
+
+    <div class="content">
+        <div class="form-container">
+            <h2>✨ สร้างกิจกรรมใหม่ ✨</h2>
+
+            <form asp-action="Create" method="post">
+                <label>📌 ชื่อกิจกรรม:</label>
+                <input asp-for="Title" required />
+
+                <label>📝 รายละเอียด:</label>
+                <textarea asp-for="Description" rows="4"></textarea>
+
+                <label>🏷️ เลือกแท็กกิจกรรม:</label>
+                <div class="carousel-container">
+                    <button id="prev-btn" class="carousel-btn">❮</button>
+                    <div class="carousel">
+                        <div id="tag-carousel" class="carousel-content"></div>
+                    </div>
+                    <button id="next-btn" class="carousel-btn">❯</button>
+                </div>
+
+                <!-- ระบบเพิ่มแท็ก -->
+                <label>➕ ค้นหาหรือเพิ่มแท็กของคุณเอง:</label>
+                <input type="text" id="custom-tag-input" placeholder="พิมพ์แท็กแล้วกด Enter" />
+
+                <!-- แสดงแท็กที่เลือก -->
+                <div id="selected-tags-container"></div>
+
+                <!-- Input ที่จะส่งค่าแท็กที่เลือก -->
+                <input type="hidden" name="selectedTags" id="selected-tags" />
+
+                <label>👥 จำนวนสมาชิกที่รับ:</label>
+                <input asp-for="MaxParticipants" type="number" required />
+
+                <label>🕒 เวลาของกิจกรรม:</label>
+                <input asp-for="EventTime" type="datetime-local" required />
+
+                <label>⏳ วันหมดอายุ:</label>
+                <input asp-for="ExpiryDate" type="datetime-local" required />
+
+                <label>📍 สถานที่จัดกิจกรรม:</label>
+                <input asp-for="Location" required />
+
+                <label>💡 ข้อมูลเพิ่มเติม:</label>
+                <textarea asp-for="ExtraInfo" rows="3"></textarea>
+
+                <button type="submit" class="submit-btn">🚀 โพสต์เลย!</button>
+
+
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

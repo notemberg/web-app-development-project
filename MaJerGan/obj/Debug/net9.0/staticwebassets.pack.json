@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\css\\Event\\create.css"
     },
     {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Event\\create_old.css",
+      "PackagePath": "staticwebassets\\css\\Event\\create_old.css"
+    },
+    {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Home\\index.css",
       "PackagePath": "staticwebassets\\css\\Home\\index.css"
     },
@@ -65,6 +69,14 @@
       "PackagePath": "staticwebassets\\image\\fire.png"
     },
     {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\image\\upload-pic1.png",
+      "PackagePath": "staticwebassets\\image\\upload-pic1.png"
+    },
+    {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\image\\upload-pic2.png",
+      "PackagePath": "staticwebassets\\image\\upload-pic2.png"
+    },
+    {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Auth\\Interests.js",
       "PackagePath": "staticwebassets\\js\\Auth\\Interests.js"
     },
@@ -79,6 +91,14 @@
     {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Event\\SearchPage.js",
       "PackagePath": "staticwebassets\\js\\Event\\SearchPage.js"
+    },
+    {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Event\\dateCheck.js",
+      "PackagePath": "staticwebassets\\js\\Event\\dateCheck.js"
+    },
+    {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Event\\showPics.js",
+      "PackagePath": "staticwebassets\\js\\Event\\showPics.js"
     },
     {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Home\\SearchPage.js",
@@ -103,6 +123,10 @@
     {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Tag.js",
       "PackagePath": "staticwebassets\\js\\Tag.js"
+    },
+    {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Tag_Old.js",
+      "PackagePath": "staticwebassets\\js\\Tag_Old.js"
     },
     {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\closeAutoFill.js",
