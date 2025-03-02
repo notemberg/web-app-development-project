@@ -29,7 +29,12 @@
             <a href="/" class="logo">
                 Meet ME!
             </a>
-            <input id="search-bar" type="text" placeholder=" Search Your Interest">
+            @* <input id="search-bar" type="text" placeholder=" Search Your Interest"> *@
+            <form method="get" action="@Url.Action("SearchPage", "Event")" id="search-form">
+                <input id="search-bar" name="searchQuery" type="text" placeholder=" Search Your Interest"
+                    value="@Context.Request.Query["searchQuery"]" autocomplete="off" />
+            </form>
+            
             <nav>
                 <button class="nav-btn">
                     <i class="bi bi-bell-fill" style="color: white;font-size: 2rem;"></i>
@@ -43,17 +48,21 @@
             </nav>
         </header>
 
-        <header class="nav-carousel-container">
-            <button id="nav-prev-btn" class="nav-carousel-btn">
-                <i class="bi bi-chevron-left"></i>
-            </button>
-            <div class="nav-carousel">
-                <div id="nav-tag-carousel" class="nav-carousel-content"></div>
-            </div>
-            <button id="nav-next-btn" class="nav-carousel-btn">
-                <i class="bi bi-chevron-right"></i>
-            </button>
-        </header>
+        @if ((string)(ViewData["ShowNavCarousel"] ?? "False") == "True")
+        {
+            @* <!-- ✅ แถบนำทางแบบ Carousel --> *@
+            <header class="nav-carousel-container">
+                <button id="nav-prev-btn" class="nav-carousel-btn">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <div class="nav-carousel">
+                    <div id="nav-tag-carousel" class="nav-carousel-content"></div>
+                </div>
+                <button id="nav-next-btn" class="nav-carousel-btn">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </header>
+        }
     }
     <!-- ✅ Main Content -->
     <div class="container">

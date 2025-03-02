@@ -35,15 +35,8 @@ namespace MaJerGan.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Event model)
+        public async Task<IActionResult> Create(Event model, string selectedTags)
         {
-            // if (ModelState.IsValid)
-            // {
-            //     _context.Events.Add(model);
-            //     await _context.SaveChangesAsync();
-            //     return RedirectToAction("Index");
-            // }
-            // return View(model);
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
 
             if (userIdClaim == null)
@@ -51,18 +44,47 @@ namespace MaJerGan.Controllers
                 return Unauthorized(); // ถ้าไม่มี User ID ให้ปฏิเสธการสร้างกิจกรรม
             }
 
-            int userId = int.Parse(userIdClaim.Value); // แปลงค่าจาก string เป็น int
-
-            // ✅ กำหนดผู้สร้างกิจกรรม
+            int userId = int.Parse(userIdClaim.Value);
             model.CreatedBy = userId;
 
+            // ✅ บันทึก Event ก่อน เพื่อให้ model.Id ถูกสร้าง
             _context.Events.Add(model);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync(); // ✅ ใช้ `await` เพื่อให้แน่ใจว่า `model.Id` ถูกสร้าง
+
+            // ✅ เพิ่มแท็กลงใน EventTags
+            if (!string.IsNullOrEmpty(selectedTags))
+            {
+                var tagNames = selectedTags.Split(',').Select(t => t.Trim()).ToList();
+                foreach (var tagName in tagNames)
+                {
+                    var tag = _context.Tags.FirstOrDefault(t => t.Name == tagName);
+                    if (tag == null)
+                    {
+                        tag = new Tag { Name = tagName };
+                        _context.Tags.Add(tag);
+                        await _context.SaveChangesAsync();
+                    }
+
+                    _context.EventTags.Add(new EventTag { EventId = model.Id, TagId = tag.Id });
+                }
+                await _context.SaveChangesAsync(); // ✅ บันทึก EventTags
+            }
+
+            // ✅ อัปเดต `Tags` หลังจากบันทึก `EventTags` แล้ว
+            model.Tags = string.Join(", ", _context.EventTags
+                .Where(et => et.EventId == model.Id)
+                .Select(et => et.Tag.Name)
+                .ToList());
+
+            _context.Events.Update(model); // ✅ บอกให้ EF อัปเดต `Tags` ในฐานข้อมูล
+            await _context.SaveChangesAsync(); // ✅ บันทึกการอัปเดต `Tags`
 
             await WebSocketHandler.BroadcastMessage("New Event Added!");
 
             return RedirectToAction("Index");
         }
+
+
 
         [HttpGet]
         [Route("Event/Details/{id}")]
@@ -172,7 +194,7 @@ namespace MaJerGan.Controllers
             var eventsQuery = _context.Events
                 .Include(e => e.Creator) // ✅ โหลดข้อมูล Creator
                 .Include(e => e.Participants) // ✅ โหลดข้อมูล Participants
-                .Where(e => e.ExpiryDate >= today) // ✅ กรองเฉพาะกิจกรรมที่ยังไม่หมดอายุ
+                .Where(e => e.ExpiryDate >= today && !e.IsClosed) // ✅ กรองเฉพาะกิจกรรมที่ยังไม่หมดอายุ
                 .AsQueryable();
 
             var orderedEvents = isAscending
@@ -243,6 +265,147 @@ namespace MaJerGan.Controllers
 
             return Json(events);
         }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult Chat(int id)
+        {
+            var eventExists = _context.Events.Any(e => e.Id == id);
+            if (!eventExists)
+            {
+                return NotFound();
+            }
+
+            return View(id); // ส่ง EventId ไปที่ View
+        }
+
+        // public async Task<IActionResult> Search(string searchQuery, List<int> selectedTags, string sortOrder)
+        // {
+        //     ViewBag.Tags = _context.Tags.ToList(); // ✅ ส่งข้อมูลแท็กไปที่ View
+        //     var events = _context.Events
+        //         .Include(e => e.Creator)
+        //         .Include(e => e.Participants)
+        //         .Include(e => e.EventTags) // ✅ โหลดความสัมพันธ์กับแท็ก
+        //         .ThenInclude(et => et.Tag)
+        //         .Where(e => e.ExpiryDate >= DateTime.UtcNow) // ✅ กรองเฉพาะกิจกรรมที่ยังไม่หมดอายุ
+        //         .Where(e => !e.IsClosed) // ✅ กรองเฉพาะกิจกรรมที่ยังไม่ปิดรับสมัคร
+        //         .AsQueryable();
+
+        //     // ✅ ค้นหาด้วย Search Query (ถ้ามี)
+        //     if (!string.IsNullOrEmpty(searchQuery))
+        //     {
+        //         events = events.Where(e => e.Title.Contains(searchQuery) || e.Description.Contains(searchQuery));
+        //     }
+
+        //     // ✅ กรองตามแท็กที่เลือก (AND Condition - ต้องมีทุกแท็กที่เลือก)
+        //     if (selectedTags != null && selectedTags.Count > 0)
+        //     {
+        //         events = events.Where(e =>
+        //             selectedTags.All(tagId => e.EventTags.Any(et => et.TagId == tagId))
+        //         );
+        //     }
+
+        //     // ✅ จัดเรียงตาม sortOrder
+        //     switch (sortOrder)
+        //     {
+        //         case "recent":
+        //             events = events.OrderByDescending(e => e.CreatedAt);
+        //             break;
+        //         case "popular":
+        //             events = events.OrderByDescending(e => e.ViewCount);
+        //             break;
+        //         case "NerestEvent":
+        //             events = events.OrderBy(e => e.EventTime);
+        //             break;
+        //         default:
+        //             events = events.OrderBy(e => e.Title);
+        //             break;
+        //     }
+
+        //     var eventList = await events.ToListAsync();
+        //     return View(eventList);
+        // }
+
+        // [HttpGet("Event/SearchPage")]  // ✅ ระบุเส้นทางให้ชัดเจน
+        // public IActionResult SearchPage()
+        // {
+        //     ViewBag.Tags = _context.Tags.ToList(); // ✅ โหลดแท็กทั้งหมดเพื่อแสดงในหน้า Search
+        //     return View("Search"); // ✅ โหลด `Search.cshtml` จาก `Views/Event/`
+        // }
+
+        [HttpGet("Event/SearchPage")]
+        public async Task<IActionResult> SearchPage(string searchQuery,string sortOrder)
+        {
+            ViewBag.Tags = _context.Tags.ToList(); // ✅ โหลดแท็กทั้งหมด
+            ViewBag.sortOrder = sortOrder;
+            
+            var events = _context.Events
+                .Include(e => e.Creator)
+                .Include(e => e.Participants)
+                .Include(e => e.EventTags)
+                .ThenInclude(et => et.Tag)
+                .Where(e => e.ExpiryDate >= DateTime.UtcNow)
+                .Where(e => !e.IsClosed)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                events = events.Where(e => e.Title.Contains(searchQuery) || e.Description.Contains(searchQuery));
+            }
+
+            var eventList = await events.ToListAsync();
+
+            Console.WriteLine($"🔍 Found {eventList.Count} events for query: {searchQuery}");
+
+            return View("Search", eventList); // ✅ โหลด `Search.cshtml` พร้อมผลลัพธ์
+        }
+
+
+
+        [HttpGet("Event/SearchResults")]
+        public async Task<IActionResult> SearchResults(string searchQuery, List<int> selectedTags, string sortOrder)
+        {
+            var events = _context.Events
+                .Include(e => e.Creator)
+                .Include(e => e.Participants)
+                .Include(e => e.EventTags)
+                .ThenInclude(et => et.Tag)
+                .Where(e => e.ExpiryDate >= DateTime.UtcNow) // ✅ กรองเฉพาะกิจกรรมที่ยังไม่หมดอายุ
+                .Where(e => !e.IsClosed) // ✅ กรองเฉพาะกิจกรรมที่ยังไม่ปิดรับสมัคร
+                .AsQueryable();
+
+            // ✅ ใช้ `searchQuery` และ `selectedTags` พร้อมกัน
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                events = events.Where(e => e.Title.Contains(searchQuery) || e.Description.Contains(searchQuery));
+            }
+
+            if (selectedTags != null && selectedTags.Count > 0)
+            {
+                events = events.Where(e => selectedTags.All(tagId => e.EventTags.Any(et => et.TagId == tagId)));
+            }
+
+            // ✅ จัดเรียงตาม `sortOrder`
+            switch (sortOrder)
+            {
+                case "recent":
+                    events = events.OrderByDescending(e => e.CreatedAt);
+                    break;
+                case "popular":
+                    events = events.OrderByDescending(e => e.ViewCount);
+                    break;
+                case "NerestEvent":
+                    events = events.OrderBy(e => e.EventTime);
+                    break;
+                default:
+                    events = events.OrderBy(e => e.Title);
+                    break;
+            }
+
+            var eventList = await events.ToListAsync();
+            return PartialView("_SearchResults", eventList);
+        }
+
 
     }
 }

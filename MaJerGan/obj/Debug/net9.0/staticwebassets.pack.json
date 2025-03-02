@@ -29,12 +29,20 @@
       "PackagePath": "staticwebassets\\css\\EventCard\\UpcomingCard.css"
     },
     {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Event\\Search.css",
+      "PackagePath": "staticwebassets\\css\\Event\\Search.css"
+    },
+    {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Event\\create.css",
       "PackagePath": "staticwebassets\\css\\Event\\create.css"
     },
     {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Home\\index.css",
       "PackagePath": "staticwebassets\\css\\Home\\index.css"
+    },
+    {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Home\\test.json",
+      "PackagePath": "staticwebassets\\css\\Home\\test.json"
     },
     {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Profile\\Index.css",
@@ -67,6 +75,14 @@
     {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Auth\\Register.js",
       "PackagePath": "staticwebassets\\js\\Auth\\Register.js"
+    },
+    {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Event\\SearchPage.js",
+      "PackagePath": "staticwebassets\\js\\Event\\SearchPage.js"
+    },
+    {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Home\\SearchPage.js",
+      "PackagePath": "staticwebassets\\js\\Home\\SearchPage.js"
     },
     {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Home\\app.js",

@@ -4,6 +4,7 @@ using MaJerGan.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MaJerGan.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250224200825_AddMessagesTable")]
+    partial class AddMessagesTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,6 +66,7 @@ namespace MaJerGan.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Tags")
+                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -108,21 +112,6 @@ namespace MaJerGan.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("EventParticipants");
-                });
-
-            modelBuilder.Entity("MaJerGan.Models.EventTag", b =>
-                {
-                    b.Property<int>("EventId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TagId")
-                        .HasColumnType("int");
-
-                    b.HasKey("EventId", "TagId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("EventTags");
                 });
 
             modelBuilder.Entity("MaJerGan.Models.Message", b =>
@@ -468,25 +457,6 @@ namespace MaJerGan.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("MaJerGan.Models.EventTag", b =>
-                {
-                    b.HasOne("MaJerGan.Models.Event", "Event")
-                        .WithMany("EventTags")
-                        .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("MaJerGan.Models.Tag", "Tag")
-                        .WithMany("EventTags")
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Event");
-
-                    b.Navigation("Tag");
-                });
-
             modelBuilder.Entity("MaJerGan.Models.Message", b =>
                 {
                     b.HasOne("MaJerGan.Models.Event", "Event")
@@ -570,14 +540,7 @@ namespace MaJerGan.Migrations
 
             modelBuilder.Entity("MaJerGan.Models.Event", b =>
                 {
-                    b.Navigation("EventTags");
-
                     b.Navigation("Participants");
-                });
-
-            modelBuilder.Entity("MaJerGan.Models.Tag", b =>
-                {
-                    b.Navigation("EventTags");
                 });
 
             modelBuilder.Entity("MaJerGan.Models.User", b =>

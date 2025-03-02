@@ -78,6 +78,10 @@
     cursor: default;
 }
 
+.tag-button:hover {
+    background-color: #BDBDBD;
+}
+
 .fa-user {
     color: #666;
     margin-right: 5px;

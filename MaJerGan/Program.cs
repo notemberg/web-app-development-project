@@ -5,8 +5,11 @@ using MaJerGan.Models;
 using System.Net.WebSockets;
 using MaJerGan.Middleware;
 using MaJerGan.Services;
+using MaJerGan.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
 
 builder.Services.AddHostedService<EventCleanupService>();
 builder.Services.AddSingleton<EmailService>();
@@ -61,7 +64,6 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
-
 // ✅ ตั้งค่า Static Files (เพื่อโหลด CSS, JS, Images)
 app.UseHttpsRedirection();
 app.UseStaticFiles();  // ❗ ต้องมี เพื่อให้ CSS ทำงาน
