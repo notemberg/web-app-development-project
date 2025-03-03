@@ -38,9 +38,8 @@ body {
     color: #666;
     position: absolute;
     top: 10px;
-    left: 20px;
     text-align: left;
-    left: 150px;
+    left: 180px;
 }
 
 /* กล่องเนื้อหาหลัก */
@@ -51,12 +50,12 @@ body {
 }
 
 .profile-picture {
-    width: 120px; /* กำหนดขนาดรูป */
-    height: 120px;
+    width: 150px; /* กำหนดขนาดรูป */
+    height: 150px;
     border-radius: 50%;
     overflow: hidden;
     position: absolute;
-    top: -60px;  /* ย้ายรูปขึ้นให้ทับขอบกล่อง */
+    top: -90px;  /* ย้ายรูปขึ้นให้ทับขอบกล่อง */
     left: 20px; /* ขยับไปด้านซ้ายเพื่อให้ดูสมดุล */
     border: 5px solid white; /* เพิ่มขอบสีขาวให้รูป */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ดูมีมิติ */
@@ -360,4 +359,58 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
 
 .password-toggle:hover {
     color: #555;
+}
+
+
+.spinner {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.uploadbtn {
+    background-color: #fdefc3;
+    color: #555;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.uploadbtn:hover {
+    background-color: #f8d878;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+    .profile-container {
+        
+        margin: 0 auto;
+    }
+
+    .profile-picture {
+        width: 120px; /* กำหนดขนาดรูป */
+        height: 120px;
+        top: -70px;  /* ย้ายรูปขึ้นให้ทับขอบกล่อง */
+        left: 10px; /* ขยับไปด้านซ้ายเพื่อให้ดูสมดุล */
+    }
+
+    .profile-title {
+        left: 140px;
+    }
 }

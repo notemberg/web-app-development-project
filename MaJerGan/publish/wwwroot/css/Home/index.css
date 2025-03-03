@@ -250,3 +250,52 @@ button.next {
     color: #F1AEC5;
     font-size: 30px;
 }
+
+@media screen and (max-width: 768px) {
+    .events {
+        flex-direction: column;
+        padding: 0 10px;
+    }
+
+    .upcoming,
+    .invitation {
+        width: 100%;
+    }
+
+    .recommendations {
+        flex-direction: column;
+        padding: 0 10px;
+    }
+
+    .interest {
+        width: 100%;
+    }
+
+    .categories {
+        flex-direction: column;
+    }
+
+    .hot {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .hot-frame {
+        /* flex-direction: column; */
+        align-items: normal;
+    }
+
+    .hot-icon {
+        width: 100%;
+    }
+
+    .hot-text {
+        padding-top: 16px;
+        font-size: 30px;
+    }
+
+    .show-more-container {
+        margin-top: 10px;
+    }
+
+}

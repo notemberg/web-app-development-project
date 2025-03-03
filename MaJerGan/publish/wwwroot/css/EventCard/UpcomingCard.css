@@ -30,3 +30,48 @@
     margin-top: 5px;
     margin-bottom: 5px;
 }
+@media  (max-width: 600px) {
+    .upcoming-event-card {
+        min-height: 124px;
+        background: white;
+        padding: 15px;
+        /* border-radius: 15px; */
+        /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+        margin-bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        /* border: 1px solid #ddd; */
+        width: 100%;
+        cursor: pointer;
+    }
+    
+    .upcoming-event-card:hover {
+        scale: 1.02;
+    }
+    
+    .event-details {
+        color: purple;
+        font-size: 12px;
+        text-decoration: none;
+        position: absolute;
+        bottom: 10px; /* ✅ จัดไปที่ขอบล่าง */
+        right: 10px; /* ✅ จัดไปที่ขอบขวา */
+    }
+    
+    .event-info {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .event-title{
+        font-size: 24px;
+        font-weight: bold;
+        width: 100%;
+    }
+
+    .Time{
+        font-size: 16px;
+        font-weight: bold;
+    }
+}

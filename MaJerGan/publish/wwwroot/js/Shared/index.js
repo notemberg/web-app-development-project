@@ -80,3 +80,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("open");
+  document.getElementById("overlay").classList.toggle("open");
+}
