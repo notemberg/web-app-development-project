@@ -13,27 +13,27 @@ namespace MaJerGan.Models
         public int Id { get; set; }
 
         [Required, EmailAddress]
-        public string Email { get; set; } = string.Empty;
+        public string Email { get; set; }
 
         [Required, MinLength(6)]
-        public string PasswordHash { get; set; } = string.Empty;
+        public string PasswordHash { get; set; }
 
         [Required, MaxLength(50)]
-        public string Username { get; set; } = string.Empty;
+        public string Username { get; set; }
 
         [Required]
         public DateTime DateOfBirth { get; set; }
 
         [Required]
-        public string Gender { get; set; } = string.Empty; // ✅ เปลี่ยนเป็น Enum
+        public string Gender { get; set; } // ✅ เปลี่ยนเป็น Enum
 
         // optional
         [Phone]
         [MaxLength(15)] // ✅ ปรับให้รองรับเบอร์โทรมากขึ้น
-        public string Phone { get; set; } = string.Empty;
+        public string Phone { get; set; }
 
         [NotMapped] // ✅ ไม่บันทึกลงฐานข้อมูล
-        public string Password { get; set; } = string.Empty;
+        public string Password { get; set; }
 
         // ✅ เชื่อมความสัมพันธ์กับ UserTags
         public List<UserTag> UserTags { get; set; } = new List<UserTag>();
@@ -44,8 +44,6 @@ namespace MaJerGan.Models
         // ✅ เพิ่ม CreatedAt และ UpdatedAt
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
-
-        public string UserName { get; set; } = string.Empty;
 
         public void SetPassword(string password)
         {

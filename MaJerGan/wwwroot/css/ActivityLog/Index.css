@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Sulphur Point';
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.container {
+    width: 80%;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 180px;
+}
+
+.activity-log-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.profile-content {
+    display: flex;
+    align-items: flex-start; /* Align items to the start */
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-picture {
+    width: 20%;
+    display: flex;
+    flex-direction: column; /* Stack profile picture and info vertically */
+    align-items: center;
+}
+
+.profile-picture img {
+    width: 85%;
+    height: auto;
+    border-radius: 25px;
+    background-color: #e4e4e4;
+    padding: 5px;
+}
+
+.profile-info {
+    margin-top: 20px; /* Add margin to the top */
+    text-align: center; /* Center align the text */
+}
+
+.log-section {
+    margin-left: 20px; /* Add margin to the left */
+    flex: 1; /* Allow log-section to take remaining space */
+}
+
+.log-items {
+    margin-bottom: 20px;
+}
+
+.log-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.log-details {
+    flex: 1;
+}
+
+.log-status {
+    display: flex;
+    align-items: center;
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.status-indicator.hosted {
+    background-color: blue;
+}
+
+.status-indicator.approved {
+    background-color: green;
+}
+
+.status-indicator.pending {
+    background-color: orange;
+}

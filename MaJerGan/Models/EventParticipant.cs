@@ -14,13 +14,13 @@ namespace MaJerGan.Models
         public int EventId { get; set; }
         
         [ForeignKey("EventId")]
-        public virtual Event Event { get; set; } = new Event();
+        public virtual Event Event { get; set; }
 
         // ✅ เชื่อมกับ User
         [Required]
         public int UserId { get; set; }
         [ForeignKey("UserId")]
-        public virtual User User { get; set; } = new User();
+        public virtual User User { get; set; }
 
         // วันที่เข้าร่วม
         public DateTime JoinedAt { get; set; } = DateTime.Now;

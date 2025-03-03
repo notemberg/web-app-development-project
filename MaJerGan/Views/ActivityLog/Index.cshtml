@@ -1,90 +1,77 @@
-@model List<MaJerGan.Models.ActivityLogViewModel>
+@model MaJerGan.Models.ActivityLogIndexViewModel
 
 @{
     ViewData["Title"] = "Activity Log";
+    ViewData["ShowHeader"] = "True";
 }
 
-<div class="activity-log-container">
-    <h2 class="title">Activity Log</h2>
+<!DOCTYPE html>
+<html lang="en">
 
-    <!-- User Profile Section -->
-    <div class="profile-section">
-        <div class="profile-pic">
-            <img src="https://via.placeholder.com/100" alt="Profile Picture">
-        </div>
-        <div class="profile-info">
-            <h3>@User.Identity.Name</h3>
-            <p>ID: @User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Log</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="~/css/ActivityLog/Index.css" />
+</head>
+
+<body>
+
+    <div class="activity-log-container">
+        <div class="title">Activity Log</div>
+
+        <!-- User Profile Section -->
+        <div class="profile-content">
+            <div class="profile-picture">
+                <img id="profileImg" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Picture">
+                <div class="profile-info">
+                    <h3>@User.Identity.Name</h3>
+                    <p>ID: @User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value</p>
+                </div>
+            </div>
+
+            <div class="log-section">
+                <!-- Hosted Events -->
+                <h3>Host</h3>
+                <div class="log-items">
+                    @foreach (var activity in Model.HostedActivities)
+                    {
+                        <div class="log-item">
+                            <div class="log-details">
+                                <h4>@activity.EventTitle</h4>
+                                <p>Hosted by: @activity.HostName</p>
+                                <p>@activity.EventTime.ToString("dd/MM/yyyy hh:mm tt")</p>
+                                <p>Status: @activity.Status</p>
+                            </div>
+                            <div class="log-status">
+                                <span class="status-indicator hosted"></span>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <!-- Participated Events -->
+                <h3>Joined Events</h3>
+                <div class="log-items">
+                    @foreach (var activity in Model.JoinedActivities)
+                    {
+                        <div class="log-item">
+                            <div class="log-details">
+                                <h4>@activity.EventTitle</h4>
+                                <p>Host: @activity.HostName</p>
+                                <p>@activity.EventTime.ToString("dd/MM/yyyy hh:mm tt")</p>
+                                <p>Status: @activity.Status</p>
+                            </div>
+                            <div class="log-status">
+                                <span class="status-indicator @(activity.Status == "Active" ? "approved" : "pending")"></span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
         </div>
     </div>
+</body>
 
-    <div class="log-section">
-        <!-- Hosted Events -->
-        <h3>Host</h3>
-        <div class="log-items">
-            @foreach (var activity in Model)
-            {
-                <div class="log-item">
-                    <div class="log-details">
-                        <h4>@activity.EventTitle</h4>
-                        <p>Hosted by: @activity.HostName</p>
-                        <p>@activity.JoinedAt.ToString("dd/MM/yyyy hh:mm tt")</p>
-                        <p>Status: @(activity.Status == "1" ? "Approved" : "Pending")</p>
-                    </div>
-                    <div class="log-status">
-                        <span class="status-indicator @(activity.Status == "1" ? "approved" : "pending")"></span>
-                    </div>
-                </div>
-            }
-        </div>
-
-        <!-- Participated Events -->
-        <h3>Participation</h3>
-        <div class="log-items">
-            @foreach (var activity in Model)
-            {
-                <div class="log-item">
-                    <div class="log-details">
-                        <h4>@activity.EventTitle</h4>
-                        <p>Host: @activity.HostName</p>
-                        <p>@activity.JoinedAt.ToString("dd/MM/yyyy hh:mm tt")</p>
-                        <p>Status: @(activity.Status == "1" ? "Approved" : "Pending")</p>
-                    </div>
-                    <div class="log-status">
-                        <span class="status-indicator @(activity.Status == "1" ? "approved" : "pending")"></span>
-                    </div>
-                </div>
-            }
-        </div>
-    </div>
-</div>
-
-<style>
-    .activity-log-container {
-        width: 80%;
-        margin: 20px auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .title {
-        text-align: center;
-        font-size: 24px;
-        font-weight: bold;
-    }
-
-    .profile-section {
-        display: flex;
-        align-items: center;
-        padding: 20px;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .profile-pic img {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        margin
-    }
+</html>

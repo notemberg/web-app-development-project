@@ -18,7 +18,7 @@ namespace MaJerGan.Controllers
             _context = context;
         }
 
-        [HttpGet()]
+        [HttpGet("")]
         public IActionResult Index()
         {
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
@@ -29,18 +29,35 @@ namespace MaJerGan.Controllers
 
             int userId = int.Parse(userIdClaim.Value);
 
-            var activities = _context.EventParticipants
-                                     .Where(ep => ep.UserId == userId)
-                                     .Select(ep => new ActivityLogViewModel
-                                     {
-                                         EventTitle = ep.Event.Title,
-                                         HostName = ep.Event.Creator.UserName, // Use Creator instead of Host
-                                         JoinedAt = ep.JoinedAt,
-                                         Status = ep.Status == 0 ? "Inactive" : "Active"
-                                     })
-                                     .ToList();
+            var hostedActivities = _context.Events
+                                           .Where(e => e.CreatedBy == userId)
+                                           .Select(e => new ActivityLogViewModel
+                                           {
+                                               EventTitle = e.Title,
+                                               HostName = e.Creator.Username,
+                                               EventTime = e.EventTime,
+                                               Status = "Hosted"
+                                           })
+                                           .ToList();
 
-            return View(activities);
+            var joinedActivities = _context.EventParticipants
+                                           .Where(ep => ep.UserId == userId)
+                                           .Select(ep => new ActivityLogViewModel
+                                           {
+                                               EventTitle = ep.Event.Title,
+                                               HostName = ep.Event.Creator.Username,
+                                               EventTime = ep.Event.EventTime,
+                                               Status = ep.Status == 0 ? "Inactive" : "Active"
+                                           })
+                                           .ToList();
+
+            var model = new ActivityLogIndexViewModel
+            {
+                HostedActivities = hostedActivities,
+                JoinedActivities = joinedActivities
+            };
+
+            return View(model);
         }
     }
 }
