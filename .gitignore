@@ -1,0 +1,78 @@
+# .NET Core
+bin/
+obj/
+
+# User-specific files
+.vs/
+.vscode/
+.idea/
+
+# ASP.NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# VS for Mac
+.vscode/
+
+# ASP.NET
+*.dbmdl
+
+# SQL Server files
+*.mdf
+*.ldf
+
+# JetBrains Rider
+.idea/
+
+# Node.js dependencies (if using Node.js for front-end)
+node_modules/
+
+# npm debug log
+npm-debug.log
+
+# Yarn logs
+yarn-debug.log
+yarn-error.log
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Ignore appsettings.json if sensitive data is stored here
+appsettings.json
+appsettings.Development.json
+
+# Ignore logs or other generated files
+logs/
+
+.env
+
+MaJerGan/bin/Debug/net9.0/MaJerGan.deps.json
+MaJerGan/bin/Debug/net9.0/MaJerGan.dll
+MaJerGan/bin/Debug/net9.0/MaJerGan.exe
+MaJerGan/bin/Debug/net9.0/MaJerGan.pdb
+MaJerGan/obj/Debug/net9.0/apphost.exe
+MaJerGan/obj/Debug/net9.0/MaJerGan.AssemblyInfo.cs
+MaJerGan/obj/Debug/net9.0/MaJerGan.AssemblyInfoInputs.cache
+MaJerGan/obj/Debug/net9.0/MaJerGan.csproj.CoreCompileInputs.cache
+MaJerGan/obj/Debug/net9.0/MaJerGan.csproj.FileListAbsolute.txt
+MaJerGan/obj/Debug/net9.0/MaJerGan.dll
+MaJerGan/obj/Debug/net9.0/MaJerGan.pdb
+MaJerGan/obj/Debug/net9.0/MaJerGan.sourcelink.json
+MaJerGan/obj/Debug/net9.0/ref/MaJerGan.dll
+MaJerGan/obj/Debug/net9.0/refint/MaJerGan.dll
