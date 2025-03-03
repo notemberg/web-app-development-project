@@ -26,8 +26,8 @@
             <div class="profile-picture">
                 <img id="profileImg" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Picture">
                 <div class="profile-info">
-                    <h3>@User.Identity.Name</h3>
-                    <p>ID: @User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value</p>
+                    <h3>@Model.UserName</h3>
+                    <p>ID: @Model.UserId</p>
                 </div>
             </div>
 

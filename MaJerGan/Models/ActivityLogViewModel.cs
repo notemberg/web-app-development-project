@@ -15,5 +15,7 @@ namespace MaJerGan.Models
     {
         public List<ActivityLogViewModel> HostedActivities { get; set; } = new List<ActivityLogViewModel>();
         public List<ActivityLogViewModel> JoinedActivities { get; set; } = new List<ActivityLogViewModel>();
+        public string UserName { get; set; } // Add the username property
+        public int UserId { get; set; } // Add the user ID property
     }
 }

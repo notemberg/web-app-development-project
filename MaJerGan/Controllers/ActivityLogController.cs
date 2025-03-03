@@ -18,19 +18,27 @@ namespace MaJerGan.Controllers
             _context = context;
         }
 
-        [HttpGet("")]
-        public IActionResult Index()
+        [HttpGet("{id?}")]
+        public IActionResult Index(int? id)
         {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
-            if (userIdClaim == null)
+            if (id == null)
             {
-                return RedirectToAction("Login", "Auth");
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (userId == null)
+                {
+                    return Unauthorized("User not logged in.");
+                }
+                id = int.Parse(userId);
             }
 
-            int userId = int.Parse(userIdClaim.Value);
+            var user = _context.Users.FirstOrDefault(u => u.Id == id);
+            if (user == null)
+            {
+                return NotFound("User not found.");
+            }
 
             var hostedActivities = _context.Events
-                                           .Where(e => e.CreatedBy == userId)
+                                           .Where(e => e.CreatedBy == id)
                                            .Select(e => new ActivityLogViewModel
                                            {
                                                EventTitle = e.Title,
@@ -41,7 +49,7 @@ namespace MaJerGan.Controllers
                                            .ToList();
 
             var joinedActivities = _context.EventParticipants
-                                           .Where(ep => ep.UserId == userId)
+                                           .Where(ep => ep.UserId == id && ep.Event.CreatedBy != id)
                                            .Select(ep => new ActivityLogViewModel
                                            {
                                                EventTitle = ep.Event.Title,
@@ -54,7 +62,9 @@ namespace MaJerGan.Controllers
             var model = new ActivityLogIndexViewModel
             {
                 HostedActivities = hostedActivities,
-                JoinedActivities = joinedActivities
+                JoinedActivities = joinedActivities,
+                UserId = id.Value,
+                UserName = user.Username // Pass the username to the view
             };
 
             return View(model);
