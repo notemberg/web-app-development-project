@@ -1,0 +1,225 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Arial', sans-serif; */
+    font-family: 'Sulphur Point';
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding: 20px 0px;
+    padding-bottom: 0px;
+    margin: 0;
+}
+
+.container {
+    /* ✅ ทำให้ container ขยายเต็มพื้นที่ที่เหลือ */
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* ✅ ให้ footer อยู่ล่างสุด */
+    background-color: #ff0000;
+    padding-top: 100px;
+}
+
+.event-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFB6CF;      
+    border-radius: 50px;
+    font-size: 40px;
+    border: 3px solid #E3E3E3 ;
+    padding-left: 50px;
+    padding-right: 20px;
+    height: 140px;
+}
+.event-head-text {
+    color: #ffffff;   
+    font-size: 40px;     
+    white-space: nowrap;  /* Prevent text from wrapping */
+    overflow: hidden;  /* Hide overflow */
+    text-overflow: ellipsis;  /* Add "..." when text is too long */
+    max-width: 50%; /* Adjust this based on available space */
+}
+
+.event-head-host{
+    color: #ffffff;   
+    border: 3px solid #E3E3E3 ;
+    background: #ffffff; 
+    border-radius: 30px;
+}
+
+.event-head-host-text {
+    color: #000000; 
+    font-size: 36px;
+    margin: 0px 20px;
+}
+
+.head {
+    display: grid;
+    grid-template-columns: 30% 30% 40%;
+    padding: 0 50px;
+    background-color: #ffffff;
+    font-size: 20px;
+    line-height: 12px;
+}
+
+.timeleft {
+    color: green;
+    justify-self: right;
+    padding: 0 10px;
+}
+
+.pre {
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #ffffff;
+}
+
+.information {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    background: #ffffff;
+    border-radius: 50px;
+    align-self: stretch;
+    min-width: 600px;
+}
+
+.information-detail {
+    background: #ffffff;
+    border-radius: 50px;
+    border: 3px solid #E3E3E3 ;
+    min-height: 200px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.information-detail-text{
+    font-size: 24px;
+    overflow-wrap: break-word; /* Breaks long words */
+    white-space: pre-line; /* Preserves new lines */
+    padding-bottom: 100px;
+    margin: 20px;
+}
+
+.tag-list {
+    border-radius: 50px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    overflow-x: auto; /* Enables horizontal scrolling if necessary */
+    white-space: nowrap;
+}
+
+.tag-each {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: 2px solid #FFB6CF;
+    font-size: 18px;
+    overflow: hidden;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    white-space: nowrap; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; 
+}
+
+.participant {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    margin: 20px;
+    border-radius: 50px;
+    min-width: 270px; 
+    max-width: 400px; 
+    overflow: hidden; 
+    
+}
+
+.participant-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #FFB6CF;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    padding: 20px 20px;
+    height: 80px;
+    border-top: 3px solid #E3E3E3 ;
+    border-left: 3px solid #E3E3E3 ;
+    border-right: 3px solid #E3E3E3 ;
+}
+
+.participant-head-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    width: 100%;
+    color: #ffffff;  
+}
+
+.participant-head-number {
+    color: #333;  
+}
+  
+.participant-content {
+    flex-grow: 1;
+    padding: 20px;
+    text-align: start;
+    background: #ffffff;
+    height: 600px;
+    border-left: 3px solid #E3E3E3 ;
+    border-right: 3px solid #E3E3E3 ;
+    border-bottom: 3px solid #E3E3E3 ;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    overflow-y: auto; /* Enables vertical scrolling */
+    max-height: 480px; 
+}
+
+.participant-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.participant-box {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: 2px solid #FFB6CF;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+

@@ -10,17 +10,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@Model.Title</title>
-    <link rel="stylesheet" href="~/css/Event/create.css" />
+    <title>@Model.Title</title>   
+
+
+    <link rel="stylesheet" href="~/css/Event/edetails.css" />
 </head>
 
 <script src="~/js/Tag.js"></script>
 <script src="~/js/closeAutoFill.js"></script>
+<script src="~/js/Event/edetails.js"></script>
 
 <body>
-
-    <div class="content">
-        <div class="form-container">
+    <section class="container">
+        <div class="pre">
+            <div class="information">
+                <div class="event-head">
+                    <div class="event-head-text">
+                        <span>@Model.Title</span>
+                    </div>
+                    <div class="event-head-host">
+                        <div class="event-head-host-text">
+                            <span>Host By : @Model.Creator.Username</span>  
+                        </div>
+                    </div>
+                </div>
+                <div class="head">
+                    <p>@Model.EventTime.ToString("📅 dd/MMM/yyyy")</p>
+                    <p>@Model.EventTime.ToString("🕒 hh:mm")</p>
+                    <div class="timeleft">
+                        ⏳<p id="timeUntilExpiry"> Calculating...</p>
+                    </div>
+                </div>
+                <div id="eventId" data-id="@Model.Id"></div>
+                <div class="information-detail">
+                    <div class="information-detail-text">
+                        <span>@Model.Description.Trim()</span>
+                    </div>
+                </div>
+                <div class="tag-list">
+                    @foreach (var tag in Model.Tags.Split(','))
+                    {
+                        <div class="tag-each">@tag.Trim()</div>
+                    }
+                </div>
+            </div>
+            <div class="participant"> 
+                <div class="participant-head">
+                    <div class="participant-head-text">
+                        <span>Participants </span>
+                        <div class="participant-head-number">
+                            <span>👥@Model.Participants.Count()/@Model.MaxParticipants</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="participant-content">
+                    <div class="participant-list">
+                    @foreach (var participant in Model.Participants)
+                    {
+                       <div class="participant-box">@participant.User.Username</div>
+                    }
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @* <div class="content">
+        <div class="container">
             <h2>✨ รายละเอียดกิจกรรม ✨</h2>
 
             <div>
@@ -74,7 +130,7 @@
             </form>
 
         </div>
-    </div>
+    </div> *@
 
 </body>
 

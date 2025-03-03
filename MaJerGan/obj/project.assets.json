@@ -9203,26 +9203,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sliber\\.nuget\\packages\\": {}
+    "C:\\Users\\Tim\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\MaJerGan.csproj",
+      "projectUniqueName": "C:\\Users\\Tim\\Desktop\\CodeArchive\\Webapp\\web-app-development-project\\MaJerGan\\MaJerGan.csproj",
       "projectName": "MaJerGan",
-      "projectPath": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\MaJerGan.csproj",
-      "packagesPath": "C:\\Users\\Sliber\\.nuget\\packages\\",
-      "outputPath": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\obj\\",
+      "projectPath": "C:\\Users\\Tim\\Desktop\\CodeArchive\\Webapp\\web-app-development-project\\MaJerGan\\MaJerGan.csproj",
+      "packagesPath": "C:\\Users\\Tim\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Tim\\Desktop\\CodeArchive\\Webapp\\web-app-development-project\\MaJerGan\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Sliber\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Tim\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -9241,7 +9239,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -9289,7 +9287,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

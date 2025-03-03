@@ -35,7 +35,6 @@ namespace MaJerGan.Models
 
         public bool IsClosed { get; set; } = false; // สถานะการปิดรับสมัคร
         [StringLength(500)]
-        public string ExtraInfo { get; set; } // ข้อมูลเพิ่มเติม
 
         public DateTime CreatedAt { get; set; } = DateTime.Now; // วันที่สร้างกิจกรรม
 

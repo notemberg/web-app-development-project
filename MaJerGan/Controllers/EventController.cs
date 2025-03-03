@@ -37,13 +37,6 @@ namespace MaJerGan.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Event model)
         {
-            // if (ModelState.IsValid)
-            // {
-            //     _context.Events.Add(model);
-            //     await _context.SaveChangesAsync();
-            //     return RedirectToAction("Index");
-            // }
-            // return View(model);
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
 
             if (userIdClaim == null)
@@ -83,6 +76,45 @@ namespace MaJerGan.Controllers
             _context.Events.Update(eventDetails);
             await _context.SaveChangesAsync();
             return View(eventDetails);
+        }
+
+        [HttpGet]
+        [Route("Event/Details/s{id}")]
+        public async Task<IActionResult> GetEventById(int id)
+        {
+            var eventDetails = await _context.Events
+                .Include(e => e.Creator)
+                .Include(e => e.Participants)
+                .ThenInclude(p => p.User)
+                .FirstOrDefaultAsync(e => e.Id == id);
+
+            if (eventDetails == null)
+                return NotFound(new { message = "Event not foundDD" });
+
+            var response = new
+            {
+                eventDetails.Id,
+                eventDetails.Title,
+                eventDetails.Description,
+                eventDetails.EventTime,
+                eventDetails.ExpiryDate,
+                eventDetails.Location,
+                eventDetails.MaxParticipants,
+                CurrentParticipants = eventDetails.Participants.Count,
+                Tags = eventDetails.Tags.Split(','), // Assuming tags are stored as CSV
+                Creator = new
+                {
+                    eventDetails.Creator.Id,
+                    eventDetails.Creator.Username
+                },
+                Participants = eventDetails.Participants.Select(p => new
+                {
+                    p.User.Id,
+                    p.User.Username
+                }).ToList()
+            };
+
+            return Ok(response);
         }
 
         [HttpPost]
@@ -189,23 +221,22 @@ namespace MaJerGan.Controllers
             }
 
             var events = orderedEvents
-    .Select(e => new
-    {
-        e.Id,
-        Title = string.IsNullOrEmpty(e.Title) ? "No Title" : e.Title, // ✅ ป้องกัน null
-        Description = string.IsNullOrEmpty(e.Description) ? "No Description" : e.Description, // ✅ ป้องกัน null
-        e.EventTime,
-        Tags = string.IsNullOrEmpty(e.Tags) ? "No Tags" : e.Tags, // ✅ ป้องกัน null
-        //e.ViewCount,
-        e.MaxParticipants,
-        Location = string.IsNullOrEmpty(e.Location) ? "No Location" : e.Location, // ✅ ป้องกัน null
-        //e.ExpiryDate,
-        e.CreatedAt,
-        CurrentParticipants = e.Participants?.Count ?? 0, // ✅ ป้องกัน null
-        Creator = e.Creator?.Username ?? "Unknown Creator" // ✅ ป้องกัน null
-    })
-    .ToList();
-
+                .Select(e => new
+                {
+                    e.Id,
+                    Title = string.IsNullOrEmpty(e.Title) ? "No Title" : e.Title, // ✅ ป้องกัน null
+                    Description = string.IsNullOrEmpty(e.Description) ? "No Description" : e.Description, // ✅ ป้องกัน null
+                    e.EventTime,
+                    Tags = string.IsNullOrEmpty(e.Tags) ? "No Tags" : e.Tags, // ✅ ป้องกัน null
+                    //e.ViewCount,
+                    e.MaxParticipants,
+                    Location = string.IsNullOrEmpty(e.Location) ? "No Location" : e.Location, // ✅ ป้องกัน null
+                    //e.ExpiryDate,
+                    e.CreatedAt,
+                    CurrentParticipants = e.Participants?.Count ?? 0, // ✅ ป้องกัน null
+                    Creator = e.Creator?.Username ?? "Unknown Creator" // ✅ ป้องกัน null
+                })
+                .ToList();
 
             return Json(events);
         }

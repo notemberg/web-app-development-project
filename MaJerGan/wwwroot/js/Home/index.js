@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
               tagsArray.length - 3
             } more</span>`;
           }
-
+   
           // ✅ จำกัดความยาวของชื่อสถานที่
           let locationDisplay =
             event.location.length > 20
