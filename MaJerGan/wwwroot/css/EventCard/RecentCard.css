@@ -26,7 +26,7 @@
     font-weight: bold;
 }
 
-.event-header {
+.recent-event-content > .event-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -47,12 +47,14 @@
     font-weight: normal;
 }
 
-.event-body {
+.recent-event-content > .event-body {
     font-size: 14px;
     color: gray;
     margin-top: 5px;
     display: flex;
     flex-wrap: nowrap; /* ❗ ป้องกันขึ้นบรรทัดใหม่ */
+    gap: 10px;
+    align-items: center;
 }
 
 .creator {
@@ -66,7 +68,7 @@
     margin-top: 5px;
 } */
 
-.participants {
+.recent-event-content > .event-body > .participants {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -203,7 +205,7 @@
         font-size: 14px;
     }
 
-    .participants {
+    .recent-event-content > .event-body >.participants {
         display: flex;
         align-items: center;
         font-size: 14px;
@@ -264,12 +266,13 @@
         font-weight: bold;
     }
 
-    .event-header {
+    .recent-event-content > .event-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         font-size: 16px;
         font-weight: bold;
+        width: 100%;
     }
 
     .recent-event-card .event-title {
@@ -285,15 +288,11 @@
         font-weight: normal;
     }
 
-    .event-body {
-        flex-direction: column;
-    }
-
     .creator {
         font-size: 16px;
     }
 
-    .participants {
+    .recent-event-content > .event-body > .participants {
         display: flex;
         align-items: center;
         font-size: 16px;

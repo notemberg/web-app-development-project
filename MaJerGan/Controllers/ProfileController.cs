@@ -141,6 +141,13 @@ namespace MaJerGan.Controllers
                     return Unauthorized(new { success = false, message = "Unauthorized" });
                 }
 
+                // ✅ ดึง Public ID จาก URL ของ Cloudinary (รูปเก่า)
+                if (!string.IsNullOrEmpty(user.ProfilePicturee))
+                {
+                    var oldPublicId = user.ProfilePicturee.Split('/').Last().Split('.').First();
+                    await _cloudinaryService.DeleteImageAsync("profile-pictures/" + oldPublicId);
+                }
+
                 using (var stream = file.OpenReadStream())
                 {
                     Console.WriteLine($"Uploading file: {file.FileName}");
@@ -152,10 +159,10 @@ namespace MaJerGan.Controllers
                     }
 
                     Console.WriteLine("Uploading image to Cloudinary...");
-                    
+
                     // ✅ อัปโหลดรูปไปยัง Cloudinary
                     var imageUrl = await _cloudinaryService.UploadImageAsync(stream, file.FileName);
-                    
+
                     if (string.IsNullOrEmpty(imageUrl))
                     {
                         return StatusCode(500, new { success = false, message = "Image upload failed!(controller)" });

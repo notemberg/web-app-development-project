@@ -15,6 +15,7 @@ builder.Services.AddHostedService<EventCleanupService>();
 builder.Services.AddSingleton<EmailService>();
 builder.Services.AddSingleton<CloudinaryService>();
 
+
 builder.Services.AddDistributedMemoryCache(); // ใช้ In-Memory Cache สำหรับ Session
 builder.Services.AddSession(options =>
 {

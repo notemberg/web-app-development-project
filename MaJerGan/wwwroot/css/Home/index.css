@@ -264,6 +264,7 @@ button.next {
 
     .recommendations {
         flex-direction: column;
+        padding: 0 10px;
     }
 
     .interest {
@@ -276,10 +277,12 @@ button.next {
 
     .hot {
         width: 100%;
+        padding: 0 15px;
     }
 
     .hot-frame {
-        flex-direction: column;
+        /* flex-direction: column; */
+        align-items: normal;
     }
 
     .hot-icon {
@@ -287,6 +290,7 @@ button.next {
     }
 
     .hot-text {
+        padding-top: 16px;
         font-size: 30px;
     }
 

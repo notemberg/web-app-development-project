@@ -64,9 +64,10 @@
                     <div class="crop-container">
                         <canvas id="cropCanvas"></canvas>
                     </div>
-                    <input type="range" id="zoomRange" min="0.5" max="2" step="0.01" value="1"
+                    <input type="range" id="zoomRange" min="0.5" max="2" step="0.01" value="0"
                         oninput="setZoom(this.value)">
-                    <button onclick="cropAndUpload()">บันทึก</button>
+                    <button class="uploadbtn"onclick="cropAndUpload()"><span id="buttonText">บันทึก</span>
+                        <span id="loadingSpinner" class="spinner" style="display: none;"></span></button>
                 </div>
             </div>
 
@@ -114,6 +115,7 @@
                 <span class="close" onclick="closeModal()">&times;</span>
 
                 <div class="password-container">
+                    <h2>Change Password</h2>
                     <input type="hidden" id="userId" value="@Model.Id">
                     <label>Password</label>
                     <div class="password-field">

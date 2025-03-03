@@ -70,6 +70,16 @@
                 <p style="white-space: pre-line;">@Model.ExtraInfo</p>
             </div>
 
+            <div>
+                <label>👥 ผู้เข้าร่วม:</label>
+                @foreach (var participant in Model.Participants)
+                {
+                    <div class="participant">
+                        <p>@participant.User.Username</p>
+                    </div>
+                }
+            </div>
+
             <form asp-action="Join" asp-controller="Event" method="post">
                 <input type="hidden" name="eventId" value="@Model.Id" />
                 <button type="submit" class="join-btn">🚀 เข้าร่วมกิจกรรม</button>

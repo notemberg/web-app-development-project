@@ -2387,13 +2387,13 @@
       ]
     },
     {
-      "Route": "css/EventCard/RecentCard.8ktye0zu94.css",
+      "Route": "css/EventCard/RecentCard.bvq92tv24e.css",
       "AssetFile": "css/EventCard/RecentCard.css.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000875656743"
+          "Quality": "0.000683060109"
         }
       ],
       "ResponseHeaders": [
@@ -2411,7 +2411,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1141"
+          "Value": "1463"
         },
         {
           "Name": "Content-Type",
@@ -2419,15 +2419,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ewIIUs7EwHOf8cLy+JCqCls/sbx/9iMC+0H0mpB8m0U=\""
+          "Value": "\"QKsiflA53Fn/iroMCzuwCrilizx/fmU60MCLDkyRKdU=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"KEhDJhXBvBxmNwCmTNb6u+J0g+ZBRdR5nvG5VZZj6Jw=\""
+          "Value": "W/\"ucnlDNGD3f7bqL4D4t2nQlkzgjyN8FInVygGQTUG9i4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 21:53:41 GMT"
+          "Value": "Sun, 02 Mar 2025 22:58:48 GMT"
         },
         {
           "Name": "Vary",
@@ -2437,11 +2437,11 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "8ktye0zu94"
+          "Value": "bvq92tv24e"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-KEhDJhXBvBxmNwCmTNb6u+J0g+ZBRdR5nvG5VZZj6Jw="
+          "Value": "sha256-ucnlDNGD3f7bqL4D4t2nQlkzgjyN8FInVygGQTUG9i4="
         },
         {
           "Name": "label",
@@ -2450,7 +2450,7 @@
       ]
     },
     {
-      "Route": "css/EventCard/RecentCard.8ktye0zu94.css",
+      "Route": "css/EventCard/RecentCard.bvq92tv24e.css",
       "AssetFile": "css/EventCard/RecentCard.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2464,7 +2464,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4350"
+          "Value": "6787"
         },
         {
           "Name": "Content-Type",
@@ -2472,21 +2472,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"KEhDJhXBvBxmNwCmTNb6u+J0g+ZBRdR5nvG5VZZj6Jw=\""
+          "Value": "\"ucnlDNGD3f7bqL4D4t2nQlkzgjyN8FInVygGQTUG9i4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 21:53:41 GMT"
+          "Value": "Sun, 02 Mar 2025 22:58:48 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "8ktye0zu94"
+          "Value": "bvq92tv24e"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-KEhDJhXBvBxmNwCmTNb6u+J0g+ZBRdR5nvG5VZZj6Jw="
+          "Value": "sha256-ucnlDNGD3f7bqL4D4t2nQlkzgjyN8FInVygGQTUG9i4="
         },
         {
           "Name": "label",
@@ -2495,7 +2495,7 @@
       ]
     },
     {
-      "Route": "css/EventCard/RecentCard.8ktye0zu94.css.gz",
+      "Route": "css/EventCard/RecentCard.bvq92tv24e.css.gz",
       "AssetFile": "css/EventCard/RecentCard.css.gz",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2513,7 +2513,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1141"
+          "Value": "1463"
         },
         {
           "Name": "Content-Type",
@@ -2521,11 +2521,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ewIIUs7EwHOf8cLy+JCqCls/sbx/9iMC+0H0mpB8m0U=\""
+          "Value": "\"QKsiflA53Fn/iroMCzuwCrilizx/fmU60MCLDkyRKdU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 21:53:41 GMT"
+          "Value": "Sun, 02 Mar 2025 22:58:48 GMT"
         },
         {
           "Name": "Vary",
@@ -2535,11 +2535,11 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "8ktye0zu94"
+          "Value": "bvq92tv24e"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ewIIUs7EwHOf8cLy+JCqCls/sbx/9iMC+0H0mpB8m0U="
+          "Value": "sha256-QKsiflA53Fn/iroMCzuwCrilizx/fmU60MCLDkyRKdU="
         },
         {
           "Name": "label",
@@ -2554,7 +2554,7 @@
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000875656743"
+          "Quality": "0.000683060109"
         }
       ],
       "ResponseHeaders": [
@@ -2572,7 +2572,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1141"
+          "Value": "1463"
         },
         {
           "Name": "Content-Type",
@@ -2580,15 +2580,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ewIIUs7EwHOf8cLy+JCqCls/sbx/9iMC+0H0mpB8m0U=\""
+          "Value": "\"QKsiflA53Fn/iroMCzuwCrilizx/fmU60MCLDkyRKdU=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"KEhDJhXBvBxmNwCmTNb6u+J0g+ZBRdR5nvG5VZZj6Jw=\""
+          "Value": "W/\"ucnlDNGD3f7bqL4D4t2nQlkzgjyN8FInVygGQTUG9i4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 21:53:41 GMT"
+          "Value": "Sun, 02 Mar 2025 22:58:48 GMT"
         },
         {
           "Name": "Vary",
@@ -2598,7 +2598,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-KEhDJhXBvBxmNwCmTNb6u+J0g+ZBRdR5nvG5VZZj6Jw="
+          "Value": "sha256-ucnlDNGD3f7bqL4D4t2nQlkzgjyN8FInVygGQTUG9i4="
         }
       ]
     },
@@ -2617,7 +2617,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4350"
+          "Value": "6787"
         },
         {
           "Name": "Content-Type",
@@ -2625,17 +2625,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"KEhDJhXBvBxmNwCmTNb6u+J0g+ZBRdR5nvG5VZZj6Jw=\""
+          "Value": "\"ucnlDNGD3f7bqL4D4t2nQlkzgjyN8FInVygGQTUG9i4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 21:53:41 GMT"
+          "Value": "Sun, 02 Mar 2025 22:58:48 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-KEhDJhXBvBxmNwCmTNb6u+J0g+ZBRdR5nvG5VZZj6Jw="
+          "Value": "sha256-ucnlDNGD3f7bqL4D4t2nQlkzgjyN8FInVygGQTUG9i4="
         }
       ]
     },
@@ -2658,7 +2658,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1141"
+          "Value": "1463"
         },
         {
           "Name": "Content-Type",
@@ -2666,11 +2666,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ewIIUs7EwHOf8cLy+JCqCls/sbx/9iMC+0H0mpB8m0U=\""
+          "Value": "\"QKsiflA53Fn/iroMCzuwCrilizx/fmU60MCLDkyRKdU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 21:53:41 GMT"
+          "Value": "Sun, 02 Mar 2025 22:58:48 GMT"
         },
         {
           "Name": "Vary",
@@ -2680,7 +2680,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ewIIUs7EwHOf8cLy+JCqCls/sbx/9iMC+0H0mpB8m0U="
+          "Value": "sha256-QKsiflA53Fn/iroMCzuwCrilizx/fmU60MCLDkyRKdU="
         }
       ]
     },
@@ -7401,13 +7401,13 @@
       ]
     },
     {
-      "Route": "js/Home/index.9av2an5dn7.js",
+      "Route": "js/Home/index.3ru4vbz69g.js",
       "AssetFile": "js/Home/index.js.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000359841670"
+          "Quality": "0.000356379187"
         }
       ],
       "ResponseHeaders": [
@@ -7425,7 +7425,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2778"
+          "Value": "2805"
         },
         {
           "Name": "Content-Type",
@@ -7433,15 +7433,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"apIpwnLumivYBFdZjeKtTl90Me9iUeBlRegfYLA2gvw=\""
+          "Value": "\"doJokmfbrbwI45n33ti5uKB0wUfApVDBLBTyIySGGEE=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"4aA+aniivOcS/mEk2nBBUzDbEftmS/HfvMKg6D4wais=\""
+          "Value": "W/\"r6+QMYQmZgAosakpea0WI164Dsnrt17U31hhFBkbUIc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 21:42:25 GMT"
+          "Value": "Sun, 02 Mar 2025 22:32:38 GMT"
         },
         {
           "Name": "Vary",
@@ -7451,11 +7451,11 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "9av2an5dn7"
+          "Value": "3ru4vbz69g"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4aA+aniivOcS/mEk2nBBUzDbEftmS/HfvMKg6D4wais="
+          "Value": "sha256-r6+QMYQmZgAosakpea0WI164Dsnrt17U31hhFBkbUIc="
         },
         {
           "Name": "label",
@@ -7464,7 +7464,7 @@
       ]
     },
     {
-      "Route": "js/Home/index.9av2an5dn7.js",
+      "Route": "js/Home/index.3ru4vbz69g.js",
       "AssetFile": "js/Home/index.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -7478,7 +7478,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "11168"
+          "Value": "11333"
         },
         {
           "Name": "Content-Type",
@@ -7486,21 +7486,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4aA+aniivOcS/mEk2nBBUzDbEftmS/HfvMKg6D4wais=\""
+          "Value": "\"r6+QMYQmZgAosakpea0WI164Dsnrt17U31hhFBkbUIc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 21:42:25 GMT"
+          "Value": "Sun, 02 Mar 2025 22:32:38 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "9av2an5dn7"
+          "Value": "3ru4vbz69g"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4aA+aniivOcS/mEk2nBBUzDbEftmS/HfvMKg6D4wais="
+          "Value": "sha256-r6+QMYQmZgAosakpea0WI164Dsnrt17U31hhFBkbUIc="
         },
         {
           "Name": "label",
@@ -7509,7 +7509,7 @@
       ]
     },
     {
-      "Route": "js/Home/index.9av2an5dn7.js.gz",
+      "Route": "js/Home/index.3ru4vbz69g.js.gz",
       "AssetFile": "js/Home/index.js.gz",
       "Selectors": [],
       "ResponseHeaders": [
@@ -7527,7 +7527,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2778"
+          "Value": "2805"
         },
         {
           "Name": "Content-Type",
@@ -7535,11 +7535,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"apIpwnLumivYBFdZjeKtTl90Me9iUeBlRegfYLA2gvw=\""
+          "Value": "\"doJokmfbrbwI45n33ti5uKB0wUfApVDBLBTyIySGGEE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 21:42:25 GMT"
+          "Value": "Sun, 02 Mar 2025 22:32:38 GMT"
         },
         {
           "Name": "Vary",
@@ -7549,11 +7549,11 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "9av2an5dn7"
+          "Value": "3ru4vbz69g"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-apIpwnLumivYBFdZjeKtTl90Me9iUeBlRegfYLA2gvw="
+          "Value": "sha256-doJokmfbrbwI45n33ti5uKB0wUfApVDBLBTyIySGGEE="
         },
         {
           "Name": "label",
@@ -7568,7 +7568,7 @@
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000359841670"
+          "Quality": "0.000356379187"
         }
       ],
       "ResponseHeaders": [
@@ -7586,7 +7586,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2778"
+          "Value": "2805"
         },
         {
           "Name": "Content-Type",
@@ -7594,15 +7594,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"apIpwnLumivYBFdZjeKtTl90Me9iUeBlRegfYLA2gvw=\""
+          "Value": "\"doJokmfbrbwI45n33ti5uKB0wUfApVDBLBTyIySGGEE=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"4aA+aniivOcS/mEk2nBBUzDbEftmS/HfvMKg6D4wais=\""
+          "Value": "W/\"r6+QMYQmZgAosakpea0WI164Dsnrt17U31hhFBkbUIc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 21:42:25 GMT"
+          "Value": "Sun, 02 Mar 2025 22:32:38 GMT"
         },
         {
           "Name": "Vary",
@@ -7612,7 +7612,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4aA+aniivOcS/mEk2nBBUzDbEftmS/HfvMKg6D4wais="
+          "Value": "sha256-r6+QMYQmZgAosakpea0WI164Dsnrt17U31hhFBkbUIc="
         }
       ]
     },
@@ -7631,7 +7631,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "11168"
+          "Value": "11333"
         },
         {
           "Name": "Content-Type",
@@ -7639,17 +7639,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4aA+aniivOcS/mEk2nBBUzDbEftmS/HfvMKg6D4wais=\""
+          "Value": "\"r6+QMYQmZgAosakpea0WI164Dsnrt17U31hhFBkbUIc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 21:42:25 GMT"
+          "Value": "Sun, 02 Mar 2025 22:32:38 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4aA+aniivOcS/mEk2nBBUzDbEftmS/HfvMKg6D4wais="
+          "Value": "sha256-r6+QMYQmZgAosakpea0WI164Dsnrt17U31hhFBkbUIc="
         }
       ]
     },
@@ -7672,7 +7672,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2778"
+          "Value": "2805"
         },
         {
           "Name": "Content-Type",
@@ -7680,11 +7680,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"apIpwnLumivYBFdZjeKtTl90Me9iUeBlRegfYLA2gvw=\""
+          "Value": "\"doJokmfbrbwI45n33ti5uKB0wUfApVDBLBTyIySGGEE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 21:42:25 GMT"
+          "Value": "Sun, 02 Mar 2025 22:32:38 GMT"
         },
         {
           "Name": "Vary",
@@ -7694,168 +7694,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-apIpwnLumivYBFdZjeKtTl90Me9iUeBlRegfYLA2gvw="
-        }
-      ]
-    },
-    {
-      "Route": "js/Profile/Cropper.52qvz9v7zy.js",
-      "AssetFile": "js/Profile/Cropper.js.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000723589001"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1381"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"apYltSRER25VE/yULagPZ68pyVgXZwMuiGT1g9iIXlg=\""
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"rQyJ6cysTDgBsqzqpyNp9pbvI476T8qF8KDJWRw0cV0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 20:41:09 GMT"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "52qvz9v7zy"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-rQyJ6cysTDgBsqzqpyNp9pbvI476T8qF8KDJWRw0cV0="
-        },
-        {
-          "Name": "label",
-          "Value": "js/Profile/Cropper.js"
-        }
-      ]
-    },
-    {
-      "Route": "js/Profile/Cropper.52qvz9v7zy.js",
-      "AssetFile": "js/Profile/Cropper.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3700"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"rQyJ6cysTDgBsqzqpyNp9pbvI476T8qF8KDJWRw0cV0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 20:41:09 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "52qvz9v7zy"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-rQyJ6cysTDgBsqzqpyNp9pbvI476T8qF8KDJWRw0cV0="
-        },
-        {
-          "Name": "label",
-          "Value": "js/Profile/Cropper.js"
-        }
-      ]
-    },
-    {
-      "Route": "js/Profile/Cropper.52qvz9v7zy.js.gz",
-      "AssetFile": "js/Profile/Cropper.js.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1381"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"apYltSRER25VE/yULagPZ68pyVgXZwMuiGT1g9iIXlg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 20:41:09 GMT"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "52qvz9v7zy"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-apYltSRER25VE/yULagPZ68pyVgXZwMuiGT1g9iIXlg="
-        },
-        {
-          "Name": "label",
-          "Value": "js/Profile/Cropper.js.gz"
+          "Value": "sha256-doJokmfbrbwI45n33ti5uKB0wUfApVDBLBTyIySGGEE="
         }
       ]
     },
@@ -7866,7 +7705,7 @@
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000723589001"
+          "Quality": "0.000625000000"
         }
       ],
       "ResponseHeaders": [
@@ -7884,7 +7723,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1381"
+          "Value": "1599"
         },
         {
           "Name": "Content-Type",
@@ -7892,15 +7731,15 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"apYltSRER25VE/yULagPZ68pyVgXZwMuiGT1g9iIXlg=\""
+          "Value": "\"baYnLHp4KZQ66Q/5eV5kehtRbZiJ7fj1rwvPV1ojmk0=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"rQyJ6cysTDgBsqzqpyNp9pbvI476T8qF8KDJWRw0cV0=\""
+          "Value": "W/\"WSiEwh4EyB2/t0uD9muAwbhiNeA0iuacey/I/QRrd34=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 20:41:09 GMT"
+          "Value": "Mon, 03 Mar 2025 11:39:13 GMT"
         },
         {
           "Name": "Vary",
@@ -7910,7 +7749,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-rQyJ6cysTDgBsqzqpyNp9pbvI476T8qF8KDJWRw0cV0="
+          "Value": "sha256-WSiEwh4EyB2/t0uD9muAwbhiNeA0iuacey/I/QRrd34="
         }
       ]
     },
@@ -7929,7 +7768,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3700"
+          "Value": "4392"
         },
         {
           "Name": "Content-Type",
@@ -7937,17 +7776,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"rQyJ6cysTDgBsqzqpyNp9pbvI476T8qF8KDJWRw0cV0=\""
+          "Value": "\"WSiEwh4EyB2/t0uD9muAwbhiNeA0iuacey/I/QRrd34=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 20:41:09 GMT"
+          "Value": "Mon, 03 Mar 2025 11:39:13 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-rQyJ6cysTDgBsqzqpyNp9pbvI476T8qF8KDJWRw0cV0="
+          "Value": "sha256-WSiEwh4EyB2/t0uD9muAwbhiNeA0iuacey/I/QRrd34="
         }
       ]
     },
@@ -7970,7 +7809,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1381"
+          "Value": "1599"
         },
         {
           "Name": "Content-Type",
@@ -7978,11 +7817,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"apYltSRER25VE/yULagPZ68pyVgXZwMuiGT1g9iIXlg=\""
+          "Value": "\"baYnLHp4KZQ66Q/5eV5kehtRbZiJ7fj1rwvPV1ojmk0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 02 Mar 2025 20:41:09 GMT"
+          "Value": "Mon, 03 Mar 2025 11:39:13 GMT"
         },
         {
           "Name": "Vary",
@@ -7992,7 +7831,168 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-apYltSRER25VE/yULagPZ68pyVgXZwMuiGT1g9iIXlg="
+          "Value": "sha256-baYnLHp4KZQ66Q/5eV5kehtRbZiJ7fj1rwvPV1ojmk0="
+        }
+      ]
+    },
+    {
+      "Route": "js/Profile/Cropper.jxrt1hi4sd.js",
+      "AssetFile": "js/Profile/Cropper.js.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000625000000"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1599"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"baYnLHp4KZQ66Q/5eV5kehtRbZiJ7fj1rwvPV1ojmk0=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"WSiEwh4EyB2/t0uD9muAwbhiNeA0iuacey/I/QRrd34=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 03 Mar 2025 11:39:13 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jxrt1hi4sd"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WSiEwh4EyB2/t0uD9muAwbhiNeA0iuacey/I/QRrd34="
+        },
+        {
+          "Name": "label",
+          "Value": "js/Profile/Cropper.js"
+        }
+      ]
+    },
+    {
+      "Route": "js/Profile/Cropper.jxrt1hi4sd.js",
+      "AssetFile": "js/Profile/Cropper.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4392"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WSiEwh4EyB2/t0uD9muAwbhiNeA0iuacey/I/QRrd34=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 03 Mar 2025 11:39:13 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jxrt1hi4sd"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WSiEwh4EyB2/t0uD9muAwbhiNeA0iuacey/I/QRrd34="
+        },
+        {
+          "Name": "label",
+          "Value": "js/Profile/Cropper.js"
+        }
+      ]
+    },
+    {
+      "Route": "js/Profile/Cropper.jxrt1hi4sd.js.gz",
+      "AssetFile": "js/Profile/Cropper.js.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1599"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"baYnLHp4KZQ66Q/5eV5kehtRbZiJ7fj1rwvPV1ojmk0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 03 Mar 2025 11:39:13 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jxrt1hi4sd"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-baYnLHp4KZQ66Q/5eV5kehtRbZiJ7fj1rwvPV1ojmk0="
+        },
+        {
+          "Name": "label",
+          "Value": "js/Profile/Cropper.js.gz"
         }
       ]
     },

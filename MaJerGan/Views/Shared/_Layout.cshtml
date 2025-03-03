@@ -39,7 +39,7 @@
                 <button class="nav-btn"><i class="bi bi-bell-fill" style="color: white;font-size: 2rem;"></i></button>
                 <button class="nav-btn"><i class="bi bi-chat-dots" style="color: white;font-size: 2rem;"></i></button>
 
-                <div class="nav-profile-container" >
+                <div class="nav-profile-container">
                     <button class="nav-btn profile-btn" id="profileButton">
                         <i class="bi bi-person-circle" style="color: white;font-size: 2rem;"></i>
                     </button>
@@ -60,12 +60,26 @@
             </nav>
         </header>
 
+        <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
         <!-- ✅ Sidebar (สำหรับจอเล็ก) -->
         <aside id="sidebar" class="sidebar">
             <button class="close-btn" onclick="toggleSidebar()">✖</button>
-            <a href="/Profile">ดูโปรไฟล์</a>
-            <a href="/Settings">การตั้งค่า</a>
-            <a href="/Logout" class="logout">ออกจากระบบ</a>
+            <div class="sidebar-header">
+                <h2>MENU</h2>
+            </div>
+            <nav class="sidebar-nav">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="/Profile"><i class="fas fa-user"></i> ดูโปรไฟล์</a>
+                    <a href="/Settings"><i class="fas fa-cog"></i> การตั้งค่า</a>
+                    <a href="/Logout" class="logout"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
+                }
+                else
+                {
+                    <a href="/Auth/Login" class="btn-login"><i class="fas fa-sign-in-alt"></i> เข้าสู่ระบบ</a>
+                    <a href="/Auth/Register" class="btn-register"><i class="fas fa-user-plus"></i> สมัครสมาชิก</a>
+                }
+            </nav>
         </aside>
 
         @if ((string)(ViewData["ShowNavCarousel"] ?? "False") == "True")

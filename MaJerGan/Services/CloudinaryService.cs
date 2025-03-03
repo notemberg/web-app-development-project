@@ -71,5 +71,16 @@ namespace MaJerGan.Services
             }
         }
 
+        // ✅ เพิ่มฟังก์ชันลบรูปเก่า
+        public async Task<bool> DeleteImageAsync(string publicId)
+        {
+            if (string.IsNullOrEmpty(publicId)) return false;
+
+            var deletionParams = new DeletionParams(publicId);
+            var result = await _cloudinary.DestroyAsync(deletionParams);
+
+            return result.Result == "ok";
+        }
+
     }
 }
