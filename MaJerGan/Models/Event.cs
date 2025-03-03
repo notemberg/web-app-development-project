@@ -44,7 +44,7 @@ namespace MaJerGan.Models
         public int CreatedBy { get; set; }
 
         [ForeignKey("CreatedBy")]
-        public virtual User Creator { get; set; } = new User();
+        public virtual User Creator { get; set; }
         
         // ✅ เพิ่มตัวนับยอดเข้าชม
         public int ViewCount { get; set; } = 0;
