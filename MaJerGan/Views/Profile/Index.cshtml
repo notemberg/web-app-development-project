@@ -51,8 +51,16 @@
         <div class="profile-content">
             <div class="profile-picture">
                 <!-- ✅ คลิกที่รูปเพื่ออัปโหลด -->
-                <img id="profilePreview" src="@Model.ProfilePicturee" alt="Profile Picture" width="150"
-                    onclick="selectImage()">
+                @if (Model.ProfilePicturee == null)
+                {
+                    <img id="profilePreview" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Picture" width="150"
+                        onclick="selectImage()">
+                }
+                else
+                {
+                    <img id="profilePreview" src="@Model.ProfilePicturee" alt="Profile Picture" width="150"
+                        onclick="selectImage()">
+                }
                 <input type="file" id="imageUpload" accept="image/*" style="display: none;"
                     onchange="showCropper(event)">
             </div>

@@ -11,17 +11,19 @@
         <div class="event-card">
             <div class="event-content">
                 <div class="event-header">
-                    <h3 class="event-title">@eventItem.Title  
-                        <span class="Time">@eventItem.EventTime.ToString("MM/dd/yyyy") at @eventItem.EventTime.ToString("hh:mm tt")</span>
+                    <h3 class="event-title">@eventItem.Title
+                        <span class="Time">@eventItem.EventTime.ToString("MM/dd/yyyy") at
+                            @eventItem.EventTime.ToString("hh:mm tt")</span>
                     </h3>
                 </div>
                 <div class="event-body">
-                    <div class="creator">Host By: @eventItem.Creator.Username</div>
-                    <div class="participants">
-                        <i class="fa-solid fa-user"></i> @eventItem.Participants.Count / @eventItem.MaxParticipants
+                    <div class="info">
+                        <div class="creator">Host By: @eventItem.Creator.Username</div>
+                        <div class="participants">
+                            <i class="fa-solid fa-user"></i> @eventItem.Participants.Count/@eventItem.MaxParticipants
+                        </div>
+                        <div class="location"> @@@eventItem.Location</div>
                     </div>
-                    <div class="location"> @eventItem.Location</div>
-            
                     <div class="tags-container">
                         @if (!string.IsNullOrEmpty(eventItem.Tags))
                         {

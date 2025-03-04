@@ -89,6 +89,14 @@
       "PackagePath": "staticwebassets\\js\\Auth\\Register.js"
     },
     {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Event\\Create.js",
+      "PackagePath": "staticwebassets\\js\\Event\\Create.js"
+    },
+    {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Event\\Map.js",
+      "PackagePath": "staticwebassets\\js\\Event\\Map.js"
+    },
+    {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Event\\SearchPage.js",
       "PackagePath": "staticwebassets\\js\\Event\\SearchPage.js"
     },

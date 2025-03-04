@@ -100,18 +100,41 @@
 </head>
 
 <script src="~/js/Event/SearchPage.js"></script>
-<form id="search-form"> 
+<form id="search-form">
 
     <input type="hidden" id="sortOrder" name="sortOrder" value="@ViewBag.SortOrder">
 
-    <div id="tag-filters">
-        <label>กรองตามแท็ก:</label><br>
-        @foreach (var tag in ViewBag.Tags)
-        {
-           <input type="checkbox" name="selectedTags" value="@tag.Id"
-                   @(Context.Request.Query["selectedTags"].ToList().Contains(tag.Id.ToString()) ? "checked" : "")> @tag.Name <br>
-        }
-    </div>
+    @* <div id="tag-filters">
+        <label for="tags" style="font-size: 18px; font-weight: bold;">กรองตามแท็ก:</label>
+        <div class="tags-container">
+            @foreach (var tag in ViewBag.Tags)
+            {
+                <div class="tag-item">
+                    <input type="checkbox" id="tag-@tag.Id" name="selectedTags" value="@tag.Id"
+                        @(Context.Request.Query["selectedTags"].ToList().Contains(tag.Id.ToString()) ? "checked" : "")>
+                    <label for="tag-@tag.Id">@tag.Name</label>
+                </div>
+            }
+        </div>
+    </div> *@
+
+    @* <div id="tag-filters">
+        <label for="tags" style="font-size: 18px; font-weight: bold;">กรองตามแท็ก:</label>
+        <input type="text" id="tag-search" placeholder="ค้นหาแท็ก..." onkeyup="searchTags()"
+            style="padding: 8px; margin-bottom: 10px; border-radius: 5px; width: 100%;">
+
+        <!-- แสดงแท็กในรูปแบบ Slide Bar -->
+        <div class="tags-container-search" id="tags-container-search">
+            @foreach (var tag in ViewBag.Tags)
+            {
+                <div class="tag-item" data-tag="@tag.Name">
+                    <input type="checkbox" id="tag-@tag.Id" name="selectedTags" value="@tag.Id"
+                        @(Context.Request.Query["selectedTags"].ToList().Contains(tag.Id.ToString()) ? "checked" : "")>
+                    <label for="tag-@tag.Id">@tag.Name</label>
+                </div>
+            }
+        </div>
+    </div> *@
 </form>
 
 <!-- ตัวเลือกการจัดเรียง -->
@@ -119,6 +142,12 @@
     <a href="#" class="sort-link @(ViewBag.SortOrder == "recent" ? "active" : "")" data-sort="recent">Recent</a>
     <a href="#" class="sort-link @(ViewBag.SortOrder == "popular" ? "active" : "")" data-sort="popular">Popular</a>
     <a href="#" class="sort-link @(ViewBag.SortOrder == "NerestEvent" ? "active" : "")" data-sort="NerestEvent">Nearest Event</a>
+    <div id="tag-filters">
+        <button type="button" onclick="openTagModal()" class="filter-tag-btn">Filter Tag</button>
+
+        <div class="selected-tags" id="selected-tags">
+        </div>
+    </div>
 
     <input type="hidden" id="sortOrder" name="sortOrder" value="@ViewBag.SortOrder">
 </div>
@@ -129,3 +158,30 @@
     @await Html.PartialAsync("_SearchResults", Model)
 </div>
 
+<!-- Modal สำหรับเลือกแท็ก -->
+<div id="tagModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">เลือกแท็ก</h5>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="tag-search" placeholder="ค้นหาแท็ก..." onkeyup="searchTags()">
+                <div class="tags-container-search" id="tags-container-search">
+                    @foreach (var tag in ViewBag.Tags)
+                    {
+                        <div class="tag-item" data-tag="@tag.Name">
+                            <input type="checkbox" id="tag-@tag.Id" name="selectedTags" value="@tag.Id"
+                                @(Context.Request.Query["selectedTags"].ToList().Contains(tag.Id.ToString()) ? "checked" : "")>
+                            <label for="tag-@tag.Id">@tag.Name</label>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeTagModal()">ปิด</button>
+            </div>
+        </div>
+    </div>
+</div>

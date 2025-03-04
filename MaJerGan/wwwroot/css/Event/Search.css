@@ -82,6 +82,11 @@
 
 .tags-container {
     display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    white-space: nowrap;
+    flex-grow: 1;
+    padding-bottom: 5px;
 }
 
 .tag-button {
@@ -184,4 +189,257 @@
 
 .span-more-tag {
     padding: 5px 10px;
+}
+
+
+.tags-container-search {
+    margin-top: 5px;
+    display: flex;                  /* ใช้ flexbox เพื่อจัดเรียงแท็กในแนวนอน */
+    flex-wrap: nowrap;              /* ไม่ให้แยกแถว */
+    gap: 10px;                      /* เว้นระยะห่างระหว่างแท็ก */
+    overflow-x: auto;               /* ทำให้สามารถเลื่อนในแนวนอนได้ */
+    padding-bottom: 10px;           /* เพิ่มระยะห่างที่ด้านล่าง */
+    white-space: nowrap;            /* ป้องกันการตัดข้อความแท็ก */
+    
+}
+.tag-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tag-item label {
+    background-color: #f0f0f0;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.tag-item input[type="checkbox"] {
+    display: none;
+}
+
+.tag-item label:hover {
+    background-color: #f7c4d1;
+    transform: scale(1.05);
+}
+
+.tag-item input[type="checkbox"]:checked + label {
+    background-color: #ff5c8d;
+    color: white;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-dialog {
+    max-width: 500px;
+    margin: auto;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.selected-tag {
+    display: inline-block;
+    background-color: #4CAF50; /* สีพื้นหลัง */
+    color: white; /* สีตัวอักษร */
+    border-radius: 20px; /* ทำให้มุมมน */
+    padding: 5px 15px; /* เพิ่มระยะห่าง */
+    margin: 5px; /* ระยะห่างระหว่างแท็ก */
+    font-size: 14px; /* ขนาดฟอนต์ */
+    cursor: pointer; /* ให้มีเคอร์เซอร์เป็นปุ่ม */
+}
+
+.selected-tag .remove-tag {
+    margin-left: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.selected-tag .remove-tag:hover {
+    color: #FF6347; /* สีเมื่อ hover */
+}
+
+.selected-tag:hover {
+    background-color: #45a049; /* สีเมื่อ hover แท็ก */
+}
+
+.filter-tag-btn {
+    background-color: white; /* สีพื้นหลังปุ่ม */
+    color: #333; /* สีตัวอักษร */
+    border: none; /* ไม่มีเส้นขอบ */
+    padding: 5px 10px; /* ขนาดของ padding */
+    border-radius: 20px; /* ทำให้มุมมน */
+    font-size: 14px; /* ขนาดฟอนต์ */
+    cursor: pointer; /* ให้มีเคอร์เซอร์เป็นปุ่ม */
+    transition: background-color 0.3s ease; /* การเปลี่ยนสีเมื่อ hover */
+    font-weight: bold;
+    border: 1px solid #ddd;
+}
+
+.filter-tag-btn:hover {
+    background-color: #FFD700; /* สีพื้นหลังเมื่อ hover */
+    color: white; /* เปลี่ยนสีข้อความเมื่อ hover */
+}
+
+#tag-search {
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.btn-secondary{
+    background-color: #F1AEC5;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: #fd78a0;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+
+
+    .event-card .event-title {
+        font-size: 24px;
+        flex-direction: column;
+        display: flex;
+        width: 100%;
+    }
+
+    .Time {
+        font-size: 16px;
+        width: 100%;
+    }
+    .event-card .event-body {
+        flex-direction: column;
+        font-size: 12px;
+    }
+
+    .event-card .event-header {
+        font-size: 14px;
+    }
+
+    .event-card .event-footer {
+        font-size: 12px;
+    }
+
+    .event-card .Time {
+        font-size: 20px;
+    }
+
+    .info {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        gap: 5px;
+        align-items: center;
+    }
+    .creator {
+        font-size: 14px;
+        max-width: 40%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .participants
+    {
+        font-size: 14px;
+        max-width: 40%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+    }
+
+    .location {
+        font-size: 14px;
+        max-width: 30%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .tags-container {
+        width: 100%;
+        gap: 5px;
+    }
+
+    .tags-container-search {
+        gap: 5px;
+    }
+
+    .tag-item label {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .selected-tag {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .filter-tag-btn {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    #tag-search {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .btn-secondary {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+
+    .event-card {
+        min-height: 100px;
+    }
+
+
 }

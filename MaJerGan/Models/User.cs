@@ -18,7 +18,7 @@ namespace MaJerGan.Models
         [Required, MinLength(6)]
         public string PasswordHash { get; set; }
 
-        [Required, MaxLength(50)]
+        [Required, MaxLength(12)]
         public string Username { get; set; }
 
         [Required]

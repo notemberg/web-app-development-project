@@ -83,10 +83,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let searchValue = tagSearch.value.trim();
     renderTags(searchValue);
 
-    // ถ้าแท็กนี้มีอยู่แล้ว → เลือกอัตโนมัติ
-    // if (allTags.includes(searchValue)) {
-    //     autoSelectTag(searchValue);
-    // }
   });
 
   // ✅ เพิ่มแท็กใหม่เข้า Database และเลือกให้อัตโนมัติ
