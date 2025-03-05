@@ -71,10 +71,6 @@ function updateUI(events) {
     }
 
     // ✅ จำกัดความยาวของชื่อสถานที่
-    let locationDisplay =
-      event.location.length > 20
-        ? event.location.substring(0, 20) + "..."
-        : event.location;
 
     // ✅ แปลงเวลาให้เป็นข้อความที่อ่านง่าย
     const formattedTime = timeAgo(new Date(event.createdAt));
@@ -90,7 +86,7 @@ function updateUI(events) {
                 <div class="event-body">
                     <div class="host-container">
                         <div class="creator">Host By: ${event.creator}</div>
-                        <div class="participants"><i class="fa-solid fa-user"></i> ${event.currentParticipants} / ${event.maxParticipants} @<span class="location">${locationDisplay}</span></div>
+                        <div class="participants"><i class="fa-solid fa-user"></i> ${event.currentParticipants} / ${event.maxParticipants} @<span class="location">${event.location}</span></div>
                     </div>
                     <div class="tags-container">Tags:${tagButtons}</div>
                 </div>

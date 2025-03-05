@@ -59,6 +59,9 @@
 
 .creator {
     font-size: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* ถ้ายาวเกิน ให้ขึ้น "..." */
 }
 
 /* .participants {
@@ -84,7 +87,7 @@
     flex-direction: row;
     white-space: nowrap; /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
     overflow-x: auto; /* เปิดการเลื่อนแนวนอน */
-    width: 50%; /* กำหนดความกว้างของ tags-container */
+    width: 40%; /* กำหนดความกว้างของ tags-container */
     overflow:hidden;
     flex-shrink: 0; /* ป้องกันการบีบจนขึ้นบรรทัดใหม่ */
 }
@@ -130,7 +133,7 @@
 
 .location {
     display: inline-block;
-    max-width: 150px; /* จำกัดความยาวของชื่อสถานที่ */
+    max-width: 60%; /* จำกัดความยาวของชื่อสถานที่ */
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; /* ถ้ายาวเกิน ให้ขึ้น "..." */
@@ -143,7 +146,7 @@
     display: flex;
     align-items: center;
     gap: 10px; /* เพิ่มระยะห่างเล็กน้อยให้ดูสมดุล */
-    width: 60%;
+    width: 70%;
     min-width: 0;
 }
 

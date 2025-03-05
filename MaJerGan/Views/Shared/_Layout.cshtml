@@ -33,6 +33,8 @@
             <form method="get" action="@Url.Action("SearchPage", "Event")" id="search-form">
                 <input id="search-bar" name="searchQuery" type="text" placeholder=" Search Your Interest"
                     value="@Context.Request.Query["searchQuery"]" autocomplete="off" />
+                    <button id="clear-btn" type="button" onclick="clearSearch()">✖</button>
+
             </form>
 
             <nav class="desktop-nav">

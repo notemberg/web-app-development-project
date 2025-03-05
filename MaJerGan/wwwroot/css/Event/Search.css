@@ -63,6 +63,7 @@
 }
 
 .creator {
+    width: auto;
     font-size: 16px;
 }
 
@@ -74,6 +75,7 @@
 }
 
 .participants {
+    width: auto;
     display: flex;
     align-items: center;
     font-size: 16px;
@@ -87,6 +89,7 @@
     white-space: nowrap;
     flex-grow: 1;
     padding-bottom: 5px;
+    min-width: 60px;
 }
 
 .tag-button {
@@ -114,8 +117,8 @@
 
 
 .location {
+    width: 40%;  
     display: inline-block;
-    max-width: 150px; /* จำกัดความยาวของชื่อสถานที่ */
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; /* ถ้ายาวเกิน ให้ขึ้น "..." */
@@ -166,6 +169,14 @@
 
 .event-card {
     cursor: pointer; /* ทำให้การ์ดสามารถคลิกได้ */
+}
+
+.info {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
 }
 
 .Time {
@@ -398,7 +409,7 @@
 
     .location {
         font-size: 14px;
-        max-width: 30%;
+        max-width: 45%;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

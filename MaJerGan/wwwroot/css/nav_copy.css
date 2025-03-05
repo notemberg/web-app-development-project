@@ -50,7 +50,7 @@ body {
 } */
 
 /* ✅ Search Bar */
-.main-body>.main-header>#search-form {
+/* .main-body>.main-header>#search-form {
   display: flex;
   align-items: center;
   flex-grow: 1;
@@ -66,6 +66,27 @@ body {
   font-size: 16px;
   height: 40px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+} */
+
+
+.main-body>.main-header>#search-form {
+  display: flex;
+  position: relative;
+  flex-grow: 1;
+  max-width: 700px;
+  margin: 0 20px;
+  align-items: center;
+}
+
+.main-body>.main-header>#search-form>#search-bar {
+  flex-grow: 1;
+  padding: 10px;
+  padding-right: 30px; /* เผื่อพื้นที่สำหรับปุ่ม X */
+  border-radius: 15px;
+  border: none;
+  font-size: 16px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  height: 40px;
 }
 
 /* search bar */
@@ -216,6 +237,7 @@ body {
   font-weight: bold;
   text-overflow: ellipsis;
   /* ✅ ทำให้ข้อความที่ยาวเกินไปแสดง ... */
+  text-decoration: none;
 }
 
 /* .nav-tag-btn:hover {
@@ -311,6 +333,24 @@ body {
 }
 
 
+#clear-btn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  display: none; /* ซ่อนไว้ก่อน */
+  color: #888;
+}
+
+#clear-btn:hover {
+  color: #000;
+}
+
+#clear-btn:hover {
+  color: #000;
+}
 @media screen and (max-width: 768px) {
 
 
@@ -340,6 +380,7 @@ body {
   .nav-tag-btn {
     padding: 10px 10px;
     font-size: 14px;
+    text-decoration-line: none;
   }
 
   .nav-icons {
@@ -465,3 +506,4 @@ body {
     font-weight: bold;
   }
 }
+

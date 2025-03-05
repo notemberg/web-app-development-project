@@ -170,3 +170,14 @@ function removeTag(tagName, tagId) {
 
     updateSearchResults();
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  // ✅ ล้าง `selectedTags` จาก URL หลังโหลดหน้า
+  if (window.history.replaceState) {
+      const url = new URL(window.location);
+      url.searchParams.delete("selectedTags");
+      window.history.replaceState({}, "", url);
+  }
+
+  // document.getElementById("search-bar").value = ""; // ✅ ล้างค่า search query
+});

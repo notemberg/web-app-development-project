@@ -32,6 +32,12 @@ namespace MaJerGan.Models
         [Required]
         public string Location { get; set; } // สถานที่จัดกิจกรรม
 
+        public string LocationName { get; set; } // ชื่อสถานที่จัดกิจกรรม
+
+        public string LocationAddress { get; set; } // ที่อยู่สถานที่จัดกิจกรรม
+
+        public string LocationImage { get; set; } // รูปภาพสถานที่จัดกิจกรรม
+
         public DateTime ExpiryDate { get; set; } // วันปิดรับสมัคร
 
         public bool IsClosed { get; set; } = false; // สถานะการปิดรับสมัคร

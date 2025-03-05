@@ -142,6 +142,13 @@
 //   document.getElementById("searchBoxLocation").value = "";
 // }
 
+const apiKey = "AIzaSyDJ0BrjaeMYo-Ib0n3r4RK1zO-u4v-XpBQ";
+const script = document.createElement('script');
+script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
+script.async = true;
+script.defer = true;
+document.head.appendChild(script);
+
 document.addEventListener("DOMContentLoaded", function () {
   let map;
   let marker;
@@ -233,6 +240,13 @@ document.addEventListener("DOMContentLoaded", function () {
       function (place, status) {
         if (status === google.maps.places.PlacesServiceStatus.OK) {
           console.log(place);
+          document.getElementById("locationNameInput").value = place.name;
+          document.getElementById("locationAddressInput").value =place.formatted_address;
+          document.getElementById("locationImageInput").value = place.photos[0].getUrl({
+            maxWidth: 400,
+            maxHeight: 400,
+          });
+
           displayPlaceDetails(place);
         } else {
           console.error("❌ ไม่สามารถดึงข้อมูลสถานที่ได้:", status);
@@ -274,6 +288,7 @@ document.addEventListener("DOMContentLoaded", function () {
       let img = new Image();
       img.onload = function () {
         imageElement.src = photoUrl;
+        document
       };
       img.onerror = function () {
         if (attempts < retries) {

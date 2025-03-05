@@ -64,8 +64,6 @@
 <script Src="~/js/closeAutoFill.js"></script>
 <script Src="~/js/Event/dateCheck.js"></script>
 <script Src="~/js/Event/Map.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ0BrjaeMYo-Ib0n3r4RK1zO-u4v-XpBQ&libraries=places" async
-    defer></script>
 
 <body>
     <div class="content">
@@ -74,30 +72,6 @@
         <form asp-action="Create" method="post">
 
             <div class="test">
-                @* <div class="title-container">
-                    <!-- Title Input -->
-                    <input asp-for="Title" type="text" class="title-input" placeholder="Title*" required>
-
-
-                    <!-- Date & Time Inputs (Moves to the Right) -->
-                    <div class="date-time-container">
-                        <div class="date-input">
-                            <label for="event-date">
-                                <input type="date" id="event-date" required>
-                            </label>
-                        </div>
-
-                        <div class="time-input">
-                            <label for="event-time">
-                                <input type="time" id="event-time" required>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- ✅ Input ซ่อน เพื่อรวม Date + Time ก่อนส่ง -->
-                    <input type="hidden" asp-for="EventTime" id="event-datetime">
-
-                </div> *@
 
                 <div class="title-container">
                     <!-- Title Input -->
@@ -179,6 +153,9 @@
 
 
             <input asp-for="Location" type="hidden" id="locationInput" required>
+            <input asp-for="LocationName" type="hidden" id="locationNameInput" required>
+            <input asp-for="LocationAddress" type="hidden" id="locationAddressInput" required>
+            <input asp-for="LocationImage" type="hidden" id="locationImageInput" required>
 
             <!-- Popup Modal -->
             <div id="modalContainer">
