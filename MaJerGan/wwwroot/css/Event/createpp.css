@@ -560,8 +560,10 @@ textarea:focus {
     margin: 5px 0;
     color: #555;
     display: flex;
-    flex-direction: column; /* ✅ จัดให้ Badge อยู่ด้านบน */
-    align-items: flex-start; /* ✅ ชิดด้านซ้าย */
+    flex-direction: column;
+    /* ✅ จัดให้ Badge อยู่ด้านบน */
+    align-items: flex-start;
+    /* ✅ ชิดด้านซ้าย */
 }
 
 /* ✅ ปรับ Badge ให้เหมือนต้นฉบับ */
@@ -571,8 +573,10 @@ textarea:focus {
     margin: 5px 0;
     color: #555;
     display: flex;
-    flex-direction: column; /* ✅ จัดให้ Badge อยู่ด้านบน */
-    align-items: flex-start; /* ✅ ชิดด้านซ้าย */
+    flex-direction: column;
+    /* ✅ จัดให้ Badge อยู่ด้านบน */
+    align-items: flex-start;
+    /* ✅ ชิดด้านซ้าย */
 }
 
 /* ✅ ปรับ Badge ให้อยู่แยกบรรทัด */
@@ -585,7 +589,8 @@ textarea:focus {
     font-weight: bold;
     display: inline-block;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-    margin-bottom: 4px; /* ✅ เพิ่มช่องว่างด้านล่างให้สวยขึ้น */
+    margin-bottom: 4px;
+    /* ✅ เพิ่มช่องว่างด้านล่างให้สวยขึ้น */
 }
 
 #saveLocationButton {
@@ -623,12 +628,12 @@ textarea:focus {
     z-index: 10;
 }
 
-.modal-content > h2{
+.modal-content>h2 {
     font-size: 24px;
     font-weight: bold;
     color: #333;
-    margin: 0 10px; 
-    
+    margin: 0 10px;
+
 }
 
 /* ✅ ซ่อน Date & Time ของ Mobile โดยค่าเริ่มต้น */
@@ -650,6 +655,125 @@ input::-webkit-inner-spin-button {
 }
 
 
+.advanced-settings {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #FF77A5;
+}
+
+input:checked+.slider:before {
+    transform: translateX(14px);
+}
+
+.advanced-settings {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* ระยะห่างระหว่าง Switch กับ Label */
+}
+
+.gender-restriction-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* ระยะห่างระหว่าง Switch กับตัวเลือกเพศ */
+    flex-wrap: wrap; /* ป้องกันไม่ให้เพศล้นไปบรรทัดใหม่ในหน้าจอเล็ก */
+}
+
+/* ✅ ซ่อนตัวเลือกเพศถ้ายังไม่ได้เลือก "Gender Restricted" */
+.gender-selection {
+    display: none;
+    flex: 1;
+    gap: 8px; /* ระยะห่างระหว่างตัวเลือกเพศ */
+}
+
+.gender-option {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: 0.3s;
+    opacity: 0.5; /* ✅ เริ่มต้นเป็นสีจาง */
+    font-size: 14px;
+}
+
+/* ✅ เมื่อเลือก checkbox สีจะเข้มขึ้น */
+input[type="checkbox"]:checked + label {
+    opacity: 1;
+}
+
+.male {
+    background-color: #4CAF50;
+    color: white;
+    
+}
+
+.female {
+    background-color: #FF5252;
+    color: white;
+}
+
+.other {
+    background-color: #FFB74D;
+    color: white;
+}
+
 
 @media (max-width: 768px) {
     .container {
@@ -661,6 +785,7 @@ input::-webkit-inner-spin-button {
     .test {
         flex-direction: column;
     }
+
     .date-time-container {
         width: 30%;
     }
@@ -668,6 +793,7 @@ input::-webkit-inner-spin-button {
     .location-card {
         flex-direction: column;
     }
+
     .location-info {
         flex-direction: column;
     }
@@ -695,16 +821,19 @@ input::-webkit-inner-spin-button {
     }
 
     .title-container {
-        flex-direction: column; /* ✅ ให้เรียงจากบนลงล่าง */
+        flex-direction: column;
+        /* ✅ ให้เรียงจากบนลงล่าง */
         align-items: flex-start;
     }
 
     .date-time-desktop {
-        display: none; /* ซ่อนของ Desktop */
+        display: none;
+        /* ซ่อนของ Desktop */
     }
 
     .date-time-mobile {
-        display: flex; /* แสดงของ Mobile */
+        display: flex;
+        /* แสดงของ Mobile */
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
@@ -715,7 +844,8 @@ input::-webkit-inner-spin-button {
         margin-top: 10px;
     }
 
-    .date-input input, .time-input input {
+    .date-input input,
+    .time-input input {
         border-radius: 8px;
         padding: 8px;
         border: 1px solid #ddd;

@@ -49,6 +49,7 @@ namespace MaJerGan.Controllers
             int userId = int.Parse(userIdClaim.Value);
             model.CreatedBy = userId;
 
+            Console.WriteLine(model.AllowedGenders);
             // ✅ บันทึก Event ก่อน เพื่อให้ model.Id ถูกสร้าง
             _context.Events.Add(model);
             await _context.SaveChangesAsync(); // ✅ ใช้ `await` เพื่อให้แน่ใจว่า `model.Id` ถูกสร้าง
@@ -127,6 +128,41 @@ namespace MaJerGan.Controllers
 
         [Authorize]
         [HttpPost]
+        // public async Task<IActionResult> Join(int eventId)
+        // {
+        //     var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+        //     if (userIdClaim == null)
+        //     {
+        //         return Unauthorized();
+        //     }
+
+        //     int userId = int.Parse(userIdClaim.Value);
+
+        //     var existingParticipation = await _context.EventParticipants
+        //         .FirstOrDefaultAsync(p => p.EventId == eventId && p.UserId == userId);
+
+        //     if (existingParticipation != null)
+        //     {
+        //         return BadRequest("คุณได้เข้าร่วมกิจกรรมนี้แล้ว");
+        //     }
+
+        //     var participation = new EventParticipant
+        //     {
+        //         EventId = eventId,
+        //         UserId = userId,
+        //         // Status = 1 // ✅ อนุมัติอัตโนมัติ
+        //     };
+
+        //     _context.EventParticipants.Add(participation);
+        //     await _context.SaveChangesAsync();
+
+        //     await WebSocketHandler.BroadcastMessage("Event Joined!");
+
+        //     return RedirectToAction("Details", new { id = eventId });
+        // }
+
+        [Authorize]
+        [HttpPost]
         public async Task<IActionResult> Join(int eventId)
         {
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
@@ -142,23 +178,35 @@ namespace MaJerGan.Controllers
 
             if (existingParticipation != null)
             {
+                if (existingParticipation.Status == ParticipationStatus.Rejected)
+                {
+                    return BadRequest("คุณถูกปฏิเสธจากกิจกรรมนี้แล้ว: " + existingParticipation.RejectedReason);
+                }
                 return BadRequest("คุณได้เข้าร่วมกิจกรรมนี้แล้ว");
             }
 
+            var eventDetails = await _context.Events.FindAsync(eventId);
+            if (eventDetails == null)
+            {
+                return NotFound("ไม่พบกิจกรรมนี้");
+            }
+            
+            Console.WriteLine($"🔍 Event RequiresConfirmation: {eventDetails.RequiresConfirmation}");
             var participation = new EventParticipant
             {
                 EventId = eventId,
                 UserId = userId,
-                Status = 1 // ✅ อนุมัติอัตโนมัติ
+                Status = eventDetails.RequiresConfirmation ? ParticipationStatus.Pending : ParticipationStatus.Approved
             };
 
             _context.EventParticipants.Add(participation);
             await _context.SaveChangesAsync();
 
-            await WebSocketHandler.BroadcastMessage("Event Joined!");
+            await WebSocketHandler.BroadcastMessage($"User {userId} joined event {eventId}");
 
             return RedirectToAction("Details", new { id = eventId });
         }
+
 
         [HttpGet]
         public async Task<IActionResult> GetHotEvents()
@@ -177,7 +225,7 @@ namespace MaJerGan.Controllers
                     e.ViewCount,
                     e.MaxParticipants,
                     e.Location,
-                    CurrentParticipants = e.Participants.Count,
+                    CurrentParticipants = e.Participants != null ? e.Participants.Count(p => p.Status == ParticipationStatus.Approved) : 0,
                     creator = e.Creator.Username // ✅ เพิ่มชื่อผู้สร้าง
                 })
                 .ToListAsync();
@@ -224,7 +272,7 @@ namespace MaJerGan.Controllers
                     e.MaxParticipants,
                     Location = string.IsNullOrEmpty(e.Location) ? "No Location" : e.LocationName, // ✅ ป้องกัน null
                     e.CreatedAt,
-                    CurrentParticipants = e.Participants?.Count ?? 0, // ✅ ป้องกัน null
+                    CurrentParticipants = e.Participants?.Count(p => p.Status == ParticipationStatus.Approved) ?? 0, // ✅ ป้องกัน null
                     Creator = e.Creator?.Username ?? "Unknown Creator" // ✅ ป้องกัน null
                 })
                 .ToList();
@@ -259,7 +307,7 @@ namespace MaJerGan.Controllers
                     e.Title,
                     e.EventTime,
                     e.Location,
-                    CurrentParticipants = e.Participants.Count,
+                    CurrentParticipants = e.Participants.Count(p => p.Status == ParticipationStatus.Approved),
                     Creator = e.Creator != null ? e.Creator.Username : "Unknown"
                 })
                 .ToListAsync();
@@ -278,18 +326,6 @@ namespace MaJerGan.Controllers
             }
 
             return View(id); // ส่ง EventId ไปที่ View
-        }
-
-        private async Task<string> GetLocationName(string placeId)
-        {
-            var client = new HttpClient();
-            var apiUrl = $"https://maps.googleapis.com/maps/api/place/details/json?place_id={placeId}&key={_googleMapsApiKey}";
-            var response = await client.GetStringAsync(apiUrl);
-            var jsonResponse = JObject.Parse(response);
-
-            // ดึงชื่อสถานที่จากข้อมูลที่ได้
-            var result = jsonResponse["result"];
-            return result?["name"]?.ToString() ?? "สถานที่ไม่พบ";
         }
 
         [HttpGet("Event/SearchPage")]

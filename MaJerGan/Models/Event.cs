@@ -23,7 +23,7 @@ namespace MaJerGan.Models
         public string? Tags { get; set; } // แท็กของกิจกรรม (เก็บเป็น String เช่น "Sport,Music")
 
         [Required]
-        [Range(1, 1000)]
+        [Range(1, 100)]
         public int MaxParticipants { get; set; } // จำนวนคนที่เข้าร่วมได้
 
         [Required]
@@ -50,14 +50,19 @@ namespace MaJerGan.Models
 
         [ForeignKey("CreatedBy")]
         public virtual User Creator { get; set; }
-        
+
 
         // ✅ เพิ่มตัวนับยอดเข้าชม
         public int ViewCount { get; set; } = 0;
-        
+
         public virtual List<EventParticipant> Participants { get; set; } = new List<EventParticipant>();
 
         public virtual List<EventTag> EventTags { get; set; } = new List<EventTag>();
+
+        // ✅ ฟิลด์ใหม่สำหรับตั้งค่าระบบ
+        public bool IsGenderRestricted { get; set; } = false; // เปิด/ปิดข้อจำกัดเพศ
+        public string AllowedGenders { get; set; } = "Malee,Female,Other"; // ค่าเริ่มต้นให้ทุกเพศเข้าร่วมได้
+        public bool RequiresConfirmation { get; set; } = false; // ต้องรอการยืนยันไหม
     }
 }
 
