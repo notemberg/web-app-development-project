@@ -18,21 +18,15 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    public IActionResult Create()
-    {
-        return View();
-    }
-
     public IActionResult Profile()
     {
         return RedirectToAction("Index", "Profile");
     }
 
+    public IActionResult Search()
+    {
+        return View();
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

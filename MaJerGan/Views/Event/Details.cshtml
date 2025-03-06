@@ -3,6 +3,8 @@
 @{
     ViewData["Title"] = Model.Title;
     ViewData["ShowHeader"] = "True";
+    ViewData["ShowNavCarousel"] = "True";
+
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -65,13 +67,69 @@
 
             <div>
                 <label>💡 ข้อมูลเพิ่มเติม:</label>
-                <p style="white-space: pre-line;">@Model.ExtraInfo</p>
+                @* <p style="white-space: pre-line;">@Model.ExtraInfo</p> *@
+            </div>
+
+            <div>
+                <h3>✅ อนุมัติแล้ว</h3>
+                @if (Model.Participants.Any(p => p.Status == ParticipationStatus.Approved))
+                {
+                    <ul>
+                        @foreach (var participant in Model.Participants.Where(p => p.Status ==
+                                            ParticipationStatus.Approved))
+                        {
+                            <li>@participant.User.Username</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p>ไม่มีผู้เข้าร่วมที่ได้รับอนุมัติ</p>
+                }
+            </div>
+
+            <div>
+                <h3>⌛ รออนุมัติ</h3>
+                @if (Model.Participants.Any(p => p.Status == ParticipationStatus.Pending))
+                {
+                    <ul>
+                        @foreach (var participant in Model.Participants.Where(p => p.Status == ParticipationStatus.Pending))
+                        {
+                            <li>@participant.User.Username</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p>ไม่มีผู้เข้าร่วมที่รออนุมัติ</p>
+                }
+            </div>
+
+            <div>
+                <h3>❌ ถูกปฏิเสธ</h3>
+                @if (Model.Participants.Any(p => p.Status == ParticipationStatus.Rejected))
+                {
+                    <ul>
+                        @foreach (var participant in Model.Participants.Where(p => p.Status ==
+                                            ParticipationStatus.Rejected))
+                        {
+                            <li>@participant.User.Username - <span class="text-danger">@participant.RejectedReason</span></li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p>ไม่มีผู้เข้าร่วมที่ถูกปฏิเสธ</p>
+                }
             </div>
 
             <form asp-action="Join" asp-controller="Event" method="post">
                 <input type="hidden" name="eventId" value="@Model.Id" />
                 <button type="submit" class="join-btn">🚀 เข้าร่วมกิจกรรม</button>
             </form>
+
+            <a href="@Url.Action("Chat", "Event", new { id = Model.Id })" class="btn btn-primary">💬 เข้าสู่แชท</a>
+
 
         </div>
     </div>

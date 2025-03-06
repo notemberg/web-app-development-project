@@ -22,21 +22,20 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // render tags
     function renderTags() {
+      let tagCarousel = document.getElementById("nav-tag-carousel");
       tagCarousel.innerHTML = "";
-      allTags
-        .forEach((tag,index) => {
-          let button = document.createElement("div");
-          button.className = "nav-tag-btn";
-          button.innerText = tag;
-          button.dataset.tag = tag;
-          button.classList.add(index % 2 === 0 ? "nav-yellow" : "nav-white");
-          button.addEventListener("click", function () {
-            toggleTag(tag, button);
-          });
-          tagCarousel.appendChild(button);
-        });
-    }
   
+      allTags.forEach((tag, index) => {
+          let button = document.createElement("a");
+          button.href = `/Event/SearchPage?selectedTags=${tag.id}`; // ✅ ใช้ `id` แทน `name`
+          button.className = "nav-tag-btn";
+          button.innerText = tag.name; // ✅ แสดงชื่อแท็ก
+          button.dataset.tag = tag.id; // ✅ ใช้ id เป็นค่า dataset
+          button.classList.add(index % 2 === 0 ? "nav-yellow" : "nav-white");
+  
+          tagCarousel.appendChild(button);
+      });
+  }
     
   
     prevBtn.addEventListener("click", function () {
@@ -65,3 +64,43 @@ document.addEventListener("DOMContentLoaded", function () {
 
   });
   
+  document.addEventListener("DOMContentLoaded", function () {
+    const profileButton = document.getElementById("profileButton");
+    const profileDropdown = document.getElementById("profileDropdown");
+
+    profileButton.addEventListener("click", function () {
+        profileDropdown.style.display =
+            profileDropdown.style.display === "flex" ? "none" : "flex";
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!profileButton.contains(event.target) && !profileDropdown.contains(event.target)) {
+            profileDropdown.style.display = "none";
+        }
+    });
+});
+
+
+function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("open");
+  document.getElementById("overlay").classList.toggle("open");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("search-bar").addEventListener("input", function () {
+    let clearBtn = document.getElementById("clear-btn");
+    if (this.value.length > 0) {
+        clearBtn.style.display = "block"; // แสดงปุ่ม X
+    } else {
+        clearBtn.style.display = "none"; // ซ่อนปุ่ม X
+    }
+  });
+  
+});
+
+function clearSearch() {
+  let input = document.getElementById("search-bar");
+  input.value = "";
+  document.getElementById("clear-btn").style.display = "none";
+  input.focus(); // ให้ focus ที่ช่อง input ต่อ
+}

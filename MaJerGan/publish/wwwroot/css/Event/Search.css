@@ -1,0 +1,187 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Arial', sans-serif; */
+    font-family: 'Sulphur Point';
+}
+
+.container {
+    flex: 1;
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    height: 2000px;
+    padding-top: 130px;
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+.event-card {
+    min-height: 124px;
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid #ddd;
+    width: 100%;
+    cursor: pointer;
+}
+
+.event-card:hover {
+    scale: 1.02;
+}
+
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+.event-card .event-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.event-body {
+    font-size: 14px;
+    color: gray;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.creator {
+    font-size: 16px;
+}
+
+.fa-user {
+    color: #666;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.participants {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    /* margin-top: 5px; */
+}
+
+.tags-container {
+    display: flex;
+}
+
+.tag-button {
+    color: #333;
+    background: #ddd;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-right: 5px;
+    font-size: 12px;
+    cursor: default;
+    transition: 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.tag-button:hover {
+    background-color: #BDBDBD;
+}
+
+.fa-user {
+    color: #666;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+
+.location {
+    display: inline-block;
+    max-width: 150px; /* จำกัดความยาวของชื่อสถานที่ */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* ถ้ายาวเกิน ให้ขึ้น "..." */
+    font-size: 14px;
+    font-weight: normal;
+    color: #555;
+}
+
+.sort-options {
+    display: flex;
+    gap: 10px; /* ระยะห่างระหว่างลิงก์ */
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.sort-options a {
+    text-decoration: none; /* ลบเส้นใต้ */
+    color: #333; /* สีของลิงก์ */
+    padding: 5px 10px; /* ขนาดของ padding */
+    border-radius: 25px; /* ขอบมน */
+    border: 1px solid #ddd; /* เส้นขอบรอบ ๆ */
+    transition: background-color 0.3s ease, color 0.3s ease; /* การเปลี่ยนแปลงสีเมื่อ hover */
+}
+
+.sort-options a:hover {
+    background-color: #FFD700; /* สีพื้นหลังเมื่อ hover */
+    color: white; /* เปลี่ยนสีข้อความเมื่อ hover */
+}
+
+/* สไตล์สำหรับลิงก์ที่ถูกเลือก */
+.sort-options a.active {
+    background-color: #FFD700; /* เปลี่ยนสีพื้นหลัง */
+    color: white; /* เปลี่ยนสีข้อความ */
+    font-weight: bold; /* ทำให้ข้อความหนา */
+    border-radius: 25px; /* ขอบมน */
+    padding: 5px 10px; /* ขนาด padding */
+}
+.event-card-link {
+    text-decoration: none; /* ไม่มีขีดเส้นใต้ */
+    color: black; /* สีข้อความ */
+}
+
+.event-card-link:hover {
+    background-color: #f0f0f0; /* สีพื้นหลังเมื่อ hover */
+}
+
+.event-card {
+    cursor: pointer; /* ทำให้การ์ดสามารถคลิกได้ */
+}
+
+.Time {
+    width: 30%;
+    font-size: 24px;
+    color: gray;
+    font-weight: normal;
+}
+
+.event-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: gray;
+    margin-top: 10px;
+}
+.event-footer .event-views {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.span-more-tag {
+    padding: 5px 10px;
+}

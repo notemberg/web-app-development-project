@@ -10,7 +10,7 @@
     border-radius: 16px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 16px;
-    padding-top : 0px;
+    padding-top: 0px;
     padding-right: 2px;
     padding-left: 45px;
     margin-bottom: 16px;
@@ -30,8 +30,10 @@
 .hot-rank {
     font-family: 'Caprasimo';
     position: absolute;
-    top: -10px; /* ขยับขึ้น */
-    left: -10px; /* ขยับไปซ้าย */
+    top: -10px;
+    /* ขยับขึ้น */
+    left: -10px;
+    /* ขยับไปซ้าย */
     background: #FFF493;
     color: #F1AEC5;
     font-weight: bold;
@@ -47,7 +49,7 @@
 
 /* ✅ พื้นที่ของเนื้อหากิจกรรม */
 .hot-event-content {
-    
+
     flex-grow: 1;
 }
 
@@ -56,11 +58,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 /* ✅ ชื่อกิจกรรม */
 .event-title {
     font-family: 'Sulphur Point';
+    text-overflow: ellipsis;
+    width: 70%;
+    text-align: left;
     margin-top: 5px;
     font-size: 30px;
     font-weight: bold;
@@ -72,11 +78,12 @@
 .event-views {
     font-size: 14px;
     font-weight: bold;
-    color: #28a745; /* สีเขียว */
+    color: #28a745;
+    /* สีเขียว */
 }
 
 /* ✅ ชื่อผู้สร้าง */
-.creator {
+.hot-event-card .creator {
     font-family: 'Sulphur Point';
     font-size: 14px;
     color: rgb(0, 0, 0);
@@ -94,7 +101,10 @@
     font-family: 'Sulphur Point';
     font-size: 14px;
     color: #666;
-    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0px;
 }
 
 /* ✅ แท็กกิจกรรม */
@@ -123,4 +133,92 @@
 
 .tag-button:hover {
     background-color: #BDBDBD;
+}
+
+@media screen and (max-width: 768px) {
+    .hot-event-card {
+        padding: 16px;
+        padding-top: 0px;
+        padding-right: 2px;
+        padding-left: 30px;
+        margin-bottom: 16px;
+        width: 100%;
+        max-width: none;
+        justify-content: flex-start;
+        cursor: pointer;
+    }
+
+    .hot-event-card:hover {
+        scale: 1.02;
+    }
+
+    .hot-rank {
+        font-family: 'Caprasimo';
+        position: absolute;
+        top: -10px;
+        /* ขยับขึ้น */
+        left: -15px;
+        /* ขยับไปซ้าย */
+        background: #FFF493;
+        color: #F1AEC5;
+        font-weight: bold;
+        font-size: 22px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 50%;
+        text-align: center;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .hot-event-content {
+
+        flex-grow: 1;
+    }
+
+    .event-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 16px;
+        font-weight: bold;
+        width: 100%;
+    }
+
+    .event-title {
+        font-family: 'Sulphur Point';
+        text-overflow: ellipsis;
+        width: 70%;
+        text-align: left;
+        margin-top: 5px;
+        font-size: 30px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 4px;
+    }
+
+    .event-views {
+        font-size: 14px;
+        font-weight: bold;
+        color: #28a745;
+        /* สีเขียว */
+    }
+
+    .hot-event-card .creator {
+        font-family: 'Sulphur Point';
+        font-size: 14px;
+        color: rgb(0, 0, 0);
+        font-weight: normal;
+    }
+
+    .hot-event-content > .event-body > .participants {
+        font-family: 'Sulphur Point';
+        font-size: 14px;
+        color: #666;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 0px;
+        width: 100%;
+    }
 }

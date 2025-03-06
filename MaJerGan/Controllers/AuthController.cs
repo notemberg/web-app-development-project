@@ -184,11 +184,11 @@ namespace MaJerGan.Controllers
         }
 
         [HttpGet]
+        [Route("/logout")]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync("MyCookieAuth"); // ✅ ลบ `Cookie` ออกจากระบบ
-
-            return RedirectToAction("Login");
+            return RedirectToAction("Index", "Home"); // 🔹 ไปที่หน้าแรก
         }
     }
 }
