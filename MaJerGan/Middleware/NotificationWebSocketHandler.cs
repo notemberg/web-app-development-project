@@ -92,5 +92,31 @@ namespace MaJerGan.Middleware
             await _userSockets[userIdKey].SendAsync(new ArraySegment<byte>(buffer, 0, buffer.Length), WebSocketMessageType.Text, true, CancellationToken.None);
         }
 
+        public static async Task sendUpdateReadNotification(int userId)
+        {
+            string userIdKey = userId.ToString(); // ✅ แปลงเป็น string เพื่อใช้เป็น Key
+
+            Console.WriteLine($"🛠 debug: ส่งการอัปเดตการอ่านแจ้งเตือนให้ UserId {userIdKey}");
+
+            // ✅ ตรวจสอบว่ามีการเชื่อมต่อ WebSocket อยู่หรือไม่
+            if (!_userSockets.ContainsKey(userIdKey))
+            {
+                Console.WriteLine($"⚠️ Warning: UserId {userIdKey} ยังไม่ได้เชื่อมต่อ WebSocket");
+                return;
+            }
+
+            if (_userSockets[userIdKey].State != WebSocketState.Open)
+            {
+                Console.WriteLine($"⚠️ Warning: WebSocket ของ UserId {userIdKey} ไม่ได้อยู่ในสถานะ Open");
+                _userSockets.Remove(userIdKey); // ลบ WebSocket ที่ปิดไปแล้ว
+                return;
+            }
+
+            // ✅ ถ้า WebSocket เปิดอยู่ ส่งข้อความแจ้งเตือน
+            Console.WriteLine($"📩 Sending update read notification to user {userIdKey}");
+            var buffer = Encoding.UTF8.GetBytes("update-read-notification");
+            await _userSockets[userIdKey].SendAsync(new ArraySegment<byte>(buffer, 0, buffer.Length), WebSocketMessageType.Text, true, CancellationToken.None);
+        }
+
     }
 }

@@ -47,7 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   notificationSocket.onmessage = function (event) {
+    console.log("📩 ได้รับข้อความ WebSocket:", event.data);
     fetchNotifications();
+    updateNotificationCount();
   };
 
   function fetchNotifications() {
@@ -73,11 +75,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         updateNotificationCount(data.length);
       })
-      .catch((error) => console.error("❌ Error fetching notifications:", error));
+      .catch((error) =>
+        console.error("❌ Error fetching notifications:", error)
+      );
   }
 
   markAllAsReadButton.addEventListener("click", function () {
-    fetch(`/api/notifications/markAllAsRead/${userId}`, { method: "POST" })
+    fetch(`/api/notifications/markAllAsRead`, { method: "POST" })
       .then(() => {
         document
           .querySelectorAll(".notification-item.unread")
@@ -107,11 +111,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const unreadCount = document.querySelectorAll(
       ".notification-item.unread"
     ).length;
-    if (unreadCount > 100){
-        badge.innerText = "99+";
-    }
-    else{
-        badge.innerText = unreadCount;
+    if (unreadCount > 100) {
+      badge.innerText = "99+";
+    } else {
+      badge.innerText = unreadCount;
     }
     badge.style.display = unreadCount > 0 ? "block" : "none";
   }

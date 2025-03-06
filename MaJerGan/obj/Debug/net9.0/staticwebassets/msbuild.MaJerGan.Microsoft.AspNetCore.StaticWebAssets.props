@@ -606,8 +606,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>or5vt6rvnj</Fingerprint>
-      <Integrity>9LMAtDTyvgFnW7McmNlGAzUDPG1Qd7YKjkQeAO6ZCC8=</Integrity>
+      <Fingerprint>872xwul0at</Fingerprint>
+      <Integrity>nM66RwK4oOCp5XR1JNE5/kHv1gYZkvrcafYzhMOzkoQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Shared\notification.js'))</OriginalItemSpec>

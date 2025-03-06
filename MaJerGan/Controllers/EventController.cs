@@ -84,7 +84,18 @@ namespace MaJerGan.Controllers
 
             await WebSocketHandler.BroadcastMessage("New Event Added!");
 
-            return RedirectToAction("Index");
+            // ✅ เพิ่ม Creator เข้าเป็นผู้เข้าร่วมโดยอัตโนมัติ
+            var creatorParticipation = new EventParticipant
+            {
+                EventId = model.Id,
+                UserId = userId,
+                Status = ParticipationStatus.Approved // ✅ อนุมัติทันที
+            };
+
+            _context.EventParticipants.Add(creatorParticipation);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Details", new { id = model.Id });
         }
 
 
@@ -118,6 +129,10 @@ namespace MaJerGan.Controllers
             {
                 return NotFound();
             }
+
+            _context.EventParticipants.RemoveRange(_context.EventParticipants.Where(p => p.EventId == id));
+            _context.EventTags.RemoveRange(_context.EventTags.Where(et => et.EventId == id));
+            _context.Notifications.RemoveRange(_context.Notifications.Where(n => n.EventId == id));
 
             _context.Events.Remove(eventToDelete);
             await _context.SaveChangesAsync();
@@ -178,19 +193,36 @@ namespace MaJerGan.Controllers
 
             if (existingParticipation != null)
             {
-                if (existingParticipation.Status == ParticipationStatus.Rejected)
+                if (existingParticipation.Status == ParticipationStatus.Pending)
                 {
-                    return BadRequest("คุณถูกปฏิเสธจากกิจกรรมนี้แล้ว: " + existingParticipation.RejectedReason);
+                    return BadRequest("คำขอเข้าร่วมกิจกรรมนี้อยู่ระหว่างพิจารณาอยู่แล้ว");
                 }
-                return BadRequest("คุณได้เข้าร่วมกิจกรรมนี้แล้ว");
+                if (existingParticipation.Status == ParticipationStatus.Approved)
+                {
+                    return BadRequest("คุณได้เข้าร่วมกิจกรรมนี้แล้ว");
+                }
             }
-
-
 
             var eventDetails = await _context.Events.FindAsync(eventId);
             if (eventDetails == null)
             {
                 return NotFound("ไม่พบกิจกรรมนี้");
+            }
+
+            if (eventDetails.IsClosed)
+            {
+                return BadRequest("กิจกรรมนี้ปิดรับสมัครแล้ว");
+            }
+
+            if (eventDetails.MaxParticipants > 0)
+            {
+                var currentParticipants = await _context.EventParticipants
+                    .CountAsync(p => p.EventId == eventId && p.Status == ParticipationStatus.Approved);
+
+                if (currentParticipants >= eventDetails.MaxParticipants)
+                {
+                    return BadRequest("กิจกรรมนี้เต็มแล้ว");
+                }
             }
 
             // ✅ ตรวจสอบเพศของผู้ใช้เฉพาะเมื่อ IsGenderRestricted = 1
@@ -210,6 +242,13 @@ namespace MaJerGan.Controllers
             }
 
             Console.WriteLine($"🔍 Event RequiresConfirmation: {eventDetails.RequiresConfirmation}");
+            if(existingParticipation != null && existingParticipation.Status == ParticipationStatus.Rejected)
+            {
+                existingParticipation.Status = ParticipationStatus.Pending;
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Details", new { id = eventId });
+            }
+
             var participation = new EventParticipant
             {
                 EventId = eventId,
@@ -276,6 +315,125 @@ namespace MaJerGan.Controllers
             return RedirectToAction("Details", new { id = eventId });
         }
 
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> Leave(int eventId)
+        {
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            int userId = int.Parse(userIdClaim.Value);
+
+            var participation = await _context.EventParticipants
+                .FirstOrDefaultAsync(p => p.EventId == eventId && p.UserId == userId);
+
+            if (participation == null)
+            {
+                return BadRequest("คุณไม่ได้เข้าร่วมกิจกรรมนี้");
+            }
+
+            _context.EventParticipants.Remove(participation);
+            await _context.SaveChangesAsync();
+
+            await NotificationWebSocketHandler.SendNotificationToUser(userId, $"📩 คุณได้ออกจากกิจกรรม ID {eventId}");
+
+            return RedirectToAction("Details", new { id = eventId });
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> Approve(int eventId, int userId)
+        {
+            var eventDetails = await _context.Events.FindAsync(eventId);
+            if (eventDetails == null)
+            {
+                return NotFound("ไม่พบกิจกรรมนี้");
+            }
+
+            var participation = await _context.EventParticipants
+                .FirstOrDefaultAsync(p => p.EventId == eventId && p.UserId == userId);
+
+            if (participation == null)
+            {
+                return NotFound("ไม่พบผู้ใช้นี้ในรายชื่อเข้าร่วม");
+            }
+
+            if (participation.Status == ParticipationStatus.Approved)
+            {
+                return BadRequest("ผู้ใช้นี้ได้รับการอนุมัติแล้ว");
+            }
+
+            participation.Status = ParticipationStatus.Approved;
+            await _context.SaveChangesAsync();
+
+            string userMessage = $"📩 คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณได้รับการอนุมัติแล้ว";
+
+            var notificationForUser = new Notification
+            {
+                UserId = userId,
+                EventId = eventId,
+                Message = userMessage,
+                Type = "JoinConfirmation",
+                Status = "Unread"
+            };
+
+            _context.Notifications.Add(notificationForUser);
+            await _context.SaveChangesAsync();
+
+            await NotificationWebSocketHandler.SendNotificationToUser(userId, userMessage);
+        
+            return RedirectToAction("Details", new { id = eventId });
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> Reject(int eventId, int userId, string reason)
+        {
+            var eventDetails = await _context.Events.FindAsync(eventId);
+            if (eventDetails == null)
+            {
+                return NotFound("ไม่พบกิจกรรมนี้");
+            }
+
+            var participation = await _context.EventParticipants
+                .FirstOrDefaultAsync(p => p.EventId == eventId && p.UserId == userId);
+
+            if (participation == null)
+            {
+                return NotFound("ไม่พบผู้ใช้นี้ในรายชื่อเข้าร่วม");
+            }
+
+            if (participation.Status == ParticipationStatus.Rejected)
+            {
+                return BadRequest("ผู้ใช้นี้ถูกปฏิเสธแล้ว");
+            }
+
+            participation.Status = ParticipationStatus.Rejected;
+            participation.RejectedReason = "test";
+            await _context.SaveChangesAsync();
+
+            string userMessage = $"📩 คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณถูกปฏิเสธ: test";
+
+            var notificationForUser = new Notification
+            {
+                UserId = userId,
+                EventId = eventId,
+                Message = userMessage,
+                Type = "JoinRejection",
+                Status = "Unread"
+            };
+
+            _context.Notifications.Add(notificationForUser);
+            await _context.SaveChangesAsync();
+
+            await NotificationWebSocketHandler.SendNotificationToUser(userId, userMessage);
+            
+
+            return RedirectToAction("Details", new { id = eventId });
+        }
 
         [HttpGet]
         public async Task<IActionResult> GetHotEvents()

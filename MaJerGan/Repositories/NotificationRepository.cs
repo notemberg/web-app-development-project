@@ -64,11 +64,14 @@ namespace MaJerGan.Repositories
         // ✅ 3. อัปเดตสถานะแจ้งเตือนเป็น "Read"
         public async Task MarkAsRead(int notificationId)
         {
+
             var notification = await _context.Notifications.FindAsync(notificationId);
             if (notification != null)
             {
                 notification.Status = "Read";
+
                 await _context.SaveChangesAsync();
+                await NotificationWebSocketHandler.sendUpdateReadNotification(notification.UserId);
             }
         }
 
@@ -83,7 +86,11 @@ namespace MaJerGan.Repositories
                 notification.Status = "Read";
             }
 
+            
+
             await _context.SaveChangesAsync();
+
+            await NotificationWebSocketHandler.sendUpdateReadNotification(userId);
         }
 
 
