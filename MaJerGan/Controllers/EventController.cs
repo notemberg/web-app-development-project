@@ -366,6 +366,17 @@ namespace MaJerGan.Controllers
                 return BadRequest("ผู้ใช้นี้ได้รับการอนุมัติแล้ว");
             }
 
+            if(eventDetails.MaxParticipants > 0)
+            {
+                var currentParticipants = await _context.EventParticipants
+                    .CountAsync(p => p.EventId == eventId && p.Status == ParticipationStatus.Approved);
+
+                if (currentParticipants >= eventDetails.MaxParticipants)
+                {
+                    return BadRequest("กิจกรรมนี้เต็มแล้ว");
+                }
+            }
+
             participation.Status = ParticipationStatus.Approved;
             await _context.SaveChangesAsync();
 

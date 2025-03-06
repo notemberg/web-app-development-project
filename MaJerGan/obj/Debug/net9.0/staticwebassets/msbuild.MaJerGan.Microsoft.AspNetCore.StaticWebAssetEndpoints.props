@@ -396,17 +396,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-MzVkpe9Lw5X9TKAUrqblL/z7cqdHO8XPw8EDV9B\u002BLMo="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4086"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022MzVkpe9Lw5X9TKAUrqblL/z7cqdHO8XPw8EDV9B\u002BLMo=\u0022"},{"Name":"Last-Modified","Value":"Wed, 05 Mar 2025 13:53:35 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/MaJerGan/js/Shared/notification.872xwul0at.js">
+    <StaticWebAssetEndpoint Include="_content/MaJerGan/js/Shared/notification.hrs3mqlj7p.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Shared\notification.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"872xwul0at"},{"Name":"integrity","Value":"sha256-nM66RwK4oOCp5XR1JNE5/kHv1gYZkvrcafYzhMOzkoQ="},{"Name":"label","Value":"_content/MaJerGan/js/Shared/notification.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4426"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022nM66RwK4oOCp5XR1JNE5/kHv1gYZkvrcafYzhMOzkoQ=\u0022"},{"Name":"Last-Modified","Value":"Thu, 06 Mar 2025 20:24:28 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"hrs3mqlj7p"},{"Name":"integrity","Value":"sha256-o71ex6DdWLa8PnSYHuTa7atZTX2yWuxaLL7a2rkEC9U="},{"Name":"label","Value":"_content/MaJerGan/js/Shared/notification.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"4416"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022o71ex6DdWLa8PnSYHuTa7atZTX2yWuxaLL7a2rkEC9U=\u0022"},{"Name":"Last-Modified","Value":"Thu, 06 Mar 2025 20:50:31 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/MaJerGan/js/Shared/notification.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Shared\notification.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-nM66RwK4oOCp5XR1JNE5/kHv1gYZkvrcafYzhMOzkoQ="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4426"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022nM66RwK4oOCp5XR1JNE5/kHv1gYZkvrcafYzhMOzkoQ=\u0022"},{"Name":"Last-Modified","Value":"Thu, 06 Mar 2025 20:24:28 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-o71ex6DdWLa8PnSYHuTa7atZTX2yWuxaLL7a2rkEC9U="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"4416"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022o71ex6DdWLa8PnSYHuTa7atZTX2yWuxaLL7a2rkEC9U=\u0022"},{"Name":"Last-Modified","Value":"Thu, 06 Mar 2025 20:50:31 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/MaJerGan/js/Tag.fc73vyemy6.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Tag.js'))</AssetFile>
