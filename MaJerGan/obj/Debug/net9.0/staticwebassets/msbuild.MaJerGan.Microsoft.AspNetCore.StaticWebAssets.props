@@ -210,8 +210,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>n1q2ecicl5</Fingerprint>
-      <Integrity>pXG0CV0wGX6JjNzfb6370fs6RULswPlNUR4QLJr0Eoc=</Integrity>
+      <Fingerprint>ndhdnl993c</Fingerprint>
+      <Integrity>O1Rx6TVhPbMCkE9h/zBMIFnND6Kb0+Iw56CxFaVNK3E=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\nav_copy.css'))</OriginalItemSpec>
@@ -606,8 +606,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>ouru26glaq</Fingerprint>
-      <Integrity>gELXla0/x/AGYX3ZfIoXBbLa8nDo+JK3Hn7+MD2URS0=</Integrity>
+      <Fingerprint>or5vt6rvnj</Fingerprint>
+      <Integrity>9LMAtDTyvgFnW7McmNlGAzUDPG1Qd7YKjkQeAO6ZCC8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Shared\notification.js'))</OriginalItemSpec>

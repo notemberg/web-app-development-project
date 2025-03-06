@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using System;
 using System.Threading.Tasks;
 using MaJerGan.Repositories;
@@ -46,12 +47,50 @@ public class NotificationController : Controller
     }
 
     // ✅ 3. อัปเดตสถานะแจ้งเตือนเป็น "Read"
+    [Authorize]
     [HttpPost("read/{notificationId}")]
     public async Task<IActionResult> MarkAsRead(int notificationId)
     {
+        var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == System.Security.Claims.ClaimTypes.NameIdentifier);
+        if (userIdClaim == null)
+        {
+            return Unauthorized();
+        }
+
+        int userId = int.Parse(userIdClaim.Value);
+
+        var notification = await _notificationRepository.GetNotificationById(notificationId);
+        if (notification == null)
+        {
+            return NotFound(new { Error = "ไม่พบการแจ้งเตือนนี้" });
+        }
+
+        if (notification.UserId != userId)
+        {
+            return Forbid(); // ป้องกันการแก้ไขแจ้งเตือนของคนอื่น
+        }
+
         await _notificationRepository.MarkAsRead(notificationId);
         return Ok(new { Message = "Notification marked as read!" });
     }
+
+    [Authorize]
+    [HttpPost("markAllAsRead")]
+    public async Task<IActionResult> MarkAllAsRead()
+    {
+        var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == System.Security.Claims.ClaimTypes.NameIdentifier);
+        if (userIdClaim == null)
+        {
+            return Unauthorized();
+        }
+
+        int userId = int.Parse(userIdClaim.Value);
+
+        await _notificationRepository.MarkAllAsRead(userId);
+        return Ok(new { Message = "All notifications marked as read!" });
+    }
+
+
 }
 
 public class NotificationRequest

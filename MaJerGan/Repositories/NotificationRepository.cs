@@ -55,6 +55,12 @@ namespace MaJerGan.Repositories
                 .ToListAsync();
         }
 
+        // ✅ 1. ดึง Notification ตาม ID
+        public async Task<Notification> GetNotificationById(int notificationId)
+        {
+            return await _context.Notifications.FindAsync(notificationId)!;
+        }
+
         // ✅ 3. อัปเดตสถานะแจ้งเตือนเป็น "Read"
         public async Task MarkAsRead(int notificationId)
         {
@@ -65,5 +71,21 @@ namespace MaJerGan.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task MarkAllAsRead(int userId)
+        {
+            var notifications = await _context.Notifications
+                .Where(n => n.UserId == userId && n.Status == "Unread")
+                .ToListAsync();
+
+            foreach (var notification in notifications)
+            {
+                notification.Status = "Read";
+            }
+
+            await _context.SaveChangesAsync();
+        }
+
+
     }
 }

@@ -369,7 +369,7 @@ namespace MaJerGan.Controllers
                 .Include(e => e.Creator)
                 .Include(e => e.Participants)
                 .Where(e => e.EventTime > today) // ✅ อีเวนต์ต้องอยู่ในอนาคต
-                .Where(e => e.Participants != null && e.Participants.Any(p => p.UserId == userId)) // ✅ เช็คว่ามีผู้ใช้คนนี้ไหม
+                .Where(e => e.Participants != null && e.Participants.Any(p => p.UserId == userId && p.Status == ParticipationStatus.Approved)) // ✅ เช็คว่ามีผู้ใช้คนนี้ไหม
                 .Select(e => new
                 {
                     e.Id,
