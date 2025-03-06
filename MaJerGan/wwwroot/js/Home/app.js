@@ -1,10 +1,10 @@
 // ✅ ตรวจสอบว่าเว็บใช้ HTTP หรือ HTTPS
-const protocol = window.location.protocol === "https:" ? "wss://" : "ws://";
+const protocol1 = window.location.protocol === "https:" ? "wss://" : "ws://";
 
 // ✅ ใช้ hostname และ port ของเว็บอัตโนมัติ
-const socketUrl = `${protocol}${window.location.host}/ws`;
+const socketUrl1 = `${protocol1}${window.location.host}/ws`;
 
-const socket = new WebSocket(socketUrl); // ✅ ใช้ URL อัตโนมัติ
+const socket = new WebSocket(socketUrl1); // ✅ ใช้ URL อัตโนมัติ
 
 socket.onopen = () => {
   console.log("✅ WebSocket Connected");

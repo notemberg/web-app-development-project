@@ -41,6 +41,9 @@ namespace MaJerGan.Data
 
         public DbSet<Message> Messages { get; set; }
 
+        public DbSet<Notification> Notifications { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -91,6 +94,19 @@ namespace MaJerGan.Data
                 .WithMany(t => t.EventTags)
                 .HasForeignKey(et => et.TagId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            // ตั้งค่าความสัมพันธ์ของ Notification
+            modelBuilder.Entity<Notification>()
+                .HasOne(n => n.User)
+                .WithMany()
+                .HasForeignKey(n => n.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Notification>()
+                .HasOne(n => n.Event)
+                .WithMany()
+                .HasForeignKey(n => n.EventId)
+                .OnDelete(DeleteBehavior.SetNull);
         }
 
     }

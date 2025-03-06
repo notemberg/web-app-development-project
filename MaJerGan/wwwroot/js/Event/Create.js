@@ -204,6 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
             genderCheckboxes.forEach(checkbox => checkbox.checked = false);
             hiddenGenderInput.value = "Male,Female,Other"; // ล้างค่าถ้าปิด Gender Restricted
         }
+        
     });
 
     // ✅ อัปเดตค่าใน hidden input เมื่อตัวเลือกเพศเปลี่ยนแปลง

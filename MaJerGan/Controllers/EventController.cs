@@ -185,12 +185,30 @@ namespace MaJerGan.Controllers
                 return BadRequest("คุณได้เข้าร่วมกิจกรรมนี้แล้ว");
             }
 
+
+
             var eventDetails = await _context.Events.FindAsync(eventId);
             if (eventDetails == null)
             {
                 return NotFound("ไม่พบกิจกรรมนี้");
             }
-            
+
+            // ✅ ตรวจสอบเพศของผู้ใช้เฉพาะเมื่อ IsGenderRestricted = 1
+            var user = await _context.Users.FindAsync(userId);
+            if (eventDetails.IsGenderRestricted)
+            {
+                if (string.IsNullOrEmpty(eventDetails.AllowedGenders))
+                {
+                    return BadRequest("❌ กิจกรรมนี้ถูกจำกัดเพศ แต่ไม่ได้กำหนด AllowedGenders");
+                }
+
+                var allowedGenders = eventDetails.AllowedGenders.Split(',').Select(g => g.Trim()).ToList();
+                if (user.Gender == null || !allowedGenders.Contains(user.Gender))
+                {
+                    return BadRequest("❌ คุณไม่สามารถเข้าร่วมกิจกรรมนี้ได้ เนื่องจากเพศของคุณไม่ได้รับอนุญาต");
+                }
+            }
+
             Console.WriteLine($"🔍 Event RequiresConfirmation: {eventDetails.RequiresConfirmation}");
             var participation = new EventParticipant
             {
@@ -202,7 +220,58 @@ namespace MaJerGan.Controllers
             _context.EventParticipants.Add(participation);
             await _context.SaveChangesAsync();
 
+            int hostId = eventDetails.CreatedBy; // ✅ Host ของ Event
+
+            string hostMessage;
+            if (eventDetails.RequiresConfirmation)
+            {
+                hostMessage = $"📩 มีผู้ใช้ ID {user.Username} ขอเข้าร่วมกิจกรรม {eventDetails.Title}";
+            }
+            else
+            {
+                hostMessage = $"📩 ผู้ใช้ ID {user.Username} ได้เข้าร่วมกิจกรรม {eventDetails.Title}";
+            }
+
+            var notificationForHost = new Notification
+            {
+                UserId = hostId,
+                EventId = eventId,
+                Message = hostMessage,
+                Type = "JoinRequest",
+                Status = "Unread"
+            };
+
+            _context.Notifications.Add(notificationForHost);
+
+            await NotificationWebSocketHandler.SendNotificationToUser(hostId, hostMessage);
+
+            string userMessage;
+            if (eventDetails.RequiresConfirmation)
+            {
+                userMessage = $"📩 คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณถูกส่งไปแล้ว";
+            }
+            else
+            {
+                userMessage = $"📩 คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณได้รับการอนุมัติแล้ว";
+            }
+
+            var notificationForUser = new Notification
+            {
+                UserId = userId,
+                EventId = eventId,
+                Message = userMessage,
+                Type = "JoinRequest",
+                Status = "Unread"
+            };
+
+            _context.Notifications.Add(notificationForUser);
+
+            await NotificationWebSocketHandler.SendNotificationToUser(userId, userMessage);
+
+
             await WebSocketHandler.BroadcastMessage($"User {userId} joined event {eventId}");
+
+            await _context.SaveChangesAsync();
 
             return RedirectToAction("Details", new { id = eventId });
         }

@@ -81,7 +81,8 @@ body {
 .main-body>.main-header>#search-form>#search-bar {
   flex-grow: 1;
   padding: 10px;
-  padding-right: 30px; /* เผื่อพื้นที่สำหรับปุ่ม X */
+  padding-right: 30px;
+  /* เผื่อพื้นที่สำหรับปุ่ม X */
   border-radius: 15px;
   border: none;
   font-size: 16px;
@@ -317,6 +318,7 @@ body {
 .sidebar {
   display: none;
 }
+
 /* ✅ ซ่อนปุ่ม Hamburger Menu ในจอใหญ่ */
 .menu-toggle {
   display: none;
@@ -340,7 +342,8 @@ body {
   border: none;
   cursor: pointer;
   font-size: 18px;
-  display: none; /* ซ่อนไว้ก่อน */
+  display: none;
+  /* ซ่อนไว้ก่อน */
   color: #888;
 }
 
@@ -351,6 +354,88 @@ body {
 #clear-btn:hover {
   color: #000;
 }
+
+/* ✅ สไตล์ของไอคอนแจ้งเตือน */
+.nav-notification-container {
+  position: relative;
+  display: inline-block;
+}
+
+.notification-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  font-size: 2rem;
+  color: white;
+}
+
+.badge {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 12px;
+}
+
+/* ✅ สไตล์ของ Dropdown แจ้งเตือน */
+.notification-menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 350px;
+  background: #F1AEC5;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: none;
+  z-index: 1000;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  
+}
+
+.notification-menu.show {
+  display: block;
+}
+
+/* ✅ สไตล์รายการแจ้งเตือน */
+.notification-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.notification-item {
+  padding: 10px;
+  border-bottom: 1px solid #3a3b3c;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 1);
+}
+
+.notification-item.unread {
+  background: #ffffff;
+}
+
+/* ✅ ปุ่มทำให้เป็นอ่านแล้ว */
+.notification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+
+#markAllAsRead {
+  background: none;
+  color: #2d88ff;
+  border: none;
+  cursor: pointer;
+}
+
+
+
 @media screen and (max-width: 768px) {
 
 
@@ -506,4 +591,3 @@ body {
     font-weight: bold;
   }
 }
-

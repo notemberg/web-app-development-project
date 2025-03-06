@@ -6,6 +6,7 @@ using System.Net.WebSockets;
 using MaJerGan.Middleware;
 using MaJerGan.Services;
 using MaJerGan.Hubs;
+using MaJerGan.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHostedService<EventCleanupService>();
 builder.Services.AddSingleton<EmailService>();
 builder.Services.AddSingleton<CloudinaryService>();
+// ✅ ลงทะเบียน WebSocket Handler
+builder.Services.AddSingleton<NotificationWebSocketHandler>();
+
 
 
 builder.Services.AddDistributedMemoryCache(); // ใช้ In-Memory Cache สำหรับ Session
@@ -56,6 +60,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 // ✅ เพิ่ม Controllers & Views
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<NotificationRepository>();
 
 var app = builder.Build();
 
@@ -65,6 +70,9 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
+
+// ✅ ลงทะเบียน Repository
+
 // ✅ ตั้งค่า Static Files (เพื่อโหลด CSS, JS, Images)
 app.UseHttpsRedirection();
 app.UseStaticFiles();  // ❗ ต้องมี เพื่อให้ CSS ทำงาน
@@ -100,6 +108,27 @@ app.Use(async (context, next) =>
     }
 });
 
+app.Use(async (context, next) =>
+{
+    if (context.Request.Path == "/ws-notification" && context.Request.Query.ContainsKey("userId"))
+    {
+        var userId = context.Request.Query["userId"];
+        if (context.WebSockets.IsWebSocketRequest)
+        {
+            var webSocket = await context.WebSockets.AcceptWebSocketAsync();
+            var handler = context.RequestServices.GetRequiredService<NotificationWebSocketHandler>();
+            await handler.Handle(context, webSocket, userId);
+        }
+        else
+        {
+            context.Response.StatusCode = 400;
+        }
+    }
+    else
+    {
+        await next();
+    }
+});
 
 
 

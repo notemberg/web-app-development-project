@@ -15,9 +15,14 @@
     @RenderSection("Styles", required: false)
 
 </head>
+<script>
+    const userId = "@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value";
+</script>
 @if ((string)(ViewData["ShowHeader"] ?? "False") == "True")
 {
     <script src="~/js/Shared/index.js"></script>
+    <script src="~/js/Shared/notification.js"></script>
+
 }
 @* <script src="~/js/Home/index.js"></script> *@
 
@@ -33,13 +38,38 @@
             <form method="get" action="@Url.Action("SearchPage", "Event")" id="search-form">
                 <input id="search-bar" name="searchQuery" type="text" placeholder=" Search Your Interest"
                     value="@Context.Request.Query["searchQuery"]" autocomplete="off" />
-                    <button id="clear-btn" type="button" onclick="clearSearch()">✖</button>
+                <button id="clear-btn" type="button" onclick="clearSearch()">✖</button>
 
             </form>
 
             <nav class="desktop-nav">
-                <button class="nav-btn"><i class="bi bi-bell-fill" style="color: white;font-size: 2rem;"></i></button>
-                <button class="nav-btn"><i class="bi bi-chat-dots" style="color: white;font-size: 2rem;"></i></button>
+                @* <button class="nav-btn"><i class="bi bi-bell-fill" style="color: white;font-size: 2rem;"></i></button>
+                <button class="nav-btn"><i class="bi bi-chat-dots" style="color: white;font-size: 2rem;"></i></button> *@
+
+                <!-- 🔔 ไอคอนแจ้งเตือน -->
+                <!-- 🔔 ไอคอนแจ้งเตือน -->
+                <div class="nav-notification-container">
+                    <button class="nav-btn notification-btn" id="notificationButton">
+                        <i class="fas fa-bell"></i>
+                        <span id="notification-count" class="badge">0</span>
+                    </button>
+
+                    <!-- 🔔 Popup แจ้งเตือน -->
+                    <div class="dropdown-menu notification-menu" id="notificationDropdown">
+                        <div class="notification-header">
+                            <h4>📢 Notification</h4>
+                            <button id="markAllAsRead">✓ อ่านทั้งหมด</button>
+                        </div>
+                        <div id="notification-list" class="notification-list">
+                            <p>🔄 กำลังโหลดแจ้งเตือน...</p>
+                        </div>
+                        <div class="notification-footer">
+                            <a href="/notifications">ดูการแจ้งเตือนก่อนหน้า</a>
+                        </div>
+                    </div>
+                </div>
+
+
 
                 <div class="nav-profile-container">
                     <button class="nav-btn profile-btn" id="profileButton">

@@ -123,6 +123,21 @@
                 }
             </div>
 
+            <div>
+                <label>⚧️ เพศที่สามารถเข้าร่วมได้:</label>
+                <p>
+                    @if (!Model.IsGenderRestricted)
+                    {
+                        <span>ทุกเพศสามารถเข้าร่วมได้</span>
+                    }
+                    else
+                    {
+                        <span>@Model.AllowedGenders</span>
+                    }
+                </p>
+            </div>
+
+
             <form asp-action="Join" asp-controller="Event" method="post">
                 <input type="hidden" name="eventId" value="@Model.Id" />
                 <button type="submit" class="join-btn">🚀 เข้าร่วมกิจกรรม</button>
