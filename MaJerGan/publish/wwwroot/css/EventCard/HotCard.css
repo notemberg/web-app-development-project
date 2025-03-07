@@ -1,130 +1,79 @@
-@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
+* {
+    font-family: "IBM Plex Sans Thai Looped", serif;
+}
 
-
-/* ✅ ปรับการ์ดให้มีระยะห่างจากขอบ */
-.hot-event-card {
-    position: relative;
+.hot-event-container {
     display: flex;
-    align-items: center;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    padding-top : 0px;
-    padding-right: 2px;
-    padding-left: 45px;
-    margin-bottom: 16px;
-    width: 100%;
-    max-width: none;
-    /* font-family: 'Sulphur Point'; */
-    justify-content: flex-start;
-    /* position: relative; ทำให้ลูกที่ absolute อยู่ภายในการ์ด */
-    cursor: pointer;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
-.hot-event-card:hover {
-    scale: 1.02;
-}
-
-/* ✅ ทำให้วงกลมลอยออกจากการ์ด */
-.hot-rank {
-    font-family: 'Caprasimo';
-    position: absolute;
-    top: -10px; /* ขยับขึ้น */
-    left: -10px; /* ขยับไปซ้าย */
-    background: #FFF493;
-    color: #F1AEC5;
-    font-weight: bold;
-    font-size: 26px;
-    width: 50px;
-    height: 50px;
-    line-height: 45px;
-    border-radius: 50%;
-    text-align: center;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-
-/* ✅ พื้นที่ของเนื้อหากิจกรรม */
-.hot-event-content {
-    
-    flex-grow: 1;
-}
-
-/* ✅ ส่วนหัวของการ์ด (ชื่อกิจกรรม + views) */
-.event-header {
+.hot-event-container-title {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    margin-bottom: 10px;
+}
+
+.hot-event-card {
+    background: rgb(255, 255, 255);
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-bottom: 1px solid #ddd;
     width: 100%;
+    height: auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
 }
 
-/* ✅ ชื่อกิจกรรม */
-.event-title {
-    font-family: 'Sulphur Point';
+/* ✅ Hover effect (same as upcoming) */
+.hot-event-card:hover {
+    background-color: rgba(255, 244, 147, 0.7);
+}
+
+.title-name {
+    font-size: 18px;
+    color: #fc6ea0;
+    white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
-    width: 70%;
-    text-align: left;
-    margin-top: 5px;
-    font-size: 30px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 4px;
+    width: 40%;
 }
 
-/* ✅ จำนวน Views */
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.hot-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.event-info {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    padding-left: 10px;
+    color: gray;
+}
+
+.event-creator {
+    color: gray;
+}
+
+/* ✅ New styling for views */
 .event-views {
     font-size: 14px;
+    color: #28a745;
     font-weight: bold;
-    color: #28a745; /* สีเขียว */
-}
-
-/* ✅ ชื่อผู้สร้าง */
-.hot-event-card .creator {
-    font-family: 'Sulphur Point';
-    font-size: 14px;
-    color: rgb(0, 0, 0);
-    font-weight: normal;
-}
-
-.event-body {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* ✅ จำนวนผู้เข้าร่วม */
-.participants {
-    font-family: 'Sulphur Point';
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 4px;
-}
-
-/* ✅ แท็กกิจกรรม */
-.tags-container {
-    font-family: 'Sulphur Point';
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex-wrap: wrap;
-    font-size: 14px;
-    /* margin-top: 4px; */
-}
-
-/* ✅ ปรับแท็กให้เป็นสีเทาโค้งมน */
-.tag-button {
-    background-color: #E0E0E0;
-    color: #333;
-    border: none;
-    border-radius: 12px;
-    padding: 6px 10px;
-    font-size: 12px;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    font-weight: bold;
-}
-
-.tag-button:hover {
-    background-color: #BDBDBD;
 }

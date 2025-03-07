@@ -348,9 +348,9 @@ textarea:focus {
     resize: none;
     padding: 10px;
     padding-left: 30px;
-    min-height: 180px; /* ให้พื้นที่พอสำหรับประมาณ 10 บรรทัด */
+    min-height: 180px; 
 }
-/* ลบเส้นขอบเวลาพิมพ์ */
+
 .description-input:focus {
     outline: none;
 }

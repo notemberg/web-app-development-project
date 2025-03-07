@@ -18,7 +18,7 @@
 }
 
 .event-time {
-    position: absolute;
+    /* position: absolute; */
     top: -26px; /* เลื่อนขึ้นไปให้ชิดขอบการ์ด */
     right: 10px; /* จัดให้ชิดขวา */
     font-size: 14px;
@@ -39,12 +39,22 @@
     font-weight: bold;
     margin: 5px 0;
 }
+.event-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
 
 .Time {
-    width: 30%;
-    font-size: 24px;
+    width: 50%;
+    font-size: 45%;
     color: gray;
     font-weight: normal;
+    white-space: nowrap;
+    padding: 2px 5px;
+    display: block;
+
 }
 
 .event-body {
@@ -89,13 +99,17 @@
 }
 
 
+
 .location {
-    display: inline-block;
-    max-width: 150px; /* จำกัดความยาวของชื่อสถานที่ */
+    display: inline-block; /* หรือ inline-block ก็ได้ */
+    
+    max-width: 150px; /* จำกัดความกว้างของชื่อสถานที่ */
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; /* ถ้ายาวเกิน ให้ขึ้น "..." */
     font-size: 14px;
     font-weight: normal;
-    color: #555;
+    color: gray;
+  
+    vertical-align: bottom;
 }

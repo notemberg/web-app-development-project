@@ -75,10 +75,10 @@ function updateUI(events) {
             <span class="event-time">${formattedTime}</span>
             <div class="recent-event-content">
                 <div class="event-header">
-                    <h3 class="event-title">${event.title} <span class="Time"> ${formattedEventTime}</span></h3>
+                    <p class="event-title">${event.title} <span class="Time"> ${formattedEventTime}</span></p>
                 </div>
                 <div class="event-body">
-                    <div class="creator">Host By: ${event.creator}</div>
+                    <div class="creator">Host By: <span class="creator-name">${event.creator}</span></div>
                     <div class="participants"><i class="fa-solid fa-user"></i> ${event.currentParticipants} / ${event.maxParticipants} @<span class="location">${locationDisplay}</span></div>
                     <div class="tags-container">Tags:${tagButtons}</div>
                 </div>

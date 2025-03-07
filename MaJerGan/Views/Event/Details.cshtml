@@ -65,10 +65,7 @@
                 <p>@Model.Location</p>
             </div>
 
-            <div>
-                <label>💡 ข้อมูลเพิ่มเติม:</label>
-                <p style="white-space: pre-line;">@Model.ExtraInfo</p>
-            </div>
+         
 
             <form asp-action="Join" asp-controller="Event" method="post">
                 <input type="hidden" name="eventId" value="@Model.Id" />

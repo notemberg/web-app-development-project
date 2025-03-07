@@ -61,7 +61,7 @@
 
 /* ✅ ชื่อกิจกรรม */
 .event-title {
-    font-family: 'Sulphur Point';
+    
     text-overflow: ellipsis;
     width: 70%;
     text-align: left;
@@ -81,12 +81,22 @@
 
 /* ✅ ชื่อผู้สร้าง */
 .hot-event-card .creator {
-    font-family: 'Sulphur Point';
+    
     font-size: 14px;
     color: rgb(0, 0, 0);
     font-weight: normal;
 }
-
+.creator-name {
+    display: inline-block;
+    max-width: 120px; /* ปรับขนาดตามต้องการ */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    vertical-align: middle; /* จัดให้ข้อความอยู่กลาง */
+}
 .event-body {
     display: flex;
     align-items: center;
@@ -95,7 +105,7 @@
 
 /* ✅ จำนวนผู้เข้าร่วม */
 .participants {
-    font-family: 'Sulphur Point';
+    
     font-size: 14px;
     color: #666;
     margin-bottom: 4px;
@@ -103,7 +113,7 @@
 
 /* ✅ แท็กกิจกรรม */
 .tags-container {
-    font-family: 'Sulphur Point';
+    
     display: flex;
     align-items: center;
     gap: 6px;
