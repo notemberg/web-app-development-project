@@ -43,7 +43,7 @@ namespace MaJerGan.Data
 
         public DbSet<Notification> Notifications { get; set; }
 
-
+        public DbSet<Comment> Comments { get; set; } // ✅ เพิ่ม Comment
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -107,6 +107,18 @@ namespace MaJerGan.Data
                 .WithMany()
                 .HasForeignKey(n => n.EventId)
                 .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<Comment>()
+                .HasOne(c => c.User)
+                .WithMany()
+                .HasForeignKey(c => c.UserId)
+                .OnDelete(DeleteBehavior.Restrict); // ✅ ป้องกันการ Cascade Delete
+
+            modelBuilder.Entity<Comment>()
+                .HasOne(c => c.Event)
+                .WithMany(e => e.Comments)
+                .HasForeignKey(c => c.EventId)
+                .OnDelete(DeleteBehavior.Cascade); // ✅ ลบ Comment เมื่อ Event ถูกลบ
         }
 
     }

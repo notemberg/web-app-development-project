@@ -63,6 +63,8 @@ namespace MaJerGan.Models
         public bool IsGenderRestricted { get; set; } = false; // เปิด/ปิดข้อจำกัดเพศ
         public string AllowedGenders { get; set; } = "Malee,Female,Other"; // ค่าเริ่มต้นให้ทุกเพศเข้าร่วมได้
         public bool RequiresConfirmation { get; set; } = false; // ต้องรอการยืนยันไหม
+
+        public virtual List<Comment> Comments { get; set; } = new List<Comment>();
     }
 }
 

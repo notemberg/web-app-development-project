@@ -100,7 +100,7 @@
                 <!-- ✅ Input ซ่อน เพื่อรวม Date + Time ก่อนส่ง -->
                 <input type="hidden" asp-for="EventTime" id="event-datetime">
 
-                <input type="hidden" asp-for="ExpiryDate" value="2025-05-05T02:21:00" />
+                @* <input type="hidden" asp-for="ExpiryDate" value="2025-05-05T02:21:00" /> *@
                 <!-- Participants Input -->
                 <div class="participants-container">
                     <i class="fa-solid fa-user"></i>
@@ -109,11 +109,16 @@
                 </div>
             </div>
 
+            <div>
+                <label>ExpiryDate</label>
+                <input asp-for="ExpiryDate" type="datetime-local" id="expiry-date"required />
+            </div>
+
 
 
             <div class="description-container">
-                <textarea asp-for="Description" class="description-input"
-                    placeholder="Description(required)" required></textarea>
+                <textarea asp-for="Description" class="description-input" placeholder="Description(required)"
+                    required></textarea>
 
             </div>
             <div class="tag-container">
@@ -154,7 +159,7 @@
             <!-- ✅ advanced -->
 
             <div class="advanced-settings">
-                <h3>Advanced Settings</h3>
+                <h3>Advanced Settings(Optional)</h3>
 
                 <!-- ✅ ปุ่มเปิด/ปิดระบบยืนยันก่อนเข้าร่วม -->
                 <div class="toggle-container">
@@ -209,7 +214,7 @@
             </div>
 
             <!-- ✅ ปุ่ม Submit -->
-            <button type="submit" class="submit-btn">Create Post</button>
+            <button type="submit" class="submit-btn" id="submit-btn">Create Post</button>
 
 
         </form> <!-- ✅ ปิด form ตรงนี้ถูกต้อง -->

@@ -54,6 +54,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Auth\register.css'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Event\comments.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MaJerGan</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MaJerGan</BasePath>
+      <RelativePath>css/Event/comments.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>jzv6qx4on0</Fingerprint>
+      <Integrity>kVr4mHM9Pt69K7H2HkvsUsPi6rarX2NCVRNl3Qpw6HI=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Event\comments.css'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Event\create.css'))">
       <SourceType>Package</SourceType>
       <SourceId>MaJerGan</SourceId>
@@ -84,8 +102,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>9czashwboo</Fingerprint>
-      <Integrity>l+6Orsa6PdqpFCLNHbe86PzrQxqR983ZxOAIhHsS3zk=</Integrity>
+      <Fingerprint>8gzwv4f3ws</Fingerprint>
+      <Integrity>eDq55ZDzRbUDdaUuabj29Qyg6GuxN7JsglcT5uWKs4I=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Event\createpp.css'))</OriginalItemSpec>
@@ -426,8 +444,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>vv4dr1or1g</Fingerprint>
-      <Integrity>BcfMKZDxRPnr2Aqcxu3WrvDQz8CP9h+zUkTksQMj6nk=</Integrity>
+      <Fingerprint>kt5iuviviy</Fingerprint>
+      <Integrity>CHgVhpmFUp7MwEl746xgvplFMzHajnHiAMKjhNX5Yjs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Event\dateCheck.js'))</OriginalItemSpec>

@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\css\\Event\\Search.css"
     },
     {
+      "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Event\\comments.css",
+      "PackagePath": "staticwebassets\\css\\Event\\comments.css"
+    },
+    {
       "Id": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Event\\create.css",
       "PackagePath": "staticwebassets\\css\\Event\\create.css"
     },
