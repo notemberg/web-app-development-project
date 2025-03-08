@@ -500,7 +500,6 @@ C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj
 C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\g9a1l7an1c-zgpv444yri.gz
 C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\hpndoo4fdd-8x8t1rs6co.gz
 C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\g1fqgf88dx-y2iaw7vbaf.gz
-C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\xkn6bzdhhn-dd5sr5j8oh.gz
 C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\lf9m8xzwxb-vl05bxi93h.gz
 C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\x7ilffeqhw-7szvueyoxk.gz
 C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\9xhbidzzvq-w6qgfuljq8.gz
@@ -510,7 +509,6 @@ C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj
 C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\wq0knfbtbb-x13lixngob.gz
 C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\2upwtmh75d-1hnaouzsa4.gz
 C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\10zlbeaorg-1lxecirbqp.gz
-C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\y9t6lz2fjv-zpaufml0g9.gz
 C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\u6ha2nimsd-076v5wrbls.gz
 C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\fo4ibkcuin-chjamguvz7.gz
 C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\8wfv3idueq-q1ljurn4vd.gz
@@ -592,3 +590,5 @@ C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj
 C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\MaJerGan.pdb
 C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\MaJerGan.genruntimeconfig.cache
 C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\ref\MaJerGan.dll
+C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\xkn6bzdhhn-2ma2u8na1a.gz
+C:\Users\Tim\Desktop\CodeArchive\Webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\y9t6lz2fjv-n40znqfqb3.gz
