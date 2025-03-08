@@ -6,7 +6,8 @@
 }
 
 @foreach (var eventItem in Model)
-{
+{   
+    var approvedParticipants = eventItem.Participants?.Count(p => p.Status == ParticipationStatus.Approved) ?? 0;
     <a href="@Url.Action("Details", "Event", new { id = eventItem.Id })" class="event-card-link">
         <div class="event-card">
             <div class="event-content">
@@ -20,7 +21,7 @@
                     <div class="info">
                         <div class="creator">Host By: @eventItem.Creator.Username</div>
                         <div class="participants">
-                            <i class="fa-solid fa-user"></i> @eventItem.Participants.Count/@eventItem.MaxParticipants
+                            <i class="fa-solid fa-user"></i> @approvedParticipants/@eventItem.MaxParticipants
                         </div>
                         <div class="location"> @@@eventItem.LocationName</div>
                     </div>

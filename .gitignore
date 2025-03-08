@@ -62,31 +62,12 @@ logs/
 
 .env
 
-<<<<<<< HEAD
 # Ensure paths are correct
 MaJerGan/bin/Debug/net9.0/
 MaJerGan/obj/Debug/net9.0/
-
-
 
 # Ignore all files in the Debug and Release directories
 **/bin/Debug/
 **/bin/Release/
 **/obj/Debug/
 **/obj/Release/
-=======
-MaJerGan/bin/Debug/net9.0/MaJerGan.deps.json
-MaJerGan/bin/Debug/net9.0/MaJerGan.dll
-MaJerGan/bin/Debug/net9.0/MaJerGan.exe
-MaJerGan/bin/Debug/net9.0/MaJerGan.pdb
-MaJerGan/obj/Debug/net9.0/apphost.exe
-MaJerGan/obj/Debug/net9.0/MaJerGan.AssemblyInfo.cs
-MaJerGan/obj/Debug/net9.0/MaJerGan.AssemblyInfoInputs.cache
-MaJerGan/obj/Debug/net9.0/MaJerGan.csproj.CoreCompileInputs.cache
-MaJerGan/obj/Debug/net9.0/MaJerGan.csproj.FileListAbsolute.txt
-MaJerGan/obj/Debug/net9.0/MaJerGan.dll
-MaJerGan/obj/Debug/net9.0/MaJerGan.pdb
-MaJerGan/obj/Debug/net9.0/MaJerGan.sourcelink.json
-MaJerGan/obj/Debug/net9.0/ref/MaJerGan.dll
-MaJerGan/obj/Debug/net9.0/refint/MaJerGan.dll
->>>>>>> 60f1c37be41218be5e57a6290f9d8a839fb84b57

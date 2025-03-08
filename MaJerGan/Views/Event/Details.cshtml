@@ -4,7 +4,7 @@
     ViewData["Title"] = Model.Title;
     ViewData["ShowHeader"] = "True";
     ViewData["ShowNavCarousel"] = "True";
-
+    var currentUserId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -36,38 +36,22 @@
             </div>
 
             <div>
-                <label>🏷️ แท็กกิจกรรม:</label>
-                <ul>
-                    @foreach (var tag in Model.Tags.Split(','))
-                    {
-                        <div class="tag-btn">@tag.Trim()</div>
-                    }
-                </ul>
-            </div>
-
-            <div>
                 <label>👥 จำนวนสมาชิกที่รับ:</label>
                 <p>@Model.MaxParticipants</p>
             </div>
 
             <div>
-                <label>🕒 เวลาของกิจกรรม:</label>
-                <p>@Model.EventTime.ToString("dd MMM yyyy HH:mm")</p>
-            </div>
-
-            <div>
-                <label>⏳ วันหมดอายุ:</label>
-                <p>@Model.ExpiryDate.ToString("dd MMM yyyy HH:mm")</p>
-            </div>
-
-            <div>
-                <label>📍 สถานที่จัดกิจกรรม:</label>
-                <p>@Model.Location</p>
-            </div>
-
-            <div>
-                <label>💡 ข้อมูลเพิ่มเติม:</label>
-                @* <p style="white-space: pre-line;">@Model.ExtraInfo</p> *@
+                <label>⚧️ เพศที่สามารถเข้าร่วมได้:</label>
+                <p>
+                    @if (!Model.IsGenderRestricted)
+                    {
+                        <span>ทุกเพศสามารถเข้าร่วมได้</span>
+                    }
+                    else
+                    {
+                        <span>@Model.AllowedGenders</span>
+                    }
+                </p>
             </div>
 
             <div>
@@ -95,7 +79,23 @@
                     <ul>
                         @foreach (var participant in Model.Participants.Where(p => p.Status == ParticipationStatus.Pending))
                         {
-                            <li>@participant.User.Username</li>
+                            <li>
+                                @participant.User.Username
+                                @if (Model.CreatedBy.ToString() == currentUserId)
+                                {
+                                    <form asp-action="Approve" asp-controller="Event" method="post" style="display:inline;">
+                                        <input type="hidden" name="eventId" value="@Model.Id" />
+                                        <input type="hidden" name="userId" value="@participant.User.Id" />
+                                        <button type="submit" class="btn btn-success btn-sm">✅ อนุมัติ</button>
+                                    </form>
+                                
+                                    <form asp-action="Reject" asp-controller="Event" method="post" style="display:inline;">
+                                        <input type="hidden" name="eventId" value="@Model.Id" />
+                                        <input type="hidden" name="userId" value="@participant.User.Id" />
+                                        <button type="submit" class="btn btn-danger btn-sm">❌ ปฏิเสธ</button>
+                                    </form>
+                                }
+                            </li>
                         }
                     </ul>
                 }
@@ -105,23 +105,17 @@
                 }
             </div>
 
-            <div>
-                <h3>❌ ถูกปฏิเสธ</h3>
-                @if (Model.Participants.Any(p => p.Status == ParticipationStatus.Rejected))
-                {
-                    <ul>
-                        @foreach (var participant in Model.Participants.Where(p => p.Status ==
-                                            ParticipationStatus.Rejected))
-                        {
-                            <li>@participant.User.Username - <span class="text-danger">@participant.RejectedReason</span></li>
-                        }
-                    </ul>
-                }
-                else
-                {
-                    <p>ไม่มีผู้เข้าร่วมที่ถูกปฏิเสธ</p>
-                }
-            </div>
+            @if (Model.CreatedBy.ToString() == currentUserId)
+            {
+                <div>
+                    <h3>⚠️ การจัดการ Event (สำหรับ Host เท่านั้น)</h3>
+
+                    <form asp-action="DeleteEvent" asp-controller="Event" method="post">
+                        <input type="hidden" name="eventId" value="@Model.Id" />
+                        <button type="submit" class="btn btn-danger">🗑️ ลบกิจกรรม</button>
+                    </form>
+                </div>
+            }
 
             <form asp-action="Join" asp-controller="Event" method="post">
                 <input type="hidden" name="eventId" value="@Model.Id" />
@@ -130,9 +124,9 @@
 
             <a href="@Url.Action("Chat", "Event", new { id = Model.Id })" class="btn btn-primary">💬 เข้าสู่แชท</a>
 
-
         </div>
     </div>
+
 
 </body>
 

@@ -51,7 +51,7 @@ body {
 }
 
 .profile-picture img {
-    width: 85%;
+    width: 150px;
     height: auto;
     border-radius: 25px;
     background-color: #e4e4e4;
@@ -65,11 +65,158 @@ body {
 
 .log-section {
     margin-left: 20px; /* Add margin to the left */
-    flex: 1; /* Allow log-section to take remaining space */
+    width: 80%;
 }
 
+.event-card {
+    min-height: 124px;
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid #ddd;
+    width: 100%;
+    cursor: pointer;
+}
+
+.event-card:hover {
+    scale: 1.02;
+}
+
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+.event-card .event-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.event-body {
+    font-size: 14px;
+    color: gray;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.creator {
+    width: auto;
+    font-size: 16px;
+}
+
+
+.fa-user {
+    color: #666;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.participants {
+    width: auto;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    /* margin-top: 5px; */
+}
+
+.tags-container {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    white-space: nowrap;
+    flex-grow: 1;
+    padding-bottom: 5px;
+    min-width: 60px;
+}
+
+.tag-button {
+    color: #333;
+    background: #ddd;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-right: 5px;
+    font-size: 12px;
+    cursor: default;
+    transition: 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.tag-button:hover {
+    background-color: #BDBDBD;
+}
+
+.fa-user {
+    color: #666;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.location {
+    width: 40%;  
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* ถ้ายาวเกิน ให้ขึ้น "..." */
+    font-size: 14px;
+    font-weight: normal;
+    color: #555;
+}
+.event-card-link {
+    text-decoration: none; /* ไม่มีขีดเส้นใต้ */
+    color: black; /* สีข้อความ */
+}
+
+.event-card-link:hover {
+    background-color: #f0f0f0; /* สีพื้นหลังเมื่อ hover */
+}
+
+.event-card {
+    cursor: pointer; /* ทำให้การ์ดสามารถคลิกได้ */
+}
+
+.info {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+}
+
+.Time {
+    width: 30%;
+    font-size: 24px;
+    color: gray;
+    font-weight: normal;
+}
+
+.event-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: gray;
+    margin-top: 10px;
+}
+.event-footer .event-views {
+    color: #28a745;
+    font-weight: bold;
+}
 .log-items {
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .log-item {
@@ -106,4 +253,8 @@ body {
 
 .status-indicator.pending {
     background-color: orange;
+}
+
+.status-indicator.rejected {
+    background-color: red;
 }

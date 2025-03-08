@@ -1,3 +1,4 @@
+<!-- add things accord to figma -- ask oat for status -->
 @model MaJerGan.Models.ActivityLogIndexViewModel
 
 @{
@@ -24,7 +25,14 @@
         <!-- User Profile Section -->
         <div class="profile-content">
             <div class="profile-picture">
-                <img id="profileImg" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Picture">
+                @if (Model.ProfilePicture == null)
+                {
+                    <img id="profileImg" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Picture" width="150">
+                }
+                else
+                {
+                    <img id="profileImg" src="@Model.ProfilePicture" alt="Profile Picture" width="150">
+                }
                 <div class="profile-info">
                     <h3>@Model.UserName</h3>
                     <p>ID: @Model.UserId</p>
@@ -34,40 +42,126 @@
             <div class="log-section">
                 <!-- Hosted Events -->
                 <h3>Host</h3>
-                <div class="log-items">
-                    @foreach (var activity in Model.HostedActivities)
-                    {
-                        <div class="log-item">
-                            <div class="log-details">
-                                <h4>@activity.EventTitle</h4>
-                                <p>Hosted by: @activity.HostName</p>
-                                <p>@activity.EventTime.ToString("dd/MM/yyyy hh:mm tt")</p>
-                                <p>Status: @activity.Status</p>
-                            </div>
-                            <div class="log-status">
-                                <span class="status-indicator hosted"></span>
+                @foreach (var activity in Model.HostedActivities)
+                {
+                    <a href="@Url.Action("Details", "Event", new { id = activity.Id })" class="event-card-link">
+                        <div class="event-card">
+                            <div class="event-content">
+                                <div class="event-header">
+                                    <h3 class="event-title">@activity.EventTitle
+                                        <span class="Time">@activity.EventTime.ToString("MM/dd/yyyy") at
+                                            @activity.EventTime.ToString("hh:mm tt")</span>
+                                    </h3>
+                                </div>
+                                <div class="event-body">
+                                    <div class="info">
+                                        <div class="creator">Host By: @activity.HostName</div>
+                                        <div class="participants">
+                                            <i class="fa-solid fa-user"></i> @activity.ApprovedParticipants/@activity.MaxParticipants
+                                        </div>
+                                        <div class="location"> @@@activity.LocationName</div>
+                                    </div>
+                                    <div class="tags-container">
+                                        @if (!string.IsNullOrEmpty(activity.Tags))
+                                        {
+                                            var tags = activity.Tags.Split(',');
+                                            foreach (var tag in tags)
+                                            {
+                                                <button class="tag-button">@tag.Trim()</button>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <span>ไม่มีแท็ก</span>
+                                        }
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    }
-                </div>
+                    </a>
+                }
 
-                <!-- Participated Events -->
-                <h3>Joined Events</h3>
-                <div class="log-items">
-                    @foreach (var activity in Model.JoinedActivities)
-                    {
-                        <div class="log-item">
-                            <div class="log-details">
-                                <h4>@activity.EventTitle</h4>
-                                <p>Host: @activity.HostName</p>
-                                <p>@activity.EventTime.ToString("dd/MM/yyyy hh:mm tt")</p>
-                                <p>Status: @activity.Status</p>
-                            </div>
-                            <div class="log-status">
-                                <span class="status-indicator @(activity.Status == "Active" ? "approved" : "pending")"></span>
+                <!-- Pending Events -->
+                <h3>Pending Events</h3>
+                @foreach (var activity in Model.PendingActivities)
+                {
+                    <a href="@Url.Action("Details", "Event", new { id = activity.Id })" class="event-card-link">
+                        <div class="event-card">
+                            <div class="event-content">
+                                <div class="event-header">
+                                    <h3 class="event-title">@activity.EventTitle
+                                        <span class="Time">@activity.EventTime.ToString("MM/dd/yyyy") at
+                                            @activity.EventTime.ToString("hh:mm tt")</span>
+                                    </h3>
+                                </div>
+                                <div class="event-body">
+                                    <div class="info">
+                                        <div class="creator">Host By: @activity.HostName</div>
+                                        <div class="participants">
+                                            <i class="fa-solid fa-user"></i> @activity.ApprovedParticipants/@activity.MaxParticipants
+                                        </div>
+                                        <div class="location"> @@@activity.LocationName</div>
+                                    </div>
+                                    <div class="tags-container">
+                                        @if (!string.IsNullOrEmpty(activity.Tags))
+                                        {
+                                            var tags = activity.Tags.Split(',');
+                                            foreach (var tag in tags)
+                                            {
+                                                <button class="tag-button">@tag.Trim()</button>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <span>ไม่มีแท็ก</span>
+                                        }
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    }
+                    </a>
+                }
+
+                <!-- Approved Events -->
+                <h3>Approved Events</h3>
+                @foreach (var activity in Model.ApprovedActivities)
+                {
+                    <a href="@Url.Action("Details", "Event", new { id = activity.Id })" class="event-card-link">
+                        <div class="event-card">
+                            <div class="event-content">
+                                <div class="event-header">
+                                    <h3 class="event-title">@activity.EventTitle
+                                        <span class="Time">@activity.EventTime.ToString("MM/dd/yyyy") at
+                                            @activity.EventTime.ToString("hh:mm tt")</span>
+                                    </h3>
+                                </div>
+                                <div class="event-body">
+                                    <div class="info">
+                                        <div class="creator">Host By: @activity.HostName</div>
+                                        <div class="participants">
+                                            <i class="fa-solid fa-user"></i> @activity.ApprovedParticipants/@activity.MaxParticipants
+                                        </div>
+                                        <div class="location"> @@@activity.LocationName</div>
+                                    </div>
+                                    <div class="tags-container">
+                                        @if (!string.IsNullOrEmpty(activity.Tags))
+                                        {
+                                            var tags = activity.Tags.Split(',');
+                                            foreach (var tag in tags)
+                                            {
+                                                <button class="tag-button">@tag.Trim()</button>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <span>ไม่มีแท็ก</span>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                }
                 </div>
             </div>
         </div>

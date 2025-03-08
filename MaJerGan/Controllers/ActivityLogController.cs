@@ -41,30 +41,58 @@ namespace MaJerGan.Controllers
                                            .Where(e => e.CreatedBy == id)
                                            .Select(e => new ActivityLogViewModel
                                            {
+                                               Id = e.Id, // Set the Id property
                                                EventTitle = e.Title,
                                                HostName = e.Creator.Username,
                                                EventTime = e.EventTime,
-                                               Status = "Hosted"
+                                               Status = "Hosted",
+                                               LocationName = e.LocationName, // Set the LocationName property
+                                               Tags = e.Tags, // Set the Tags property
+                                               MaxParticipants = e.MaxParticipants, // Add MaxParticipants property
+                                               ApprovedParticipants = _context.EventParticipants.Count(ep => ep.EventId == e.Id && ep.Status == ParticipationStatus.Approved) // Calculate approved participants
                                            })
                                            .ToList();
 
-            var joinedActivities = _context.EventParticipants
-                                           .Where(ep => ep.UserId == id && ep.Event.CreatedBy != id)
-                                           .Select(ep => new ActivityLogViewModel
-                                           {
-                                               EventTitle = ep.Event.Title,
-                                               HostName = ep.Event.Creator.Username,
-                                               EventTime = ep.Event.EventTime,
-                                               Status = ep.Status == 0 ? "Inactive" : "Active"
-                                           })
-                                           .ToList();
+            var pendingActivities = _context.EventParticipants
+                                            .Where(ep => ep.UserId == id && ep.Status == ParticipationStatus.Pending)
+                                            .Select(ep => new ActivityLogViewModel
+                                            {
+                                                Id = ep.Event.Id, // Set the Id property
+                                                EventTitle = ep.Event.Title,
+                                                HostName = ep.Event.Creator.Username,
+                                                EventTime = ep.Event.EventTime,
+                                                Status = "Pending",
+                                                LocationName = ep.Event.LocationName, // Set the LocationName property
+                                                Tags = ep.Event.Tags, // Set the Tags property
+                                                MaxParticipants = ep.Event.MaxParticipants, // Add MaxParticipants property
+                                                ApprovedParticipants = _context.EventParticipants.Count(ep2 => ep2.EventId == ep.Event.Id && ep2.Status == ParticipationStatus.Approved) // Calculate approved participants
+                                            })
+                                            .ToList();
+
+            var approvedActivities = _context.EventParticipants
+                                             .Where(ep => ep.UserId == id && ep.Status == ParticipationStatus.Approved)
+                                             .Select(ep => new ActivityLogViewModel
+                                             {
+                                                 Id = ep.Event.Id, // Set the Id property
+                                                 EventTitle = ep.Event.Title,
+                                                 HostName = ep.Event.Creator.Username,
+                                                 EventTime = ep.Event.EventTime,
+                                                 Status = "Approved",
+                                                 LocationName = ep.Event.LocationName, // Set the LocationName property
+                                                 Tags = ep.Event.Tags, // Set the Tags property
+                                                 MaxParticipants = ep.Event.MaxParticipants, // Add MaxParticipants property
+                                                 ApprovedParticipants = _context.EventParticipants.Count(ep2 => ep2.EventId == ep.Event.Id && ep2.Status == ParticipationStatus.Approved) // Calculate approved participants
+                                             })
+                                             .ToList();
 
             var model = new ActivityLogIndexViewModel
             {
                 HostedActivities = hostedActivities,
-                JoinedActivities = joinedActivities,
+                PendingActivities = pendingActivities,
+                ApprovedActivities = approvedActivities,
                 UserId = id.Value,
-                UserName = user.Username // Pass the username to the view
+                UserName = user.Username, // Pass the username to the view
+                ProfilePicture = user.ProfilePicturee // Pass the profile picturee to the view
             };
 
             return View(model);
