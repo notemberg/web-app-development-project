@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Meet ME!";
     ViewData["ShowHeader"] = "True";
+    ViewData["ShowNavCarousel"] = "True";
 }
 
 <!DOCTYPE html>
@@ -33,17 +34,25 @@
             <div class="recent-content">
                 [recent-content]
             </div>
+
+            <div class="show-more-container">
+                <a href="@Url.Action("SearchPage", "Event", new { sortOrder = "recent" })" class="show-more-button">
+                    <i class="fa-solid fa-angle-down"></i>
+                </a>
+            </div>
+
+
         </div>
     </section>
 
     <section class="recommendations">
         <div class="interest">
-            <h2>You may be interested</h2>
-            <div class="categories">
+            <h2>You may interested</h2>
+            @* <div class="categories">
                 <div>Sports</div>
                 <div>BoardGame</div>
                 <div>Dinner</div>
-            </div>
+            </div> *@
         </div>
         <div class="hot">
             <div class="hot-frame">

@@ -38,9 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <div class="event-header">
                             <h3 class="event-title">${
                               event.title
-                            } <span class="creator">สร้างโดย ${
-          event.creator
-        }</span></h3>
+                            } <span class="creator">สร้างโดย ${event.creator}</span></h3>
                             <span class="event-views">${
                               event.viewCount
                             } <br>views</span>
@@ -48,11 +46,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         <div class="event-body">
                         <div class="participants">👤 ${
                           event.currentParticipants
-                        } / ${event.maxParticipants} @<span class="location">${
-          event.location
-        }</span></div>
-                        <div class="tags-container">Tags:${tagButtons}</div>
-                        </div>
+                        } / ${event.maxParticipants} @<span class="location">${event.location}</span></div>
+                        <div class="tags-container">
+                                <span class="tags-label">Tags:</span>
+                                  <div class="tags-card">${tagButtons}</div>
+                                </div>
                     </div>
                 `;
 
@@ -123,9 +121,14 @@ document.addEventListener("DOMContentLoaded", function () {
                               <h3 class="event-title">${event.title} <span class="Time"> ${formattedEventTime}</span></h3>
                           </div>
                           <div class="event-body">
+                          <div class="host-container">
                               <div class="creator">Host By: ${event.creator}</div>
                               <div class="participants"><i class="fa-solid fa-user"></i> ${event.currentParticipants} / ${event.maxParticipants} @<span class="location">${locationDisplay}</span></div>
-                              <div class="tags-container">Tags:${tagButtons}</div>
+                          </div>
+                              <div class="tags-container">
+                                <span class="tags-label">Tags:</span>
+                                  <div class="tags-card">${tagButtons}</div>
+                                </div>
                           </div>
                       </div>
                   `;
@@ -237,7 +240,6 @@ function showMessageCard(message, isLoginMessage = false) {
 
   eventContainer.appendChild(messageCard);
 }
-
 
 // ✅ ฟังก์ชันแปลงเวลา
 function formatEventTime(isoDate) {

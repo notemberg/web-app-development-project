@@ -1,0 +1,190 @@
+@* @model List<MaJerGan.Models.Event>
+
+@{
+    ViewData["Title"] = "Meet ME!";
+    ViewData["ShowHeader"] = "True";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Event/Search.css">
+</head>
+<script src="~/js/Home/SearchPage.js"></script>
+
+<form id="search-form">
+    
+    <div id="tag-filters">
+        <label>กรองตามแท็ก:</label><br>
+        @foreach (var tag in ViewBag.Tags)
+        {
+            <input type="checkbox" name="selectedTags" value="@tag.Id"
+                   @(Context.Request.Query["selectedTags"].ToList().Contains(tag.Id.ToString()) ? "checked" : "")> @tag.Name <br>
+        }
+    </div>
+
+    <button type="submit">🔍 ค้นหา</button>
+</form>
+
+<!-- ตัวเลือกในการจัดเรียง -->
+<div class="sort-options">
+    <a href="@Url.Action("Search", "Event", new { 
+        searchQuery = Context.Request.Query["searchQuery"], 
+        selectedTags = Context.Request.Query["selectedTags"],  
+        sortOrder = (Context.Request.Query["sortOrder"] == "recent") ? "" : "recent" })"
+       class="@((Context.Request.Query["sortOrder"] == "recent") ? "active" : "")">
+        Recent
+    </a>
+
+    <a href="@Url.Action("Search", "Event", new { 
+        searchQuery = Context.Request.Query["searchQuery"], 
+        selectedTags = Context.Request.Query["selectedTags"],  
+        sortOrder = (Context.Request.Query["sortOrder"] == "popular") ? "" : "popular" })"
+       class="@((Context.Request.Query["sortOrder"] == "popular") ? "active" : "")">
+        Popular
+    </a>
+
+    <a href="@Url.Action("Search", "Event", new { 
+        searchQuery = Context.Request.Query["searchQuery"], 
+        selectedTags = Context.Request.Query["selectedTags"],  
+        sortOrder = (Context.Request.Query["sortOrder"] == "NerestEvent") ? "" : "NerestEvent" })"
+       class="@((Context.Request.Query["sortOrder"] == "NerestEvent") ? "active" : "")">
+        NearestEvent
+    </a>
+</div>
+
+<div id="search-results">
+    @foreach (var eventItem in Model)
+    {
+        <a href="@Url.Action("Details", "Event", new { id = eventItem.Id })" class="event-card-link">
+            <div class="event-card">
+                <div class="event-content">
+                    <div class="event-header">
+                        <h3 class="event-title">@eventItem.Title  <span class="Time">@eventItem.EventTime.ToString("MM/dd/yyyy") at @eventItem.EventTime.ToString("hh:mm tt")</span></h3>
+                    </div>
+                    <div class="event-body">
+                        <div class="creator">Host By: @eventItem.Creator.Username</div>
+                        <div class="participants">
+                            <i class="fa-solid fa-user"></i> @eventItem.Participants.Count / @eventItem.MaxParticipants
+                        </div>
+                        <div class="location"> @eventItem.Location</div>
+                
+                        <div class="tags-container">
+                            @if (!string.IsNullOrEmpty(eventItem.Tags))
+                            {
+                                var tags = eventItem.Tags.Split(',');
+                                foreach (var tag in tags)
+                                {
+                                    <button class="tag-button">@tag.Trim()</button>
+                                }
+                            }
+                            else
+                            {
+                                <span>ไม่มีแท็ก</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    }
+</div> *@
+
+@model List<MaJerGan.Models.Event>
+
+@{
+    ViewData["Title"] = "Meet ME!";
+    ViewData["ShowHeader"] = "True";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Event/Search.css">
+</head>
+
+<script src="~/js/Event/SearchPage.js"></script>
+<form id="search-form">
+
+    <input type="hidden" id="sortOrder" name="sortOrder" value="@ViewBag.SortOrder">
+
+    @* <div id="tag-filters">
+        <label for="tags" style="font-size: 18px; font-weight: bold;">กรองตามแท็ก:</label>
+        <div class="tags-container">
+            @foreach (var tag in ViewBag.Tags)
+            {
+                <div class="tag-item">
+                    <input type="checkbox" id="tag-@tag.Id" name="selectedTags" value="@tag.Id"
+                        @(Context.Request.Query["selectedTags"].ToList().Contains(tag.Id.ToString()) ? "checked" : "")>
+                    <label for="tag-@tag.Id">@tag.Name</label>
+                </div>
+            }
+        </div>
+    </div> *@
+
+    @* <div id="tag-filters">
+        <label for="tags" style="font-size: 18px; font-weight: bold;">กรองตามแท็ก:</label>
+        <input type="text" id="tag-search" placeholder="ค้นหาแท็ก..." onkeyup="searchTags()"
+            style="padding: 8px; margin-bottom: 10px; border-radius: 5px; width: 100%;">
+
+        <!-- แสดงแท็กในรูปแบบ Slide Bar -->
+        <div class="tags-container-search" id="tags-container-search">
+            @foreach (var tag in ViewBag.Tags)
+            {
+                <div class="tag-item" data-tag="@tag.Name">
+                    <input type="checkbox" id="tag-@tag.Id" name="selectedTags" value="@tag.Id"
+                        @(Context.Request.Query["selectedTags"].ToList().Contains(tag.Id.ToString()) ? "checked" : "")>
+                    <label for="tag-@tag.Id">@tag.Name</label>
+                </div>
+            }
+        </div>
+    </div> *@
+</form>
+
+<!-- ตัวเลือกการจัดเรียง -->
+<div class="sort-options">
+    <a href="#" class="sort-link @(ViewBag.SortOrder == "recent" ? "active" : "")" data-sort="recent">Recent</a>
+    <a href="#" class="sort-link @(ViewBag.SortOrder == "popular" ? "active" : "")" data-sort="popular">Popular</a>
+    <a href="#" class="sort-link @(ViewBag.SortOrder == "NerestEvent" ? "active" : "")" data-sort="NerestEvent">Nearest
+        Event</a>
+    <div id="tag-filters">
+        <button type="button" onclick="openTagModal()" class="filter-tag-btn">Filter Tag</button>
+
+
+    </div>
+    <input type="hidden" id="sortOrder" name="sortOrder" value="@ViewBag.SortOrder">
+</div>
+
+<div class="selected-tags" id="selected-tags">
+        </div>
+
+
+<!-- ส่วนแสดงผลลัพธ์ -->
+<div id="search-results">
+    @await Html.PartialAsync("_SearchResults", Model)
+</div>
+
+<!-- Modal สำหรับเลือกแท็ก -->
+<div id="tagModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">เลือกแท็ก</h5>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="tag-search" placeholder="ค้นหาแท็ก..." onkeyup="searchTags()">
+                <div class="tags-container-search" id="tags-container-search">
+                    @foreach (var tag in ViewBag.Tags)
+                    {
+                        <div class="tag-item" data-tag="@tag.Name">
+                            <input type="checkbox" id="tag-@tag.Id" name="selectedTags" value="@tag.Id"
+                                @(Context.Request.Query["selectedTags"].ToList().Contains(tag.Id.ToString()) ? "checked" :
+                                                            "") >
+                        <label for="tag-@tag.Id">@tag.Name</label>
+                    </div>
+                                        }
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="closeTagModal()">ปิด</button>
+            </div>
+        </div>
+    </div>
+</div>

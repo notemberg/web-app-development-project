@@ -1,7 +1,7 @@
 # .NET Core
 bin/
 obj/
-
+publish/
 # User-specific files
 .vs/
 .vscode/

@@ -15,9 +15,14 @@
     @RenderSection("Styles", required: false)
 
 </head>
+<script>
+    const userId = "@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value";
+</script>
 @if ((string)(ViewData["ShowHeader"] ?? "False") == "True")
 {
     <script src="~/js/Shared/index.js"></script>
+    <script src="~/js/Shared/notification.js"></script>
+
 }
 @* <script src="~/js/Home/index.js"></script> *@
 
@@ -26,34 +31,104 @@
     {
         @* <!-- ✅ Header อยู่ทุกหน้า --> *@
         <header class="main-header">
-            <a href="/" class="logo">
-                Meet ME!
-            </a>
-            <input id="search-bar" type="text" placeholder=" Search Your Interest">
-            <nav>
-                <button class="nav-btn">
-                    <i class="bi bi-bell-fill" style="color: white;font-size: 2rem;"></i>
-                </button>
-                <button class="nav-btn">
-                    <i class="bi bi-chat-dots" style="color: white;font-size: 2rem;"></i>
-                </button>
-                <button class="nav-btn">
-                    <i class="bi bi-person-circle" style="color: white;font-size: 2rem;"></i>
-                </button>
+            <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+            <a href="/" class="logo">Meet ME!</a>
+
+            <form method="get" action="@Url.Action("SearchPage", "Event")" id="search-form">
+                <input id="search-bar" name="searchQuery" type="text" placeholder=" Search Your Interest"
+                    value="@Context.Request.Query["searchQuery"]" autocomplete="off" />
+                <button id="clear-btn" type="button" onclick="clearSearch()">✖</button>
+
+            </form>
+
+            <nav class="desktop-nav">
+                @* <button class="nav-btn"><i class="bi bi-bell-fill" style="color: white;font-size: 2rem;"></i></button>
+                <button class="nav-btn"><i class="bi bi-chat-dots" style="color: white;font-size: 2rem;"></i></button> *@
+
+                <!-- 🔔 ไอคอนแจ้งเตือน -->
+                <!-- 🔔 ไอคอนแจ้งเตือน -->
+                <div class="nav-notification-container">
+                    <button class="nav-btn notification-btn" id="notificationButton">
+                        <i class="fas fa-bell"></i>
+                        <span id="notification-count" class="badge">0</span>
+                    </button>
+
+                    <!-- 🔔 Popup แจ้งเตือน -->
+                    <div class="dropdown-menu notification-menu" id="notificationDropdown">
+                        <div class="notification-header">
+                            <h4>📢 Notification</h4>
+                            <button id="markAllAsRead">✓ อ่านทั้งหมด</button>
+                        </div>
+                        <div id="notification-list" class="notification-list">
+                            <p>🔄 กำลังโหลดแจ้งเตือน...</p>
+                        </div>
+                        <div class="notification-footer">
+                            <a href="/notifications">ดูการแจ้งเตือนก่อนหน้า</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="nav-profile-container">
+                    <button class="nav-btn profile-btn" id="profileButton">
+                        <i class="bi bi-person-circle" style="color: white;font-size: 2rem;"></i>
+                    </button>
+                    <div class="dropdown-menu" id="profileDropdown">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a href="/Profile">ดูโปรไฟล์</a>
+                            <a href="/Settings">การตั้งค่า</a>
+                            <a href="/Logout" class="logout">ออกจากระบบ</a>
+                        }
+                        else
+                        {
+                            <a href="/Auth/Login" class="btn-login">เข้าสู่ระบบ</a>
+                            <a href="/Auth/Register" class="btn-register">สมัครสมาชิก</a>
+                        }
+                    </div>
+                </div>
             </nav>
         </header>
 
-        <header class="nav-carousel-container">
-            <button id="nav-prev-btn" class="nav-carousel-btn">
-                <i class="bi bi-chevron-left"></i>
-            </button>
-            <div class="nav-carousel">
-                <div id="nav-tag-carousel" class="nav-carousel-content"></div>
+        <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+        <!-- ✅ Sidebar (สำหรับจอเล็ก) -->
+        <aside id="sidebar" class="sidebar">
+            <button class="close-btn" onclick="toggleSidebar()">✖</button>
+            <div class="sidebar-header">
+                <h2>MENU</h2>
             </div>
-            <button id="nav-next-btn" class="nav-carousel-btn">
-                <i class="bi bi-chevron-right"></i>
-            </button>
-        </header>
+            <nav class="sidebar-nav">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="/Profile"><i class="fas fa-user"></i> ดูโปรไฟล์</a>
+                    <a href="/Settings"><i class="fas fa-cog"></i> การตั้งค่า</a>
+                    <a href="/Logout" class="logout"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
+                }
+                else
+                {
+                    <a href="/Auth/Login" class="btn-login"><i class="fas fa-sign-in-alt"></i> เข้าสู่ระบบ</a>
+                    <a href="/Auth/Register" class="btn-register"><i class="fas fa-user-plus"></i> สมัครสมาชิก</a>
+                }
+            </nav>
+        </aside>
+
+        @if ((string)(ViewData["ShowNavCarousel"] ?? "False") == "True")
+        {
+            @* <!-- ✅ แถบนำทางแบบ Carousel --> *@
+            <header class="nav-carousel-container">
+                <button id="nav-prev-btn" class="nav-carousel-btn">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <div class="nav-carousel">
+                    <div id="nav-tag-carousel" class="nav-carousel-content"></div>
+                </div>
+                <button id="nav-next-btn" class="nav-carousel-btn">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </header>
+        }
     }
     <!-- ✅ Main Content -->
     <div class="container">

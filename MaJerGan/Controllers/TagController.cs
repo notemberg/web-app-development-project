@@ -24,7 +24,9 @@ namespace MaJerGan.Controllers
             {
                 if (_context.Database.CanConnect())
                 {
-                    var tags = _context.Tags.Select(t => t.Name).ToList();
+                    var tags = _context.Tags
+                        .Select(t => new { t.Id, t.Name }) // ✅ ส่งทั้ง Id และ Name
+                        .ToList();
                     return Ok(tags);
                 }
                 else

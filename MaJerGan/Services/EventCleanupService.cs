@@ -30,7 +30,7 @@ namespace MaJerGan.Services
                     Console.WriteLine($"🔄 Background Service กำลังทำงานที่: {now}");
 
                     var expiredEvents = await dbContext.Events
-                        .Where(e => e.ExpiryDate  < now && !e.IsClosed)
+                        .Where(e => e.ExpiryDate  < now && !e.IsClosed || e.EventTime < now && !e.IsClosed)
                         .ToListAsync();
 
                     Console.WriteLine($"📌 พบ {expiredEvents.Count} Event ที่ควรปิด");
@@ -47,7 +47,6 @@ namespace MaJerGan.Services
                 }
 
                 // await Task.Delay(TimeSpan.FromMinutes(5), stoppingToken);
-                // await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
                 await Task.Delay(TimeSpan.FromSeconds(10), stoppingToken);
             }
         }

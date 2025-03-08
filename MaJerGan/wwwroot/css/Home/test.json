@@ -1,0 +1,18 @@
+[
+    {
+      "id": 1022,
+      "title": "Valorant!",
+      "tags": "Game,valorant",
+      "viewCount": 62,
+      "maxParticipants": 4,
+      "location": "game : Valorant",
+      "currentParticipants": 1,
+      "creator": "Tur"
+      "maxParticipants":[
+        {
+          "id": 1,
+          "name": "Tur"
+        }
+      ]
+    }
+  ]

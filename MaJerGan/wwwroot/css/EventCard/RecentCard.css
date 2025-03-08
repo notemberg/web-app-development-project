@@ -26,7 +26,7 @@
     font-weight: bold;
 }
 
-.event-header {
+.recent-event-content > .event-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -47,26 +47,52 @@
     font-weight: normal;
 }
 
-.event-body {
+.recent-event-content > .event-body {
     font-size: 14px;
     color: gray;
     margin-top: 5px;
+    display: flex;
+    flex-wrap: nowrap; /* ❗ ป้องกันขึ้นบรรทัดใหม่ */
+    gap: 10px;
+    align-items: center;
 }
 
 .creator {
     font-size: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* ถ้ายาวเกิน ให้ขึ้น "..." */
 }
 
-.participants {
+/* .participants {
     display: flex;
     align-items: center;
     font-size: 18px;
     margin-top: 5px;
+} */
+
+.recent-event-content > .event-body > .participants {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0px;
+    /* gap: 5px; */
 }
 
+
+
 .tags-container {
+    flex-wrap: nowrap;
     display: flex;
+    flex-direction: row;
+    white-space: nowrap; /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
+    overflow-x: auto; /* เปิดการเลื่อนแนวนอน */
+    width: 40%; /* กำหนดความกว้างของ tags-container */
+    overflow:hidden;
+    flex-shrink: 0; /* ป้องกันการบีบจนขึ้นบรรทัดใหม่ */
 }
+
+
 
 .tag-button {
     background: #ddd;
@@ -78,6 +104,26 @@
     cursor: default;
 }
 
+.tags-label {
+    flex-shrink: 0; /* ป้องกันไม่ให้ยืดออก */
+    font-weight: bold;
+    display: inline-block;
+}
+
+.tags-card {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto; /* ทำให้ Scrollbar ใช้งานได้ */
+    white-space: nowrap;
+    flex-grow: 1; /* ให้ tags-card ขยายตามพื้นที่ */
+    padding-bottom: 5px; /* ป้องกันการทับของ Scrollbar */
+}
+
+
+.tag-button:hover {
+    background-color: #BDBDBD;
+}
+
 .fa-user {
     color: #666;
     margin-right: 5px;
@@ -87,11 +133,174 @@
 
 .location {
     display: inline-block;
-    max-width: 150px; /* จำกัดความยาวของชื่อสถานที่ */
+    max-width: 60%; /* จำกัดความยาวของชื่อสถานที่ */
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; /* ถ้ายาวเกิน ให้ขึ้น "..." */
     font-size: 14px;
     font-weight: normal;
     color: #555;
+}
+
+.host-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* เพิ่มระยะห่างเล็กน้อยให้ดูสมดุล */
+    width: 70%;
+    min-width: 0;
+}
+
+@media (max-width: 600px) {
+    .recent-event-card {
+        min-height: 124px;
+        background: white;
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        border: 1px solid #ddd;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .recent-event-card:hover {
+        scale: 1.02;
+    }
+
+    .event-time {
+        position: absolute;
+        top: -26px; /* เลื่อนขึ้นไปให้ชิดขอบการ์ด */
+        right: 10px; /* จัดให้ชิดขวา */
+        font-size: 14px;
+        color: green;
+        font-weight: bold;
+    }
+
+    .event-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .recent-event-card .event-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 5px 0;
+    }
+
+    .Time {
+        width: 30%;
+        font-size: 20px;
+        color: gray;
+        font-weight: normal;
+    }
+
+    .event-body {
+        flex-direction: column;
+    }
+
+    .creator {
+        font-size: 14px;
+    }
+
+    .recent-event-content > .event-body >.participants {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .tags-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 100%;
+        
+    }
+
+    .tag-button {
+        background: #ddd;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 15px;
+        margin-right: 5px;
+        font-size: 12px;
+        cursor: default;
+    }
+
+    .tag-button:hover {
+        background-color: #BDBDBD;
+    }
+
+    .fa-user {
+        color: #666;
+        margin-right: 5px;
+        margin-bottom: 2px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .event-body {
+        flex-direction: column;
+    }
+    .tags-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .host-container{
+        width: 100%;
+    }
+    
+    .event-time {
+        position: absolute;
+        top: -26px; /* เลื่อนขึ้นไปให้ชิดขอบการ์ด */
+        right: 10px; /* จัดให้ชิดขวา */
+        font-size: 14px;
+        color: green;
+        font-weight: bold;
+    }
+
+    .recent-event-content > .event-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 16px;
+        font-weight: bold;
+        width: 100%;
+    }
+
+    .recent-event-card .event-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 5px 0;
+    }
+
+    .Time {
+        width: 30%;
+        font-size: 20px;
+        color: gray;
+        font-weight: normal;
+    }
+
+    .creator {
+        font-size: 16px;
+    }
+
+    .recent-event-content > .event-body > .participants {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
 }
