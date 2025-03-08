@@ -1,24 +1,120 @@
+* {
+    font-family: "IBM Plex Sans Thai Looped", serif;
+}
+
+.ibm-plex-sans-thai-looped-regular {
+    font-family: "IBM Plex Sans Thai Looped", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .ibm-plex-sans-thai-looped-medium {
+    font-family: "IBM Plex Sans Thai Looped", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .ibm-plex-sans-thai-looped-semibold {
+    font-family: "IBM Plex Sans Thai Looped", serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+.upcoming-event-container {
+    display: flex; /* ใช้ Flexbox */
+    flex-direction: column; 
+    background-color: white; /* เปลี่ยนสีพื้นหลังให้อ่านง่ายขึ้น */
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+}
+.upcoming-event-container-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
 .upcoming-event-card {
-    min-height: 124px;
-    background: white;
+     /* min-height: 50px; 
+    background: rgb(190, 150, 150);
     padding: 15px;
-    /* border-radius: 15px; */
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+     border-radius: 15px;  
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  
     margin-bottom: 32px;
     display: flex;
     flex-direction: column;
     position: relative;
-    /* border: 1px solid #ddd; */
+    border-bottom: 1px solid #ddd; 
     width: 100%;
+    cursor: pointer; */
+    background: rgb(255, 255, 255);
+    padding-left: 10px;
+  
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+    
+    /* 🔹 กำหนดขนาดที่แน่นอน */
+    width: 100%; /* กำหนดความกว้าง */
+    height: 10%; 
+
+    /* 🔹 ทำให้ดูเป็นกล่องที่ชัดเจนขึ้น */
+    /* border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  */
+    
     cursor: pointer;
+
+    transition: background-color 0.3s ease-in-out;
+
+}
+.title-name {
+    font-size: 18px;
+    color: deeppink; 
+    white-space: nowrap;  
+    overflow: hidden;  
+    text-overflow: ellipsis;  
+    /* border: 1px solid #000000;
+    background-color: bisque; */
+    width: 40%;
 }
 
+/* 
+.Time {
+   
+    font-size: xx-small;
+    color: rgb(108, 255, 177);
+}
+.event-info{
+    font-size: xx-small;
+} */
+h3 {
+    margin: 0;
+    padding: 0;
+}
 .upcoming-event-card:hover {
-    scale: 1.02;
+    background-color: rgba(255, 244, 147,0.7);
+    
+    
 }
 
+a {
+    text-decoration: none;
+}
+
+.interest-event-container {
+    display: flex; /* ใช้ Flexbox */
+    flex-direction: column;
+    /* padding: 20px; */
+    background-color: #e24242; /* เปลี่ยนสีพื้นหลังให้อ่านง่ายขึ้น */
+    width: 67%;
+    border-radius: 10px;
+    padding: 20px;
+}
 .event-details {
-    color: purple;
+ 
+    color: #FFB6CF;
     font-size: 12px;
     text-decoration: none;
     position: absolute;
@@ -29,7 +125,33 @@
 .event-info {
     margin-top: 5px;
     margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
 }
+
+.event-creator {
+    color: #666;
+}
+
+.toggle-view-button {
+    background-color: transparent;
+    font-size: 14px;
+    white-space: nowrap;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: letter-spacing 0.3s ease, background-color 0.3s ease;
+    color: #ff8bb4;
+}
+
+.toggle-view-button:hover {
+    cursor: pointer;
+    letter-spacing: 1px; /* Adjust this value for more/less spreading */
+  
+}
+
+
 @media  (max-width: 600px) {
     .upcoming-event-card {
         min-height: 124px;

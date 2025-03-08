@@ -5,71 +5,57 @@
     window.location.href = "/event/Create";
   });
 });
-
 document.addEventListener("DOMContentLoaded", function () {
   fetch("/Event/GetHotEvents")
     .then((response) => response.json())
     .then((events) => {
-      const hotContent = document.querySelector(".hot-content");
-      hotContent.innerHTML = ""; // ล้างข้อมูลเก่า
+      const eventContainer = document.querySelector(".hot-content");
+      eventContainer.innerHTML = ""; // Clear previous content
 
-      events.forEach((event, index) => {
-        const eventCard = document.createElement("div");
-        eventCard.classList.add("hot-event-card");
-        eventCard.dataset.eventId = event.id;
+      if (!events || events.length === 0) {
+        eventContainer.innerHTML = "<p style='text-align:center; color:gray;'>ยังไม่มีอีเวนต์ยอดนิยม</p>";
+        return;
+      }
 
-        // ✅ แปลง `tags` จาก String เป็น Array และจำกัดให้แสดงแค่ 3 อัน
-        let tagsArray = (event.tags || "").split(",");
-        let limitedTags = tagsArray.slice(0, 3); // เอาแค่ 3 อันแรก
-        let tagButtons = limitedTags
-          .map((tag) => `<button class="tag-button">${tag.trim()}</button>`)
-          .join(" ");
+      // ✅ Sort events by number of views (highest first)
+      events.sort((a, b) => b.viewCount - a.viewCount);
 
-        // ✅ ถ้ามีแท็กมากกว่า 3 อัน ให้ขึ้น "..."
-        if (tagsArray.length > 3) {
-          tagButtons += `<span class="more-tags"> +${
-            tagsArray.length - 3
-          } more</span>`;
-        }
+      // ✅ Show only top 5 events
+      const eventsToShow = events.slice(0, 5);
 
-        eventCard.innerHTML = `
-                    <div class="hot-rank">${index + 1}</div>
-                    <div class="hot-event-content">
-                        <div class="event-header">
-                            <h3 class="event-title">${
-                              event.title
-                            } <span class="creator">สร้างโดย ${event.creator}</span></h3>
-                            <span class="event-views">${
-                              event.viewCount
-                            } <br>views</span>
-                        </div>
-                        <div class="event-body">
-                        <div class="participants">👤 ${
-                          event.currentParticipants
-                        } / ${event.maxParticipants} @<span class="location">${event.location}</span></div>
-                        <div class="tags-container">
-                                <span class="tags-label">Tags:</span>
-                                  <div class="tags-card">${tagButtons}</div>
-                                </div>
-                    </div>
-                `;
-
-        hotContent.appendChild(eventCard);
-      });
-
-      document.querySelectorAll(".hot-event-card").forEach((card) => {
-        card.addEventListener("click", function (e) {
-          // ตรวจสอบว่าไม่ได้กดปุ่มแท็ก
-          if (!e.target.classList.contains("tag-button")) {
-            window.location.href = `/Event/Details/${this.dataset.eventId}`;
-          }
-        });
+      eventsToShow.forEach((event) => {
+        eventContainer.appendChild(createEventCard(event));
       });
     })
-    .catch((error) => {
-      console.error("Error fetching hot events:", error);
-    });
+    .catch((error) => console.error("❌ Error fetching hot events:", error));
 });
+
+// ✅ Function to create hot event card (Show views instead of time)
+function createEventCard(event) {
+  const eventCard = document.createElement("div");
+  eventCard.classList.add("hot-event-card");
+
+  let locationDisplay =
+    event.location.length > 20 ? event.location.substring(0, 20) + "..." : event.location;
+
+  eventCard.innerHTML = `
+    <a href="/Event/Details/${event.id}">
+        <h3 class="event-title">
+            <span class="title-name">${event.title}</span> 
+            <span class="event-views">${event.viewCount} views</span>
+        </h3>
+        <p class="event-info">
+            Host: <span class="event-creator">${event.creator}&ensp;</span> 
+            <i class="fa-solid fa-user"></i>${event.currentParticipants}&ensp;
+           <span class="location"><i class="fa-solid fa-location-dot"></i> ${locationDisplay}</span>
+
+        </p>
+    </a>
+  `;
+
+  return eventCard;
+}
+
 
 document.addEventListener("DOMContentLoaded", function () {
   function fetchEvents() {
@@ -105,9 +91,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
           // ✅ จำกัดความยาวของชื่อสถานที่
           let locationDisplay =
-            event.location.length > 20
-              ? event.location.substring(0, 20) + "..."
+            event.location.length > 30
+              ? event.location.substring(0, 30) + "..."
               : event.location;
+
+          let titleDisplay =
+          event.title.length > 10
+            ? event.title.substring(0, 10) + "..."
+            : event.title;
 
           // ✅ แปลงเวลาเป็นข้อความที่อ่านง่าย (เช่น "5 นาทีที่แล้ว")
           const formattedTime = timeAgo(new Date(event.createdAt));
@@ -115,22 +106,23 @@ document.addEventListener("DOMContentLoaded", function () {
           const formattedEventTime = formatEventTime(event.eventTime);
 
           eventCard.innerHTML = `
-                      <span class="event-time">${formattedTime}</span>
+                      
                       <div class="recent-event-content">
+                          
                           <div class="event-header">
-                              <h3 class="event-title">${event.title} <span class="Time"> ${formattedEventTime}</span></h3>
+                          
+                              <h3 class="event-title">${titleDisplay} <span class="Time"> ${formattedEventTime}</span></h3>
+                              <span class="event-time">${formattedTime}</span>
                           </div>
                           <div class="event-body">
-                          <div class="host-container">
-                              <div class="creator">Host By: ${event.creator}</div>
-                              <div class="participants"><i class="fa-solid fa-user"></i> ${event.currentParticipants} / ${event.maxParticipants} @<span class="location">${locationDisplay}</span></div>
+                              <div class="creator">Host: ${event.creator}</div>
+                              <div class="participants"><i class="fa-solid fa-user"></i> ${event.currentParticipants}/${event.maxParticipants} 
+                              </div>
+                              <span class="location"><i class="fa-solid fa-location-dot"></i> ${locationDisplay}</span>
                           </div>
-                              <div class="tags-container">
-                                <span class="tags-label">Tags:</span>
-                                  <div class="tags-card">${tagButtons}</div>
-                                </div>
-                          </div>
+                           <div class="tags-container">Tags:${tagButtons}</div>
                       </div>
+                      
                   `;
           recentContent.appendChild(eventCard);
         });
@@ -182,7 +174,6 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch("/Event/GetEventUpcoming")
     .then((response) => {
       if (response.status === 401) {
-        // ✅ ถ้ายังไม่ได้ล็อกอิน ให้แสดงการ์ดแจ้งเตือน
         showMessageCard("กรุณาเข้าสู่ระบบก่อน เพื่อดูอีเวนต์ของคุณ", true);
         throw new Error("❌ User is not logged in");
       }
@@ -190,35 +181,93 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .then((events) => {
       const eventContainer = document.querySelector(".upcoming-content");
-      eventContainer.innerHTML = ""; // ✅ ล้างข้อมูลเก่าก่อนโหลดใหม่
+      const toggleButton = document.querySelector(".toggle-view-button");
+      eventContainer.innerHTML = ""; // Clear previous content
 
       if (!events || events.length === 0) {
-        // ✅ ถ้าไม่มีอีเวนต์ ให้แสดงการ์ดแจ้งเตือน
         showMessageCard("ยังไม่มีอีเวนต์ที่กำลังจะเกิดขึ้น");
+        toggleButton.style.display = "none"; // Hide button if no events
         return;
       }
 
-      events.forEach((event) => {
-        const eventCard = document.createElement("div");
-        eventCard.classList.add("upcoming-event-card");
+      // ✅ Sort events in ascending order (earliest first)
+      events.sort((a, b) => new Date(a.eventTime) - new Date(b.eventTime));
 
-        const formattedEventTime = formatEventTime(event.eventTime);
+      let isExpanded = false; // Track toggle state
 
-        eventCard.innerHTML = `
-            <h3 class="event-title"><span class="title-name">${event.title}</span> <span class="Time">${formattedEventTime}</span></h3>
-            <p class="event-info">สร้างโดย <span class="event-creator">${event.creator}</span> 
-                <i class="fa-solid fa-user"></i> ${event.currentParticipants} @${event.location}
-            </p>
-            <div class="event-details-container">
-                <a href="/Event/Details/${event.id}" class="event-details">more details...</a>
-            </div>
-        `;
+      function updateEventList(showAll) {
+        eventContainer.innerHTML = ""; // Clear events
 
-        eventContainer.appendChild(eventCard);
+        const eventsToShow = showAll ? events : events.slice(0, 3);
+        eventsToShow.forEach((event) => {
+          eventContainer.appendChild(createEventCard(event));
+        });
+
+        // ✅ Toggle button text
+        toggleButton.textContent = showAll ? "View Less" : "View All";
+      }
+
+      // ✅ Initial view (show 3 events)
+      updateEventList(false);
+
+      // ✅ Handle "View All" / "View Less" toggle
+      toggleButton.addEventListener("click", function () {
+        isExpanded = !isExpanded;
+        updateEventList(isExpanded);
       });
+
+      // ✅ Show toggle button only if more than 3 events exist
+      if (events.length > 3) {
+        toggleButton.style.display = "inline-block";
+      } else {
+        toggleButton.style.display = "none";
+      }
     })
     .catch((error) => console.error("❌ Error fetching events:", error));
 });
+
+// ✅ Function to create event card
+function createEventCard(event) {
+  const eventCard = document.createElement("div");
+  eventCard.classList.add("upcoming-event-card");
+
+  const formattedEventTime = formatEventTime(event.eventTime);
+  let locationDisplay =
+    event.location.length > 20 ? event.location.substring(0, 20) + "..." : event.location;
+
+  eventCard.innerHTML = `
+  <a href="/Event/Details/${event.id}">
+      <h3 class="event-title">
+          <span class="title-name">${event.title}</span> 
+          <span class="Time">${formattedEventTime}</span>
+      </h3>
+      <p class="event-info">
+          Host: <span class="event-creator">${event.creator}&ensp;</span> 
+          <i class="fa-solid fa-user"></i>${event.currentParticipants}&ensp;
+          <span class="location"><i class="fa-solid fa-location-dot"></i> ${locationDisplay}</span>
+
+      </p>
+  </a>
+  `;
+
+  return eventCard;
+}
+
+// ✅ Function to format event time
+function formatEventTime(isoDate) {
+  const date = new Date(isoDate);
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = String(date.getFullYear());
+  let hours = date.getHours();
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+  const ampm = hours >= 12 ? "PM" : "AM";
+  hours = hours % 12 || 12;
+
+  return `${day}/${month}/${year} at ${hours}:${minutes} ${ampm}`;
+}
+
+
 
 // ✅ ฟังก์ชันแสดงข้อความเตือนเป็นการ์ด
 function showMessageCard(message, isLoginMessage = false) {
@@ -240,6 +289,7 @@ function showMessageCard(message, isLoginMessage = false) {
 
   eventContainer.appendChild(messageCard);
 }
+
 
 // ✅ ฟังก์ชันแปลงเวลา
 function formatEventTime(isoDate) {

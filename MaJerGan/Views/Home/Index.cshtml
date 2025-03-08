@@ -16,13 +16,86 @@
     <link rel="stylesheet" href="~/css/EventCard/HotCard.css">
     <link rel="stylesheet" href="~/css/EventCard/RecentCard.css">
     <link rel="stylesheet" href="~/css/EventCard/UpcomingCard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <script src="~/js/Home/index.js"></script>
 <script src="~/js/Home/app.js"></script>
 
 <body>
+    
 
     <section class="events">
+        <div class="interest-event-container">
+            <div class="upcoming">
+                
+        <h3>You may interested</h3>
+            @* <div class="categories">
+                <div>Sports</div>
+                <div>BoardGame</div>
+                <div>Dinner</div>
+            </div> *@
+            </div>
+        </div>
+            <div class="invitation">
+                
+                <div class="upcoming-event-container">
+                    <div class="upcoming-event-container-title">
+                         <div><h3>Your Upcoming Events</h3></div>
+                   <div>   <button class="toggle-view-button">View All</button>
+                   </div>
+                
+                    </div>
+                  
+                <div class="upcoming-content">
+                    [upcoming-content]
+                </div>
+                
+                </div>
+@* 
+<div class="hot-events-section">
+    <div class="hot-header">
+        <h3>Hot Events</h3>
+    </div>
+    <div class="hot-content"></div>
+</div> *@
+
+
+    <div class="recent-event-container">
+                 <div class="recent-event-container-title">
+                         <div><h3>Recent Events</h3></div>
+                   <div>   <button class="toggle-view-button">View All</button>
+                   </div>
+                
+                    </div>
+                <div class="recent-content">
+                    [recent-content]
+                </div>
+
+                <div class="show-more-container">
+                    <a href="@Url.Action("SearchPage", "Event", new { sortOrder = "recent" })" class="show-more-button">
+                        <i class="fa-solid fa-angle-down"></i>
+                    </a>
+                </div>
+                </div>
+            
+           
+            
+        
+
+
+            </div>
+        </section>
+<button class="add-event">+</button>
+
+
+
+
+
+
+ 
+    @* <section class="events">
         <div class="upcoming">
             <h2>Your Upcoming Events</h2>
             <div class="upcoming-content">
@@ -49,11 +122,11 @@
     <section class="recommendations">
         <div class="interest">
             <h2>You may interested</h2>
-            @* <div class="categories">
+            <div class="categories">
                 <div>Sports</div>
                 <div>BoardGame</div>
                 <div>Dinner</div>
-            </div> *@
+            </div>
         </div>
         <div class="hot">
             <div class="hot-frame">
@@ -64,7 +137,7 @@
         </div>
     </section>
 
-    <button class="add-event">+</button>
+    <button class="add-event">+</button>  *@
 
 </body>
 

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\MaJerGan.csproj": {}
+    "D:\\ComEngineering student\\2D semester 2\\WebApp\\Project_hon\\web-app-development-project\\MaJerGan\\MaJerGan.csproj": {}
   },
   "projects": {
-    "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\MaJerGan.csproj": {
+    "D:\\ComEngineering student\\2D semester 2\\WebApp\\Project_hon\\web-app-development-project\\MaJerGan\\MaJerGan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\MaJerGan.csproj",
+        "projectUniqueName": "D:\\ComEngineering student\\2D semester 2\\WebApp\\Project_hon\\web-app-development-project\\MaJerGan\\MaJerGan.csproj",
         "projectName": "MaJerGan",
-        "projectPath": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\MaJerGan.csproj",
-        "packagesPath": "C:\\Users\\Sliber\\.nuget\\packages\\",
-        "outputPath": "E:\\Study\\CE_2\\webapp\\project\\web-app-development-project\\MaJerGan\\obj\\",
+        "projectPath": "D:\\ComEngineering student\\2D semester 2\\WebApp\\Project_hon\\web-app-development-project\\MaJerGan\\MaJerGan.csproj",
+        "packagesPath": "C:\\Users\\sasiy\\.nuget\\packages\\",
+        "outputPath": "D:\\ComEngineering student\\2D semester 2\\WebApp\\Project_hon\\web-app-development-project\\MaJerGan\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Sliber\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sasiy\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,7 +40,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -96,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

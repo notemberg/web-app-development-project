@@ -1,5 +1,57 @@
+* {
+    font-family: "IBM Plex Sans Thai Looped", serif;
+}
+
+.ibm-plex-sans-thai-looped-regular {
+    font-family: "IBM Plex Sans Thai Looped", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.ibm-plex-sans-thai-looped-medium {
+    font-family: "IBM Plex Sans Thai Looped", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+.ibm-plex-sans-thai-looped-semibold {
+    font-family: "IBM Plex Sans Thai Looped", serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+.recent-event-container {
+    display: flex; /* ใช้ Flexbox */
+    flex-direction: column; 
+    background-color: rgb(255, 255, 255); /* เปลี่ยนสีพื้นหลังให้อ่านง่ายขึ้น */
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+}
+.recent-event-container-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+
+.title-name {
+    font-size: 18px;
+    color: #fc6ea0; 
+    white-space: nowrap;  
+    overflow: hidden;  
+    text-overflow: ellipsis;  
+    /* border: 1px solid #000000;
+    background-color: bisque; */
+    width: 50%;
+}
+
+
+
 .recent-event-card {
-    min-height: 124px;
+    /* min-height: 124px;
     background: white;
     padding: 15px;
     border-radius: 15px;
@@ -10,23 +62,39 @@
     position: relative;
     border: 1px solid #ddd;
     width: 100%;
+    cursor: pointer; */
+    background: rgb(255, 255, 255);
+    padding-left: 10px;
+  
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+    
+    /* 🔹 กำหนดขนาดที่แน่นอน */
+    width: 100%; /* กำหนดความกว้าง */
+    height: 10%; 
+
     cursor: pointer;
+
+    transition: background-color 0.3s ease-in-out;
 }
 
 .recent-event-card:hover {
-    scale: 1.02;
+    background-color: rgba(255, 244, 147,0.7);
 }
 
 .event-time {
-    position: absolute;
-    top: -26px; /* เลื่อนขึ้นไปให้ชิดขอบการ์ด */
-    right: 10px; /* จัดให้ชิดขวา */
+    
     font-size: 14px;
     color: green;
     font-weight: bold;
+    
+   
+   
 }
 
-.recent-event-content > .event-header {
+.event-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,122 +102,100 @@
     font-weight: bold;
 }
 
-.recent-event-card .event-title {
-    font-size: 30px;
-    font-weight: bold;
-    margin: 5px 0;
+
+.event-title{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-evenly; */
+    align-items: flex-start;
+    font-size: 18px;
+    color: deeppink; 
+    font-family: "IBM Plex Sans Thai Looped", serif;
+    font-weight: 600;
+    font-style: bold;
+
 }
 
 .Time {
-    width: 30%;
-    font-size: 24px;
-    color: gray;
-    font-weight: normal;
+    width: 50%;
+    font-size: 75%;
+    color: #7a7a7a;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 2px 5px;
+    display: block;
+
 }
 
-.recent-event-content > .event-body {
+.event-body {
+    margin-top: 5px;
+    margin-bottom: 5px;
     font-size: 14px;
     color: gray;
-    margin-top: 5px;
-    display: flex;
-    flex-wrap: nowrap; /* ❗ ป้องกันขึ้นบรรทัดใหม่ */
-    gap: 10px;
-    align-items: center;
+   
 }
 
 .creator {
-    font-size: 18px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis; /* ถ้ายาวเกิน ให้ขึ้น "..." */
+    font-size: 14px;
+    font-weight: 500;
+    color: #7a7a7a;
 }
 
-/* .participants {
+.participants {
     display: flex;
     align-items: center;
-    font-size: 18px;
+    font-size: 14px;
     margin-top: 5px;
-} */
-
-.recent-event-content > .event-body > .participants {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 0px;
-    /* gap: 5px; */
+    font-family: "IBM Plex Sans Thai Looped";
+    font-weight: 500;
+    
 }
-
-
 
 .tags-container {
-    flex-wrap: nowrap;
     display: flex;
-    flex-direction: row;
-    white-space: nowrap; /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
-    overflow-x: auto; /* เปิดการเลื่อนแนวนอน */
-    width: 40%; /* กำหนดความกว้างของ tags-container */
-    overflow:hidden;
-    flex-shrink: 0; /* ป้องกันการบีบจนขึ้นบรรทัดใหม่ */
+    color: #666;
+    font-weight: 400;
+    font-family: "IBM Plex Sans Thai Looped";
+
 }
 
-
-
 .tag-button {
-    background: #ddd;
+    /* background: #ddd; */
     border: none;
-    padding: 5px 10px;
+    padding: 2px 7px;
     border-radius: 15px;
     margin-right: 5px;
     font-size: 12px;
     cursor: default;
+    margin-bottom: 5px;
+    color: #666;
 }
-
-.tags-label {
-    flex-shrink: 0; /* ป้องกันไม่ให้ยืดออก */
-    font-weight: bold;
-    display: inline-block;
-}
-
-.tags-card {
-    display: flex;
-    gap: 5px;
-    overflow-x: auto; /* ทำให้ Scrollbar ใช้งานได้ */
-    white-space: nowrap;
-    flex-grow: 1; /* ให้ tags-card ขยายตามพื้นที่ */
-    padding-bottom: 5px; /* ป้องกันการทับของ Scrollbar */
-}
-
-
+/* 
 .tag-button:hover {
     background-color: #BDBDBD;
-}
+} */
 
 .fa-user {
     color: #666;
     margin-right: 5px;
     margin-bottom: 5px;
 }
-
-
+.fa-location-dot {
+    color: #666;
+}
 .location {
-    display: inline-block;
-    max-width: 60%; /* จำกัดความยาวของชื่อสถานที่ */
+    display: inline-block; /* หรือ inline-block ก็ได้ */
+    
+    max-width: 150px; /* จำกัดความกว้างของชื่อสถานที่ */
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; /* ถ้ายาวเกิน ให้ขึ้น "..." */
     font-size: 14px;
-    font-weight: normal;
-    color: #555;
-}
+    font-weight: 500;
+    color: #7a7a7a;
 
-.host-container {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* เพิ่มระยะห่างเล็กน้อยให้ดูสมดุล */
-    width: 70%;
-    min-width: 0;
+    vertical-align: bottom;
 }
-
 @media (max-width: 600px) {
     .recent-event-card {
         min-height: 124px;
@@ -187,10 +233,22 @@
         font-weight: bold;
     }
 
-    .recent-event-card .event-title {
+    .recent-event-card  {
         font-size: 24px;
         font-weight: bold;
         margin: 5px 0;
+    }
+
+    .event-title{
+        font-size: 18px;
+        color: #fc6ea0; 
+        white-space: nowrap;  
+        overflow: hidden;  
+        text-overflow: ellipsis;  
+        /* border: 1px solid #000000;
+        background-color: bisque; */
+        width: 40%;
+        
     }
 
     .Time {
