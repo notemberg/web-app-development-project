@@ -775,7 +775,28 @@ input[type="checkbox"]:checked + label {
 }
 
 
+input[type="datetime-local"] {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    color: #333;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 220px;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+
 @media (max-width: 768px) {
+
     .container {
         width: 100%;
         padding: 20px;

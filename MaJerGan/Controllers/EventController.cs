@@ -641,5 +641,55 @@ namespace MaJerGan.Controllers
         }
 
 
+        [HttpGet]
+        public async Task<IActionResult> GetComments(int eventId)
+        {
+            var comments = await _context.Comments
+                .Where(c => c.EventId == eventId)
+                .Include(c => c.User)
+                .OrderByDescending(c => c.CreatedAt)
+                .Select(c => new 
+                {
+                    Username = c.User.Username,
+                    ProfileImg = c.User.ProfilePicturee,
+                    Content = c.Content,
+                    CreatedAt = c.CreatedAt.ToString("dd MMM yyyy @ hh:mm tt")
+                })
+                .ToListAsync();
+
+            return Json(comments);
+        }
+
+        // ✅ 7️⃣ โพสต์คอมเมนต์ใหม่
+        [HttpPost]
+        public async Task<IActionResult> PostComment(int eventId, string content)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized("❌ กรุณาเข้าสู่ระบบก่อนแสดงความคิดเห็น");
+            }
+
+            int userId = int.Parse(userIdClaim.Value);
+
+            if (string.IsNullOrWhiteSpace(content))
+            {
+                return BadRequest("❌ กรุณากรอกข้อความก่อนส่ง");
+            }
+
+            var comment = new Comment
+            {
+                EventId = eventId,
+                UserId = userId,
+                Content = content,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            _context.Comments.Add(comment);
+            await _context.SaveChangesAsync();
+
+            return Json(new { success = true, message = "✅ แสดงความคิดเห็นสำเร็จ!" });
+        }
+
     }
 }

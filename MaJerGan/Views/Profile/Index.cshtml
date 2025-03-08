@@ -51,7 +51,7 @@
         <div class="profile-content">
             <div class="profile-picture">
                 <!-- ✅ คลิกที่รูปเพื่ออัปโหลด -->
-                @if (Model.ProfilePicturee == null)
+                @if (string.IsNullOrEmpty(Model.ProfilePicturee))
                 {
                     <img id="profilePreview" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Picture" width="150"
                         onclick="selectImage()">
