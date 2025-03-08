@@ -203,58 +203,81 @@ body {
     font-weight: normal;
 }
 
-.event-footer {
-    display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    color: gray;
-    margin-top: 10px;
-}
-.event-footer .event-views {
-    color: #28a745;
-    font-weight: bold;
-}
-.log-items {
-    margin-bottom: 20px;
-    cursor: pointer;
+@media (max-width: 768px) {
+    .activity-log-container {
+        padding: 20px;
+    }
+
+    .profile-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-picture {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .log-section {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .event-card {
+        padding: 10px;
+    }
+
+    .event-card .event-title {
+        font-size: 24px;
+    }
+
+    .event-body {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .Time {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .location {
+        width: 100%;
+    }
+
+    .tags-container {
+        flex-wrap: wrap; /* Allow tags to wrap to the next line */
+    }
 }
 
-.log-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
+@media (max-width: 480px) {
+    .activity-log-container {
+        padding: 15px;
+    }
 
-.log-details {
-    flex: 1;
-}
+    .event-card .event-title {
+        font-size: 20px;
+    }
 
-.log-status {
-    display: flex;
-    align-items: center;
-}
+    .Time {
+        font-size: 16px;
+    }
 
-.status-indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-}
+    .participants, .creator {
+        font-size: 14px;
+    }
 
-.status-indicator.hosted {
-    background-color: blue;
-}
+    .tag-button {
+        font-size: 10px;
+        padding: 3px 7px;
+    }
 
-.status-indicator.approved {
-    background-color: green;
-}
-
-.status-indicator.pending {
-    background-color: orange;
-}
-
-.status-indicator.rejected {
-    background-color: red;
+    .tags-container {
+        flex-wrap: wrap; /* Allow tags to wrap to the next line */
+    }
 }
