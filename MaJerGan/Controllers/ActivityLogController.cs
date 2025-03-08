@@ -70,7 +70,7 @@ namespace MaJerGan.Controllers
                                             .ToList();
 
             var approvedActivities = _context.EventParticipants
-                                             .Where(ep => ep.UserId == id && ep.Status == ParticipationStatus.Approved)
+                                             .Where(ep => ep.UserId == id && ep.Status == ParticipationStatus.Approved && ep.UserId != ep.Event.CreatedBy)
                                              .Select(ep => new ActivityLogViewModel
                                              {
                                                  Id = ep.Event.Id, // Set the Id property
