@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "D:\\webapp\\web-app-development-project\\MaJerGan\\MaJerGan.csproj": {}
+    "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\MaJerGan.csproj": {}
   },
   "projects": {
-    "D:\\webapp\\web-app-development-project\\MaJerGan\\MaJerGan.csproj": {
+    "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\MaJerGan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\webapp\\web-app-development-project\\MaJerGan\\MaJerGan.csproj",
+        "projectUniqueName": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\MaJerGan.csproj",
         "projectName": "MaJerGan",
-        "projectPath": "D:\\webapp\\web-app-development-project\\MaJerGan\\MaJerGan.csproj",
-        "packagesPath": "C:\\Users\\ฮอน\\.nuget\\packages\\",
-        "outputPath": "D:\\webapp\\web-app-development-project\\MaJerGan\\obj\\",
+        "projectPath": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\MaJerGan.csproj",
+        "packagesPath": "C:\\Users\\sasiy\\.nuget\\packages\\",
+        "outputPath": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ฮอน\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\sasiy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

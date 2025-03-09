@@ -86,12 +86,13 @@ function updateUI(events) {
                 <div class="event-body">
                     <div class="host-container">
                         <div class="creator">Host By: ${event.creator}</div>
-                        <div class="participants"><i class="fa-solid fa-user"></i> ${event.currentParticipants} / ${event.maxParticipants} @<span class="location">${event.location}</span></div>
+                        <div class="participants"><i class="fa-solid fa-user"></i> ${event.currentParticipants} / ${event.maxParticipants} <span class="location"><i class="fa-solid fa-location-dot"></i> ${event.location}</span></div>
                     </div>
                     <div class="tags-container">Tags:${tagButtons}</div>
                 </div>
             </div>
         `;
+        // <span class="location"><i class="fa-solid fa-location-dot"></i> ${event.location}</span>
     recentContent.appendChild(eventCard);
   });
 

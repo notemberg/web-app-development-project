@@ -467,7 +467,8 @@ namespace MaJerGan.Controllers
                     creator = e.Creator.Username, // ✅ เพิ่มชื่อผู้สร้าง
                     e.EventTime,
                     e.AllowedGenders,
-                    e.LocationImage
+                    e.LocationImage,
+                    e.LocationName
                 })
                 .ToListAsync();
 
@@ -548,6 +549,7 @@ namespace MaJerGan.Controllers
                     e.Title,
                     e.EventTime,
                     e.Location,
+                    e.LocationName,
                     CurrentParticipants = e.Participants.Count(p => p.Status == ParticipationStatus.Approved),
                     Creator = e.Creator != null ? e.Creator.Username : "Unknown"
                 })

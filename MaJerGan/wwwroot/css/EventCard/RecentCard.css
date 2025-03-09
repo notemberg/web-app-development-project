@@ -43,26 +43,13 @@
     white-space: nowrap;  
     overflow: hidden;  
     text-overflow: ellipsis;  
-    /* border: 1px solid #000000;
-    background-color: bisque; */
-    width: 50%;
+    max-width: 60%; /* ป้องกันการขยายเกิน */
+    display: inline-block;
 }
 
 
 
 .recent-event-card {
-    /* min-height: 124px;
-    background: white;
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 32px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    border: 1px solid #ddd;
-    width: 100%;
-    cursor: pointer; */
     background: rgb(255, 255, 255);
     padding-left: 10px;
   
@@ -89,9 +76,13 @@
     font-size: 14px;
     color: green;
     font-weight: bold;
-    
    
-   
+}
+
+.Time, .event-time {
+    display: block;
+    width: 100%; /* ขยายให้เต็ม */
+    text-align: left; /* จัดให้อยู่ด้านซ้าย */
 }
 
 .event-header {
@@ -106,13 +97,13 @@
 .event-title{
     display: flex;
     flex-direction: row;
-    /* justify-content: space-evenly; */
     align-items: flex-start;
     font-size: 18px;
     color: deeppink; 
     font-family: "IBM Plex Sans Thai Looped", serif;
     font-weight: 600;
     font-style: bold;
+
 
 }
 
@@ -132,6 +123,10 @@
     margin-bottom: 5px;
     font-size: 14px;
     color: gray;
+    width: 100%; /* ขยายเต็ม recent-event-card */
+    display: flex;
+    justify-content: space-between; /* กระจายองค์ประกอบ */
+    align-items: center; /* จัดให้อยู่ตรงกลาง */
    
 }
 
@@ -143,11 +138,11 @@
 
 .participants {
     display: flex;
-    align-items: center;
     font-size: 14px;
     margin-top: 5px;
     font-family: "IBM Plex Sans Thai Looped";
     font-weight: 500;
+    text-align: center;
     
 }
 
@@ -184,18 +179,92 @@
     color: #666;
 }
 .location {
-    display: inline-block; /* หรือ inline-block ก็ได้ */
-    
-    max-width: 150px; /* จำกัดความกว้างของชื่อสถานที่ */
-    overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis; /* ถ้ายาวเกิน ให้ขึ้น "..." */
-    font-size: 14px;
-    font-weight: 500;
-    color: #7a7a7a;
-
-    vertical-align: bottom;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40%;
+    display: inline-block;
+    
 }
+.participants, .location {
+    flex: 1; /* ทำให้ใช้พื้นที่เท่าๆ กัน */
+    
+}
+
+@media (max-width: 1500px) {
+    .event-header {
+        display: flex;
+        flex-direction: column; /* จัดเรียงแนวตั้ง */
+        align-items: flex-start; /* จัดให้อยู่ฝั่งซ้าย */
+    }
+
+    .event-time {
+        position: relative; /* ลบ absolute ออก */
+        top: auto;
+        right: auto;
+        align-self: flex-start; /* จัดให้ไปอยู่ด้านบนของ title-name */
+        margin-bottom: 5px; /* เพิ่มระยะห่าง */
+    }
+}
+@media (max-width: 900px) {
+    .recent-event-card, .upcoming-event-card {
+        display: flex;
+        flex-direction: column; /* จัดเรียงเป็นแนวตั้ง */
+        width: 100%; /* ขยายเต็มหน้าจอ */
+        align-items: flex-start; /* จัดให้อยู่ชิดซ้าย */
+        padding: 15px; /* เพิ่มระยะห่าง */
+    }
+
+    .event-header {
+        display: flex;
+        flex-direction: column; /* เรียงแนวตั้ง */
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .event-title, .title-name {
+        font-size: 18px;
+        font-weight: bold;
+        white-space: normal; /* อนุญาตให้ขึ้นบรรทัดใหม่ */
+        overflow: visible; /* ไม่ตัดข้อความ */
+        text-overflow: unset; /* ยกเลิก "..." */
+        width: 100%; /* ขยายให้เต็ม */
+    }
+
+    .Time, .event-time {
+        width: 100%;
+        text-align: left;
+        margin-top: 5px;
+    }
+
+    .event-body {
+        display: flex;
+        flex-direction: column; /* เรียงแนวตั้ง */
+        width: 100%;
+    }
+
+    .creator, .participants, .location, .tags-container {
+        width: 100%; /* ขยายเต็ม */
+        text-align: left; /* ชิดซ้าย */
+        margin-top: 5px;
+    }
+
+    .tags-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .tag-button {
+        background: #ddd;
+        border-radius: 12px;
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+}
+
+
+
 @media (max-width: 600px) {
     .recent-event-card {
         min-height: 124px;
@@ -252,12 +321,15 @@
     }
 
     .Time {
-        width: 30%;
-        font-size: 20px;
-        color: gray;
-        font-weight: normal;
+        width: 50%;
+        font-size: 75%;
+        color: #7a7a7a;
+        font-weight: 500;
+        white-space: nowrap;
+        padding: 2px 5px;
+        display: block;
+    
     }
-
     .event-body {
         flex-direction: column;
     }
@@ -303,62 +375,4 @@
     }
 }
 
-@media (max-width: 1200px) {
-    .event-body {
-        flex-direction: column;
-    }
-    .tags-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        width: 100%;
-    }
 
-    .host-container{
-        width: 100%;
-    }
-    
-    .event-time {
-        position: absolute;
-        top: -26px; /* เลื่อนขึ้นไปให้ชิดขอบการ์ด */
-        right: 10px; /* จัดให้ชิดขวา */
-        font-size: 14px;
-        color: green;
-        font-weight: bold;
-    }
-
-    .recent-event-content > .event-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 16px;
-        font-weight: bold;
-        width: 100%;
-    }
-
-    .recent-event-card .event-title {
-        font-size: 24px;
-        font-weight: bold;
-        margin: 5px 0;
-    }
-
-    .Time {
-        width: 30%;
-        font-size: 20px;
-        color: gray;
-        font-weight: normal;
-    }
-
-    .creator {
-        font-size: 16px;
-    }
-
-    .recent-event-content > .event-body > .participants {
-        display: flex;
-        align-items: center;
-        font-size: 16px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-
-}

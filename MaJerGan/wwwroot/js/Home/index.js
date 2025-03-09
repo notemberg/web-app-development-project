@@ -37,24 +37,24 @@ document.addEventListener("DOMContentLoaded", function () {
         eventCard.innerHTML = `
                  <div class="hot-container">
                     <div class="hot-picture">
-                      <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98p-llmayxgu7hor64" width="200" height="200" />
+                      <img src="${event.locationImage}" width="200" height="200" />
   
                     </div>
                     <div class="hot-info-container">
                         <div class="">
-                            <h3 class="">${event.title} 
+                            <h3 class="home-event-title">${event.title} 
                             
                         </div>
                         <div>
-                        <span class="">Host: ${event.creator}</span></h3>
+                        <span class="home-host-event">Host: ${event.creator}</span></h3>
                         </div>
                         <div>
-                        <span class="">Event Date: ${formattedEventTime} <br></span>
+                        <span class="home-time-event">Event Date: ${formattedEventTime} <br></span>
                         </div>
 
                         <div class="">
-                        <div class="">👤 ${event.currentParticipants} / ${event.maxParticipants} ${event.AllowedGenders} ${event.LocationImage}</div>
-                        <div class=""> @<span class="">${event.location}</span> </div>
+                        <div class=""><i class="fa-solid fa-user"></i> ${event.currentParticipants} / ${event.maxParticipants} ${event.allowedGenders} </div>
+                        <div class=""> <span class="location"><i class="fa-solid fa-location-dot"></i> ${event.locationName}</span> </div>
                     </div>
                         <div class="">
                                 <span class="">Tags: ${tagButtons}</span> 
@@ -63,6 +63,9 @@ document.addEventListener("DOMContentLoaded", function () {
                   
                 `;
 
+                
+          
+          console.log(event)
         hotContent.appendChild(eventCard);
       });
 
@@ -125,7 +128,14 @@ document.addEventListener("DOMContentLoaded", function () {
           const eventCard = document.createElement("div");
           eventCard.classList.add("recent-event-card");
           eventCard.dataset.eventId = event.id;
+          
+    // จำกัดความยาวของชื่ออีเวนต์
+          let titleDisplay = event.title.length > 20 
+          ? event.title.substring(0, 20) + "..." 
+          : event.title;
 
+      // จำกัดความยาวของสถานที่
+        
           // ✅ จำกัดจำนวนแท็กที่แสดง (3 อันแรก)
           let tagsArray = (event.tags || "").split(",");
           let limitedTags = tagsArray.slice(0, 3);
@@ -146,35 +156,38 @@ document.addEventListener("DOMContentLoaded", function () {
               ? event.location.substring(0, 30) + "..."
               : event.location;
 
-          let titleDisplay =
-            event.title.length > 10
-              ? event.title.substring(0, 10) + "..."
-              : event.title;
+          // let titleDisplay =
+          //   event.title.length > 10
+          //     ? event.title.substring(0, 10) + "..."
+          //     : event.title;
 
           // ✅ แปลงเวลาเป็นข้อความที่อ่านง่าย (เช่น "5 นาทีที่แล้ว")
           const formattedTime = timeAgo(new Date(event.createdAt));
 
           const formattedEventTime = formatEventTime(event.eventTime);
+      //     <h3 class="event-title">
+      //     <span class="title-name">${event.title}</span> 
+      //     <span class="Time">${formattedEventTime}</span>
+      // </h3>
 
-          eventCard.innerHTML = `
-                      
-                      <div class="recent-event-content">
-                          
-                          <div class="event-header">
-                          
-                              <h3 class="event-title">${titleDisplay} <span class="Time"> ${formattedEventTime}</span></h3>
-                              <span class="event-time">${formattedTime}</span>
-                          </div>
-                          <div class="event-body">
-                              <div class="creator">Host: ${event.creator}</div>
-                              <div class="participants"><i class="fa-solid fa-user"></i> ${event.currentParticipants}/${event.maxParticipants} 
-                              </div>
-                              <span class="location"><i class="fa-solid fa-location-dot"></i> ${locationDisplay}</span>
-                          </div>
-                           <div class="tags-container">Tags:${tagButtons}</div>
-                      </div>
-                      
-                  `;
+      eventCard.innerHTML = `
+      <div class="recent-event-content">
+          <div class="event-header">
+              <h3 class="event-title">
+                  <span class="title-name">${titleDisplay}</span>  
+                  <span class="Time"> ${formattedEventTime}</span>
+              </h3>
+              <span class="event-time">${formattedTime}</span>
+          </div>
+          <div class="event-body">
+              <div class="creator">Host: ${event.creator}</div>
+              <div class="participants"><i class="fa-solid fa-user"></i> ${event.currentParticipants}/${event.maxParticipants} 
+              </div>
+              <span class="location"><i class="fa-solid fa-location-dot"></i> ${locationDisplay}</span>
+          </div>
+          <div class="tags-container">Tags: ${tagButtons}</div>
+      </div>
+  `;
           recentContent.appendChild(eventCard);
         });
 
@@ -283,10 +296,10 @@ function createEventCard(event) {
   eventCard.classList.add("upcoming-event-card");
 
   const formattedEventTime = formatEventTime(event.eventTime);
-  let locationDisplay =
-    event.location.length > 20
-      ? event.location.substring(0, 20) + "..."
-      : event.location;
+  // let locationDisplay =
+  //   event.location.length > 20
+  //     ? event.location.substring(0, 20) + "..."
+  //     : event.location;
 
   eventCard.innerHTML = `
   <a href="/Event/Details/${event.id}">
@@ -297,7 +310,7 @@ function createEventCard(event) {
       <p class="event-info">
           Host: <span class="event-creator">${event.creator}&ensp;</span> 
           <i class="fa-solid fa-user"></i>${event.currentParticipants}&ensp;
-          <span class="location"><i class="fa-solid fa-location-dot"></i> ${locationDisplay}</span>
+          <span class="location"><i class="fa-solid fa-location-dot"></i> ${event.locationName}</span>
 
       </p>
   </a>
