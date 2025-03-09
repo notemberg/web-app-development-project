@@ -88,8 +88,16 @@ namespace MaJerGan.Controllers
         [HttpPost]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordViewModel model)
         {
+            Console.WriteLine($"OldPassword: {model.OldPassword}");
+            Console.WriteLine($"NewPassword: {model.NewPassword}");
+            Console.WriteLine($"ConfirmNewPassword: {model.ConfirmNewPassword}");
             if (!ModelState.IsValid)
             {
+                if (model.NewPassword != model.ConfirmNewPassword)
+                {
+                    return BadRequest(new { success = false, message = "Passwords do not match" });
+                }
+
                 return BadRequest(new { success = false, message = "Invalid input data" });
             }
 
@@ -97,6 +105,11 @@ namespace MaJerGan.Controllers
             if (user == null)
             {
                 return NotFound(new { success = false, message = "User not found" });
+            }
+
+            if (model.NewPassword != model.ConfirmNewPassword)
+            {
+                return BadRequest(new { success = false, message = "Passwords do not match" });
             }
 
             if (!user.VerifyPassword(model.OldPassword))

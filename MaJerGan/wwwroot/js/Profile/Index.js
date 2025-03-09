@@ -45,7 +45,27 @@ function enableEdit() {
   document.getElementById("change-password").style.display = "none";
   document.getElementById("update-btn").style.display = "block";
   document.getElementById("edit-btn").style.display = "none";
+  document.getElementById("cancel-btn").style.display = "block";
+  
 }
+
+function cancelEdit() {
+  document.getElementById("username").disabled = true;
+  document.getElementById("username").style.cursor = "not-allowed";
+
+  document.getElementById("email").disabled = true;
+  document.getElementById("email").style.cursor = "not-allowed";
+
+  document.getElementById("phone").disabled = true;
+  document.getElementById("phone").style.cursor = "not-allowed";
+
+  // ✅ แสดงปุ่ม Change Password และซ่อนปุ่ม Update
+  document.getElementById("change-password").style.display = "block";
+  document.getElementById("update-btn").style.display = "none";
+  document.getElementById("edit-btn").style.display = "block";
+  document.getElementById("cancel-btn").style.display = "none";
+}
+
 
 async function saveProfile() {
   var updatedData = {
@@ -78,41 +98,6 @@ async function saveProfile() {
     console.error("Fetch Error:", error);
     alert("Error updating profile.");
   }
-}
-
-function changePassword() {
-  var currentPassword = document.getElementById("currentPassword").value;
-  var newPassword = document.getElementById("newPassword").value;
-  var confirmPassword = document.getElementById("confirmPassword").value;
-
-  if (newPassword !== confirmPassword) {
-    alert("Password not match.");
-    return;
-  }
-
-  var data = {
-    CurrentPassword: currentPassword,
-    NewPassword: newPassword,
-  };
-
-  $.ajax({
-    url: "/Profile/ChangePassword",
-    type: "POST",
-    contentType: "application/json",
-    data: JSON.stringify(data),
-    success: function (response) {
-      if (response.success) {
-        alert(response.message);
-        closeModal();
-      } else {
-        alert("Failed: " + response.message);
-      }
-    },
-    error: function (xhr, status, error) {
-      console.error("AJAX Error:", error);
-      alert("Error changing password.");
-    },
-  });
 }
 
 function uploadImage() {
@@ -152,7 +137,7 @@ function previewAndUploadImage() {
       .then((data) => {
         if (data.success) {
           profilePreview.src = data.imageUrl; // ✅ อัปเดตรูปโปรไฟล์
-          alert("Profile picture updated successfully!");
+          showPopup("Success", "Profile picture updated successfully!", "success");
         } else {
           alert("Upload failed: " + data.message);
         }
@@ -168,11 +153,6 @@ async function submitChangePassword() {
   let oldPassword = document.getElementById("password").value;
   let newPassword = document.getElementById("new-password").value;
   let confirmPassword = document.getElementById("confirm-password").value;
-
-  if (newPassword !== confirmPassword) {
-    alert("New passwords do not match!");
-    return;
-  }
 
   let requestData = {
     userId: userId,
@@ -196,14 +176,48 @@ async function submitChangePassword() {
 
     let result = await response.json();
     if (result.success) {
-      alert("✅ " + result.message);
+      showPopup("Success", result.message, "success");
 
       closeModal();
     } else {
-      alert("❌ " + result.message);
+      showPopup("Error", result.message, "error");
     }
   } catch (error) {
     console.error("Error:", error);
-    alert("❌ Failed to change password.");
+    showPopup("Error", "Failed to change password.", "error");
   }
+}
+
+function showPopup(title, message, type = "error", callback = null) {
+  let popupContent = document.querySelector(".popup-content");
+  let popupTitle = document.getElementById("popupTitle");
+  let popupText = document.getElementById("popupText");
+  let okBtn = document.getElementById("popupOkBtn");
+
+  popupTitle.innerText = title;
+  popupText.innerText = message;
+  document.getElementById("customPopup").style.display = "flex";
+
+  // ✅ รีเซ็ตคลาสก่อน
+  popupContent.classList.remove("success", "error");
+  okBtn.classList.remove("success");
+
+  // ✅ ถ้าเป็น "success" เปลี่ยนเป็นสีเขียว
+  if (type === "success") {
+      popupContent.classList.add("success");
+      popupTitle.style.color = "#4CAF50"; // เปลี่ยนสีข้อความ
+      okBtn.classList.add("success");
+  } else {
+      popupContent.classList.add("error");
+      popupTitle.style.color = "#E53935"; // เปลี่ยนสีข้อความ
+  }
+
+  okBtn.onclick = function () {
+      closePopup();
+      if (callback) callback();
+  };
+}
+
+function closePopup() {
+  document.getElementById("customPopup").style.display = "none";
 }

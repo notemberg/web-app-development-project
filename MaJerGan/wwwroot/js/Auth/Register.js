@@ -20,11 +20,6 @@ async function validateForm2() {
     return;
   }
 
-  // if(!/^[a-zA-Z0-9]{,12}$/.test(username)) {
-  //   showPopup("ข้อผิดพลาด", "ชื่อผู้ใช้ต้องมีความยาวไม่เกิน 12 ตัวอักษร และสามารถใช้ตัวอักษร a-z, A-Z และตัวเลข 0-9 เท่านั้น", "error");
-  //   return;
-  // }
-
   // ✅ ตรวจสอบว่ารหัสผ่านตรงกัน
   if (password !== confirmPassword) {
     showPopup("ข้อผิดพลาด", "รหัสผ่านไม่ตรงกัน! โปรดตรวจสอบอีกครั้ง", "error");
@@ -97,17 +92,17 @@ function showPopup(title, message, type = "error", callback = null) {
 
   // ✅ ถ้าเป็น "success" เปลี่ยนเป็นสีเขียว
   if (type === "success") {
-    popupContent.classList.add("success");
-    popupTitle.style.color = "#4CAF50"; // เปลี่ยนสีข้อความ
-    okBtn.classList.add("success");
+      popupContent.classList.add("success");
+      popupTitle.style.color = "#4CAF50"; // เปลี่ยนสีข้อความ
+      okBtn.classList.add("success");
   } else {
-    popupContent.classList.add("error");
-    popupTitle.style.color = "#E53935"; // เปลี่ยนสีข้อความ
+      popupContent.classList.add("error");
+      popupTitle.style.color = "#E53935"; // เปลี่ยนสีข้อความ
   }
 
   okBtn.onclick = function () {
-    closePopup();
-    if (callback) callback();
+      closePopup();
+      if (callback) callback();
   };
 }
 
