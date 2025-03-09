@@ -26,6 +26,21 @@
     scale: 1.02;
 }
 
+.hot-container{
+ width: fit-content;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+}
+.hot-picture{
+    padding-top: 1rem;
+    width: 20%;
+    height: 20%;
+}
+.hot-info-container{
+    padding-top: 2rem;
+    padding-left: 1rem;
+}
 /* ✅ ทำให้วงกลมลอยออกจากการ์ด */
 .hot-rank {
     font-family: 'Caprasimo';

@@ -103,15 +103,7 @@ a {
     text-decoration: none;
 }
 
-.interest-event-container {
-    display: flex; /* ใช้ Flexbox */
-    flex-direction: column;
-    /* padding: 20px; */
-    background-color: #e24242; /* เปลี่ยนสีพื้นหลังให้อ่านง่ายขึ้น */
-    width: 67%;
-    border-radius: 10px;
-    padding: 20px;
-}
+
 .event-details {
  
     color: #FFB6CF;

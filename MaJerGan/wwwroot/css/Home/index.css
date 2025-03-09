@@ -150,10 +150,87 @@ button.next {
     /* height: 30vh; */
     
 }
-
-.upcoming{
-    width: 70%;
+/* Container Styles */
+.interest-event-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #cecece;
+    width: 67%;
+    border-radius: 10px;
+    padding: 20px;
 }
+
+/* Upcoming Section */
+.upcoming {
+    width: 100%;
+}
+
+/* Tab Buttons with a Wider, Elegant Oval Shape */
+.tab-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.tab-button {
+    padding: 12px 30px; /* Increased padding for a more balanced look */
+    border: 2px solid #007bff; /* Blue border */
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 25px; /* Smooth oval shape */
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.tab-button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.tab-button:hover {
+    background-color: rgba(0, 123, 255, 0.2);
+}
+
+/* Line Separator Below the Tabs */
+.separator {
+    width: 100%;
+    height: 2px;
+    background-color: #888;
+    margin-top: 10px;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    margin-top: 15px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    border: 1px solid #ccc; /* Border around the content box */
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .interest-event-container {
+        width: 90%;
+    }
+    
+    .tab-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+    
+    .tab-button {
+        flex-grow: 1;
+        text-align: center;
+    }
+}
+
 
 
 .invitation {

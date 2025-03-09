@@ -242,7 +242,7 @@ namespace MaJerGan.Controllers
             }
 
             Console.WriteLine($"🔍 Event RequiresConfirmation: {eventDetails.RequiresConfirmation}");
-            if(existingParticipation != null && existingParticipation.Status == ParticipationStatus.Rejected)
+            if (existingParticipation != null && existingParticipation.Status == ParticipationStatus.Rejected)
             {
                 existingParticipation.Status = ParticipationStatus.Pending;
                 await _context.SaveChangesAsync();
@@ -366,7 +366,7 @@ namespace MaJerGan.Controllers
                 return BadRequest("ผู้ใช้นี้ได้รับการอนุมัติแล้ว");
             }
 
-            if(eventDetails.MaxParticipants > 0)
+            if (eventDetails.MaxParticipants > 0)
             {
                 var currentParticipants = await _context.EventParticipants
                     .CountAsync(p => p.EventId == eventId && p.Status == ParticipationStatus.Approved);
@@ -395,7 +395,7 @@ namespace MaJerGan.Controllers
             await _context.SaveChangesAsync();
 
             await NotificationWebSocketHandler.SendNotificationToUser(userId, userMessage);
-        
+
             return RedirectToAction("Details", new { id = eventId });
         }
 
@@ -441,7 +441,7 @@ namespace MaJerGan.Controllers
             await _context.SaveChangesAsync();
 
             await NotificationWebSocketHandler.SendNotificationToUser(userId, userMessage);
-            
+
 
             return RedirectToAction("Details", new { id = eventId });
         }
@@ -465,7 +465,8 @@ namespace MaJerGan.Controllers
                     e.Location,
                     CurrentParticipants = e.Participants != null ? e.Participants.Count(p => p.Status == ParticipationStatus.Approved) : 0,
                     creator = e.Creator.Username, // ✅ เพิ่มชื่อผู้สร้าง
-                    e.EventTime
+                    e.EventTime,
+                    e.AllowedGenders
                 })
                 .ToListAsync();
 
@@ -641,6 +642,56 @@ namespace MaJerGan.Controllers
             return PartialView("_SearchResults", eventList);
         }
 
+
+        [HttpGet]
+        public async Task<IActionResult> GetComments(int eventId)
+        {
+            var comments = await _context.Comments
+                .Where(c => c.EventId == eventId)
+                .Include(c => c.User)
+                .OrderByDescending(c => c.CreatedAt)
+                .Select(c => new
+                {
+                    Username = c.User.Username,
+                    ProfileImg = c.User.ProfilePicturee,
+                    Content = c.Content,
+                    CreatedAt = c.CreatedAt.ToString("dd MMM yyyy @ hh:mm tt")
+                })
+                .ToListAsync();
+
+            return Json(comments);
+        }
+
+        // ✅ 7️⃣ โพสต์คอมเมนต์ใหม่
+        [HttpPost]
+        public async Task<IActionResult> PostComment(int eventId, string content)
+        {
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized("❌ กรุณาเข้าสู่ระบบก่อนแสดงความคิดเห็น");
+            }
+
+            int userId = int.Parse(userIdClaim.Value);
+
+            if (string.IsNullOrWhiteSpace(content))
+            {
+                return BadRequest("❌ กรุณากรอกข้อความก่อนส่ง");
+            }
+
+            var comment = new Comment
+            {
+                EventId = eventId,
+                UserId = userId,
+                Content = content,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            _context.Comments.Add(comment);
+            await _context.SaveChangesAsync();
+
+            return Json(new { success = true, message = "✅ แสดงความคิดเห็นสำเร็จ!" });
+        }
 
     }
 }

@@ -5,29 +5,79 @@
     window.location.href = "/event/Create";
   });
 });
+
 document.addEventListener("DOMContentLoaded", function () {
   fetch("/Event/GetHotEvents")
     .then((response) => response.json())
     .then((events) => {
-      const eventContainer = document.querySelector(".hot-content");
-      eventContainer.innerHTML = ""; // Clear previous content
+      const hotContent = document.querySelector(".hot-content");
+      hotContent.innerHTML = ""; // ล้างข้อมูลเก่า
 
-      if (!events || events.length === 0) {
-        eventContainer.innerHTML = "<p style='text-align:center; color:gray;'>ยังไม่มีอีเวนต์ยอดนิยม</p>";
-        return;
-      }
+      events.forEach((event, index) => {
+        const eventCard = document.createElement("div");
+        eventCard.classList.add("hot-event-card");
+        eventCard.dataset.eventId = event.id;
 
-      // ✅ Sort events by number of views (highest first)
-      events.sort((a, b) => b.viewCount - a.viewCount);
+        // ✅ แปลง `tags` จาก String เป็น Array และจำกัดให้แสดงแค่ 3 อัน
+        let tagsArray = (event.tags || "").split(",");
+        let limitedTags = tagsArray.slice(0, 3); // เอาแค่ 3 อันแรก
+        let tagButtons = limitedTags
+          .map((tag) => `<button class="tag-button">${tag.trim()}</button>`)
+          .join(" ");
 
-      // ✅ Show only top 5 events
-      const eventsToShow = events.slice(0, 5);
+        // ✅ ถ้ามีแท็กมากกว่า 3 อัน ให้ขึ้น "..."
+        if (tagsArray.length > 3) {
+          tagButtons += `<span class="more-tags"> +${
+            tagsArray.length - 3
+          } more</span>`;
+        }
+        const formattedTime = timeAgo(new Date(event.createdAt));
 
-      eventsToShow.forEach((event) => {
-        eventContainer.appendChild(createEventCard(event));
+        const formattedEventTime = formatEventTime(event.eventTime);
+        eventCard.innerHTML = `
+                 <div class="hot-container">
+                    <div class="hot-picture">
+                      <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98p-llmayxgu7hor64" width="200" height="200" />
+  
+                    </div>
+                    <div class="hot-info-container">
+                        <div class="">
+                            <h3 class="">${event.title} 
+                            
+                        </div>
+                        <div>
+                        <span class="">Host: ${event.creator}</span></h3>
+                        </div>
+                        <div>
+                        <span class="">Event Date: ${formattedEventTime} <br></span>
+                        </div>
+
+                        <div class="">
+                        <div class="">👤 ${event.currentParticipants} / ${event.maxParticipants} ${event.AllowedGenders}</div>
+                        <div class=""> @<span class="">${event.location}</span> </div>
+                    </div>
+                        <div class="">
+                                <span class="">Tags: ${tagButtons}</span> 
+                        </div>
+                  </div>
+                  
+                `;
+
+        hotContent.appendChild(eventCard);
+      });
+
+      document.querySelectorAll(".hot-event-card").forEach((card) => {
+        card.addEventListener("click", function (e) {
+          // ตรวจสอบว่าไม่ได้กดปุ่มแท็ก
+          if (!e.target.classList.contains("tag-button")) {
+            window.location.href = `/Event/Details/${this.dataset.eventId}`;
+          }
+        });
       });
     })
-    .catch((error) => console.error("❌ Error fetching hot events:", error));
+    .catch((error) => {
+      console.error("Error fetching hot events:", error);
+    });
 });
 
 // ✅ Function to create hot event card (Show views instead of time)
@@ -36,7 +86,9 @@ function createEventCard(event) {
   eventCard.classList.add("hot-event-card");
 
   let locationDisplay =
-    event.location.length > 20 ? event.location.substring(0, 20) + "..." : event.location;
+    event.location.length > 20
+      ? event.location.substring(0, 20) + "..."
+      : event.location;
 
   eventCard.innerHTML = `
     <a href="/Event/Details/${event.id}">
@@ -55,7 +107,6 @@ function createEventCard(event) {
 
   return eventCard;
 }
-
 
 document.addEventListener("DOMContentLoaded", function () {
   function fetchEvents() {
@@ -96,9 +147,9 @@ document.addEventListener("DOMContentLoaded", function () {
               : event.location;
 
           let titleDisplay =
-          event.title.length > 10
-            ? event.title.substring(0, 10) + "..."
-            : event.title;
+            event.title.length > 10
+              ? event.title.substring(0, 10) + "..."
+              : event.title;
 
           // ✅ แปลงเวลาเป็นข้อความที่อ่านง่าย (เช่น "5 นาทีที่แล้ว")
           const formattedTime = timeAgo(new Date(event.createdAt));
@@ -233,7 +284,9 @@ function createEventCard(event) {
 
   const formattedEventTime = formatEventTime(event.eventTime);
   let locationDisplay =
-    event.location.length > 20 ? event.location.substring(0, 20) + "..." : event.location;
+    event.location.length > 20
+      ? event.location.substring(0, 20) + "..."
+      : event.location;
 
   eventCard.innerHTML = `
   <a href="/Event/Details/${event.id}">
@@ -267,8 +320,6 @@ function formatEventTime(isoDate) {
   return `${day}/${month}/${year} at ${hours}:${minutes} ${ampm}`;
 }
 
-
-
 // ✅ ฟังก์ชันแสดงข้อความเตือนเป็นการ์ด
 function showMessageCard(message, isLoginMessage = false) {
   const eventContainer = document.querySelector(".upcoming-content");
@@ -290,7 +341,6 @@ function showMessageCard(message, isLoginMessage = false) {
   eventContainer.appendChild(messageCard);
 }
 
-
 // ✅ ฟังก์ชันแปลงเวลา
 function formatEventTime(isoDate) {
   const date = new Date(isoDate);
@@ -304,3 +354,27 @@ function formatEventTime(isoDate) {
 
   return `${day}/${month}/${year} at ${hours}:${minutes} ${ampm}`;
 }
+function openTab(evt, tabName) {
+  let i, tabContent, tabButtons;
+
+  // Hide all tab content
+  tabContent = document.getElementsByClassName("tab-content");
+  for (i = 0; i < tabContent.length; i++) {
+    tabContent[i].style.display = "none";
+  }
+
+  // Remove active class from all buttons
+  tabButtons = document.getElementsByClassName("tab-button");
+  for (i = 0; i < tabButtons.length; i++) {
+    tabButtons[i].classList.remove("active");
+  }
+
+  // Show active tab and set button to active
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.classList.add("active");
+}
+
+// Default to first tab
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementsByClassName("tab-button")[0].click();
+});

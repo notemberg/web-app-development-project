@@ -54,6 +54,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Auth\register.css'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Event\comments.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MaJerGan</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MaJerGan</BasePath>
+      <RelativePath>css/Event/comments.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>8vs84luw14</Fingerprint>
+      <Integrity>3ONmDStV5dKvr61sl6DS/s1BJ8uR5wy+9akqWq5p9ZA=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Event\comments.css'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Event\create.css'))">
       <SourceType>Package</SourceType>
       <SourceId>MaJerGan</SourceId>
@@ -84,8 +102,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>9czashwboo</Fingerprint>
-      <Integrity>l+6Orsa6PdqpFCLNHbe86PzrQxqR983ZxOAIhHsS3zk=</Integrity>
+      <Fingerprint>8gzwv4f3ws</Fingerprint>
+      <Integrity>eDq55ZDzRbUDdaUuabj29Qyg6GuxN7JsglcT5uWKs4I=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Event\createpp.css'))</OriginalItemSpec>
@@ -120,8 +138,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>aan8yq2u7a</Fingerprint>
-      <Integrity>4tG6OF5lwvlFo0gY6pXaLWXY5jyNHaa4ZcJRnt3zKHA=</Integrity>
+      <Fingerprint>jpa1gb6fi3</Fingerprint>
+      <Integrity>idfxirWx30z9o6MC3fIdWOje67QbOPTxh1WAauBuKyo=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\EventCard\HotCard.css'))</OriginalItemSpec>
@@ -138,8 +156,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>vvvieyyv6s</Fingerprint>
-      <Integrity>6+etS106sDZSIN5EKcCzCv3QLKm1qqnWYShOAnVamVY=</Integrity>
+      <Fingerprint>rmf1h8gvg3</Fingerprint>
+      <Integrity>nWnv1SyAOGOLGT6uGy0RQZ5gv7LYLP0IJRjcjjVW/44=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\EventCard\RecentCard.css'))</OriginalItemSpec>
@@ -156,8 +174,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>s7zevsrq0z</Fingerprint>
-      <Integrity>OLfbUxj7VjaFJB+YDOVz32pfaKJ1jcE0Zu2L2kucVx0=</Integrity>
+      <Fingerprint>mm00fo95hq</Fingerprint>
+      <Integrity>LqInX3gfbsQ8gQKpFLoNkRX3MI6BHQmx45WyCD+0HaM=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\EventCard\UpcomingCard.css'))</OriginalItemSpec>
@@ -174,8 +192,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>q3he2eeeog</Fingerprint>
-      <Integrity>FugkofHdBUpjwZOQMnPXQkzmJX9B+CjTLbhawJ+ecyo=</Integrity>
+      <Fingerprint>q3u2jaoq6f</Fingerprint>
+      <Integrity>GqAugLDAl2eUe9ZUnvAhdNpPN3o5QRsiv/LqajzH7W4=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\Home\index.css'))</OriginalItemSpec>
@@ -426,8 +444,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>vv4dr1or1g</Fingerprint>
-      <Integrity>BcfMKZDxRPnr2Aqcxu3WrvDQz8CP9h+zUkTksQMj6nk=</Integrity>
+      <Fingerprint>kt5iuviviy</Fingerprint>
+      <Integrity>CHgVhpmFUp7MwEl746xgvplFMzHajnHiAMKjhNX5Yjs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Event\dateCheck.js'))</OriginalItemSpec>
@@ -516,8 +534,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>flfq768j4v</Fingerprint>
-      <Integrity>c1Bt3Frlw0Q68yad9hypjIt46VbCj3a13HwJ68ubRxY=</Integrity>
+      <Fingerprint>86m7bl1af4</Fingerprint>
+      <Integrity>AKWU1KPTFIfERGGx77heWUpJaFFmwLNCQN/JtR9+1+0=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Home\index.js'))</OriginalItemSpec>

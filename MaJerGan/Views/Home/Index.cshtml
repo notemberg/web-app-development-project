@@ -27,17 +27,35 @@
     
 
     <section class="events">
-        <div class="interest-event-container">
-            <div class="upcoming">
-                
-        <h3>You may interested</h3>
-            @* <div class="categories">
-                <div>Sports</div>
-                <div>BoardGame</div>
-                <div>Dinner</div>
-            </div> *@
+<div class="interest-event-container">
+    <div class="upcoming">
+        <h3>Recommend</h3>
+
+        <!-- Tab Navigation -->
+        <div class="tab-container">
+            <button class="tab-button active" onclick="openTab(event, 'foryou')">For You</button>
+            <button class="tab-button" onclick="openTab(event, 'trending')">Trending</button>
+        </div>
+
+        <!-- Separator Line Below Tabs -->
+        <div class="separator"></div>
+
+        <!-- Tab Content -->
+        <div id="foryou" class="tab-content active">
+            <p>Content for "For You" section</p>
+        </div>
+
+        <div id="trending" class="tab-content">
+            <!-- Hot Events Section -->
+            <div class="hot-events-section">
+                <div class="hot-content">
+                </div>
             </div>
         </div>
+    </div>
+</div>
+
+
             <div class="invitation">
                 
                 <div class="upcoming-event-container">
