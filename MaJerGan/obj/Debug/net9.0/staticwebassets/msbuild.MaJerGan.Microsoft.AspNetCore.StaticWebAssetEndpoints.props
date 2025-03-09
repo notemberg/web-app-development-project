@@ -352,13 +352,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Home\index.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"86m7bl1af4"},{"Name":"integrity","Value":"sha256-AKWU1KPTFIfERGGx77heWUpJaFFmwLNCQN/JtR9\u002B1\u002B0="},{"Name":"label","Value":"_content/MaJerGan/js/Home/index.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"15044"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022AKWU1KPTFIfERGGx77heWUpJaFFmwLNCQN/JtR9\u002B1\u002B0=\u0022"},{"Name":"Last-Modified","Value":"Sun, 09 Mar 2025 17:42:02 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"15044"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022AKWU1KPTFIfERGGx77heWUpJaFFmwLNCQN/JtR9\u002B1\u002B0=\u0022"},{"Name":"Last-Modified","Value":"Sun, 09 Mar 2025 17:59:47 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/MaJerGan/js/Home/index.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Home\index.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-AKWU1KPTFIfERGGx77heWUpJaFFmwLNCQN/JtR9\u002B1\u002B0="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"15044"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022AKWU1KPTFIfERGGx77heWUpJaFFmwLNCQN/JtR9\u002B1\u002B0=\u0022"},{"Name":"Last-Modified","Value":"Sun, 09 Mar 2025 17:42:02 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"15044"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022AKWU1KPTFIfERGGx77heWUpJaFFmwLNCQN/JtR9\u002B1\u002B0=\u0022"},{"Name":"Last-Modified","Value":"Sun, 09 Mar 2025 17:59:47 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/MaJerGan/js/Home/SearchPage.cseqqoo5p4.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Home\SearchPage.js'))</AssetFile>

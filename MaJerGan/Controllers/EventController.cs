@@ -466,7 +466,8 @@ namespace MaJerGan.Controllers
                     CurrentParticipants = e.Participants != null ? e.Participants.Count(p => p.Status == ParticipationStatus.Approved) : 0,
                     creator = e.Creator.Username, // ✅ เพิ่มชื่อผู้สร้าง
                     e.EventTime,
-                    e.AllowedGenders
+                    e.AllowedGenders,
+                    e.LocationImage
                 })
                 .ToListAsync();
 

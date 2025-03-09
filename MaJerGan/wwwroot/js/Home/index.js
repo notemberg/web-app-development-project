@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
 
                         <div class="">
-                        <div class="">👤 ${event.currentParticipants} / ${event.maxParticipants} ${event.AllowedGenders}</div>
+                        <div class="">👤 ${event.currentParticipants} / ${event.maxParticipants} ${event.AllowedGenders} ${event.LocationImage}</div>
                         <div class=""> @<span class="">${event.location}</span> </div>
                     </div>
                         <div class="">
