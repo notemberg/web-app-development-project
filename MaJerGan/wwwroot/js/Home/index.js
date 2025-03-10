@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <span class="home-time-event">Event Date: ${formattedEventTime} <br></span>
                     </div>
                     <div>
-                        <i class="fa-solid fa-user"></i> ${event.currentParticipants || 0} / ${event.maxParticipants || 0}  ${formattedGender}
+                        <i class="fa-solid fa-user"></i> ${event.currentParticipants || 0} / ${event.maxParticipants || 0}&ensp;${formattedGender}
                     </div>
                     <div>
                         <span class="location"><i class="fa-solid fa-location-dot"></i> ${event.locationName || "Unknown"}</span>
@@ -287,8 +287,9 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="event-body">
               <div class="creator">Host: ${event.creator}</div>
               <div class="participants"><i class="fa-solid fa-user"></i> ${event.currentParticipants}/${event.maxParticipants} 
+              &ensp;<span class="location"><i class="fa-solid fa-location-dot"></i> ${locationDisplay}</span>
               </div>
-              <span class="location"><i class="fa-solid fa-location-dot"></i> ${locationDisplay}</span>
+              
           </div>
           <div class="tags-container">Tags: ${tagButtons}</div>
       </div>
@@ -413,8 +414,8 @@ function createEventCard(event) {
           <span class="Time">${formattedEventTime}</span>
       </h3>
       <p class="event-info">
-          Host: <span class="event-creator">${event.creator}&ensp;</span> 
-          <i class="fa-solid fa-user"></i>${event.currentParticipants}&ensp;
+          <span class="event-creator">Host:  ${event.creator}&ensp;</span> 
+          <span><i class="fa-solid fa-user"></i>${event.currentParticipants}&ensp;</span>
           <span class="location"><i class="fa-solid fa-location-dot"></i> ${event.locationName}</span>
 
       </p>
@@ -497,17 +498,21 @@ function getGenderIndicators(allowedGenders) {
 
   if (genders.includes("Male")) {
       indicators.push(
-          `<div style="display: inline-block; width: 30px; height: 30px; border-radius: 50%; background-color: green; color: white; text-align: center; line-height: 30px; font-weight: bold; margin-right: 5px;">M</div>`
+          `<div style="display: inline-block; width: 30px; height: 30px; border-radius: 50%; background-color: rgba(22, 188, 0, 0.7); color:white; text-align: center; line-height: 30px; font-weight: bold; border: 3px solid rgba(0, 0, 0, 0.1);margin-right: 5px;">M</div>`
       );
   }
   if (genders.includes("Female")) {
       indicators.push(
-          `<div style="display: inline-block; width: 30px; height: 30px; border-radius: 50%; background-color: red; color: white; text-align: center; line-height: 30px; font-weight: bold; margin-right: 5px;">F</div>`
+          `<div style="display: inline-block; width: 30px; height: 30px; border-radius: 50%; background-color: rgba(253, 56, 56, 0.7); color: white; text-align: center; line-height: 30px; font-weight: bold; border: 3px solid rgba(0, 0, 0, 0.1); margin-right: 5px;">F</div>
+`
       );
   }
   if (genders.includes("Other")) {
       indicators.push(
-          `<div style="display: inline-block; width: 60px; height: 30px; border-radius: 15px; background: linear-gradient(90deg, red, orange, yellow, green, blue, violet); color: white; text-align: center; line-height: 30px; font-weight: bold;">LGBT</div>`
+          `<div style="display: inline-block; width: 60px; height: 30px; border-radius: 15px; background-color: #F5F5F5; color:rgb(92, 92, 92); text-align: center; line-height: 30px; font-weight: normal;border: 3px solid rgba(0, 0, 0, 0.1); ">
+  OTH
+</div>
+`
       );
   }
 

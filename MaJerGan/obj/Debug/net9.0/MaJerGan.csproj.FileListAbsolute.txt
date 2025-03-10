@@ -243,75 +243,7 @@ D:\webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\MaJerGan.pdb
 D:\webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\MaJerGan.genruntimeconfig.cache
 D:\webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\ref\MaJerGan.dll
 D:\webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\lf9m8xzwxb-q3u2jaoq6f.gz
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\web.config
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\web.config
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\web.config
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\web.config
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\web.config
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\web.config
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\web.config
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\web.config
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\web.config
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\web.config
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\web.config
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\web.config
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\appsettings.Development.json
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\appsettings.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\appsettings.Development.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\appsettings.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\MaJerGan.deps.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\MaJerGan.runtimeconfig.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\MaJerGan.staticwebassets.endpoints.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\appsettings.Development.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\appsettings.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\MaJerGan.deps.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\MaJerGan.runtimeconfig.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\MaJerGan.staticwebassets.endpoints.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\appsettings.Development.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\appsettings.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\MaJerGan.deps.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\MaJerGan.runtimeconfig.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\MaJerGan.staticwebassets.endpoints.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\appsettings.Development.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\appsettings.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\MaJerGan.deps.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\MaJerGan.runtimeconfig.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\MaJerGan.staticwebassets.endpoints.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\appsettings.Development.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\appsettings.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\MaJerGan.deps.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\MaJerGan.runtimeconfig.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\MaJerGan.staticwebassets.endpoints.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\appsettings.Development.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\appsettings.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\MaJerGan.deps.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\MaJerGan.runtimeconfig.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\MaJerGan.staticwebassets.endpoints.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\appsettings.Development.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\appsettings.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\MaJerGan.deps.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\MaJerGan.runtimeconfig.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\MaJerGan.staticwebassets.endpoints.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\appsettings.Development.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\appsettings.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.deps.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.runtimeconfig.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.staticwebassets.endpoints.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.deps.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.runtimeconfig.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.staticwebassets.endpoints.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.deps.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.runtimeconfig.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.staticwebassets.endpoints.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.deps.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.runtimeconfig.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.staticwebassets.endpoints.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.deps.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.runtimeconfig.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\publish\MaJerGan.staticwebassets.endpoints.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\publish\wwwroot\css\Home\test.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\publish\wwwroot\css\Home\test.json
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\publish\wwwroot\css\Home\test.json
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\MaJerGan.staticwebassets.runtime.json
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\MaJerGan.staticwebassets.endpoints.json
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\bin\Debug\net9.0\MaJerGan.exe
@@ -459,22 +391,15 @@ D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-pro
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\scopedcss\bundle\MaJerGan.styles.css
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\scopedcss\projectbundle\MaJerGan.bundle.scp.css
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\0rko271yr6-ri1pm16xx9.gz
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\bedvzhp4h8-kjjhg0v4u7.gz
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\ssfro8tclh-c629jjonuy.gz
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\hpndoo4fdd-mm00fo95hq.gz
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\pkw10s4dk7-8vs84luw14.gz
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\g1fqgf88dx-vakmcf1qtk.gz
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\kk8x1844ot-8gzwv4f3ws.gz
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\xspbcn6x8m-cmfpnj4u2c.gz
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\lf9m8xzwxb-q3u2jaoq6f.gz
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\eqj3i4ndzx-rpcyh8ial4.gz
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\x7ilffeqhw-7ospdaeaaf.gz
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\9xhbidzzvq-1ppas8acw5.gz
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\m6val75pur-b9sayid5wm.gz
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\7o7g7zxfgn-61n19gt1b8.gz
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\cornv8njv0-ccrfeu01hx.gz
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\wq0knfbtbb-x13lixngob.gz
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\2upwtmh75d-megvvcbl63.gz
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\10zlbeaorg-1lxecirbqp.gz
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\zfm88fyx0a-34bd7lt4oc.gz
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\55bkyyjoib-kt5iuviviy.gz
@@ -483,7 +408,6 @@ D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-pro
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\ee2pd45z7b-vv4dr1or1g.gz
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\ua7udfrxk8-cseqqoo5p4.gz
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\fm0zjlu4uj-xsfo7emur2.gz
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\8wfv3idueq-xhcff9edia.gz
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\nlzma004qm-5e1rzq6y4k.gz
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\kzky6lyo7h-hrs3mqlj7p.gz
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\1r9dq2ouuu-fc73vyemy6.gz
@@ -565,9 +489,6 @@ D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-pro
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\MaJerGan.genruntimeconfig.cache
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\ref\MaJerGan.dll
 D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\u6ha2nimsd-1lhzog23en.gz
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\2yme4b8tjy-pnmpxot5qi.gz
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\g9a1l7an1c-tlrvmg0604.gz
-D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\fo4ibkcuin-fbfgphxrhs.gz
 D:\webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\2yme4b8tjy-g91xaes0p2.gz
 D:\webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\g9a1l7an1c-i6jawq6rgk.gz
 D:\webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\u6ha2nimsd-1lhzog23en.gz
@@ -582,3 +503,16 @@ D:\webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\wq0kn
 D:\webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\2upwtmh75d-9qin6kqifu.gz
 D:\webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\spmri1oi5u-rfyb6rlttp.gz
 D:\webapp\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\8wfv3idueq-atfqkzjzii.gz
+D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\2etc6v0svy-ly6352j4w7.gz
+D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\bedvzhp4h8-afopzqosx7.gz
+D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\ssfro8tclh-cjotxfeb34.gz
+D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\2yme4b8tjy-peofgc842z.gz
+D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\g9a1l7an1c-i6jawq6rgk.gz
+D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\xspbcn6x8m-7co6xcigt2.gz
+D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\9xhbidzzvq-y0qfojscyq.gz
+D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\cornv8njv0-hh8li8xqkh.gz
+D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\wq0knfbtbb-z4htl1fzqj.gz
+D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\2upwtmh75d-9qin6kqifu.gz
+D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\spmri1oi5u-rfyb6rlttp.gz
+D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\fo4ibkcuin-zd0qxdaot2.gz
+D:\ComEngineering student\2D semester 2\WebApp\pj_newest\web-app-development-project\MaJerGan\obj\Debug\net9.0\compressed\8wfv3idueq-atfqkzjzii.gz

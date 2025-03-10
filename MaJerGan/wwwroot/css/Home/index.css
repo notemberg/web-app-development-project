@@ -154,7 +154,7 @@ button.next {
 .interest-event-container {
     display: flex;
     flex-direction: column;
-    background-color: #cecece;
+    background-color: #ffffff;
     width: 67%;
     border-radius: 10px;
     padding: 20px;
@@ -174,30 +174,35 @@ button.next {
 
 .tab-button {
     padding: 12px 30px; /* Increased padding for a more balanced look */
-    border: 2px solid #007bff; /* Blue border */
+    border: transparent;
+    color: rgb(153, 153, 153);
     background-color: transparent;
     cursor: pointer;
-    border-radius: 25px; /* Smooth oval shape */
+    /* border-radius: 25px; */
     font-size: 16px;
     font-weight: bold;
     transition: all 0.3s ease;
 }
 
 .tab-button.active {
-    background-color: #007bff;
-    color: white;
+    /* background-color: #007bff; */
+    color: deeppink;
+    border-bottom: 3px solid deeppink; 
 }
 
 .tab-button:hover {
-    background-color: rgba(0, 123, 255, 0.2);
+    
+    background-color: rgb(255, 232, 244);
+    
 }
 
 /* Line Separator Below the Tabs */
 .separator {
     width: 100%;
     height: 2px;
-    background-color: #888;
-    margin-top: 10px;
+    background-color: #ebebeb;
+    border-radius: 20px;
+    
 }
 
 /* Tab Content */
@@ -205,9 +210,8 @@ button.next {
     display: none;
     margin-top: 15px;
     padding: 15px;
-    background: #f9f9f9;
     border-radius: 10px;
-    border: 1px solid #ccc; /* Border around the content box */
+    
 }
 
 .tab-content.active {
@@ -217,7 +221,7 @@ button.next {
 /* Responsive */
 @media (max-width: 768px) {
     .interest-event-container {
-        width: 90%;
+        width: 100%;
     }
     
     .tab-container {
@@ -346,10 +350,21 @@ button.next {
 }
 
 .show-more-button{
-    text-decoration: none;
-    color: #F1AEC5;
-    font-size: 30px;
+    color: #ff8bb4;
+    background-color: transparent;
+    font-size: 14px;
+    white-space: nowrap;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: letter-spacing 0.3s ease, background-color 0.3s ease;
 }
+
+.show-more-button:hover {
+    cursor: pointer;
+    letter-spacing: 1px; /* Adjust this value for more/less spreading */
+}
+
 
 @media screen and (max-width: 768px) {
     .events {

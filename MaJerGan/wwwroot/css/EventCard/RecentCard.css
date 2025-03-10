@@ -103,8 +103,6 @@
     font-family: "IBM Plex Sans Thai Looped", serif;
     font-weight: 600;
     font-style: bold;
-
-
 }
 
 .Time {
@@ -260,6 +258,15 @@
         border-radius: 12px;
         padding: 5px 10px;
         font-size: 12px;
+    }
+}
+@media (max-width: 768px) {
+    .location {
+        max-width: 100%; /* ให้ความกว้างเต็มที่ */
+        white-space: normal; /* อนุญาตให้ขึ้นบรรทัดใหม่ถ้าจำเป็น */
+        overflow: visible; /* แสดงเนื้อหาทั้งหมด */
+        text-overflow: unset; /* ปิด ellipsis */
+        display: block; /* จัดให้อยู่เต็มบรรทัด */
     }
 }
 

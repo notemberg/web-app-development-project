@@ -156,8 +156,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>g91xaes0p2</Fingerprint>
-      <Integrity>XHk8cV/UKB/ruT6YjcCIub1kb0eeR3/vvdXg0HlZQck=</Integrity>
+      <Fingerprint>peofgc842z</Fingerprint>
+      <Integrity>UWmUMM/VtNoo2GjtqCHCOW5yrUc/VLUYrMkAj4M+f+w=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\EventCard\HotCard.css'))</OriginalItemSpec>
@@ -570,8 +570,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>rsyyyxffx5</Fingerprint>
-      <Integrity>qxq8Ac761lJW412aurAdWDqmUefUmsixo/3NMWukVP0=</Integrity>
+      <Fingerprint>zd0qxdaot2</Fingerprint>
+      <Integrity>dzlMOrZ7igIAWG1jhkvjaHABqwa2MnwqPPtmGkrV8Vw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Home\index.js'))</OriginalItemSpec>
