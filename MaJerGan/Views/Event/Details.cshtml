@@ -24,6 +24,15 @@
 
 <body>
     <section class="container">
+        @if (Model.CreatedBy.ToString() == currentUserId)
+            {
+                <div>
+                    <form asp-action="DeleteEvent" asp-controller="Event" method="post">
+                        <input type="hidden" name="eventId" value="@Model.Id" />
+                        <button type="submit" class="btn btn-danger">🗑️ ลบกิจกรรม</button>
+                    </form>
+                </div>
+            }
         <div class="pre">
             <div class="information">
                 <div class="event-head">
@@ -40,7 +49,7 @@
                     <p>@Model.EventTime.ToString("📅 dd/MMM/yyyy")</p>
                     <p>@Model.EventTime.ToString("🕒 hh:mm")</p>
                     <div class="timeleft">
-                        ⏳<p id="timeUntilExpiry"> Calculating...</p>
+                        <p id="timeUntilExpiry">⏳ Calculating...</p>
                     </div>
                 </div>
                 <div id="eventId" data-id="@Model.Id"></div>
@@ -55,24 +64,89 @@
                         <div class="tag-each">@tag.Trim()</div>
                     }
                 </div>
+                <form asp-action="Join" asp-controller="Event" method="post">
+                    <input type="hidden" name="eventId" value="@Model.Id" />
+                    <button type="submit" class="join-btn">🚀 เข้าร่วมกิจกรรม</button>
+                </form>
+                <p>
+                    @if (!Model.IsGenderRestricted)
+                    {
+                        <span>ทุกเพศสามารถเข้าร่วมได้</span>
+                    }
+                    else
+                    {
+                        <span>@Model.AllowedGenders</span>
+                    }
+                </p>
+                <a href="@Url.Action("Chat", "Event", new { id = Model.Id })" class="btn btn-primary">💬 เข้าสู่แชท</a>
+                <div class="comment-section">
+                <h3>💬 ความคิดเห็น</h3>
+
+                <!-- ✅ ช่องกรอกความคิดเห็น -->
+                <div class="comment-input">
+                    <textarea id="commentContent" placeholder="เพิ่มความคิดเห็น..."></textarea>
+                    <button id="postCommentBtn" data-eventid="@Model.Id">📩 ส่งความคิดเห็น</button>
+                </div>
+
+                <!-- ✅ แสดงความคิดเห็น -->
+                <div id="commentsContainer">
+                    <p>กำลังโหลดความคิดเห็น...</p>
+                </div>
+            </div>
+
             </div>
             <div class="participant"> 
                 <div class="participant-head">
                     <div class="participant-head-text">
-                        <span>Participants </span>
+                        <span>Participants</span>
                         <div class="participant-head-number">
                             <span>👥@Model.Participants.Count()/@Model.MaxParticipants</span>
                         </div>
                     </div>
                 </div>
-                <div class="participant-content">
+                <div class="participant-content"> 
+                    @*
                     <div class="participant-list">
-                    @foreach (var participant in Model.Participants)
+                   
+                    @if (Model.Participants.Any(p => p.Status == ParticipationStatus.Approved))
                     {
-                       <div class="participant-box">@participant.User.Username</div>
+                    <ul>
+                        @foreach (var participant in Model.Participants.Where(p => p.Status == ParticipationStatus.Approved))
+                        {
+                            <div class="participant-box">@participant.User.Username</div>
+                        }
+                    </ul>
                     }
-                        
+                    @if (Model.Participants.Any(p => p.Status == ParticipationStatus.Pending))
+                    {
+                        <ul class="participant-section">
+                            @foreach (var participant in Model.Participants.Where(p => p.Status == ParticipationStatus.Pending))
+                            {
+                                <div class="participant-box waiting">
+                                    <span>@participant.User.Username</span>
+                                    @if (Model.CreatedBy.ToString() == currentUserId)
+                                    {
+                                        <div class="approval-buttons">
+                                            <form asp-action="Approve" asp-controller="Event" method="post">
+                                                <input type="hidden" name="eventId" value="@Model.Id" />
+                                                <input type="hidden" name="userId" value="@participant.User.Id" />
+                                                <button type="submit" class="btn btn-success btn-sm">✅ Approve</button>
+                                            </form>
+                                            <form asp-action="Reject" asp-controller="Event" method="post">
+                                                <input type="hidden" name="eventId" value="@Model.Id" />
+                                                <input type="hidden" name="userId" value="@participant.User.Id" />
+                                                <button type="submit" class="btn btn-danger btn-sm">❌ Reject</button>
+                                            </form>
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        </ul>
+                    }
                     </div>
+                    *@
+                    <div id="approvedParticipants" class="participant-list"></div>
+                    <div id="pendingParticipants" class="participant-list"></div>
                 </div>
             </div>
         </div>

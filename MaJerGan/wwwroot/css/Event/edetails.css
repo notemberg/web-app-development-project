@@ -159,7 +159,10 @@ body {
     border-radius: 50px;
     min-width: 270px; 
     max-width: 400px; 
+    min-height: 200px;
+    max-height: 400px;
     overflow: hidden; 
+    max-height: 40vh; 
     
 }
 
@@ -198,15 +201,16 @@ body {
     border-left: 3px solid #E3E3E3 ;
     border-right: 3px solid #E3E3E3 ;
     border-bottom: 3px solid #E3E3E3 ;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     border-bottom-right-radius: 50px;
     border-bottom-left-radius: 50px;
     overflow-y: auto; /* Enables vertical scrolling */
-    max-height: 480px; 
 }
 
 .participant-list {
     display: flex;
     flex-direction: column;
+    height: 100%;
     gap: 10px;
 }
 
@@ -223,3 +227,27 @@ body {
     width: 100%;
 }
 
+.participant-item.waiting {
+    border: 2px dashed #FFB6CF; /* Dashed border for pending participants */
+    color: #777;
+}
+
+.participant-section {
+    margin: 10px 0;
+    padding: 0;
+}
+
+.profile-images {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.approval-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.approval-buttons form {
+    display: inline;
+}

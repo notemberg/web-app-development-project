@@ -679,7 +679,21 @@ namespace MaJerGan.Controllers
             return PartialView("_SearchResults", eventList);
         }
 
+        [HttpGet]
+        public IActionResult GetParticipants(int eventId)
+        {
+            var participants = _context.EventParticipants
+                .Where(p => p.EventId == eventId)
+                .Select(p => new
+                {
+                    username = p.User.Username,
+                    profileImg = p.User.ProfilePicturee ?? "/images/default-profile.png", // Default image
+                    status = p.Status.ToString() // Approved or Pending
+                })
+                .ToList();
 
+            return Json(participants);
+        }
         [HttpGet]
         public async Task<IActionResult> GetComments(int eventId)
         {
