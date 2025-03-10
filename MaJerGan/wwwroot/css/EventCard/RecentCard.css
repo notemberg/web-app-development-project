@@ -79,7 +79,7 @@
    
 }
 
-.Time, .event-time {
+.Time{
     display: block;
     width: 100%; /* ขยายให้เต็ม */
     text-align: left; /* จัดให้อยู่ด้านซ้าย */
@@ -87,6 +87,7 @@
 
 .event-header {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     font-size: 16px;
@@ -141,6 +142,7 @@
     font-family: "IBM Plex Sans Thai Looped";
     font-weight: 500;
     text-align: center;
+    margin-right: 5px;
     
 }
 
@@ -192,19 +194,37 @@
 @media (max-width: 1500px) {
     .event-header {
         display: flex;
-        flex-direction: column; /* จัดเรียงแนวตั้ง */
-        align-items: flex-start; /* จัดให้อยู่ฝั่งซ้าย */
+        flex-direction: column-reverse; /* ให้ event-time อยู่ด้านบน */
+        align-items: flex-start;
+        margin-top: 15px;
     }
 
-    .event-time {
-        position: relative; /* ลบ absolute ออก */
-        top: auto;
-        right: auto;
-        align-self: flex-start; /* จัดให้ไปอยู่ด้านบนของ title-name */
-        margin-bottom: 5px; /* เพิ่มระยะห่าง */
+    .event-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
+    
+    .recent-event-card{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        padding: 15px;
+    }
+    
+    .event-time {
+        position: absolute;
+        top: 10px; /* ระยะห่างจากขอบบน */
+        left: 15px; /* ระยะห่างจากขอบซ้าย */
+        font-size: 14px;
+        color: green;
+        font-weight: bold;
+    }
+    
 }
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
     .recent-event-card, .upcoming-event-card {
         display: flex;
         flex-direction: column; /* จัดเรียงเป็นแนวตั้ง */

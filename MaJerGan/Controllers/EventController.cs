@@ -490,8 +490,8 @@ namespace MaJerGan.Controllers
                 .AsQueryable();
 
             var orderedEvents = isAscending
-                ? await eventsQuery.OrderBy(e => e.CreatedAt).Take(3).ToListAsync()
-                : await eventsQuery.OrderByDescending(e => e.CreatedAt).Take(3).ToListAsync();
+                ? await eventsQuery.OrderBy(e => e.CreatedAt).Take(5).ToListAsync()
+                : await eventsQuery.OrderByDescending(e => e.CreatedAt).Take(5).ToListAsync();
 
             // ✅ Debug เช็คจำนวน Event ที่โหลดมาได้
             Console.WriteLine($"🟢 Events Loaded: {orderedEvents.Count}");
