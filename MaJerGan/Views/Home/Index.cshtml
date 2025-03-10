@@ -41,10 +41,11 @@
         <div class="separator"></div>
 
         <!-- Tab Content -->
-        <div id="foryou" class="tab-content active">
-            <p>Content for "For You" section</p>
-        </div>
-
+       <div id="foryou" class="tab-content active">
+    <div class="foryou-events-section">
+        <!-- Events will be dynamically inserted here -->
+    </div>
+</div>
         <div id="trending" class="tab-content">
             <!-- Hot Events Section -->
             <div class="hot-events-section">
@@ -61,7 +62,7 @@
                 <div class="upcoming-event-container">
                     <div class="upcoming-event-container-title">
                          <div><h3>Your Upcoming Events</h3></div>
-                   <div>   <button class="toggle-view-button">View All</button>
+                   <div>   <a href="@Url.Action("UpcomingEvents", "Event")" class="btn btn-primary"> View All </a>
                    </div>
                 
                     </div>
@@ -83,7 +84,9 @@
     <div class="recent-event-container">
                  <div class="recent-event-container-title">
                          <div><h3>Recent Events</h3></div>
-                   <div>   <button class="toggle-view-button">View All</button>
+                   <div>                       <a href="@Url.Action("SearchPage", "Event", new { sortOrder = "recent" })" class="show-more-button">
+                        View All
+                    </a>
                    </div>
                 
                     </div>
@@ -91,11 +94,6 @@
                     [recent-content]
                 </div>
 
-                <div class="show-more-container">
-                    <a href="@Url.Action("SearchPage", "Event", new { sortOrder = "recent" })" class="show-more-button">
-                        <i class="fa-solid fa-angle-down"></i>
-                    </a>
-                </div>
                 </div>
             
            

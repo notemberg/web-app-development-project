@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\MaJerGan.d4ocph6tct.bundle.scp.css"
     },
     {
+      "Id": "D:\\webapp\\web-app-development-project\\MaJerGan\\wwwroot\\css\\ActivityLog\\Index.css",
+      "PackagePath": "staticwebassets\\css\\ActivityLog\\Index.css"
+    },
+    {
       "Id": "D:\\webapp\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Auth\\Interests.css",
       "PackagePath": "staticwebassets\\css\\Auth\\Interests.css"
     },
@@ -103,6 +107,10 @@
     {
       "Id": "D:\\webapp\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Event\\SearchPage.js",
       "PackagePath": "staticwebassets\\js\\Event\\SearchPage.js"
+    },
+    {
+      "Id": "D:\\webapp\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Event\\UpcomingEvents.js",
+      "PackagePath": "staticwebassets\\js\\Event\\UpcomingEvents.js"
     },
     {
       "Id": "D:\\webapp\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Event\\dateCheck.js",

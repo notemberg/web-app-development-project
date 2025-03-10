@@ -5,6 +5,110 @@
     window.location.href = "/event/Create";
   });
 });
+document.addEventListener("DOMContentLoaded", function () {
+  function fetchTopEventForEachTag() {
+    fetch("/Event/GetRecentEvents")
+      .then((response) => response.json())
+      .then((events) => {
+        const forYouContent = document.querySelector(".foryou-events-section");
+        if (!forYouContent) {
+          console.error("Error: .foryou-events-section not found in the DOM");
+          return;
+        }
+        forYouContent.innerHTML = ""; // Clear old content
+
+        if (!events || events.length === 0) {
+          forYouContent.innerHTML =
+            "<p style='text-align:center; color:gray;'>No events available</p>";
+          return;
+        }
+
+        let tagMap = new Map();
+
+        events.forEach((event) => {
+          if (!event.tags) return; // Ensure tags exist
+          let tagsArray = (event.tags || "").split(",").map(tag => tag.trim());
+
+          tagsArray.forEach(tag => {
+            if (!tagMap.has(tag)) {
+              tagMap.set(tag, event); // Store only the first event per tag
+            }
+          });
+        });
+
+        tagMap.forEach((event, tag) => {
+          if (!event) return;
+          const eventCard = document.createElement("div");
+          eventCard.classList.add("hot-event-card"); // Match Hot Event format
+          eventCard.dataset.eventId = event.id;
+          const formattedGender = getGenderIndicators(event.allowedGenders)
+          const formattedEventTime = formatEventTime(event.eventTime);
+          let tagsArray = (event.tags || "").split(",");
+          let limitedTags = tagsArray.slice(0, 3).map(tag => `<button class="tag-button">${tag.trim()}</button>`).join(" ");
+
+          if (tagsArray.length > 3) {
+              limitedTags += `<span class="more-tags"> +${tagsArray.length - 3} more</span>`;
+          }
+
+          eventCard.innerHTML = `
+            <div class="hot-container">
+                <div class="hot-picture">
+                    <img src="${event.locationImage}" width="200" height="200" />
+                </div>
+                <div class="hot-info-container">
+                    <h3 class="home-event-title">${event.title}</h3>
+                    <div>
+                        <span class="home-host-event">Host: ${event.creator}</span>
+                    </div>
+                    <div>
+                        <span class="home-time-event">Event Date: ${formattedEventTime} <br></span>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-user"></i> ${event.currentParticipants || 0} / ${event.maxParticipants || 0}  ${formattedGender}
+                    </div>
+                    <div>
+                        <span class="location"><i class="fa-solid fa-location-dot"></i> ${event.locationName || "Unknown"}</span>
+                    </div>
+                    <div>
+                        <span class="">Tags: ${limitedTags}</span> 
+                    </div>
+                </div>
+            </div>
+          `;
+          
+          forYouContent.appendChild(eventCard);
+        });
+
+        document.querySelectorAll(".hot-event-card").forEach((card) => {
+          card.addEventListener("click", function (e) {
+            if (!e.target.classList.contains("tag-button")) {
+              window.location.href = `/Event/Details/${this.dataset.eventId}`;
+            }
+          });
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching events for 'For You':", error);
+      });
+  }
+
+  fetchTopEventForEachTag(); // Fetch data when page loads
+  setInterval(fetchTopEventForEachTag, 30000); // Refresh every 30 seconds
+
+  function formatEventTime(isoDate) {
+    if (!isoDate) return "Unknown Date";
+    const date = new Date(isoDate);
+    if (isNaN(date.getTime())) return "Invalid Date";
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = String(date.getFullYear());
+    let hours = date.getHours();
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+    const ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12 || 12;
+    return `${day}/${month}/${year} at ${hours}:${minutes} ${ampm}`;
+  }
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   fetch("/Event/GetHotEvents")

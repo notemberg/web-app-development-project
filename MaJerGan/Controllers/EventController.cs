@@ -515,7 +515,10 @@ namespace MaJerGan.Controllers
                     Location = string.IsNullOrEmpty(e.Location) ? "No Location" : e.LocationName, // ✅ ป้องกัน null
                     e.CreatedAt,
                     CurrentParticipants = e.Participants?.Count(p => p.Status == ParticipationStatus.Approved) ?? 0, // ✅ ป้องกัน null
-                    Creator = e.Creator?.Username ?? "Unknown Creator" // ✅ ป้องกัน null
+                    Creator = e.Creator?.Username ?? "Unknown Creator", // ✅ ป้องกัน null
+                    e.LocationImage,
+                    e.LocationName,
+                    e.AllowedGenders
                 })
                 .ToList();
 

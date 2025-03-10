@@ -28,6 +28,10 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
+[D:/webapp/web-app-development-project/MaJerGan/Views/ActivityLog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWN0aXZpdHlMb2dcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/webapp/web-app-development-project/MaJerGan/Views/Auth/Interests.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxJbnRlcmVzdHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -68,8 +72,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcU2VhcmNoLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/webapp/web-app-development-project/MaJerGan/Views/Event/UpcomingEvents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcVXBjb21pbmdFdmVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/webapp/web-app-development-project/MaJerGan/Views/Event/_SearchResults.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcX1NlYXJjaFJlc3VsdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/webapp/web-app-development-project/MaJerGan/Views/Event/_UpcomingEventsResults.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRcX1VwY29taW5nRXZlbnRzUmVzdWx0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/webapp/web-app-development-project/MaJerGan/Views/Home/Index.cshtml]
