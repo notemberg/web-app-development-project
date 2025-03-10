@@ -15,15 +15,44 @@
     padding-left: 45px;
     margin-bottom: 16px;
     width: 100%;
-    max-width: none;
-    /* font-family: 'Sulphur Point'; */
+    min-height: 120px; /* ป้องกันสูงเกินไป */
     justify-content: flex-start;
-    /* position: relative; ทำให้ลูกที่ absolute อยู่ภายในการ์ด */
     cursor: pointer;
 }
 
 .hot-event-card:hover {
     scale: 1.02;
+}
+
+.hot-container {
+    display: flex;
+    flex-wrap: wrap; /* ให้ปรับขนาดอัตโนมัติถ้าพื้นที่ไม่พอ */
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.hot-picture {
+    /* flex: 0 0 auto; ป้องกันการยืดของ container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 40%; /* ปรับสัดส่วนใน container */
+    margin-top: 16px;
+}
+
+.hot-info-container {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    font-size: 16px;
+    
+    flex: 1; /* ทำให้ขยายเต็มที่ */
+    width: 100%; /* ให้แน่ใจว่ายืดเต็ม */
+    overflow: hidden; /* ซ่อนส่วนที่ล้นออก */
+    word-wrap: break-word; /* บังคับให้ขึ้นบรรทัดใหม่หากข้อความยาวเกิน */
+    white-space: normal; /* อนุญาตให้ขึ้นบรรทัดใหม่ */
 }
 
 /* ✅ ทำให้วงกลมลอยออกจากการ์ด */
@@ -34,7 +63,7 @@
     /* ขยับขึ้น */
     left: -10px;
     /* ขยับไปซ้าย */
-    background: #FFF493;
+  
     color: #F1AEC5;
     font-weight: bold;
     font-size: 26px;
@@ -73,6 +102,17 @@
     color: #333;
     margin-bottom: 4px;
 }
+.home-event-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff4081;
+    white-space: nowrap; /* ป้องกันการขึ้นบรรทัดใหม่ */
+    overflow: hidden;
+    text-overflow: ellipsis; /* เพิ่ม "..." เมื่อข้อความยาวเกิน */
+    max-width: 100%;
+    display: block;
+}
+
 
 /* ✅ จำนวน Views */
 .event-views {
@@ -83,12 +123,7 @@
 }
 
 /* ✅ ชื่อผู้สร้าง */
-.hot-event-card .creator {
-    font-family: 'Sulphur Point';
-    font-size: 14px;
-    color: rgb(0, 0, 0);
-    font-weight: normal;
-}
+
 
 .event-body {
     display: flex;
@@ -135,7 +170,8 @@
     background-color: #BDBDBD;
 }
 
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 900px) {
     .hot-event-card {
         padding: 16px;
         padding-top: 0px;
@@ -186,7 +222,7 @@
     }
 
     .event-title {
-        font-family: 'Sulphur Point';
+      
         text-overflow: ellipsis;
         width: 70%;
         text-align: left;
@@ -205,14 +241,14 @@
     }
 
     .hot-event-card .creator {
-        font-family: 'Sulphur Point';
+      
         font-size: 14px;
         color: rgb(0, 0, 0);
         font-weight: normal;
     }
 
     .hot-event-content > .event-body > .participants {
-        font-family: 'Sulphur Point';
+        
         font-size: 14px;
         color: #666;
         display: flex;

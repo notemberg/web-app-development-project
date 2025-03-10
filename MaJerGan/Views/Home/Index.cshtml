@@ -1,4 +1,4 @@
-﻿@{
+﻿﻿@{
     ViewData["Title"] = "Meet ME!";
     ViewData["ShowHeader"] = "True";
     ViewData["ShowNavCarousel"] = "True";
@@ -21,8 +21,94 @@
 <script src="~/js/Home/app.js"></script>
 
 <body>
+    
 
     <section class="events">
+<div class="interest-event-container">
+    <div class="upcoming">
+        <h3>Recommend</h3>
+
+        <!-- Tab Navigation -->
+        <div class="tab-container">
+            <button class="tab-button active" onclick="openTab(event, 'foryou')">For You</button>
+            <button class="tab-button" onclick="openTab(event, 'trending')">Trending</button>
+        </div>
+
+        <!-- Separator Line Below Tabs -->
+        <div class="separator"></div>
+
+        <!-- Tab Content -->
+       <div id="foryou" class="tab-content active">
+    <div class="foryou-events-section">
+        <!-- Events will be dynamically inserted here -->
+    </div>
+</div>
+        <div id="trending" class="tab-content">
+            <!-- Hot Events Section -->
+            <div class="hot-events-section">
+                <div class="hot-content">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            <div class="invitation">
+                
+                <div class="upcoming-event-container">
+                    <div class="upcoming-event-container-title">
+                         <div><h3>Your Upcoming Events</h3></div>
+                   <div>   <a href="@Url.Action("UpcomingEvents", "Event")" class="show-more-button"> View All </a>
+                   </div>
+                
+                    </div>
+                  
+                <div class="upcoming-content">
+                    [upcoming-content]
+                </div>
+                
+                </div>
+@* 
+<div class="hot-events-section">
+    <div class="hot-header">
+        <h3>Hot Events</h3>
+    </div>
+    <div class="hot-content"></div>
+</div> *@
+
+
+    <div class="recent-event-container">
+                 <div class="recent-event-container-title">
+                         <div><h3>Recent Events</h3></div>
+                   <div>                       <a href="@Url.Action("SearchPage", "Event", new { sortOrder = "recent" })" class="show-more-button">
+                        View All
+                    </a>
+                   </div>
+                
+                    </div>
+                <div class="recent-content">
+                    [recent-content]
+                </div>
+
+                </div>
+            
+           
+            
+        
+
+
+            </div>
+        </section>
+<button class="add-event">+</button>
+
+
+
+
+
+
+ 
+    @* <section class="events">
         <div class="upcoming">
             <h2>Your Upcoming Events</h2>
             <div class="upcoming-content">
@@ -49,11 +135,11 @@
     <section class="recommendations">
         <div class="interest">
             <h2>You may interested</h2>
-            @* <div class="categories">
+            <div class="categories">
                 <div>Sports</div>
                 <div>BoardGame</div>
                 <div>Dinner</div>
-            </div> *@
+            </div>
         </div>
         <div class="hot">
             <div class="hot-frame">
@@ -64,7 +150,7 @@
         </div>
     </section>
 
-    <button class="add-event">+</button>
+    <button class="add-event">+</button>  *@
 
 </body>
 

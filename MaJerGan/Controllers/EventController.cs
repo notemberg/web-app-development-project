@@ -343,7 +343,7 @@ namespace MaJerGan.Controllers
             return RedirectToAction("Details", new { id = eventId });
         }
 
-        [Authorize]
+        // [Authorize]
         [HttpPost]
         public async Task<IActionResult> Approve(int eventId, int userId)
         {
@@ -465,7 +465,10 @@ namespace MaJerGan.Controllers
                     e.Location,
                     CurrentParticipants = e.Participants != null ? e.Participants.Count(p => p.Status == ParticipationStatus.Approved) : 0,
                     creator = e.Creator.Username, // ✅ เพิ่มชื่อผู้สร้าง
-                    e.EventTime
+                    e.EventTime,
+                    e.AllowedGenders,
+                    e.LocationImage,
+                    e.LocationName
                 })
                 .ToListAsync();
 
@@ -487,8 +490,8 @@ namespace MaJerGan.Controllers
                 .AsQueryable();
 
             var orderedEvents = isAscending
-                ? await eventsQuery.OrderBy(e => e.CreatedAt).Take(3).ToListAsync()
-                : await eventsQuery.OrderByDescending(e => e.CreatedAt).Take(3).ToListAsync();
+                ? await eventsQuery.OrderBy(e => e.CreatedAt).Take(5).ToListAsync()
+                : await eventsQuery.OrderByDescending(e => e.CreatedAt).Take(5).ToListAsync();
 
             // ✅ Debug เช็คจำนวน Event ที่โหลดมาได้
             Console.WriteLine($"🟢 Events Loaded: {orderedEvents.Count}");
@@ -512,7 +515,10 @@ namespace MaJerGan.Controllers
                     Location = string.IsNullOrEmpty(e.Location) ? "No Location" : e.LocationName, // ✅ ป้องกัน null
                     e.CreatedAt,
                     CurrentParticipants = e.Participants?.Count(p => p.Status == ParticipationStatus.Approved) ?? 0, // ✅ ป้องกัน null
-                    Creator = e.Creator?.Username ?? "Unknown Creator" // ✅ ป้องกัน null
+                    Creator = e.Creator?.Username ?? "Unknown Creator", // ✅ ป้องกัน null
+                    e.LocationImage,
+                    e.LocationName,
+                    e.AllowedGenders
                 })
                 .ToList();
 
@@ -546,6 +552,7 @@ namespace MaJerGan.Controllers
                     e.Title,
                     e.EventTime,
                     e.Location,
+                    e.LocationName,
                     CurrentParticipants = e.Participants.Count(p => p.Status == ParticipationStatus.Approved),
                     Creator = e.Creator != null ? e.Creator.Username : "Unknown"
                 })
