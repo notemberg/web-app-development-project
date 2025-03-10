@@ -68,6 +68,7 @@ body {
     width: 80%;
 }
 
+
 .event-card {
     min-height: 124px;
     background: white;
@@ -201,6 +202,21 @@ body {
     font-size: 24px;
     color: gray;
     font-weight: normal;
+}
+
+.toggle-button {
+    display: block;
+    margin: 10px auto;
+    background: none;
+    border: none;
+    color: #F1AEC5;
+    font-size: 36px; /* Increase font size */
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.toggle-button:hover {
+    color: gray;
 }
 
 @media (max-width: 768px) {
