@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const formattedTime = timeAgo(new Date(event.createdAt));
 
         const formattedEventTime = formatEventTime(event.eventTime);
+        const formattedGender = getGenderIndicators(event.allowedGenders)
         eventCard.innerHTML = `
                  <div class="hot-container">
                     <div class="hot-picture">
@@ -53,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
 
                         <div class="">
-                        <div class=""><i class="fa-solid fa-user"></i> ${event.currentParticipants} / ${event.maxParticipants} ${event.allowedGenders} </div>
+                        <div class=""><i class="fa-solid fa-user"></i> ${event.currentParticipants} / ${event.maxParticipants} ${formattedGender} </div>
                         <div class=""> <span class="location"><i class="fa-solid fa-location-dot"></i> ${event.locationName}</span> </div>
                     </div>
                         <div class="">
@@ -385,6 +386,28 @@ function openTab(evt, tabName) {
   // Show active tab and set button to active
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.classList.add("active");
+}
+function getGenderIndicators(allowedGenders) {
+  let genders = allowedGenders.split(","); // Split the genders if multiple exist
+  let indicators = [];
+
+  if (genders.includes("Male")) {
+      indicators.push(
+          `<div style="display: inline-block; width: 30px; height: 30px; border-radius: 50%; background-color: green; color: white; text-align: center; line-height: 30px; font-weight: bold; margin-right: 5px;">M</div>`
+      );
+  }
+  if (genders.includes("Female")) {
+      indicators.push(
+          `<div style="display: inline-block; width: 30px; height: 30px; border-radius: 50%; background-color: red; color: white; text-align: center; line-height: 30px; font-weight: bold; margin-right: 5px;">F</div>`
+      );
+  }
+  if (genders.includes("Other")) {
+      indicators.push(
+          `<div style="display: inline-block; width: 60px; height: 30px; border-radius: 15px; background: linear-gradient(90deg, red, orange, yellow, green, blue, violet); color: white; text-align: center; line-height: 30px; font-weight: bold;">LGBT</div>`
+      );
+  }
+
+  return indicators.join(""); // Join elements with no separator (they have margin for spacing)
 }
 
 // Default to first tab
