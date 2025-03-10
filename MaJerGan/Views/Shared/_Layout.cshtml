@@ -47,7 +47,6 @@
                 <button class="nav-btn"><i class="bi bi-chat-dots" style="color: white;font-size: 2rem;"></i></button> *@
 
                 <!-- 🔔 ไอคอนแจ้งเตือน -->
-                <!-- 🔔 ไอคอนแจ้งเตือน -->
                 <div class="nav-notification-container">
                     <button class="nav-btn notification-btn" id="notificationButton">
                         <i class="fas fa-bell"></i>
@@ -78,14 +77,14 @@
                     <div class="dropdown-menu" id="profileDropdown">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <a href="/Profile">ดูโปรไฟล์</a>
-                            <a href="/Settings">การตั้งค่า</a>
-                            <a href="/Logout" class="logout">ออกจากระบบ</a>
+                            <a href="/Profile">Profile</a>
+                            <a href="/ActivityLog">History</a>
+                            <a href="/Logout" class="logout">LOGOUT</a>
                         }
                         else
                         {
-                            <a href="/Auth/Login" class="btn-login">เข้าสู่ระบบ</a>
-                            <a href="/Auth/Register" class="btn-register">สมัครสมาชิก</a>
+                            <a href="/Auth/Login" class="btn-login">Login</a>
+                            <a href="/Auth/Register" class="btn-register">Register</a>
                         }
                     </div>
                 </div>
@@ -102,14 +101,14 @@
             <nav class="sidebar-nav">
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <a href="/Profile"><i class="fas fa-user"></i> ดูโปรไฟล์</a>
-                    <a href="/Settings"><i class="fas fa-cog"></i> การตั้งค่า</a>
-                    <a href="/Logout" class="logout"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
+                    <a href="/Profile"><i class="fas fa-user"></i> Profile</a>
+                    <a href="/ActivityLog"><i class="fas fa-cog"></i> History</a>
+                    <a href="/Logout" class="logout"><i class="fas fa-sign-out-alt"></i> LOGOUT</a>
                 }
                 else
                 {
-                    <a href="/Auth/Login" class="btn-login"><i class="fas fa-sign-in-alt"></i> เข้าสู่ระบบ</a>
-                    <a href="/Auth/Register" class="btn-register"><i class="fas fa-user-plus"></i> สมัครสมาชิก</a>
+                    <a href="/Auth/Login" class="btn-login"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a href="/Auth/Register" class="btn-register"><i class="fas fa-user-plus"></i> Register</a>
                 }
             </nav>
         </aside>

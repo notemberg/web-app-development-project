@@ -696,5 +696,85 @@ namespace MaJerGan.Controllers
             return Json(new { success = true, message = "✅ แสดงความคิดเห็นสำเร็จ!" });
         }
 
+        [HttpGet("Event/UpcomingEvents")]
+        public async Task<IActionResult> UpcomingEvents(string searchQuery)
+        {
+            ViewBag.Tags = _context.Tags.ToList(); // ✅ โหลดแท็กทั้งหมด
+
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized("❌ กรุณาเข้าสู่ระบบก่อนแสดงความคิดเห็น");
+            }
+
+            int userId = int.Parse(userIdClaim.Value);
+            var events = _context.Events
+                .Include(e => e.Creator)
+                .Include(e => e.Participants)
+                .Include(e => e.EventTags)
+                .ThenInclude(et => et.Tag)
+                .Where(e => e.ExpiryDate >= DateTime.UtcNow) // ✅ กรองเฉพาะกิจกรรมที่ยังไม่หมดอายุ
+                .Where(e => e.Participants.Any(p => p.UserId == userId && p.Status == ParticipationStatus.Approved)) // ✅ เฉพาะกิจกรรมที่ผู้ใช้เข้าร่วมและได้รับการอนุมัติ
+
+                .AsQueryable();
+
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                events = events.Where(e => e.Title.Contains(searchQuery) || e.Description.Contains(searchQuery));
+            }
+
+            var eventList = await events.ToListAsync();
+
+            Console.WriteLine($"🔍 Found {eventList.Count} events for query: {searchQuery}");
+
+            return View("UpcomingEvents", eventList); // ✅ โหลด `Search.cshtml` พร้อมผลลัพธ์
+        }
+
+
+
+        [HttpGet("Event/UpcomingEventsResults")]
+        public async Task<IActionResult> UpcomingEventsResults(string searchQuery, List<int> selectedTags)
+        {
+
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized("❌ กรุณาเข้าสู่ระบบก่อนแสดงความคิดเห็น");
+            }
+
+            int userId = int.Parse(userIdClaim.Value);
+            var events = _context.Events
+                .Include(e => e.Creator)
+                .Include(e => e.Participants)
+                .Include(e => e.EventTags)
+                .ThenInclude(et => et.Tag)
+                .Where(e => e.ExpiryDate >= DateTime.UtcNow) // ✅ กรองเฉพาะกิจกรรมที่ยังไม่หมดอายุ
+                .Where(e => e.Participants.Any(p => p.UserId == userId && p.Status == ParticipationStatus.Approved)) // ✅ เฉพาะกิจกรรมที่ผู้ใช้เข้าร่วมและได้รับการอนุมัติ
+
+                .AsQueryable();
+
+            // ✅ ใช้ `searchQuery` และ `selectedTags` พร้อมกัน
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                events = events.Where(e => e.Title.Contains(searchQuery) || e.Description.Contains(searchQuery));
+            }
+
+            if (selectedTags != null && selectedTags.Count > 0)
+            {
+                events = events.Where(e => selectedTags.All(tagId => e.EventTags.Any(et => et.TagId == tagId)));
+            }
+
+
+
+            var eventList = await events.ToListAsync();
+
+            return PartialView("_UpcomingEventsResults", eventList);
+        }
+
+
+
+
+
     }
 }

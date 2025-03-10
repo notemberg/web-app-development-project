@@ -50,6 +50,7 @@ namespace MaJerGan.Models
 
         [ForeignKey("CreatedBy")]
         public virtual User Creator { get; set; }
+        
 
 
         // ✅ เพิ่มตัวนับยอดเข้าชม
@@ -61,7 +62,7 @@ namespace MaJerGan.Models
 
         // ✅ ฟิลด์ใหม่สำหรับตั้งค่าระบบ
         public bool IsGenderRestricted { get; set; } = false; // เปิด/ปิดข้อจำกัดเพศ
-        public string AllowedGenders { get; set; } = "Malee,Female,Other"; // ค่าเริ่มต้นให้ทุกเพศเข้าร่วมได้
+        public string AllowedGenders { get; set; } = "Male,Female,Other"; // ค่าเริ่มต้นให้ทุกเพศเข้าร่วมได้
         public bool RequiresConfirmation { get; set; } = false; // ต้องรอการยืนยันไหม
 
         public virtual List<Comment> Comments { get; set; } = new List<Comment>();

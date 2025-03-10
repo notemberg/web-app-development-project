@@ -34,17 +34,6 @@
             <label for="email">Email</label>
         </div>
 
-        @* <div class="password-container">
-            <div class="input-group">
-                <input type="password" id="password" placeholder=" " required>
-                <label for="password">Password</label>
-            </div>
-
-            <div class="input-group">
-                <input type="password" id="confirm-password" placeholder=" " required>
-                <label for="confirm-password">Confirm Password</label>
-            </div>
-        </div> *@
         <div class="input-group">
             <input type="password" id="password" placeholder=" " required>
             <label for="password">Password</label>
@@ -75,6 +64,7 @@
                 </select>
                 <label for="gender">Sex</label> <!-- เพิ่ม Label แบบ Floating -->
             </div>
+            <p>Your birthdate and gender cannot be changed after registration. Please enter it correctly.</p>
         </div>
 
 
@@ -82,21 +72,17 @@
         <a href="/auth/login" class="login-link">Already have an account?</a>
     </div>
 
-<!-- Popup Custom -->
-<div id="customPopup" class="popup">
-    <div class="popup-content">
-        <h2 id="popupTitle">แจ้งเตือน</h2>
-        <p id="popupText"></p>
+    <!-- Popup Custom -->
+    <div id="customPopup" class="popup">
+        <div class="popup-content">
+            <h2 id="popupTitle">แจ้งเตือน</h2>
+            <p id="popupText"></p>
 
-        <div class="popup-buttons">
-            <button id="popupOkBtn" class="btn" onclick="closePopup()">OK</button>
+            <div class="popup-buttons">
+                <button id="popupOkBtn" class="btn" onclick="closePopup()">OK</button>
+            </div>
         </div>
     </div>
-</div>
-
-
-
-
 
 </body>
 

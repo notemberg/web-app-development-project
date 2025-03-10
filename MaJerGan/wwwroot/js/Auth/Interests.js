@@ -37,12 +37,12 @@ document.addEventListener("DOMContentLoaded", async function () {
       const response = await fetch(window.location.origin + "/api/tags");
       const data = await response.json();
       if (Array.isArray(data)) {
-        allTags = [...new Set([...initTags, ...data])];
+        allTags = [...new Set([...initTags, ...data.map((tag) => tag.name)])]; // ใช้แค่ค่า name
       }
     } catch (error) {
       console.error("Error fetching tags:", error);
     }
-    renderTags();
+    renderTags(); // ✅ เรียก render ใหม่
   }
 
   function renderTags() {
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         selectedTags.add(tag);
         button.classList.add("active");
       } else {
-        alert("You can select up to 3 interests only.");
+        showPopup("แจ้งเตือน", "You can select up to 3 interests only.", "error");
       }
     }
     renderCustomTags();
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   function selectTag(tag) {
     if (selectedTags.size + customSelectedTags.size >= maxTags) {
-      alert("You can select up to 3 interests only.");
+      showPopup("แจ้งเตือน", "You can select up to 3 interests only.", "error");
       return;
     }
 
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       // ✅ เพิ่มปุ่มลบ
       let removeBtn = document.createElement("span");
-      removeBtn.textContent  = " ❌";
+      removeBtn.textContent = " ❌";
       removeBtn.className = "remove-btn";
       removeBtn.onclick = () => {
         customSelectedTags.delete(tag); // ✅ ลบออกจาก `customSelectedTags`
@@ -159,8 +159,6 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (selectedTags.has(tag) || customSelectedTags.has(tag)) {
         btn.classList.add("active"); // ✅ แท็กที่เลือกแล้วต้องมีสีชมพู
       }
-
-
     });
   }
 
@@ -171,55 +169,71 @@ document.addEventListener("DOMContentLoaded", async function () {
   fetchTags();
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
   let userData = JSON.parse(localStorage.getItem("userData"));
 
   if (!userData) {
-      // ✅ ถ้าไม่มีข้อมูล ให้กลับไปหน้า Register
-      window.location.href = "register";
+    // ✅ ถ้าไม่มีข้อมูล ให้กลับไปหน้า Register
+    window.location.href = "register";
   }
 
-  document.getElementById("createAccountBtn").addEventListener("click", async function () {
-      let selectedTags = Array.from(document.querySelectorAll(".tag-btn.active")).map(tag => tag.innerText);
+  document
+    .getElementById("createAccountBtn")
+    .addEventListener("click", async function () {
+      let selectedTags = Array.from(
+        document.querySelectorAll(".tag-btn.active")
+      ).map((tag) => tag.innerText);
 
       if (selectedTags.length === 0) {
-          showPopup("แจ้งเตือน", "กรุณาเลือกอย่างน้อย 1 ความสนใจ!", "error");
-          return;
+        showPopup("แจ้งเตือน", "กรุณาเลือกอย่างน้อย 1 ความสนใจ!", "error");
+        return;
       }
 
-      // userData.userTags = Array.from(selectedTags).map(tag => ({ tag })) 
-      userData.userTags = selectedTags.map(tag => ({ tag: tag.replace(" ❌", "").trim() }));
+      // userData.userTags = Array.from(selectedTags).map(tag => ({ tag }))
+      userData.userTags = selectedTags.map((tag) => ({
+        tag: tag.replace(" ❌", "").trim(),
+      }));
       console.log("User data:", userData);
       try {
-          console.log("Sending data to server:", userData);
-          let response = await fetch(window.location.origin + "/api/register", {
-              method: "POST",
-              headers: {
-                  "Content-Type": "application/json"
-              },
-              body: JSON.stringify(userData)
-          });
+        console.log("Sending data to server:", userData);
+        let response = await fetch(window.location.origin + "/api/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        });
 
-          let result = await response.json();
+        let result = await response.json();
 
-          if (response.ok) {
-              showPopup("สำเร็จ", "สมัครสมาชิกสำเร็จ! กำลังพาคุณไปหน้า Login...", "success", function () {
-                  localStorage.removeItem("userData"); // ✅ ลบข้อมูลออก
-                  window.location.href = "login"; // ✅ ไปหน้า Login
-              });
-          } else {
-              showPopup("เกิดข้อผิดพลาด", result.message || "ไม่สามารถสมัครสมาชิกได้", "error");
-              window.location.href = "register";
-
-          }
+        if (response.ok) {
+          showPopup(
+            "สำเร็จ",
+            "สมัครสมาชิกสำเร็จ! กำลังพาคุณไปหน้า Login...",
+            "success",
+            function () {
+              localStorage.removeItem("userData"); // ✅ ลบข้อมูลออก
+              window.location.href = "login"; // ✅ ไปหน้า Login
+            }
+          );
+        } else {
+          showPopup(
+            "เกิดข้อผิดพลาด",
+            result.message || "ไม่สามารถสมัครสมาชิกได้",
+            "error"
+          );
+          window.location.href = "register";
+        }
       } catch (error) {
-          console.error("Error:", error);
-          showPopup("เกิดข้อผิดพลาด", "เกิดปัญหาในการเชื่อมต่อกับเซิร์ฟเวอร์ โปรดลองใหม่อีกครั้ง", "error");
+        console.error("Error:", error);
+        showPopup(
+          "เกิดข้อผิดพลาด",
+          "เกิดปัญหาในการเชื่อมต่อกับเซิร์ฟเวอร์ โปรดลองใหม่อีกครั้ง",
+          "error"
+        );
       }
-  });
+    });
 });
-
 
 function showPopup(title, message, type = "error", callback = null) {
   let popupContent = document.querySelector(".popup-content");
@@ -237,17 +251,17 @@ function showPopup(title, message, type = "error", callback = null) {
 
   // ✅ ถ้าเป็น "success" เปลี่ยนเป็นสีเขียว
   if (type === "success") {
-      popupContent.classList.add("success");
-      popupTitle.style.color = "#4CAF50"; // เปลี่ยนสีข้อความ
-      okBtn.classList.add("success");
+    popupContent.classList.add("success");
+    popupTitle.style.color = "#4CAF50"; // เปลี่ยนสีข้อความ
+    okBtn.classList.add("success");
   } else {
-      popupContent.classList.add("error");
-      popupTitle.style.color = "#E53935"; // เปลี่ยนสีข้อความ
+    popupContent.classList.add("error");
+    popupTitle.style.color = "#E53935"; // เปลี่ยนสีข้อความ
   }
 
   okBtn.onclick = function () {
-      closePopup();
-      if (callback) callback();
+    closePopup();
+    if (callback) callback();
   };
 }
 

@@ -117,11 +117,12 @@
 
 
 .location {
-    width: 40%;  
+    width: 40%;
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis; /* ถ้ายาวเกิน ให้ขึ้น "..." */
+    text-overflow: ellipsis;
+    /* ถ้ายาวเกิน ให้ขึ้น "..." */
     font-size: 14px;
     font-weight: normal;
     color: #555;
@@ -129,7 +130,8 @@
 
 .sort-options {
     display: flex;
-    gap: 10px; /* ระยะห่างระหว่างลิงก์ */
+    gap: 10px;
+    /* ระยะห่างระหว่างลิงก์ */
     font-size: 14px;
     font-weight: bold;
     color: #333;
@@ -137,38 +139,56 @@
 }
 
 .sort-options a {
-    text-decoration: none; /* ลบเส้นใต้ */
-    color: #333; /* สีของลิงก์ */
-    padding: 5px 10px; /* ขนาดของ padding */
-    border-radius: 25px; /* ขอบมน */
-    border: 1px solid #ddd; /* เส้นขอบรอบ ๆ */
-    transition: background-color 0.3s ease, color 0.3s ease; /* การเปลี่ยนแปลงสีเมื่อ hover */
+    text-decoration: none;
+    /* ลบเส้นใต้ */
+    color: #333;
+    /* สีของลิงก์ */
+    padding: 5px 10px;
+    /* ขนาดของ padding */
+    border-radius: 25px;
+    /* ขอบมน */
+    border: 1px solid #ddd;
+    /* เส้นขอบรอบ ๆ */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* การเปลี่ยนแปลงสีเมื่อ hover */
 }
 
 .sort-options a:hover {
-    background-color: #FFD700; /* สีพื้นหลังเมื่อ hover */
-    color: white; /* เปลี่ยนสีข้อความเมื่อ hover */
+    background-color: #FFD700;
+    /* สีพื้นหลังเมื่อ hover */
+    color: white;
+    /* เปลี่ยนสีข้อความเมื่อ hover */
 }
 
 /* สไตล์สำหรับลิงก์ที่ถูกเลือก */
 .sort-options a.active {
-    background-color: #FFD700; /* เปลี่ยนสีพื้นหลัง */
-    color: white; /* เปลี่ยนสีข้อความ */
-    font-weight: bold; /* ทำให้ข้อความหนา */
-    border-radius: 25px; /* ขอบมน */
-    padding: 5px 10px; /* ขนาด padding */
+    background-color: #FFD700;
+    /* เปลี่ยนสีพื้นหลัง */
+    color: white;
+    /* เปลี่ยนสีข้อความ */
+    font-weight: bold;
+    /* ทำให้ข้อความหนา */
+    border-radius: 25px;
+    /* ขอบมน */
+    padding: 5px 10px;
+    /* ขนาด padding */
 }
+
 .event-card-link {
-    text-decoration: none; /* ไม่มีขีดเส้นใต้ */
-    color: black; /* สีข้อความ */
+    text-decoration: none;
+    /* ไม่มีขีดเส้นใต้ */
+    color: black;
+    /* สีข้อความ */
 }
 
 .event-card-link:hover {
-    background-color: #f0f0f0; /* สีพื้นหลังเมื่อ hover */
+    background-color: #f0f0f0;
+    /* สีพื้นหลังเมื่อ hover */
 }
 
 .event-card {
-    cursor: pointer; /* ทำให้การ์ดสามารถคลิกได้ */
+    cursor: pointer;
+    /* ทำให้การ์ดสามารถคลิกได้ */
 }
 
 .info {
@@ -193,6 +213,7 @@
     color: gray;
     margin-top: 10px;
 }
+
 .event-footer .event-views {
     color: #28a745;
     font-weight: bold;
@@ -205,14 +226,21 @@
 
 .tags-container-search {
     margin-top: 5px;
-    display: flex;                  /* ใช้ flexbox เพื่อจัดเรียงแท็กในแนวนอน */
-    flex-wrap: nowrap;              /* ไม่ให้แยกแถว */
-    gap: 10px;                      /* เว้นระยะห่างระหว่างแท็ก */
-    overflow-x: auto;               /* ทำให้สามารถเลื่อนในแนวนอนได้ */
-    padding-bottom: 10px;           /* เพิ่มระยะห่างที่ด้านล่าง */
-    white-space: nowrap;            /* ป้องกันการตัดข้อความแท็ก */
-    
+    display: flex;
+    /* ใช้ flexbox เพื่อจัดเรียงแท็กในแนวนอน */
+    flex-wrap: nowrap;
+    /* ไม่ให้แยกแถว */
+    gap: 10px;
+    /* เว้นระยะห่างระหว่างแท็ก */
+    overflow-x: auto;
+    /* ทำให้สามารถเลื่อนในแนวนอนได้ */
+    padding-bottom: 10px;
+    /* เพิ่มระยะห่างที่ด้านล่าง */
+    white-space: nowrap;
+    /* ป้องกันการตัดข้อความแท็ก */
+
 }
+
 .tag-item {
     display: flex;
     align-items: center;
@@ -237,7 +265,7 @@
     transform: scale(1.05);
 }
 
-.tag-item input[type="checkbox"]:checked + label {
+.tag-item input[type="checkbox"]:checked+label {
     background-color: #ff5c8d;
     color: white;
 }
@@ -278,13 +306,20 @@
 
 .selected-tag {
     display: inline-block;
-    background-color: #4CAF50; /* สีพื้นหลัง */
-    color: white; /* สีตัวอักษร */
-    border-radius: 20px; /* ทำให้มุมมน */
-    padding: 5px 15px; /* เพิ่มระยะห่าง */
-    margin: 5px; /* ระยะห่างระหว่างแท็ก */
-    font-size: 14px; /* ขนาดฟอนต์ */
-    cursor: pointer; /* ให้มีเคอร์เซอร์เป็นปุ่ม */
+    background-color: #4CAF50;
+    /* สีพื้นหลัง */
+    color: white;
+    /* สีตัวอักษร */
+    border-radius: 20px;
+    /* ทำให้มุมมน */
+    padding: 5px 15px;
+    /* เพิ่มระยะห่าง */
+    margin: 5px;
+    /* ระยะห่างระหว่างแท็ก */
+    font-size: 14px;
+    /* ขนาดฟอนต์ */
+    cursor: pointer;
+    /* ให้มีเคอร์เซอร์เป็นปุ่ม */
 }
 
 .selected-tag .remove-tag {
@@ -295,29 +330,41 @@
 }
 
 .selected-tag .remove-tag:hover {
-    color: #FF6347; /* สีเมื่อ hover */
+    color: #FF6347;
+    /* สีเมื่อ hover */
 }
 
 .selected-tag:hover {
-    background-color: #45a049; /* สีเมื่อ hover แท็ก */
+    background-color: #45a049;
+    /* สีเมื่อ hover แท็ก */
 }
 
 .filter-tag-btn {
-    background-color: white; /* สีพื้นหลังปุ่ม */
-    color: #333; /* สีตัวอักษร */
-    border: none; /* ไม่มีเส้นขอบ */
-    padding: 5px 10px; /* ขนาดของ padding */
-    border-radius: 20px; /* ทำให้มุมมน */
-    font-size: 14px; /* ขนาดฟอนต์ */
-    cursor: pointer; /* ให้มีเคอร์เซอร์เป็นปุ่ม */
-    transition: background-color 0.3s ease; /* การเปลี่ยนสีเมื่อ hover */
+    background-color: white;
+    /* สีพื้นหลังปุ่ม */
+    color: #333;
+    /* สีตัวอักษร */
+    border: none;
+    /* ไม่มีเส้นขอบ */
+    padding: 5px 10px;
+    /* ขนาดของ padding */
+    border-radius: 20px;
+    /* ทำให้มุมมน */
+    font-size: 14px;
+    /* ขนาดฟอนต์ */
+    cursor: pointer;
+    /* ให้มีเคอร์เซอร์เป็นปุ่ม */
+    transition: background-color 0.3s ease;
+    /* การเปลี่ยนสีเมื่อ hover */
     font-weight: bold;
     border: 1px solid #ddd;
 }
 
 .filter-tag-btn:hover {
-    background-color: #FFD700; /* สีพื้นหลังเมื่อ hover */
-    color: white; /* เปลี่ยนสีข้อความเมื่อ hover */
+    background-color: #FFD700;
+    /* สีพื้นหลังเมื่อ hover */
+    color: white;
+    /* เปลี่ยนสีข้อความเมื่อ hover */
 }
 
 #tag-search {
@@ -328,7 +375,8 @@
     font-size: 14px;
     margin-bottom: 10px;
 }
-.btn-secondary{
+
+.btn-secondary {
     background-color: #F1AEC5;
     color: white;
     border: none;
@@ -344,6 +392,39 @@
 
 .btn-secondary:hover {
     background-color: #fd78a0;
+}
+
+#search-bar-upcoming {
+    width: 100%;
+    flex-grow: 1;
+    padding: 10px;
+    padding-right: 30px;
+    /* เผื่อพื้นที่สำหรับปุ่ม X */
+    border-radius: 15px;
+    border: none;
+    font-size: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    height: 40px;
+}
+
+.search-upcoming {
+    display: flex;
+    position: relative;
+    flex-grow: 1;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#clear-btn2 {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    display: none;
+    color: #888;
 }
 
 @media (max-width: 600px) {
@@ -365,6 +446,7 @@
         font-size: 16px;
         width: 100%;
     }
+
     .event-card .event-body {
         flex-direction: column;
         font-size: 12px;
@@ -389,6 +471,7 @@
         gap: 5px;
         align-items: center;
     }
+
     .creator {
         font-size: 14px;
         max-width: 40%;
@@ -397,8 +480,7 @@
         white-space: nowrap;
     }
 
-    .participants
-    {
+    .participants {
         font-size: 14px;
         max-width: 40%;
         overflow: hidden;
@@ -414,6 +496,7 @@
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+
     .tags-container {
         width: 100%;
         gap: 5px;

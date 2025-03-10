@@ -9,34 +9,33 @@
     <link rel="stylesheet" href="~/css/Event/Search.css">
 </head>
 
-<script src="~/js/Event/SearchPage.js"></script>
+<script src="~/js/Event/UpcomingEvents.js"></script>
 <form id="search-form">
 
     <input type="hidden" id="sortOrder" name="sortOrder" value="@ViewBag.SortOrder">
 
 </form>
-
+<div class="search-upcoming">
+    <input id="search-bar-upcoming" name="searchQuery" type="text" placeholder=" Search Your Interest"
+        value="@Context.Request.Query["searchQuery"]" autocomplete="off" />
+    <button id="clear-btn2" type="button" onclick="clearSearch()">✖</button>
+</div>
 <!-- ตัวเลือกการจัดเรียง -->
 <div class="sort-options">
-    <a href="#" class="sort-link @(ViewBag.SortOrder == "recent" ? "active" : "")" data-sort="recent">Recent</a>
-    <a href="#" class="sort-link @(ViewBag.SortOrder == "popular" ? "active" : "")" data-sort="popular">Popular</a>
-    <a href="#" class="sort-link @(ViewBag.SortOrder == "NerestEvent" ? "active" : "")" data-sort="NerestEvent">Nearest
-        Event</a>
     <div id="tag-filters">
         <button type="button" onclick="openTagModal()" class="filter-tag-btn">Filter Tag</button>
 
 
     </div>
-    <input type="hidden" id="sortOrder" name="sortOrder" value="@ViewBag.SortOrder">
 </div>
 
 <div class="selected-tags" id="selected-tags">
-        </div>
+</div>
 
 
 <!-- ส่วนแสดงผลลัพธ์ -->
 <div id="search-results">
-    @await Html.PartialAsync("_SearchResults", Model)
+    @await Html.PartialAsync("_UpcomingEventsResults", Model)
 </div>
 
 <!-- Modal สำหรับเลือกแท็ก -->

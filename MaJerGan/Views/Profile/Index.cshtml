@@ -53,8 +53,8 @@
                 <!-- ✅ คลิกที่รูปเพื่ออัปโหลด -->
                 @if (string.IsNullOrEmpty(Model.ProfilePicturee))
                 {
-                    <img id="profilePreview" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Picture" width="150"
-                        onclick="selectImage()">
+                    <img id="profilePreview" src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+                        alt="Profile Picture" width="150" onclick="selectImage()">
                 }
                 else
                 {
@@ -74,7 +74,7 @@
                     </div>
                     <input type="range" id="zoomRange" min="0.5" max="2" step="0.01" value="0"
                         oninput="setZoom(this.value)">
-                    <button class="uploadbtn"onclick="cropAndUpload()"><span id="buttonText">บันทึก</span>
+                    <button class="uploadbtn" onclick="cropAndUpload()"><span id="buttonText">บันทึก</span>
                         <span id="loadingSpinner" class="spinner" style="display: none;"></span></button>
                 </div>
             </div>
@@ -110,6 +110,8 @@
                 <div class="profile-footer">
                     <button id="change-password" class="change-password" onclick="openPasswordModal()">Change
                         Password</button>
+                    <button id="cancel-btn" class="cancel-profile" style="display: none;"
+                        onclick="cancelEdit()">cancel</button>
                     <button id="update-btn" class="update-profile" style="display: none;"
                         onclick="saveProfile()">Update</button>
                 </div>
@@ -151,7 +153,20 @@
 
             </div>
         </div>
+        
 
+        <!-- Popup Custom -->
+    <div id="customPopup" class="popup">
+        <div class="popup-content">
+            <h2 id="popupTitle">แจ้งเตือน</h2>
+            <p id="popupText"></p>
+
+            <div class="popup-buttons">
+                <button id="popupOkBtn" class="btn" onclick="closePopup()">OK</button>
+            </div>
+        </div>
+    </div>
+    
 
     </div>
 

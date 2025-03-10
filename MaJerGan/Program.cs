@@ -13,6 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddHostedService<EventCleanupService>();
+// builder.Services.AddHostedService<EventImageUpdateService>(); // อัปเดตรูปภาพทุก 24 ชั่วโมง
+
 builder.Services.AddSingleton<EmailService>();
 builder.Services.AddSingleton<CloudinaryService>();
 // ✅ ลงทะเบียน WebSocket Handler

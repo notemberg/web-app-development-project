@@ -128,6 +128,7 @@ h2 {
 /* ✅ จัดเรียง Date of Birth และ Gender ให้อยู่ในแถวเดียวกัน */
 .DateAndSex-container {
     display: flex;
+    flex-wrap: wrap; /* อนุญาตให้ขึ้นบรรทัดใหม่ */
     justify-content: space-between;
     gap: 10px; /* เว้นระยะระหว่างช่อง */
 }
@@ -163,6 +164,10 @@ h2 {
     cursor: pointer;
 }
 
+#dateofbirth {
+    height: 44px;
+}
+
 /* ✅ เพิ่มไอคอนลูกศรของ dropdown */
 .input-group-select::after  {
     content: "▼";
@@ -187,6 +192,21 @@ h2 {
     background: white;
     padding: 2px 5px;
     border-radius: 5px;
+}
+
+.DateAndSex-container > .input-group,
+.DateAndSex-container > .input-group-select {
+    margin: 0px;
+}
+
+.DateAndSex-container p {
+    color: red;
+    font-size: 12px;
+    flex-basis: 100%; /* บังคับให้ขึ้นบรรทัดใหม่ */
+    margin: 0px;
+    margin-bottom: 10px; /* เพิ่มช่องว่างให้ดูสวยขึ้น */
+    text-align: center;
+    padding: 0px;
 }
 
 /* ✅ เมื่อ select ถูกเลือกค่า ให้ label ลอยขึ้น */
