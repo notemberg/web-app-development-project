@@ -1,6 +1,5 @@
 /* ✅ Reset */
 
-
 body {
   margin: 0;
   padding: 0;
@@ -324,7 +323,7 @@ body {
 /* ✅ ซ่อนปุ่ม Hamburger Menu ในจอใหญ่ */
 .menu-toggle {
   display: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   background: none;
   border: none;
   color: white;
@@ -449,8 +448,6 @@ body {
 
 
 @media screen and (max-width: 768px) {
-
-
   .main-body .main-header {
     height: 60px;
     padding: 0 20px;

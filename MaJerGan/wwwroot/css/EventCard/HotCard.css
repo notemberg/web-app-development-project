@@ -258,3 +258,25 @@
         width: 100%;
     }
 }
+
+
+/* ✅ เมื่อจอเล็กกว่า 500px ให้ hot-picture อยู่ข้างบน hot-info-container */
+@media (max-width: 500px) {
+    .hot-container {
+        flex-direction: column; /* เรียงเป็นแนวตั้ง */
+        align-items: left; /* จัดให้อยู่ตรงกลาง */
+    }
+
+    .hot-picture {
+        max-width: 100%; /* ให้รูปขยายเต็ม */
+        order: -1; /* ✅ ทำให้ hot-picture อยู่บนสุด */
+    }
+
+    .hot-info-container {
+        width: 100%; /* ให้เนื้อหาเต็มพื้นที่ */
+        text-align: left; /* ปรับให้อยู่ตรงกลาง */
+    }
+    .hot-event-card{
+        padding-left: 0px;
+    }
+}
