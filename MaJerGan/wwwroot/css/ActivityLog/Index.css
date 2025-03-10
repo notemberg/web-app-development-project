@@ -140,7 +140,7 @@ body {
     white-space: nowrap;
     flex-grow: 1;
     padding-bottom: 5px;
-    min-width: 60px;
+    min-width: 100px;
 }
 
 .tag-button {
@@ -210,7 +210,7 @@ body {
     background: none;
     border: none;
     color: #F1AEC5;
-    font-size: 36px; /* Increase font size */
+    font-size: 16px; /* Increase font size */
     cursor: pointer;
     transition: color 0.3s ease-in-out;
 }
@@ -277,7 +277,7 @@ body {
     }
 
     .event-card .event-title {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .Time {

@@ -803,12 +803,10 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
     }
 
 
-    .test {
-        flex-direction: column;
-    }
+
 
     .date-time-container {
-        width: 30%;
+        width: 100%;
     }
 
     .location-card {
@@ -847,10 +845,6 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
         align-items: flex-start;
     }
 
-    .date-time-desktop {
-        display: none;
-        /* ซ่อนของ Desktop */
-    }
 
     .date-time-mobile {
         display: flex;

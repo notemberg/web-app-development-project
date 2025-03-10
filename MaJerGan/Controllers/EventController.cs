@@ -262,36 +262,43 @@ namespace MaJerGan.Controllers
             int hostId = eventDetails.CreatedBy; // ✅ Host ของ Event
 
             string hostMessage;
+            string hosttype;
             if (eventDetails.RequiresConfirmation)
             {
-                hostMessage = $"📩 มีผู้ใช้ ID {user.Username} ขอเข้าร่วมกิจกรรม {eventDetails.Title}";
+                hostMessage = $"มีผู้ใช้ {user.Username} ขอเข้าร่วมกิจกรรม {eventDetails.Title}";
+                hosttype = "GetJoinRequest";
             }
             else
             {
-                hostMessage = $"📩 ผู้ใช้ ID {user.Username} ได้เข้าร่วมกิจกรรม {eventDetails.Title}";
+                hostMessage = $"ผู้ใช้ {user.Username} ได้เข้าร่วมกิจกรรม {eventDetails.Title}";
+                hosttype = "JoinConfirmation";
             }
 
             var notificationForHost = new Notification
             {
                 UserId = hostId,
+                receiverId = userId,
                 EventId = eventId,
                 Message = hostMessage,
-                Type = "JoinRequest",
+                Type = hosttype,
                 Status = "Unread"
             };
 
             _context.Notifications.Add(notificationForHost);
-
+           await _context.SaveChangesAsync();
             await NotificationWebSocketHandler.SendNotificationToUser(hostId, hostMessage);
 
             string userMessage;
+            string usertype;
             if (eventDetails.RequiresConfirmation)
             {
-                userMessage = $"📩 คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณถูกส่งไปแล้ว";
+                userMessage = $"คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณถูกส่งไปแล้ว";
+                usertype = "SendJoinRequest";
             }
             else
             {
-                userMessage = $"📩 คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณได้รับการอนุมัติแล้ว";
+                userMessage = $"คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณได้รับการอนุมัติแล้ว";
+                usertype = "JoinConfirmation";
             }
 
             var notificationForUser = new Notification
@@ -299,18 +306,17 @@ namespace MaJerGan.Controllers
                 UserId = userId,
                 EventId = eventId,
                 Message = userMessage,
-                Type = "JoinRequest",
+                Type = usertype,
                 Status = "Unread"
             };
 
             _context.Notifications.Add(notificationForUser);
-
+            await _context.SaveChangesAsync();
             await NotificationWebSocketHandler.SendNotificationToUser(userId, userMessage);
 
 
             await WebSocketHandler.BroadcastMessage($"User {userId} joined event {eventId}");
 
-            await _context.SaveChangesAsync();
 
             return RedirectToAction("Details", new { id = eventId });
         }
@@ -346,7 +352,9 @@ namespace MaJerGan.Controllers
         // [Authorize]
         [HttpPost]
         public async Task<IActionResult> Approve(int eventId, int userId)
-        {
+        {   
+            Console.WriteLine(eventId);
+            Console.WriteLine(userId);
             var eventDetails = await _context.Events.FindAsync(eventId);
             if (eventDetails == null)
             {
@@ -380,7 +388,7 @@ namespace MaJerGan.Controllers
             participation.Status = ParticipationStatus.Approved;
             await _context.SaveChangesAsync();
 
-            string userMessage = $"📩 คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณได้รับการอนุมัติแล้ว";
+            string userMessage = $"คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณได้รับการอนุมัติแล้ว";
 
             var notificationForUser = new Notification
             {
@@ -417,6 +425,11 @@ namespace MaJerGan.Controllers
                 return NotFound("ไม่พบผู้ใช้นี้ในรายชื่อเข้าร่วม");
             }
 
+            if (participation.Status == ParticipationStatus.Approved)
+            {
+                return BadRequest("ผู้ใช้นี้ได้รับการอนุมัติแล้ว");
+            }
+
             if (participation.Status == ParticipationStatus.Rejected)
             {
                 return BadRequest("ผู้ใช้นี้ถูกปฏิเสธแล้ว");
@@ -426,7 +439,7 @@ namespace MaJerGan.Controllers
             participation.RejectedReason = "test";
             await _context.SaveChangesAsync();
 
-            string userMessage = $"📩 คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณถูกปฏิเสธ: test";
+            string userMessage = $"คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณถูกปฏิเสธ";
 
             var notificationForUser = new Notification
             {
