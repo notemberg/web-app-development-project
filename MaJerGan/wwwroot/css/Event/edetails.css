@@ -112,6 +112,7 @@ body {
     border: 3px solid #E3E3E3 ;
     min-height: 200px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    
 }
 
 .information-detail-text{
@@ -197,24 +198,39 @@ body {
     padding: 20px;
     text-align: start;
     background: #ffffff;
-    height: 600px;
+    height: 250px;
     border-left: 3px solid #E3E3E3 ;
     border-right: 3px solid #E3E3E3 ;
     border-bottom: 3px solid #E3E3E3 ;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     border-bottom-right-radius: 50px;
     border-bottom-left-radius: 50px;
-    overflow-y: auto; /* Enables vertical scrolling */
+    
 }
 
 .participant-list {
     display: flex;
     flex-direction: column;
-    height: 100%;
     gap: 10px;
+    overflow-y: auto; /* Enables vertical scrolling */
+    height: 220px;
+}
+.participant-list-pending {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    gap: 10px;
+    overflow-y: auto; /* Enables vertical scrolling */
+    overflow-x: hidden; 
+    height: 120px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .participant-box {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
     background: #ffffff;
     border-radius: 20px;
     padding: 10px 20px;
@@ -242,12 +258,23 @@ body {
     height: 40px;
     border-radius: 50%;
 }
-
-.approval-buttons {
-    display: flex;
-    gap: 5px;
+.btn {
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 10px;
 }
 
-.approval-buttons form {
-    display: inline;
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    min-width: 40px;
 }
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    min-width: 40px;
+}
+

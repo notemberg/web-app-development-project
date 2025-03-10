@@ -1,8 +1,24 @@
 .comment-section {
-    background: #b5b5b5;
-    color: #fff;
-    padding: 15px;
-    border-radius: 8px;
+    background: #ffffff;
+    border-radius: 50px;
+    border: 3px solid #E3E3E3 ;
+    min-height: 200px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    padding-top: 20px ;
+    padding: 20px;
+}
+
+textarea#commentContent {
+    width: 100%; /* Make textarea take up full width of its parent */
+    min-height: 100px; /* Fix minimum height */
+    resize: vertical; /* Allow vertical resize only */
+    padding: 10px; /* Padding inside the textarea */
+    font-size: 16px; /* Font size */
+    border: 2px solid #E3E3E3; /* Border style */
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    box-sizing: border-box; /* Include padding and border in the total width/height */
+    color: rgb(0, 0, 0);
 }
 
 .comment-input {
@@ -14,7 +30,8 @@
 .comment-input textarea {
     width: 100%;
     padding: 10px;
-    border-radius: 5px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
     border: 1px solid #444;
     background: #d8d8d8;
     color: rgb(0, 0, 0);
@@ -31,7 +48,6 @@
 }
 
 .comment-item {
-    background: #ffffff;
     color: #444;
     padding: 10px;
     border-radius: 5px;
@@ -46,15 +62,14 @@
 .comment-box {
     display: flex;
     align-items: center;
-    background: #ececec;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 8px;
 }
 
 .profile-image {
-    width: 40px;
-    height: 40px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
     margin-right: 10px;
     border: 2px solid #0078ff;

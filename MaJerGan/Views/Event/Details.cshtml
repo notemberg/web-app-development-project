@@ -79,21 +79,18 @@
                     }
                 </p>
                 <a href="@Url.Action("Chat", "Event", new { id = Model.Id })" class="btn btn-primary">💬 เข้าสู่แชท</a>
+                <h3>Comment</h3>
                 <div class="comment-section">
-                <h3>💬 ความคิดเห็น</h3>
-
-                <!-- ✅ ช่องกรอกความคิดเห็น -->
-                <div class="comment-input">
-                    <textarea id="commentContent" placeholder="เพิ่มความคิดเห็น..."></textarea>
-                    <button id="postCommentBtn" data-eventid="@Model.Id">📩 ส่งความคิดเห็น</button>
+                    <!-- ✅ ช่องกรอกความคิดเห็น -->
+                    <div class="comment-input">
+                        <textarea id="commentContent" placeholder="เพิ่มความคิดเห็น..."></textarea>
+                        <button id="postCommentBtn" data-eventid="@Model.Id">📩 ส่งความคิดเห็น</button>
+                    </div>
+                    <!-- ✅ แสดงความคิดเห็น -->
+                    <div id="commentsContainer">
+                        <p>กำลังโหลดความคิดเห็น...</p>
+                    </div>
                 </div>
-
-                <!-- ✅ แสดงความคิดเห็น -->
-                <div id="commentsContainer">
-                    <p>กำลังโหลดความคิดเห็น...</p>
-                </div>
-            </div>
-
             </div>
             <div class="participant"> 
                 <div class="participant-head">
@@ -146,7 +143,7 @@
                     </div>
                     *@
                     <div id="approvedParticipants" class="participant-list"></div>
-                    <div id="pendingParticipants" class="participant-list"></div>
+                    <div id="pendingParticipants" class="participant-list-pending"></div>
                 </div>
             </div>
         </div>

@@ -21,7 +21,6 @@ async function fetchEventDetails(eventId) {
             const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
             return `${days}d ${hours}h ${minutes}m`;
         }
-        console.log("Time Until Expiry:", formatTime(timeUntilExpiry));
         // Display data on the page (example)
         document.getElementById("timeUntilExpiry").textContent = formatTime(timeUntilExpiry);
     } catch (error) {
@@ -47,7 +46,7 @@ async function loadParticipants(eventId) {
         }
 
         participants.forEach(participant => {
-            console.log("🔹 Adding Participant:", participant.username, participant.status); // Debugging log
+            console.log(participant);
             const participantElement = document.createElement("div");
             participantElement.classList.add("participant-box");
 
@@ -61,6 +60,21 @@ async function loadParticipants(eventId) {
                 <img src="${participant.profileImg}" class="profile-images" alt="${participant.username}">
                 <span class="participant-name">${participant.username}</span>
             `;
+            // If participant is pending, add Approve and Reject buttons
+            if (participant.status === "Pending") {
+                const approveButton = document.createElement("button");
+                approveButton.innerHTML = "✅";
+                approveButton.classList.add("btn", "btn-success", "btn-sm");
+                approveButton.onclick = () => updateParticipantStatus(participant.userid, eventId, "Approve", participantElement);
+
+                const rejectButton = document.createElement("button");
+                rejectButton.innerHTML = "❌";
+                rejectButton.classList.add("btn", "btn-danger", "btn-sm");
+                rejectButton.onclick = () => updateParticipantStatus(participant.userid, eventId, "Reject", participantElement);
+
+                participantElement.appendChild(approveButton);
+                participantElement.appendChild(rejectButton);
+            }
 
             if (participant.status === "Approved") {
                 approvedContainer.appendChild(participantElement);
@@ -70,6 +84,33 @@ async function loadParticipants(eventId) {
         });
     } catch (error) {
         console.error("❌ Error loading participants:", error);
+    }
+}
+
+async function updateParticipantStatus(userId, eventId, action, participantElement) {
+    try {
+        const response = await fetch(`/Event/${action}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `eventId=${eventId}&userId=${userId}`
+            
+        });
+
+        if (!response.ok) throw new Error(`${action} request failed`);
+
+        console.log(`✅ Successfully ${action}d participant`);
+        
+        // Remove from pending list if rejected, move to approved list if approved
+        if (action === "Approve") {
+            participantElement.classList.remove("waiting");
+            participantElement.style.border = "2px solid #FFB6CF"; // Solid border for approved
+            document.getElementById("approvedParticipants").appendChild(participantElement);
+        } else {
+            participantElement.remove(); // Remove rejected participant
+        }
+
+    } catch (error) {
+        console.error(`❌ Error while ${action}ing participant:`, error);
     }
 }
 

@@ -384,7 +384,7 @@ namespace MaJerGan.Controllers
 
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> Approve(int eventId, int userId)
+        public async Task<IActionResult> Approve( int eventId, int userId)
         {
             var eventDetails = await _context.Events.FindAsync(eventId);
             if (eventDetails == null)
@@ -688,6 +688,7 @@ namespace MaJerGan.Controllers
                 {
                     username = p.User.Username,
                     profileImg = p.User.ProfilePicturee ?? "/images/default-profile.png", // Default image
+                    userid = p.UserId,
                     status = p.Status.ToString() // Approved or Pending
                 })
                 .ToList();
