@@ -49,6 +49,10 @@
       "PackagePath": "staticwebassets\\css\\Event\\createpp.css"
     },
     {
+      "Id": "D:\\webapp\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Event\\edit.css",
+      "PackagePath": "staticwebassets\\css\\Event\\edit.css"
+    },
+    {
       "Id": "D:\\webapp\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Home\\index.css",
       "PackagePath": "staticwebassets\\css\\Home\\index.css"
     },

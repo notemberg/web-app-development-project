@@ -96,12 +96,19 @@ namespace MaJerGan.Controllers
 
             return RedirectToAction("Details", new { id = model.Id });
         }
-
         [Authorize]
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var eventItem = _context.Events.Find(id);
+            var eventItem = _context.Events
+                .Include(e => e.Participants) // ✅ Ensure Participants are included
+                .ThenInclude(p => p.User)  
+                .FirstOrDefault(e => e.Id == id);
+
+            if (eventItem == null)
+            {
+                return NotFound();
+            }
 
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
             if (userIdClaim == null)
@@ -115,13 +122,10 @@ namespace MaJerGan.Controllers
             {
                 return Unauthorized();
             }
-            
-            if (eventItem == null)
-            {
-                return NotFound();
-            }
+
             return View(eventItem);
         }
+
 
         [HttpPost]
         public async Task<IActionResult> Edit(int id, Event model, string selectedTags)
@@ -142,7 +146,7 @@ namespace MaJerGan.Controllers
             {
                 return Unauthorized();
             }
-            
+
             if (existingEvent == null)
             {
                 return NotFound();

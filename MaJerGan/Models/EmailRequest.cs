@@ -21,5 +21,6 @@ namespace MaJerGan.Models
         public string ActivityName { get; set; }
         public DateTime? ActivityDate { get; set; }
         public string ActivityTime { get; set; }
+        public string  LocationName { get; set; }
     }
 }
