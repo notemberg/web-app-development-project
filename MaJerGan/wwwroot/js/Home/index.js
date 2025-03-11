@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         const formattedTime = timeAgo(new Date(event.createdAt));
 
-        const formattedEventTime = formatEventTime(event.eventTime);
+        const formattedEventTime = formatEventTimeFullYear(event.eventTime);
         const formattedGender = getGenderIndicators(event.allowedGenders);
         eventCard.innerHTML = `
                  <div class="hot-container">
@@ -206,95 +206,78 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// ✅ Function to create hot event card (Show views instead of time)
-function createEventCard(event) {
-  const eventCard = document.createElement("div");
-  eventCard.classList.add("hot-event-card");
-
-  let locationDisplay =
-    event.location.length > 20
-      ? event.location.substring(0, 20) + "..."
-      : event.location;
-
-  eventCard.innerHTML = `
-    <a href="/Event/Details/${event.id}">
-        <h3 class="event-title">
-            <span class="title-name">${event.title}</span> 
-            <span class="event-views">${event.viewCount} views</span>
-        </h3>
-        <p class="event-info">
-            Host: <span class="event-creator">${event.creator}&ensp;</span> 
-            <i class="fa-solid fa-user"></i>${event.currentParticipants}&ensp;
-           <span class="location"><i class="fa-solid fa-location-dot"></i> ${locationDisplay}</span>
-
-        </p>
-    </a>
-  `;
-
-  return eventCard;
+function formatEventTimeFullYear(isoDate) {
+  const date = new Date(isoDate);
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = String(date.getFullYear());
+  let hours = date.getHours();
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+  const ampm = hours >= 12 ? "PM" : "AM";
+  hours = hours % 12 || 12;
+  return `${day}/${month}/${year} at ${hours}:${minutes} ${ampm}`;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  function fetchEvents() {
-    fetch("/Event/GetRecentEvents")
-      .then((response) => response.json())
-      .then((events) => {
-        const recentContent = document.querySelector(".recent-content");
-        recentContent.innerHTML = ""; // ล้างข้อมูลเก่า
+  fetch("/Event/GetRecentEvents")
+    .then((response) => response.json())
+    .then((events) => {
+      const recentContent = document.querySelector(".recent-content");
+      recentContent.innerHTML = ""; // ล้างข้อมูลเก่า
 
-        if (!events || events.length === 0) {
-          recentContent.innerHTML =
-            "<p style='text-align:center; color:gray;'>ไม่มีอีเวนต์ล่าสุด</p>";
-          return;
+      if (!events || events.length === 0) {
+        recentContent.innerHTML =
+          "<p style='text-align:center; color:gray;'>ไม่มีอีเวนต์ล่าสุด</p>";
+        return;
+      }
+      events.forEach((event, index) => {
+        const eventCard = document.createElement("div");
+        eventCard.classList.add("recent-event-card");
+        eventCard.dataset.eventId = event.id;
+
+        // จำกัดความยาวของชื่ออีเวนต์
+        let titleDisplay =
+          event.title.length > 20
+            ? event.title.substring(0, 20) + "..."
+            : event.title;
+
+        // จำกัดความยาวของสถานที่
+
+        // ✅ จำกัดจำนวนแท็กที่แสดง (3 อันแรก)
+        let tagsArray = (event.tags || "").split(",");
+        let limitedTags = tagsArray.slice(0, 3);
+        let tagButtons = limitedTags
+          .map((tag) => `<button class="tag-button">${tag.trim()}</button>`)
+          .join(" ");
+
+        // ✅ ถ้ามีแท็กมากกว่า 3 อัน ให้ขึ้น "+X more"
+        if (tagsArray.length > 3) {
+          tagButtons += `<span class="more-tags"> +${
+            tagsArray.length - 3
+          } more</span>`;
         }
-        events.forEach((event, index) => {
-          const eventCard = document.createElement("div");
-          eventCard.classList.add("recent-event-card");
-          eventCard.dataset.eventId = event.id;
 
-          // จำกัดความยาวของชื่ออีเวนต์
-          let titleDisplay =
-            event.title.length > 20
-              ? event.title.substring(0, 20) + "..."
-              : event.title;
+        // ✅ จำกัดความยาวของชื่อสถานที่
+        let locationDisplay =
+          event.location.length > 30
+            ? event.location.substring(0, 30) + "..."
+            : event.location;
 
-          // จำกัดความยาวของสถานที่
+        // let titleDisplay =
+        //   event.title.length > 10
+        //     ? event.title.substring(0, 10) + "..."
+        //     : event.title;
 
-          // ✅ จำกัดจำนวนแท็กที่แสดง (3 อันแรก)
-          let tagsArray = (event.tags || "").split(",");
-          let limitedTags = tagsArray.slice(0, 3);
-          let tagButtons = limitedTags
-            .map((tag) => `<button class="tag-button">${tag.trim()}</button>`)
-            .join(" ");
+        // ✅ แปลงเวลาเป็นข้อความที่อ่านง่าย (เช่น "5 นาทีที่แล้ว")
+        const formattedTime = timeAgo(new Date(event.createdAt));
 
-          // ✅ ถ้ามีแท็กมากกว่า 3 อัน ให้ขึ้น "+X more"
-          if (tagsArray.length > 3) {
-            tagButtons += `<span class="more-tags"> +${
-              tagsArray.length - 3
-            } more</span>`;
-          }
+        const formattedEventTime = formatEventTime(event.eventTime);
+        //     <h3 class="event-title">
+        //     <span class="title-name">${event.title}</span>
+        //     <span class="Time">${formattedEventTime}</span>
+        // </h3>
 
-          // ✅ จำกัดความยาวของชื่อสถานที่
-          let locationDisplay =
-            event.location.length > 30
-              ? event.location.substring(0, 30) + "..."
-              : event.location;
-
-          // let titleDisplay =
-          //   event.title.length > 10
-          //     ? event.title.substring(0, 10) + "..."
-          //     : event.title;
-
-          // ✅ แปลงเวลาเป็นข้อความที่อ่านง่าย (เช่น "5 นาทีที่แล้ว")
-          const formattedTime = timeAgo(new Date(event.createdAt));
-
-          const formattedEventTime = formatEventTime(event.eventTime);
-          //     <h3 class="event-title">
-          //     <span class="title-name">${event.title}</span>
-          //     <span class="Time">${formattedEventTime}</span>
-          // </h3>
-
-          eventCard.innerHTML = `
+        eventCard.innerHTML = `
       <div class="recent-event-content">
           <div class="event-header">
               <h3 class="event-title">
@@ -313,39 +296,20 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="tags-container">Tags: ${tagButtons}</div>
       </div>
   `;
-          recentContent.appendChild(eventCard);
-        });
-
-        document.querySelectorAll(".recent-event-card").forEach((card) => {
-          card.addEventListener("click", function (e) {
-            if (!e.target.classList.contains("tag-button")) {
-              window.location.href = `/Event/Details/${this.dataset.eventId}`;
-            }
-          });
-        });
-      })
-      .catch((error) => {
-        console.error("Error fetching recent events:", error);
+        recentContent.appendChild(eventCard);
       });
-  }
 
-  // ✅ เรียก fetchEvents() ครั้งแรกตอนหน้าโหลด
-  fetchEvents();
-
-  // ✅ ตั้งให้ดึงข้อมูลใหม่ทุก 30 วินาที (ปรับค่าได้)
-  setInterval(fetchEvents, 30000);
-
-  function timeAgo(date) {
-    const seconds = Math.floor((new Date() - date) / 1000);
-    if (seconds < 60) return "Just now";
-    const minutes = Math.floor(seconds / 60);
-    if (minutes < 60) return `${minutes} Minutes ago`;
-    const hours = Math.floor(minutes / 60);
-    if (hours < 24) return `${hours} Hours ago`;
-    const days = Math.floor(hours / 24);
-    return `${days} Days ago`;
-  }
-
+      document.querySelectorAll(".recent-event-card").forEach((card) => {
+        card.addEventListener("click", function (e) {
+          if (!e.target.classList.contains("tag-button")) {
+            window.location.href = `/Event/Details/${this.dataset.eventId}`;
+          }
+        });
+      });
+    })
+    .catch((error) => {
+      console.error("Error fetching recent events:", error);
+    });
   function formatEventTime(isoDate) {
     const date = new Date(isoDate);
     const day = String(date.getDate()).padStart(2, "0");
