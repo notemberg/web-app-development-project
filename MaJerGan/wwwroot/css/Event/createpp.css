@@ -410,6 +410,9 @@ textarea:focus {
     gap: 5px;
 }
 
+.remove-tag {
+    cursor: pointer;
+    margin-top: 5px;}
 
 /* ✅ ปุ่มเลือกสถานที่ */
 .location-btn {
@@ -438,6 +441,12 @@ textarea:focus {
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
+.close-btn2 {
+    position: relative;
+    cursor: pointer;
+    float: right;
+    font-size: 24px;
+}
 /* Container to hold date & time input */
 .date-time-container {
     display: flex;
@@ -801,9 +810,6 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
         width: 100%;
         padding: 20px;
     }
-
-
-
 
     .date-time-container {
         width: 100%;

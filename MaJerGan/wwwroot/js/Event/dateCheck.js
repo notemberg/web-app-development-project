@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     const dateInput = document.getElementById("event-date");
+    const timeInput = document.getElementById("event-time");
     const expiryDateInput = document.getElementById("expiry-date");
 
     // ห้ามเลือกวันย้อนหลัง (วันเริ่มต้นต้องเป็นวันปัจจุบันหรืออนาคต)
@@ -12,11 +13,13 @@ document.addEventListener("DOMContentLoaded", function () {
     expiryDateInput.setAttribute("min", today); // ✅ ป้องกัน Expiry Date ที่ย้อนหลังวันนี้
 
     function validateDates() {
-        const startDate = new Date(dateInput.value);
+        // const startDate = new Date(dateInput.value);
+        const startDate = new Date(dateInput.value + "T" + timeInput.value + ":00");
         const expiryDate = new Date(expiryDateInput.value);
-
+        console.log("Start Date:", startDate);
+        console.log("Expiry Date:", expiryDate);
         if (expiryDate >= startDate) {
-            alert("⚠️ Expiry Date ต้องน้อยกว่าวันเริ่มต้น!");
+            alert("Registration End Date must be before the Event Date.");
             expiryDateInput.value = ""; // รีเซ็ตค่าเพื่อให้ผู้ใช้เลือกใหม่
         }
     }
@@ -25,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     dateInput.addEventListener("change", function () {
         if (dateInput.value) {
             const selectedDate = new Date(dateInput.value);
-            selectedDate.setDate(selectedDate.getDate() - 1); // ❗ ลดลง 1 วัน
+            selectedDate.setDate(selectedDate.getDate()); // ❗ ลดลง 1 วัน
             const formattedMaxDate = selectedDate.toISOString().split("T")[0] + "T23:59"; // ตั้งให้ปิดโพสต์ได้ถึง 23:59 ของวันก่อนหน้า
 
             console.log("Max Expiry Date:", formattedMaxDate);
