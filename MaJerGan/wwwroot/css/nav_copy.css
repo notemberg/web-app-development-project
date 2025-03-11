@@ -372,6 +372,10 @@ body {
   color: white;
 }
 
+h4 {
+  color: black;
+}
+
 .badge {
   background-color: red;
   color: white;
@@ -414,31 +418,109 @@ body {
 
 /* ✅ กรอบแจ้งเตือน */
 .notification-item {
-  padding: 10px;
-  border-bottom: 1px solid #3a3b3c;
-  background-color: #f0f0f0;
-  cursor: pointer;
-  color: rgba(0, 0, 0, 1);
-}
-
-.notification-item:hover {
-  background: #ffffff;
-}
-
-.notification-item.unread {
-  background: #ffffff;
-}
-
-.notification-item.unread:hover {
-  background-color: #FFEEEE;
-}
-
-/* ✅ ปุ่มทำให้เป็นอ่านแล้ว */
-.notification-header {
+  gap: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 20px;
+  justify-content: space-between;
+  background: #f8d7da;
+  padding: 15px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease-in-out;
+}
+
+/* ✅ เปลี่ยนสีถ้ายังไม่ได้อ่าน */
+.notification-item.unread {
+  background: #fde8e8;
+}
+
+/* ✅ ไอคอนแจ้งเตือน */
+.notification-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+}
+
+/* ✅ ข้อความแจ้งเตือน */
+.notification-content {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  gap: 12px;
+  position: relative;
+  padding-top: 10px
+}
+
+.notification-text {
+  flex-grow: 1;
+}
+
+.notification-message {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0;
+}
+
+.notification-time {
+  position: absolute;
+  margin: 0;
+  top: -14px;
+  left: 180px;
+  font-size: 12px;
+  color: #888;
+}
+
+/* ✅ ปุ่มในแจ้งเตือน */
+.notification-actions {
+  display: flex;
+  align-items: center;
+}
+
+.btn-accept, .btn-decline, .btn-detail {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 8px;
+}
+
+/* ✅ ปุ่ม Accept */
+.btn-accept {
+  background-color: #28a745;
+  color: white;
+}
+
+/* ✅ ปุ่ม Decline */
+.btn-decline {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* ✅ ปุ่ม Check the Detail */
+.btn-detail {
+  background-color: #ff6f61;
+  color: white;
+}
+
+/* ICON */
+.fa-circle-check {
+  font-size: 50px;
+}
+
+.fa-circle-xmark {
+  font-size: 50px;
+}
+
+.fa-paper-plane {
+  font-size: 50px;
+}
+
+.fa-envelope {
+  font-size: 50px;
 }
 
 #markAllAsRead {

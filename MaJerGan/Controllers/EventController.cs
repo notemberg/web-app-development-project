@@ -97,10 +97,25 @@ namespace MaJerGan.Controllers
             return RedirectToAction("Details", new { id = model.Id });
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Edit(int id)
         {
             var eventItem = _context.Events.Find(id);
+
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            int userId = int.Parse(userIdClaim.Value);
+
+            if (eventItem.CreatedBy != userId)
+            {
+                return Unauthorized();
+            }
+            
             if (eventItem == null)
             {
                 return NotFound();
@@ -109,15 +124,73 @@ namespace MaJerGan.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Event model)
+        public async Task<IActionResult> Edit(int id, Event model, string selectedTags)
         {
-            if (ModelState.IsValid)
+            var existingEvent = await _context.Events
+                .Include(e => e.EventTags)
+                .FirstOrDefaultAsync(e => e.Id == id);
+
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
             {
-                _context.Events.Update(model);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                return Unauthorized();
             }
-            return View(model);
+
+            int userId = int.Parse(userIdClaim.Value);
+
+            if (existingEvent.CreatedBy != userId)
+            {
+                return Unauthorized();
+            }
+            
+            if (existingEvent == null)
+            {
+                return NotFound();
+            }
+
+            // ✅ อัปเดตข้อมูลพื้นฐานของ Event
+            existingEvent.Title = model.Title;
+            existingEvent.Description = model.Description;
+            existingEvent.EventTime = model.EventTime;
+            existingEvent.Location = model.Location;
+            existingEvent.MaxParticipants = model.MaxParticipants;
+            existingEvent.AllowedGenders = model.AllowedGenders;
+            existingEvent.RequiresConfirmation = model.RequiresConfirmation;
+
+            // ✅ ลบ EventTags เก่าทั้งหมดก่อนเพิ่มแท็กใหม่
+            var existingTags = _context.EventTags.Where(et => et.EventId == id);
+            _context.EventTags.RemoveRange(existingTags);
+            await _context.SaveChangesAsync(); // ✅ บันทึกการลบก่อนเพิ่มใหม่
+
+            // ✅ เพิ่มแท็กใหม่ตาม `selectedTags`
+            if (!string.IsNullOrEmpty(selectedTags))
+            {
+                var tagNames = selectedTags.Split(',').Select(t => t.Trim()).ToList();
+                foreach (var tagName in tagNames)
+                {
+                    var tag = await _context.Tags.FirstOrDefaultAsync(t => t.Name == tagName);
+                    if (tag == null)
+                    {
+                        tag = new Tag { Name = tagName };
+                        _context.Tags.Add(tag);
+                        await _context.SaveChangesAsync();
+                    }
+
+                    _context.EventTags.Add(new EventTag { EventId = id, TagId = tag.Id });
+                }
+                await _context.SaveChangesAsync(); // ✅ บันทึก EventTags ใหม่
+            }
+
+            // ✅ อัปเดต `Tags` ให้ตรงกับฐานข้อมูล
+            existingEvent.Tags = string.Join(", ", _context.EventTags
+                .Where(et => et.EventId == id)
+                .Select(et => et.Tag.Name)
+                .ToList());
+
+            _context.Events.Update(existingEvent); // ✅ บอก EF Core ให้อัปเดต Event
+            await _context.SaveChangesAsync(); // ✅ บันทึกข้อมูล Event ที่แก้ไขแล้ว
+
+            return RedirectToAction("Details", new { id = id });
         }
 
 
@@ -339,7 +412,7 @@ namespace MaJerGan.Controllers
         [HttpPost]
         public async Task<IActionResult> Approve(int eventId, int userId)
         {
-            
+
             Console.WriteLine(eventId);
             Console.WriteLine(userId);
             var eventDetails = await _context.Events.FindAsync(eventId);
