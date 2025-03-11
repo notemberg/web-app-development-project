@@ -98,6 +98,28 @@ namespace MaJerGan.Controllers
             return RedirectToAction("Details", new { id = model.Id });
         }
 
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var eventItem = _context.Events.Find(id);
+            if (eventItem == null)
+            {
+                return NotFound();
+            }
+            return View(eventItem);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Event model)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Events.Update(model);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
 
 
         [HttpGet]
@@ -285,7 +307,7 @@ namespace MaJerGan.Controllers
             };
 
             _context.Notifications.Add(notificationForHost);
-           await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
             await NotificationWebSocketHandler.SendNotificationToUser(hostId, hostMessage);
 
             string userMessage;
@@ -352,7 +374,7 @@ namespace MaJerGan.Controllers
         // [Authorize]
         [HttpPost]
         public async Task<IActionResult> Approve(int eventId, int userId)
-        {   
+        {
             Console.WriteLine(eventId);
             Console.WriteLine(userId);
             var eventDetails = await _context.Events.FindAsync(eventId);

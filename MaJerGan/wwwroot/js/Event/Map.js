@@ -1,153 +1,22 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//   let map;
-//   let marker;
-//   let selectedPlace = null;
+document.addEventListener("DOMContentLoaded", function () {
+  fetch('/api/Api/get-api-key')
+      .then(response => response.json())
+      .then(data => {
+          if (!data.apiKey) {
+              console.error("Error: API Key not found");
+              return;
+          }
 
-//   function initMap() {
-//     map = new google.maps.Map(document.getElementById("map"), {
-//       center: { lat: 13.7563, lng: 100.5018 },
-//       zoom: 14,
-//     });
+          // โหลด Google Maps API
+          const script = document.createElement('script');
+          script.src = `https://maps.googleapis.com/maps/api/js?key=${data.apiKey}&libraries=places`;
+          script.async = true;
+          script.defer = true;
+          document.head.appendChild(script);
+      })
+      .catch(error => console.error('Error fetching API key:', error));
+});
 
-//     const input = document.getElementById("searchBoxLocation");
-//     const autocomplete = new google.maps.places.Autocomplete(input);
-//     autocomplete.setFields([
-//       "name",
-//       "formatted_address",
-//       "geometry",
-//       "place_id",
-//     ]);
-
-//     autocomplete.addListener("place_changed", () => {
-//       const place = autocomplete.getPlace();
-//       if (!place.geometry) {
-//         console.error("ไม่พบข้อมูลสถานที่!");
-//         return;
-//       }
-
-//       console.log(place);
-//       selectedPlace = {
-//         name: place.name,
-//         address: place.formatted_address,
-//         place_id: place.place_id,
-//       };
-
-//       if (marker) {
-//         marker.setMap(null);
-//       }
-//       marker = new google.maps.Marker({
-//         position: place.geometry.location,
-//         map: map,
-//         title: place.name,
-//       });
-
-//       map.setCenter(place.geometry.location);
-//       map.setZoom(16);
-//     });
-//   }
-
-//   document
-//     .getElementById("choose-location-btn")
-//     .addEventListener("click", () => {
-//       document.getElementById("modalContainer").style.display = "block";
-//     });
-
-//   document
-//     .getElementById("saveLocationButton")
-//     .addEventListener("click", function (event) {
-//       event.preventDefault(); // ✅ ป้องกัน Form Submit
-
-//       if (!selectedPlace) {
-//         alert("กรุณาเลือกสถานที่ก่อน!");
-//         return;
-//       }
-
-//       console.log(selectedPlace);
-//       getPlaceDetails(selectedPlace.place_id);
-//       const googleMapsUrl = `https://www.google.com/maps/place/?q=place_id:${selectedPlace.place_id}`;
-
-//       document.getElementById("locationInput").value = googleMapsUrl;
-
-//       closeModal();
-//     });
-
-//   function getPlaceDetails(placeId) {
-//     const service = new google.maps.places.PlacesService(map);
-//     service.getDetails(
-//       {
-//         placeId: placeId,
-//         fields: [
-//           "name",
-//           "formatted_address",
-//           "geometry",
-//           "photos",
-//           "rating",
-//           "website",
-//           "opening_hours",
-//         ],
-//       },
-//       function (place, status) {
-//         if (status === google.maps.places.PlacesServiceStatus.OK) {
-//           console.log(place);
-//           displayPlaceDetails(place);
-//         } else {
-//           console.error("❌ ไม่สามารถดึงข้อมูลสถานที่ได้:", status);
-//         }
-//       }
-//     );
-//   }
-
-//   function displayPlaceDetails(place) {
-//     let imageElement = document.getElementById("location-image");
-
-//     document.getElementById("location-name").textContent = place.name;
-//     document.getElementById("location-address").textContent =
-//       place.formatted_address;
-
-//     // ✅ ใช้ getUrl() ดึงรูปภาพที่ถูกต้อง
-//     if (place.photos && place.photos.length > 0) {
-//       const photoUrl = place.photos[0].getUrl({
-//         maxWidth: 400,
-//         maxHeight: 400,
-//       });
-//       console.log("🖼️ รูปภาพ URL:", photoUrl); // Debug เช็คค่า
-
-//       // document.getElementById("location-image").src = photoUrl;
-//       // document.getElementById("location-image").style.display = "block"; // ✅ บังคับให้แสดง
-//       let img = new Image();
-//       img.onload = function () {
-//         imageElement.src = photoUrl;
-//       };
-//       img.onerror = function () {
-//         console.warn("❌ รูปโหลดไม่ได้");
-//         imageElement.src =
-//           "https://play-lh.googleusercontent.com/-4N8D00C9qm8XtbLUgfDIynM-44nCHHUJmsjZJgZio8Fz3raXpUTYLIkrea5H947i78=w240-h480-rw";
-//       };
-//       img.src = photoUrl;
-//     } else {
-//       console.warn("❌ ไม่มีรูปภาพ!");
-//       document.getElementById("location-image").src =
-//         "https://play-lh.googleusercontent.com/-4N8D00C9qm8XtbLUgfDIynM-44nCHHUJmsjZJgZio8Fz3raXpUTYLIkrea5H947i78=w240-h480-rw"; // รูปเริ่มต้น
-//     }
-
-//     // ✅ แสดงข้อมูลสถานที่
-//     document.getElementById("location-info").style.display = "flex";
-//   }
-
-//   window.onload = initMap;
-// });
-
-// function closeModal() {
-//   document.getElementById("modalContainer").style.display = "none";
-//   document.getElementById("searchBoxLocation").value = "";
-// }
-
-const apiKey = "AIzaSyDJ0BrjaeMYo-Ib0n3r4RK1zO-u4v-XpBQ";
-const script = document.createElement('script');
-script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
-script.async = true;
-script.defer = true;
-document.head.appendChild(script);
 
 document.addEventListener("DOMContentLoaded", function () {
   let map;
