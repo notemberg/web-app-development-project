@@ -1,4 +1,4 @@
-﻿﻿document.addEventListener("DOMContentLoaded", function () {
+﻿document.addEventListener("DOMContentLoaded", function () {
   const addEventButton = document.querySelector(".add-event");
 
   addEventButton.addEventListener("click", function () {

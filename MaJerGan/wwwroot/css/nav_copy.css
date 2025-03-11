@@ -1,9 +1,11 @@
 /* ✅ Reset */
+
 body {
   margin: 0;
   padding: 0;
   background-color: #f5f5f5;
   /* font-family: Arial, sans-serif; */
+  /* font-family: 'Suez One'; */
   /* font-family: 'Suez One'; */
 }
 
@@ -397,6 +399,7 @@ body {
   padding: 10px;
   border-radius: 8px;
   color: white;
+
 }
 
 .notification-menu.show {
