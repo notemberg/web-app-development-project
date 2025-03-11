@@ -1,3 +1,10 @@
+// const apiKey = "AIzaSyC4dBWyUoZKWYYMSdRgtaXIxRE_rMu8GSM";
+// const script = document.createElement('script');
+// script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
+// script.async = true;
+// script.defer = true;
+// document.head.appendChild(script);
+
 document.addEventListener("DOMContentLoaded", function () {
   fetch('/api/Api/get-api-key')
       .then(response => response.json())
