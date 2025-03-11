@@ -13,7 +13,7 @@
 body {
     /* font-family: Arial, sans-serif; */
     font-family: 'Sulphur Point';
-    background: linear-gradient(to bottom left, #ffaab8, #C1FFC1);
+    background: linear-gradient(to bottom left, #ffaab8, #81d18e);
     flex-flow: column-reverse;
     display: flex;
     justify-content: center;

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8wsrm7WFiDPjpoUdFp2wlJ2GSOQ2K/jFfP/gKImJF6M=",
+  "Hash": "2pPY/zqVc7TjUznTk9KiMjkbwh7EleM42RD2Vr3Ivlc=",
   "Source": "MaJerGan",
   "BasePath": "_content/MaJerGan",
   "Mode": "Default",
@@ -164,12 +164,12 @@
       "OriginalItemSpec": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Auth\\Register.js"
     },
     {
-      "Identity": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\2yme4b8tjy-peofgc842z.gz",
+      "Identity": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\2yme4b8tjy-pajm9thzdt.gz",
       "SourceId": "MaJerGan",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/MaJerGan",
-      "RelativePath": "css/EventCard/HotCard#[.{fingerprint=peofgc842z}]?.css.gz",
+      "RelativePath": "css/EventCard/HotCard#[.{fingerprint=pajm9thzdt}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -178,8 +178,8 @@
       "RelatedAsset": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\EventCard\\HotCard.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "eb5xa2ytu3",
-      "Integrity": "1nT7/E00CPbKnlNFPxW3f+ruiPgCp0qa3+RZTbl+588=",
+      "Fingerprint": "ky9w1sy1zm",
+      "Integrity": "bOvD9EEZNWZG5i8/bNACfh8j55H21ENaAZluwhH8Ha0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\EventCard\\HotCard.css"
@@ -605,12 +605,12 @@
       "OriginalItemSpec": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\bedvzhp4h8-afopzqosx7.gz",
+      "Identity": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\bedvzhp4h8-1in3tk1vi1.gz",
       "SourceId": "MaJerGan",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/MaJerGan",
-      "RelativePath": "css/Auth/login#[.{fingerprint=afopzqosx7}]?.css.gz",
+      "RelativePath": "css/Auth/login#[.{fingerprint=1in3tk1vi1}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -619,8 +619,8 @@
       "RelatedAsset": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Auth\\login.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "359zyh6nin",
-      "Integrity": "B3/FTA6U+hpAfqM4HZyE6g6TT34G0gr5gpZpPZI08xQ=",
+      "Fingerprint": "zaxqp3oggs",
+      "Integrity": "5a/uvcJ/lhqfHqlBu2VHi5rvLuALPIORX1+47Gep2zM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Auth\\login.css"
@@ -815,12 +815,12 @@
       "OriginalItemSpec": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Profile\\Cropper.js"
     },
     {
-      "Identity": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\fo4ibkcuin-zp71g263uj.gz",
+      "Identity": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\fo4ibkcuin-9t7t6tzkkv.gz",
       "SourceId": "MaJerGan",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/MaJerGan",
-      "RelativePath": "js/Home/index#[.{fingerprint=zp71g263uj}]?.js.gz",
+      "RelativePath": "js/Home/index#[.{fingerprint=9t7t6tzkkv}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -829,8 +829,8 @@
       "RelatedAsset": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Home\\index.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "tvedchmv0j",
-      "Integrity": "mRxjT1PsT1F2lRBg8eBwzRq37q5qpSo8g9IclAXJWrQ=",
+      "Fingerprint": "gkdya9id1a",
+      "Integrity": "MOeJRwJTtZxPiEyKdpVb79w6CgSUxgB7pCuMy9M2Bqg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Home\\index.js"
@@ -878,12 +878,12 @@
       "OriginalItemSpec": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Event\\create.css"
     },
     {
-      "Identity": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\g9a1l7an1c-d6zwn34746.gz",
+      "Identity": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\g9a1l7an1c-fowhczuvlm.gz",
       "SourceId": "MaJerGan",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/MaJerGan",
-      "RelativePath": "css/EventCard/RecentCard#[.{fingerprint=d6zwn34746}]?.css.gz",
+      "RelativePath": "css/EventCard/RecentCard#[.{fingerprint=fowhczuvlm}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -892,8 +892,8 @@
       "RelatedAsset": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\EventCard\\RecentCard.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "5zd9gmpvd2",
-      "Integrity": "ASciuxk95JY5yVamN2pWD+Kd+NXGuhIzqyG3OWwjFoo=",
+      "Fingerprint": "w3gp5ss6uz",
+      "Integrity": "zHKB7LFD36twHMEvNhpW/d3rgzm4S9T8l54fMPe5DNs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\EventCard\\RecentCard.css"
@@ -941,12 +941,12 @@
       "OriginalItemSpec": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\hpndoo4fdd-i3ff3jnx2e.gz",
+      "Identity": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\hpndoo4fdd-6993s8p46e.gz",
       "SourceId": "MaJerGan",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/MaJerGan",
-      "RelativePath": "css/EventCard/UpcomingCard#[.{fingerprint=i3ff3jnx2e}]?.css.gz",
+      "RelativePath": "css/EventCard/UpcomingCard#[.{fingerprint=6993s8p46e}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -955,8 +955,8 @@
       "RelatedAsset": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\EventCard\\UpcomingCard.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "frwh60mwpi",
-      "Integrity": "5RkVorfcEBqja9ISmwCDq+DJD4Rd2fusjgo9GZsCr8o=",
+      "Fingerprint": "vw9hbqji6r",
+      "Integrity": "b49bxNEnnr5SP9ZwJsb20Ms/UWzsi4AMTnSgujyB6AQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\EventCard\\UpcomingCard.css"
@@ -1130,12 +1130,12 @@
       "OriginalItemSpec": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\lf9m8xzwxb-3blrj42n3y.gz",
+      "Identity": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\lf9m8xzwxb-awgjn3shb3.gz",
       "SourceId": "MaJerGan",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/MaJerGan",
-      "RelativePath": "css/Home/index#[.{fingerprint=3blrj42n3y}]?.css.gz",
+      "RelativePath": "css/Home/index#[.{fingerprint=awgjn3shb3}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1144,8 +1144,8 @@
       "RelatedAsset": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Home\\index.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "fmuhenmomq",
-      "Integrity": "R58HQ09sruMgkykRuMy0RjMCfn/ogoSuyA+K6nJHQOE=",
+      "Fingerprint": "0ljk85gxvc",
+      "Integrity": "JBzH5RraeyQv+iVUNq8l9yuM5YuQZ6H2QQveUmu2amY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Home\\index.css"
@@ -1886,12 +1886,12 @@
       "OriginalItemSpec": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\x7ilffeqhw-g8ccvfazfn.gz",
+      "Identity": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\x7ilffeqhw-etstxsmdjk.gz",
       "SourceId": "MaJerGan",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/MaJerGan",
-      "RelativePath": "css/nav_copy#[.{fingerprint=g8ccvfazfn}]?.css.gz",
+      "RelativePath": "css/nav_copy#[.{fingerprint=etstxsmdjk}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1900,8 +1900,8 @@
       "RelatedAsset": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\nav_copy.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "r10ruit5tp",
-      "Integrity": "AVFP9NMIF9L119746J0VKdV2Vu0s7QcC2QW8SjaBfMQ=",
+      "Fingerprint": "25lkx0hdmq",
+      "Integrity": "+kbM+KdQcs3sl44d/iBQpYW0QfaSyFz6kB1AEzLl2O8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\nav_copy.css"
@@ -2152,8 +2152,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "afopzqosx7",
-      "Integrity": "Go0CeY1nwU+U1MM3R+4ymDuyoBGVSaYTvfZtQqj+vck=",
+      "Fingerprint": "1in3tk1vi1",
+      "Integrity": "uXbNslz0khpqjoFbNCtCOhWUFFP2etgtLScrmc+KxSI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Auth\\login.css"
@@ -2278,8 +2278,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "peofgc842z",
-      "Integrity": "UWmUMM/VtNoo2GjtqCHCOW5yrUc/VLUYrMkAj4M+f+w=",
+      "Fingerprint": "pajm9thzdt",
+      "Integrity": "z+ewyklLQtn0PXN/khC1YY9T++qlCCuurmTfzBovlTQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\EventCard\\HotCard.css"
@@ -2299,8 +2299,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "d6zwn34746",
-      "Integrity": "Fd2g5I8HMQBOoIvrLXuxEtirYQiyC96WIlc08XKaI/U=",
+      "Fingerprint": "fowhczuvlm",
+      "Integrity": "UajAwVi640qLJxV6KbBVrSoG7V9tEU/EQg/4YW+KERY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\EventCard\\RecentCard.css"
@@ -2320,8 +2320,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "i3ff3jnx2e",
-      "Integrity": "Lrn83W3IvDkgB0NcbmDbwK1YtUGdmBW4QbuCGw9C2JU=",
+      "Fingerprint": "6993s8p46e",
+      "Integrity": "ZmIbu8i0b3ih2/FHhnxJya8o9/vcn58EQ5S6DEzUujo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\EventCard\\UpcomingCard.css"
@@ -2341,8 +2341,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "3blrj42n3y",
-      "Integrity": "YfiJF01D+4qma/OFxFszynNtnL6zFvZUg/q0jIwU6/I=",
+      "Fingerprint": "awgjn3shb3",
+      "Integrity": "tsB17oVs9HmQOjRb5GjKSOVLl7DU6vR0URKc860Lnm8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\Home\\index.css"
@@ -2383,8 +2383,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "g8ccvfazfn",
-      "Integrity": "ELzY1u01aQq2Hyz+u5BxmAhmG8Yg/lnFYMs/S2IbX8E=",
+      "Fingerprint": "etstxsmdjk",
+      "Integrity": "3nfrEOp8gziJJKDj+B29he+GdjMZWx0hKdrXYuAFTHc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\nav_copy.css"
@@ -2761,8 +2761,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "zp71g263uj",
-      "Integrity": "qaoQJ45YoKP/VqkTzHbPaveacYDO5C2430cPzcZh+UI=",
+      "Fingerprint": "9t7t6tzkkv",
+      "Integrity": "M6lgqspJ9QzMFU37vlhNLuagf58O9nOM79+M0UPBGu0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Home\\index.js"
@@ -4773,8 +4773,8 @@
       ]
     },
     {
-      "Route": "css/Auth/login.afopzqosx7.css",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\bedvzhp4h8-afopzqosx7.gz",
+      "Route": "css/Auth/login.1in3tk1vi1.css",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\bedvzhp4h8-1in3tk1vi1.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -4793,11 +4793,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"B3/FTA6U+hpAfqM4HZyE6g6TT34G0gr5gpZpPZI08xQ=\""
+          "Value": "\"5a/uvcJ/lhqfHqlBu2VHi5rvLuALPIORX1+47Gep2zM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 00:51:59 GMT"
+          "Value": "Tue, 11 Mar 2025 17:29:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4817,13 +4817,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Go0CeY1nwU+U1MM3R+4ymDuyoBGVSaYTvfZtQqj+vck=\""
+          "Value": "W/\"uXbNslz0khpqjoFbNCtCOhWUFFP2etgtLScrmc+KxSI=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "afopzqosx7"
+          "Value": "1in3tk1vi1"
         },
         {
           "Name": "label",
@@ -4831,12 +4831,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Go0CeY1nwU+U1MM3R+4ymDuyoBGVSaYTvfZtQqj+vck="
+          "Value": "sha256-uXbNslz0khpqjoFbNCtCOhWUFFP2etgtLScrmc+KxSI="
         }
       ]
     },
     {
-      "Route": "css/Auth/login.afopzqosx7.css",
+      "Route": "css/Auth/login.1in3tk1vi1.css",
       "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Auth\\login.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -4854,11 +4854,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Go0CeY1nwU+U1MM3R+4ymDuyoBGVSaYTvfZtQqj+vck=\""
+          "Value": "\"uXbNslz0khpqjoFbNCtCOhWUFFP2etgtLScrmc+KxSI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 00:51:59 GMT"
+          "Value": "Tue, 11 Mar 2025 17:29:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4868,7 +4868,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "afopzqosx7"
+          "Value": "1in3tk1vi1"
         },
         {
           "Name": "label",
@@ -4876,13 +4876,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Go0CeY1nwU+U1MM3R+4ymDuyoBGVSaYTvfZtQqj+vck="
+          "Value": "sha256-uXbNslz0khpqjoFbNCtCOhWUFFP2etgtLScrmc+KxSI="
         }
       ]
     },
     {
-      "Route": "css/Auth/login.afopzqosx7.css.gz",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\bedvzhp4h8-afopzqosx7.gz",
+      "Route": "css/Auth/login.1in3tk1vi1.css.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\bedvzhp4h8-1in3tk1vi1.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4899,11 +4899,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"B3/FTA6U+hpAfqM4HZyE6g6TT34G0gr5gpZpPZI08xQ=\""
+          "Value": "\"5a/uvcJ/lhqfHqlBu2VHi5rvLuALPIORX1+47Gep2zM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 00:51:59 GMT"
+          "Value": "Tue, 11 Mar 2025 17:29:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4921,7 +4921,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "afopzqosx7"
+          "Value": "1in3tk1vi1"
         },
         {
           "Name": "label",
@@ -4929,13 +4929,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-B3/FTA6U+hpAfqM4HZyE6g6TT34G0gr5gpZpPZI08xQ="
+          "Value": "sha256-5a/uvcJ/lhqfHqlBu2VHi5rvLuALPIORX1+47Gep2zM="
         }
       ]
     },
     {
       "Route": "css/Auth/login.css",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\bedvzhp4h8-afopzqosx7.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\bedvzhp4h8-1in3tk1vi1.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -4954,11 +4954,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"B3/FTA6U+hpAfqM4HZyE6g6TT34G0gr5gpZpPZI08xQ=\""
+          "Value": "\"5a/uvcJ/lhqfHqlBu2VHi5rvLuALPIORX1+47Gep2zM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 00:51:59 GMT"
+          "Value": "Tue, 11 Mar 2025 17:29:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4978,13 +4978,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Go0CeY1nwU+U1MM3R+4ymDuyoBGVSaYTvfZtQqj+vck=\""
+          "Value": "W/\"uXbNslz0khpqjoFbNCtCOhWUFFP2etgtLScrmc+KxSI=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Go0CeY1nwU+U1MM3R+4ymDuyoBGVSaYTvfZtQqj+vck="
+          "Value": "sha256-uXbNslz0khpqjoFbNCtCOhWUFFP2etgtLScrmc+KxSI="
         }
       ]
     },
@@ -5007,11 +5007,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Go0CeY1nwU+U1MM3R+4ymDuyoBGVSaYTvfZtQqj+vck=\""
+          "Value": "\"uXbNslz0khpqjoFbNCtCOhWUFFP2etgtLScrmc+KxSI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 00:51:59 GMT"
+          "Value": "Tue, 11 Mar 2025 17:29:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5021,13 +5021,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Go0CeY1nwU+U1MM3R+4ymDuyoBGVSaYTvfZtQqj+vck="
+          "Value": "sha256-uXbNslz0khpqjoFbNCtCOhWUFFP2etgtLScrmc+KxSI="
         }
       ]
     },
     {
       "Route": "css/Auth/login.css.gz",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\bedvzhp4h8-afopzqosx7.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\bedvzhp4h8-1in3tk1vi1.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5044,11 +5044,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"B3/FTA6U+hpAfqM4HZyE6g6TT34G0gr5gpZpPZI08xQ=\""
+          "Value": "\"5a/uvcJ/lhqfHqlBu2VHi5rvLuALPIORX1+47Gep2zM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 00:51:59 GMT"
+          "Value": "Tue, 11 Mar 2025 17:29:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5066,7 +5066,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-B3/FTA6U+hpAfqM4HZyE6g6TT34G0gr5gpZpPZI08xQ="
+          "Value": "sha256-5a/uvcJ/lhqfHqlBu2VHi5rvLuALPIORX1+47Gep2zM="
         }
       ]
     },
@@ -6562,12 +6562,12 @@
     },
     {
       "Route": "css/EventCard/HotCard.css",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\2yme4b8tjy-peofgc842z.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\2yme4b8tjy-pajm9thzdt.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000563697858"
+          "Quality": "0.000510464523"
         }
       ],
       "ResponseHeaders": [
@@ -6577,15 +6577,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1773"
+          "Value": "1958"
         },
         {
           "Name": "ETag",
-          "Value": "\"1nT7/E00CPbKnlNFPxW3f+ruiPgCp0qa3+RZTbl+588=\""
+          "Value": "\"bOvD9EEZNWZG5i8/bNACfh8j55H21ENaAZluwhH8Ha0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 00:52:32 GMT"
+          "Value": "Mon, 10 Mar 2025 15:26:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6605,13 +6605,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"UWmUMM/VtNoo2GjtqCHCOW5yrUc/VLUYrMkAj4M+f+w=\""
+          "Value": "W/\"z+ewyklLQtn0PXN/khC1YY9T++qlCCuurmTfzBovlTQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-UWmUMM/VtNoo2GjtqCHCOW5yrUc/VLUYrMkAj4M+f+w="
+          "Value": "sha256-z+ewyklLQtn0PXN/khC1YY9T++qlCCuurmTfzBovlTQ="
         }
       ]
     },
@@ -6626,7 +6626,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6457"
+          "Value": "7294"
         },
         {
           "Name": "Content-Type",
@@ -6634,11 +6634,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"UWmUMM/VtNoo2GjtqCHCOW5yrUc/VLUYrMkAj4M+f+w=\""
+          "Value": "\"z+ewyklLQtn0PXN/khC1YY9T++qlCCuurmTfzBovlTQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 00:52:32 GMT"
+          "Value": "Mon, 10 Mar 2025 15:26:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6648,13 +6648,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-UWmUMM/VtNoo2GjtqCHCOW5yrUc/VLUYrMkAj4M+f+w="
+          "Value": "sha256-z+ewyklLQtn0PXN/khC1YY9T++qlCCuurmTfzBovlTQ="
         }
       ]
     },
     {
       "Route": "css/EventCard/HotCard.css.gz",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\2yme4b8tjy-peofgc842z.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\2yme4b8tjy-pajm9thzdt.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6663,7 +6663,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1773"
+          "Value": "1958"
         },
         {
           "Name": "Content-Type",
@@ -6671,11 +6671,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"1nT7/E00CPbKnlNFPxW3f+ruiPgCp0qa3+RZTbl+588=\""
+          "Value": "\"bOvD9EEZNWZG5i8/bNACfh8j55H21ENaAZluwhH8Ha0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 00:52:32 GMT"
+          "Value": "Mon, 10 Mar 2025 15:26:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6693,18 +6693,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-1nT7/E00CPbKnlNFPxW3f+ruiPgCp0qa3+RZTbl+588="
+          "Value": "sha256-bOvD9EEZNWZG5i8/bNACfh8j55H21ENaAZluwhH8Ha0="
         }
       ]
     },
     {
-      "Route": "css/EventCard/HotCard.peofgc842z.css",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\2yme4b8tjy-peofgc842z.gz",
+      "Route": "css/EventCard/HotCard.pajm9thzdt.css",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\2yme4b8tjy-pajm9thzdt.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000563697858"
+          "Quality": "0.000510464523"
         }
       ],
       "ResponseHeaders": [
@@ -6714,15 +6714,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1773"
+          "Value": "1958"
         },
         {
           "Name": "ETag",
-          "Value": "\"1nT7/E00CPbKnlNFPxW3f+ruiPgCp0qa3+RZTbl+588=\""
+          "Value": "\"bOvD9EEZNWZG5i8/bNACfh8j55H21ENaAZluwhH8Ha0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 00:52:32 GMT"
+          "Value": "Mon, 10 Mar 2025 15:26:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6742,13 +6742,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"UWmUMM/VtNoo2GjtqCHCOW5yrUc/VLUYrMkAj4M+f+w=\""
+          "Value": "W/\"z+ewyklLQtn0PXN/khC1YY9T++qlCCuurmTfzBovlTQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "peofgc842z"
+          "Value": "pajm9thzdt"
         },
         {
           "Name": "label",
@@ -6756,12 +6756,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-UWmUMM/VtNoo2GjtqCHCOW5yrUc/VLUYrMkAj4M+f+w="
+          "Value": "sha256-z+ewyklLQtn0PXN/khC1YY9T++qlCCuurmTfzBovlTQ="
         }
       ]
     },
     {
-      "Route": "css/EventCard/HotCard.peofgc842z.css",
+      "Route": "css/EventCard/HotCard.pajm9thzdt.css",
       "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\EventCard\\HotCard.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -6771,7 +6771,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "6457"
+          "Value": "7294"
         },
         {
           "Name": "Content-Type",
@@ -6779,11 +6779,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"UWmUMM/VtNoo2GjtqCHCOW5yrUc/VLUYrMkAj4M+f+w=\""
+          "Value": "\"z+ewyklLQtn0PXN/khC1YY9T++qlCCuurmTfzBovlTQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 00:52:32 GMT"
+          "Value": "Mon, 10 Mar 2025 15:26:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6793,7 +6793,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "peofgc842z"
+          "Value": "pajm9thzdt"
         },
         {
           "Name": "label",
@@ -6801,13 +6801,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-UWmUMM/VtNoo2GjtqCHCOW5yrUc/VLUYrMkAj4M+f+w="
+          "Value": "sha256-z+ewyklLQtn0PXN/khC1YY9T++qlCCuurmTfzBovlTQ="
         }
       ]
     },
     {
-      "Route": "css/EventCard/HotCard.peofgc842z.css.gz",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\2yme4b8tjy-peofgc842z.gz",
+      "Route": "css/EventCard/HotCard.pajm9thzdt.css.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\2yme4b8tjy-pajm9thzdt.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6816,7 +6816,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1773"
+          "Value": "1958"
         },
         {
           "Name": "Content-Type",
@@ -6824,11 +6824,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"1nT7/E00CPbKnlNFPxW3f+ruiPgCp0qa3+RZTbl+588=\""
+          "Value": "\"bOvD9EEZNWZG5i8/bNACfh8j55H21ENaAZluwhH8Ha0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 00:52:32 GMT"
+          "Value": "Mon, 10 Mar 2025 15:26:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6846,7 +6846,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "peofgc842z"
+          "Value": "pajm9thzdt"
         },
         {
           "Name": "label",
@@ -6854,18 +6854,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-1nT7/E00CPbKnlNFPxW3f+ruiPgCp0qa3+RZTbl+588="
+          "Value": "sha256-bOvD9EEZNWZG5i8/bNACfh8j55H21ENaAZluwhH8Ha0="
         }
       ]
     },
     {
       "Route": "css/EventCard/RecentCard.css",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\g9a1l7an1c-d6zwn34746.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\g9a1l7an1c-fowhczuvlm.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000463606861"
+          "Quality": "0.000459136823"
         }
       ],
       "ResponseHeaders": [
@@ -6875,15 +6875,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2156"
+          "Value": "2177"
         },
         {
           "Name": "ETag",
-          "Value": "\"ASciuxk95JY5yVamN2pWD+Kd+NXGuhIzqyG3OWwjFoo=\""
+          "Value": "\"zHKB7LFD36twHMEvNhpW/d3rgzm4S9T8l54fMPe5DNs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:45:07 GMT"
+          "Value": "Tue, 11 Mar 2025 09:27:57 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6903,13 +6903,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Fd2g5I8HMQBOoIvrLXuxEtirYQiyC96WIlc08XKaI/U=\""
+          "Value": "W/\"UajAwVi640qLJxV6KbBVrSoG7V9tEU/EQg/4YW+KERY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Fd2g5I8HMQBOoIvrLXuxEtirYQiyC96WIlc08XKaI/U="
+          "Value": "sha256-UajAwVi640qLJxV6KbBVrSoG7V9tEU/EQg/4YW+KERY="
         }
       ]
     },
@@ -6924,7 +6924,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "9678"
+          "Value": "9725"
         },
         {
           "Name": "Content-Type",
@@ -6932,11 +6932,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Fd2g5I8HMQBOoIvrLXuxEtirYQiyC96WIlc08XKaI/U=\""
+          "Value": "\"UajAwVi640qLJxV6KbBVrSoG7V9tEU/EQg/4YW+KERY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:45:07 GMT"
+          "Value": "Tue, 11 Mar 2025 09:27:57 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6946,13 +6946,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Fd2g5I8HMQBOoIvrLXuxEtirYQiyC96WIlc08XKaI/U="
+          "Value": "sha256-UajAwVi640qLJxV6KbBVrSoG7V9tEU/EQg/4YW+KERY="
         }
       ]
     },
     {
       "Route": "css/EventCard/RecentCard.css.gz",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\g9a1l7an1c-d6zwn34746.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\g9a1l7an1c-fowhczuvlm.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6961,7 +6961,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2156"
+          "Value": "2177"
         },
         {
           "Name": "Content-Type",
@@ -6969,11 +6969,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ASciuxk95JY5yVamN2pWD+Kd+NXGuhIzqyG3OWwjFoo=\""
+          "Value": "\"zHKB7LFD36twHMEvNhpW/d3rgzm4S9T8l54fMPe5DNs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:45:07 GMT"
+          "Value": "Tue, 11 Mar 2025 09:27:57 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6991,18 +6991,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ASciuxk95JY5yVamN2pWD+Kd+NXGuhIzqyG3OWwjFoo="
+          "Value": "sha256-zHKB7LFD36twHMEvNhpW/d3rgzm4S9T8l54fMPe5DNs="
         }
       ]
     },
     {
-      "Route": "css/EventCard/RecentCard.d6zwn34746.css",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\g9a1l7an1c-d6zwn34746.gz",
+      "Route": "css/EventCard/RecentCard.fowhczuvlm.css",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\g9a1l7an1c-fowhczuvlm.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000463606861"
+          "Quality": "0.000459136823"
         }
       ],
       "ResponseHeaders": [
@@ -7012,15 +7012,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2156"
+          "Value": "2177"
         },
         {
           "Name": "ETag",
-          "Value": "\"ASciuxk95JY5yVamN2pWD+Kd+NXGuhIzqyG3OWwjFoo=\""
+          "Value": "\"zHKB7LFD36twHMEvNhpW/d3rgzm4S9T8l54fMPe5DNs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:45:07 GMT"
+          "Value": "Tue, 11 Mar 2025 09:27:57 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7040,13 +7040,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Fd2g5I8HMQBOoIvrLXuxEtirYQiyC96WIlc08XKaI/U=\""
+          "Value": "W/\"UajAwVi640qLJxV6KbBVrSoG7V9tEU/EQg/4YW+KERY=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "d6zwn34746"
+          "Value": "fowhczuvlm"
         },
         {
           "Name": "label",
@@ -7054,12 +7054,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Fd2g5I8HMQBOoIvrLXuxEtirYQiyC96WIlc08XKaI/U="
+          "Value": "sha256-UajAwVi640qLJxV6KbBVrSoG7V9tEU/EQg/4YW+KERY="
         }
       ]
     },
     {
-      "Route": "css/EventCard/RecentCard.d6zwn34746.css",
+      "Route": "css/EventCard/RecentCard.fowhczuvlm.css",
       "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\EventCard\\RecentCard.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -7069,7 +7069,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "9678"
+          "Value": "9725"
         },
         {
           "Name": "Content-Type",
@@ -7077,11 +7077,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Fd2g5I8HMQBOoIvrLXuxEtirYQiyC96WIlc08XKaI/U=\""
+          "Value": "\"UajAwVi640qLJxV6KbBVrSoG7V9tEU/EQg/4YW+KERY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:45:07 GMT"
+          "Value": "Tue, 11 Mar 2025 09:27:57 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7091,7 +7091,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "d6zwn34746"
+          "Value": "fowhczuvlm"
         },
         {
           "Name": "label",
@@ -7099,13 +7099,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Fd2g5I8HMQBOoIvrLXuxEtirYQiyC96WIlc08XKaI/U="
+          "Value": "sha256-UajAwVi640qLJxV6KbBVrSoG7V9tEU/EQg/4YW+KERY="
         }
       ]
     },
     {
-      "Route": "css/EventCard/RecentCard.d6zwn34746.css.gz",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\g9a1l7an1c-d6zwn34746.gz",
+      "Route": "css/EventCard/RecentCard.fowhczuvlm.css.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\g9a1l7an1c-fowhczuvlm.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7114,7 +7114,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2156"
+          "Value": "2177"
         },
         {
           "Name": "Content-Type",
@@ -7122,11 +7122,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ASciuxk95JY5yVamN2pWD+Kd+NXGuhIzqyG3OWwjFoo=\""
+          "Value": "\"zHKB7LFD36twHMEvNhpW/d3rgzm4S9T8l54fMPe5DNs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:45:07 GMT"
+          "Value": "Tue, 11 Mar 2025 09:27:57 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7144,7 +7144,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "d6zwn34746"
+          "Value": "fowhczuvlm"
         },
         {
           "Name": "label",
@@ -7152,18 +7152,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ASciuxk95JY5yVamN2pWD+Kd+NXGuhIzqyG3OWwjFoo="
+          "Value": "sha256-zHKB7LFD36twHMEvNhpW/d3rgzm4S9T8l54fMPe5DNs="
         }
       ]
     },
     {
-      "Route": "css/EventCard/UpcomingCard.css",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\hpndoo4fdd-i3ff3jnx2e.gz",
+      "Route": "css/EventCard/UpcomingCard.6993s8p46e.css",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\hpndoo4fdd-6993s8p46e.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000644745326"
+          "Quality": "0.000637348630"
         }
       ],
       "ResponseHeaders": [
@@ -7173,19 +7173,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1550"
+          "Value": "1568"
         },
         {
           "Name": "ETag",
-          "Value": "\"5RkVorfcEBqja9ISmwCDq+DJD4Rd2fusjgo9GZsCr8o=\""
+          "Value": "\"b49bxNEnnr5SP9ZwJsb20Ms/UWzsi4AMTnSgujyB6AQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:53:11 GMT"
+          "Value": "Tue, 11 Mar 2025 09:27:53 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -7201,18 +7201,26 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Lrn83W3IvDkgB0NcbmDbwK1YtUGdmBW4QbuCGw9C2JU=\""
+          "Value": "W/\"ZmIbu8i0b3ih2/FHhnxJya8o9/vcn58EQ5S6DEzUujo=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "6993s8p46e"
+        },
+        {
+          "Name": "label",
+          "Value": "css/EventCard/UpcomingCard.css"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-Lrn83W3IvDkgB0NcbmDbwK1YtUGdmBW4QbuCGw9C2JU="
+          "Value": "sha256-ZmIbu8i0b3ih2/FHhnxJya8o9/vcn58EQ5S6DEzUujo="
         }
       ]
     },
     {
-      "Route": "css/EventCard/UpcomingCard.css",
+      "Route": "css/EventCard/UpcomingCard.6993s8p46e.css",
       "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\EventCard\\UpcomingCard.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -7222,7 +7230,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5077"
+          "Value": "5124"
         },
         {
           "Name": "Content-Type",
@@ -7230,121 +7238,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Lrn83W3IvDkgB0NcbmDbwK1YtUGdmBW4QbuCGw9C2JU=\""
+          "Value": "\"ZmIbu8i0b3ih2/FHhnxJya8o9/vcn58EQ5S6DEzUujo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:53:11 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-Lrn83W3IvDkgB0NcbmDbwK1YtUGdmBW4QbuCGw9C2JU="
-        }
-      ]
-    },
-    {
-      "Route": "css/EventCard/UpcomingCard.css.gz",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\hpndoo4fdd-i3ff3jnx2e.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1550"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"5RkVorfcEBqja9ISmwCDq+DJD4Rd2fusjgo9GZsCr8o=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:53:11 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-5RkVorfcEBqja9ISmwCDq+DJD4Rd2fusjgo9GZsCr8o="
-        }
-      ]
-    },
-    {
-      "Route": "css/EventCard/UpcomingCard.i3ff3jnx2e.css",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\hpndoo4fdd-i3ff3jnx2e.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000644745326"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1550"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"5RkVorfcEBqja9ISmwCDq+DJD4Rd2fusjgo9GZsCr8o=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:53:11 GMT"
+          "Value": "Tue, 11 Mar 2025 09:27:53 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"Lrn83W3IvDkgB0NcbmDbwK1YtUGdmBW4QbuCGw9C2JU=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "i3ff3jnx2e"
+          "Value": "6993s8p46e"
         },
         {
           "Name": "label",
@@ -7352,13 +7260,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Lrn83W3IvDkgB0NcbmDbwK1YtUGdmBW4QbuCGw9C2JU="
+          "Value": "sha256-ZmIbu8i0b3ih2/FHhnxJya8o9/vcn58EQ5S6DEzUujo="
         }
       ]
     },
     {
-      "Route": "css/EventCard/UpcomingCard.i3ff3jnx2e.css",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\EventCard\\UpcomingCard.css",
+      "Route": "css/EventCard/UpcomingCard.6993s8p46e.css.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\hpndoo4fdd-6993s8p46e.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7367,7 +7275,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5077"
+          "Value": "1568"
         },
         {
           "Name": "Content-Type",
@@ -7375,56 +7283,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Lrn83W3IvDkgB0NcbmDbwK1YtUGdmBW4QbuCGw9C2JU=\""
+          "Value": "\"b49bxNEnnr5SP9ZwJsb20Ms/UWzsi4AMTnSgujyB6AQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:53:11 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "i3ff3jnx2e"
-        },
-        {
-          "Name": "label",
-          "Value": "css/EventCard/UpcomingCard.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-Lrn83W3IvDkgB0NcbmDbwK1YtUGdmBW4QbuCGw9C2JU="
-        }
-      ]
-    },
-    {
-      "Route": "css/EventCard/UpcomingCard.i3ff3jnx2e.css.gz",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\hpndoo4fdd-i3ff3jnx2e.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1550"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"5RkVorfcEBqja9ISmwCDq+DJD4Rd2fusjgo9GZsCr8o=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:53:11 GMT"
+          "Value": "Tue, 11 Mar 2025 09:27:53 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7442,7 +7305,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "i3ff3jnx2e"
+          "Value": "6993s8p46e"
         },
         {
           "Name": "label",
@@ -7450,18 +7313,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-5RkVorfcEBqja9ISmwCDq+DJD4Rd2fusjgo9GZsCr8o="
+          "Value": "sha256-b49bxNEnnr5SP9ZwJsb20Ms/UWzsi4AMTnSgujyB6AQ="
         }
       ]
     },
     {
-      "Route": "css/Home/index.3blrj42n3y.css",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\lf9m8xzwxb-3blrj42n3y.gz",
+      "Route": "css/EventCard/UpcomingCard.css",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\hpndoo4fdd-6993s8p46e.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000459136823"
+          "Quality": "0.000637348630"
         }
       ],
       "ResponseHeaders": [
@@ -7471,15 +7334,152 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2177"
+          "Value": "1568"
         },
         {
           "Name": "ETag",
-          "Value": "\"R58HQ09sruMgkykRuMy0RjMCfn/ogoSuyA+K6nJHQOE=\""
+          "Value": "\"b49bxNEnnr5SP9ZwJsb20Ms/UWzsi4AMTnSgujyB6AQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 11:56:55 GMT"
+          "Value": "Tue, 11 Mar 2025 09:27:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ZmIbu8i0b3ih2/FHhnxJya8o9/vcn58EQ5S6DEzUujo=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZmIbu8i0b3ih2/FHhnxJya8o9/vcn58EQ5S6DEzUujo="
+        }
+      ]
+    },
+    {
+      "Route": "css/EventCard/UpcomingCard.css",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\EventCard\\UpcomingCard.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5124"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZmIbu8i0b3ih2/FHhnxJya8o9/vcn58EQ5S6DEzUujo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Mar 2025 09:27:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZmIbu8i0b3ih2/FHhnxJya8o9/vcn58EQ5S6DEzUujo="
+        }
+      ]
+    },
+    {
+      "Route": "css/EventCard/UpcomingCard.css.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\hpndoo4fdd-6993s8p46e.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1568"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"b49bxNEnnr5SP9ZwJsb20Ms/UWzsi4AMTnSgujyB6AQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Mar 2025 09:27:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-b49bxNEnnr5SP9ZwJsb20Ms/UWzsi4AMTnSgujyB6AQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/Home/index.awgjn3shb3.css",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\lf9m8xzwxb-awgjn3shb3.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000455788514"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2193"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JBzH5RraeyQv+iVUNq8l9yuM5YuQZ6H2QQveUmu2amY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Mar 2025 09:27:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7499,13 +7499,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"YfiJF01D+4qma/OFxFszynNtnL6zFvZUg/q0jIwU6/I=\""
+          "Value": "W/\"tsB17oVs9HmQOjRb5GjKSOVLl7DU6vR0URKc860Lnm8=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3blrj42n3y"
+          "Value": "awgjn3shb3"
         },
         {
           "Name": "label",
@@ -7513,12 +7513,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-YfiJF01D+4qma/OFxFszynNtnL6zFvZUg/q0jIwU6/I="
+          "Value": "sha256-tsB17oVs9HmQOjRb5GjKSOVLl7DU6vR0URKc860Lnm8="
         }
       ]
     },
     {
-      "Route": "css/Home/index.3blrj42n3y.css",
+      "Route": "css/Home/index.awgjn3shb3.css",
       "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\Home\\index.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -7528,7 +7528,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8029"
+          "Value": "8078"
         },
         {
           "Name": "Content-Type",
@@ -7536,11 +7536,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YfiJF01D+4qma/OFxFszynNtnL6zFvZUg/q0jIwU6/I=\""
+          "Value": "\"tsB17oVs9HmQOjRb5GjKSOVLl7DU6vR0URKc860Lnm8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 11:56:55 GMT"
+          "Value": "Tue, 11 Mar 2025 09:27:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7550,7 +7550,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3blrj42n3y"
+          "Value": "awgjn3shb3"
         },
         {
           "Name": "label",
@@ -7558,13 +7558,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-YfiJF01D+4qma/OFxFszynNtnL6zFvZUg/q0jIwU6/I="
+          "Value": "sha256-tsB17oVs9HmQOjRb5GjKSOVLl7DU6vR0URKc860Lnm8="
         }
       ]
     },
     {
-      "Route": "css/Home/index.3blrj42n3y.css.gz",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\lf9m8xzwxb-3blrj42n3y.gz",
+      "Route": "css/Home/index.awgjn3shb3.css.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\lf9m8xzwxb-awgjn3shb3.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7573,7 +7573,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2177"
+          "Value": "2193"
         },
         {
           "Name": "Content-Type",
@@ -7581,11 +7581,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"R58HQ09sruMgkykRuMy0RjMCfn/ogoSuyA+K6nJHQOE=\""
+          "Value": "\"JBzH5RraeyQv+iVUNq8l9yuM5YuQZ6H2QQveUmu2amY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 11:56:55 GMT"
+          "Value": "Tue, 11 Mar 2025 09:27:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7603,7 +7603,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3blrj42n3y"
+          "Value": "awgjn3shb3"
         },
         {
           "Name": "label",
@@ -7611,18 +7611,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-R58HQ09sruMgkykRuMy0RjMCfn/ogoSuyA+K6nJHQOE="
+          "Value": "sha256-JBzH5RraeyQv+iVUNq8l9yuM5YuQZ6H2QQveUmu2amY="
         }
       ]
     },
     {
       "Route": "css/Home/index.css",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\lf9m8xzwxb-3blrj42n3y.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\lf9m8xzwxb-awgjn3shb3.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000459136823"
+          "Quality": "0.000455788514"
         }
       ],
       "ResponseHeaders": [
@@ -7632,15 +7632,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2177"
+          "Value": "2193"
         },
         {
           "Name": "ETag",
-          "Value": "\"R58HQ09sruMgkykRuMy0RjMCfn/ogoSuyA+K6nJHQOE=\""
+          "Value": "\"JBzH5RraeyQv+iVUNq8l9yuM5YuQZ6H2QQveUmu2amY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 11:56:55 GMT"
+          "Value": "Tue, 11 Mar 2025 09:27:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7660,13 +7660,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"YfiJF01D+4qma/OFxFszynNtnL6zFvZUg/q0jIwU6/I=\""
+          "Value": "W/\"tsB17oVs9HmQOjRb5GjKSOVLl7DU6vR0URKc860Lnm8=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-YfiJF01D+4qma/OFxFszynNtnL6zFvZUg/q0jIwU6/I="
+          "Value": "sha256-tsB17oVs9HmQOjRb5GjKSOVLl7DU6vR0URKc860Lnm8="
         }
       ]
     },
@@ -7681,7 +7681,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8029"
+          "Value": "8078"
         },
         {
           "Name": "Content-Type",
@@ -7689,11 +7689,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"YfiJF01D+4qma/OFxFszynNtnL6zFvZUg/q0jIwU6/I=\""
+          "Value": "\"tsB17oVs9HmQOjRb5GjKSOVLl7DU6vR0URKc860Lnm8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 11:56:55 GMT"
+          "Value": "Tue, 11 Mar 2025 09:27:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7703,13 +7703,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-YfiJF01D+4qma/OFxFszynNtnL6zFvZUg/q0jIwU6/I="
+          "Value": "sha256-tsB17oVs9HmQOjRb5GjKSOVLl7DU6vR0URKc860Lnm8="
         }
       ]
     },
     {
       "Route": "css/Home/index.css.gz",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\lf9m8xzwxb-3blrj42n3y.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\lf9m8xzwxb-awgjn3shb3.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7718,7 +7718,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2177"
+          "Value": "2193"
         },
         {
           "Name": "Content-Type",
@@ -7726,11 +7726,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"R58HQ09sruMgkykRuMy0RjMCfn/ogoSuyA+K6nJHQOE=\""
+          "Value": "\"JBzH5RraeyQv+iVUNq8l9yuM5YuQZ6H2QQveUmu2amY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 11:56:55 GMT"
+          "Value": "Tue, 11 Mar 2025 09:27:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7748,7 +7748,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-R58HQ09sruMgkykRuMy0RjMCfn/ogoSuyA+K6nJHQOE="
+          "Value": "sha256-JBzH5RraeyQv+iVUNq8l9yuM5YuQZ6H2QQveUmu2amY="
         }
       ]
     },
@@ -8052,12 +8052,12 @@
     },
     {
       "Route": "css/nav_copy.css",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\x7ilffeqhw-g8ccvfazfn.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\x7ilffeqhw-etstxsmdjk.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000383288616"
+          "Quality": "0.000382262997"
         }
       ],
       "ResponseHeaders": [
@@ -8067,15 +8067,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2608"
+          "Value": "2615"
         },
         {
           "Name": "ETag",
-          "Value": "\"AVFP9NMIF9L119746J0VKdV2Vu0s7QcC2QW8SjaBfMQ=\""
+          "Value": "\"+kbM+KdQcs3sl44d/iBQpYW0QfaSyFz6kB1AEzLl2O8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 15:06:34 GMT"
+          "Value": "Tue, 11 Mar 2025 08:22:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8095,13 +8095,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"ELzY1u01aQq2Hyz+u5BxmAhmG8Yg/lnFYMs/S2IbX8E=\""
+          "Value": "W/\"3nfrEOp8gziJJKDj+B29he+GdjMZWx0hKdrXYuAFTHc=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ELzY1u01aQq2Hyz+u5BxmAhmG8Yg/lnFYMs/S2IbX8E="
+          "Value": "sha256-3nfrEOp8gziJJKDj+B29he+GdjMZWx0hKdrXYuAFTHc="
         }
       ]
     },
@@ -8116,7 +8116,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "10801"
+          "Value": "10836"
         },
         {
           "Name": "Content-Type",
@@ -8124,11 +8124,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ELzY1u01aQq2Hyz+u5BxmAhmG8Yg/lnFYMs/S2IbX8E=\""
+          "Value": "\"3nfrEOp8gziJJKDj+B29he+GdjMZWx0hKdrXYuAFTHc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 15:06:34 GMT"
+          "Value": "Tue, 11 Mar 2025 08:22:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8138,13 +8138,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ELzY1u01aQq2Hyz+u5BxmAhmG8Yg/lnFYMs/S2IbX8E="
+          "Value": "sha256-3nfrEOp8gziJJKDj+B29he+GdjMZWx0hKdrXYuAFTHc="
         }
       ]
     },
     {
       "Route": "css/nav_copy.css.gz",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\x7ilffeqhw-g8ccvfazfn.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\x7ilffeqhw-etstxsmdjk.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8153,7 +8153,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2608"
+          "Value": "2615"
         },
         {
           "Name": "Content-Type",
@@ -8161,11 +8161,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"AVFP9NMIF9L119746J0VKdV2Vu0s7QcC2QW8SjaBfMQ=\""
+          "Value": "\"+kbM+KdQcs3sl44d/iBQpYW0QfaSyFz6kB1AEzLl2O8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 15:06:34 GMT"
+          "Value": "Tue, 11 Mar 2025 08:22:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8183,18 +8183,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-AVFP9NMIF9L119746J0VKdV2Vu0s7QcC2QW8SjaBfMQ="
+          "Value": "sha256-+kbM+KdQcs3sl44d/iBQpYW0QfaSyFz6kB1AEzLl2O8="
         }
       ]
     },
     {
-      "Route": "css/nav_copy.g8ccvfazfn.css",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\x7ilffeqhw-g8ccvfazfn.gz",
+      "Route": "css/nav_copy.etstxsmdjk.css",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\x7ilffeqhw-etstxsmdjk.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000383288616"
+          "Quality": "0.000382262997"
         }
       ],
       "ResponseHeaders": [
@@ -8204,15 +8204,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2608"
+          "Value": "2615"
         },
         {
           "Name": "ETag",
-          "Value": "\"AVFP9NMIF9L119746J0VKdV2Vu0s7QcC2QW8SjaBfMQ=\""
+          "Value": "\"+kbM+KdQcs3sl44d/iBQpYW0QfaSyFz6kB1AEzLl2O8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 15:06:34 GMT"
+          "Value": "Tue, 11 Mar 2025 08:22:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8232,13 +8232,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"ELzY1u01aQq2Hyz+u5BxmAhmG8Yg/lnFYMs/S2IbX8E=\""
+          "Value": "W/\"3nfrEOp8gziJJKDj+B29he+GdjMZWx0hKdrXYuAFTHc=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "g8ccvfazfn"
+          "Value": "etstxsmdjk"
         },
         {
           "Name": "label",
@@ -8246,12 +8246,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ELzY1u01aQq2Hyz+u5BxmAhmG8Yg/lnFYMs/S2IbX8E="
+          "Value": "sha256-3nfrEOp8gziJJKDj+B29he+GdjMZWx0hKdrXYuAFTHc="
         }
       ]
     },
     {
-      "Route": "css/nav_copy.g8ccvfazfn.css",
+      "Route": "css/nav_copy.etstxsmdjk.css",
       "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\css\\nav_copy.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -8261,7 +8261,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "10801"
+          "Value": "10836"
         },
         {
           "Name": "Content-Type",
@@ -8269,11 +8269,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ELzY1u01aQq2Hyz+u5BxmAhmG8Yg/lnFYMs/S2IbX8E=\""
+          "Value": "\"3nfrEOp8gziJJKDj+B29he+GdjMZWx0hKdrXYuAFTHc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 15:06:34 GMT"
+          "Value": "Tue, 11 Mar 2025 08:22:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8283,7 +8283,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "g8ccvfazfn"
+          "Value": "etstxsmdjk"
         },
         {
           "Name": "label",
@@ -8291,13 +8291,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ELzY1u01aQq2Hyz+u5BxmAhmG8Yg/lnFYMs/S2IbX8E="
+          "Value": "sha256-3nfrEOp8gziJJKDj+B29he+GdjMZWx0hKdrXYuAFTHc="
         }
       ]
     },
     {
-      "Route": "css/nav_copy.g8ccvfazfn.css.gz",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\x7ilffeqhw-g8ccvfazfn.gz",
+      "Route": "css/nav_copy.etstxsmdjk.css.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\x7ilffeqhw-etstxsmdjk.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8306,7 +8306,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2608"
+          "Value": "2615"
         },
         {
           "Name": "Content-Type",
@@ -8314,11 +8314,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"AVFP9NMIF9L119746J0VKdV2Vu0s7QcC2QW8SjaBfMQ=\""
+          "Value": "\"+kbM+KdQcs3sl44d/iBQpYW0QfaSyFz6kB1AEzLl2O8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 15:06:34 GMT"
+          "Value": "Tue, 11 Mar 2025 08:22:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8336,7 +8336,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "g8ccvfazfn"
+          "Value": "etstxsmdjk"
         },
         {
           "Name": "label",
@@ -8344,7 +8344,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-AVFP9NMIF9L119746J0VKdV2Vu0s7QcC2QW8SjaBfMQ="
+          "Value": "sha256-+kbM+KdQcs3sl44d/iBQpYW0QfaSyFz6kB1AEzLl2O8="
         }
       ]
     },
@@ -12767,13 +12767,13 @@
       ]
     },
     {
-      "Route": "js/Home/index.js",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\fo4ibkcuin-zp71g263uj.gz",
+      "Route": "js/Home/index.9t7t6tzkkv.js",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\fo4ibkcuin-9t7t6tzkkv.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000218866273"
+          "Quality": "0.000219106047"
         }
       ],
       "ResponseHeaders": [
@@ -12783,19 +12783,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4568"
+          "Value": "4563"
         },
         {
           "Name": "ETag",
-          "Value": "\"mRxjT1PsT1F2lRBg8eBwzRq37q5qpSo8g9IclAXJWrQ=\""
+          "Value": "\"MOeJRwJTtZxPiEyKdpVb79w6CgSUxgB7pCuMy9M2Bqg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:46:01 GMT"
+          "Value": "Tue, 11 Mar 2025 13:48:26 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -12811,18 +12811,26 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"qaoQJ45YoKP/VqkTzHbPaveacYDO5C2430cPzcZh+UI=\""
+          "Value": "W/\"M6lgqspJ9QzMFU37vlhNLuagf58O9nOM79+M0UPBGu0=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "9t7t6tzkkv"
+        },
+        {
+          "Name": "label",
+          "Value": "js/Home/index.js"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-qaoQJ45YoKP/VqkTzHbPaveacYDO5C2430cPzcZh+UI="
+          "Value": "sha256-M6lgqspJ9QzMFU37vlhNLuagf58O9nOM79+M0UPBGu0="
         }
       ]
     },
     {
-      "Route": "js/Home/index.js",
+      "Route": "js/Home/index.9t7t6tzkkv.js",
       "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Home\\index.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -12832,7 +12840,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "21175"
+          "Value": "21177"
         },
         {
           "Name": "Content-Type",
@@ -12840,121 +12848,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"qaoQJ45YoKP/VqkTzHbPaveacYDO5C2430cPzcZh+UI=\""
+          "Value": "\"M6lgqspJ9QzMFU37vlhNLuagf58O9nOM79+M0UPBGu0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:46:01 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-qaoQJ45YoKP/VqkTzHbPaveacYDO5C2430cPzcZh+UI="
-        }
-      ]
-    },
-    {
-      "Route": "js/Home/index.js.gz",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\fo4ibkcuin-zp71g263uj.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4568"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"mRxjT1PsT1F2lRBg8eBwzRq37q5qpSo8g9IclAXJWrQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:46:01 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-mRxjT1PsT1F2lRBg8eBwzRq37q5qpSo8g9IclAXJWrQ="
-        }
-      ]
-    },
-    {
-      "Route": "js/Home/index.zp71g263uj.js",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\fo4ibkcuin-zp71g263uj.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000218866273"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4568"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"mRxjT1PsT1F2lRBg8eBwzRq37q5qpSo8g9IclAXJWrQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:46:01 GMT"
+          "Value": "Tue, 11 Mar 2025 13:48:26 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"qaoQJ45YoKP/VqkTzHbPaveacYDO5C2430cPzcZh+UI=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "zp71g263uj"
+          "Value": "9t7t6tzkkv"
         },
         {
           "Name": "label",
@@ -12962,13 +12870,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-qaoQJ45YoKP/VqkTzHbPaveacYDO5C2430cPzcZh+UI="
+          "Value": "sha256-M6lgqspJ9QzMFU37vlhNLuagf58O9nOM79+M0UPBGu0="
         }
       ]
     },
     {
-      "Route": "js/Home/index.zp71g263uj.js",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Home\\index.js",
+      "Route": "js/Home/index.9t7t6tzkkv.js.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\fo4ibkcuin-9t7t6tzkkv.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -12977,7 +12885,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "21175"
+          "Value": "4563"
         },
         {
           "Name": "Content-Type",
@@ -12985,56 +12893,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"qaoQJ45YoKP/VqkTzHbPaveacYDO5C2430cPzcZh+UI=\""
+          "Value": "\"MOeJRwJTtZxPiEyKdpVb79w6CgSUxgB7pCuMy9M2Bqg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:46:01 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "zp71g263uj"
-        },
-        {
-          "Name": "label",
-          "Value": "js/Home/index.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-qaoQJ45YoKP/VqkTzHbPaveacYDO5C2430cPzcZh+UI="
-        }
-      ]
-    },
-    {
-      "Route": "js/Home/index.zp71g263uj.js.gz",
-      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\fo4ibkcuin-zp71g263uj.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4568"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"mRxjT1PsT1F2lRBg8eBwzRq37q5qpSo8g9IclAXJWrQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:46:01 GMT"
+          "Value": "Tue, 11 Mar 2025 13:48:26 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -13052,7 +12915,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "zp71g263uj"
+          "Value": "9t7t6tzkkv"
         },
         {
           "Name": "label",
@@ -13060,7 +12923,144 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-mRxjT1PsT1F2lRBg8eBwzRq37q5qpSo8g9IclAXJWrQ="
+          "Value": "sha256-MOeJRwJTtZxPiEyKdpVb79w6CgSUxgB7pCuMy9M2Bqg="
+        }
+      ]
+    },
+    {
+      "Route": "js/Home/index.js",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\fo4ibkcuin-9t7t6tzkkv.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000219106047"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4563"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MOeJRwJTtZxPiEyKdpVb79w6CgSUxgB7pCuMy9M2Bqg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Mar 2025 13:48:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"M6lgqspJ9QzMFU37vlhNLuagf58O9nOM79+M0UPBGu0=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-M6lgqspJ9QzMFU37vlhNLuagf58O9nOM79+M0UPBGu0="
+        }
+      ]
+    },
+    {
+      "Route": "js/Home/index.js",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\wwwroot\\js\\Home\\index.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "21177"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"M6lgqspJ9QzMFU37vlhNLuagf58O9nOM79+M0UPBGu0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Mar 2025 13:48:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-M6lgqspJ9QzMFU37vlhNLuagf58O9nOM79+M0UPBGu0="
+        }
+      ]
+    },
+    {
+      "Route": "js/Home/index.js.gz",
+      "AssetFile": "D:\\ComEngineering student\\2D semester 2\\WebApp\\pj_newest\\web-app-development-project\\MaJerGan\\obj\\Debug\\net9.0\\compressed\\fo4ibkcuin-9t7t6tzkkv.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4563"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"MOeJRwJTtZxPiEyKdpVb79w6CgSUxgB7pCuMy9M2Bqg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Mar 2025 13:48:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-MOeJRwJTtZxPiEyKdpVb79w6CgSUxgB7pCuMy9M2Bqg="
         }
       ]
     },

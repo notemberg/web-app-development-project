@@ -5,6 +5,7 @@
     window.location.href = "/event/Create";
   });
 });
+
 document.addEventListener("DOMContentLoaded", function () {
   function fetchTopEventForEachTag() {
     fetch("/Event/GetRecentEvents")
