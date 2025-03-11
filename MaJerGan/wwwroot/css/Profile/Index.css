@@ -1,0 +1,515 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Sulphur Point';
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 60%;
+    max-width: 800px;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 180px;
+}
+
+.profile-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* หัวโปรไฟล์ */
+.profile-title {
+    font-size: 22px;
+    font-style: normal;
+    color: #666;
+    position: absolute;
+    top: 10px;
+    text-align: left;
+    left: 180px;
+}
+
+/* กล่องเนื้อหาหลัก */
+.profile-content {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.profile-picture {
+    width: 150px; /* กำหนดขนาดรูป */
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: -90px;  /* ย้ายรูปขึ้นให้ทับขอบกล่อง */
+    left: 20px; /* ขยับไปด้านซ้ายเพื่อให้ดูสมดุล */
+    border: 5px solid white; /* เพิ่มขอบสีขาวให้รูป */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ดูมีมิติ */
+    z-index: 10;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.profile-box {
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+/* กล่องข้อมูล */
+.profile-info {
+    background-color: #fff;
+    border: 1px solid #c8c8c8;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    box-sizing: border-box;
+}
+
+.edit-icon-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.edit-icon-container:hover {
+    cursor: pointer;
+    background-color: rgba(253, 239, 195, 1);
+    /* เปลี่ยนสีพื้นหลังเฉพาะตอน hover */
+}
+
+.edit-icon {
+    font-size: 16px;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.edit-icon-container:hover .edit-icon {
+    color: #333;
+    /* เปลี่ยนสีไอคอนเมื่อ hover */
+}
+
+
+label {
+    font-size: 14px;
+    color: #666;
+    display: block;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.profile-box input {
+    width: 100%;
+    padding: 10px;
+    /* เพิ่ม padding เพื่อให้มีระยะห่างด้านใน */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #efefef;
+    cursor: not-allowed;
+    color: #5F5F5F;
+    box-sizing: border-box;
+    /* ป้องกันการขยายเกินขอบ */
+}
+
+input:enabled {
+    cursor: text;
+    background-color: white;
+}
+
+.profile-row {
+    display: flex;
+    gap: 20px;
+}
+
+.profile-row div {
+    flex: 1;
+    min-width: 0;
+    /* ป้องกันการขยายจนเกินขอบ */
+}
+
+/* กล่องสำหรับปุ่ม */
+.profile-footer {
+    display: flex;
+    justify-content: space-between;
+    /* แยกปุ่มสองฝั่ง */
+    padding-top: 10px;
+    gap: 10px;
+}
+
+.change-password {
+    background-color: #fdefc3;
+    color: #555;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 50%;
+    font-size: 14px;
+    margin: 0 auto;
+    /* ทำให้ปุ่ม Change Password อยู่ตรงกลาง */
+}
+
+.change-password:hover {
+    background-color: #f8d878;
+}
+
+.update-profile {
+    background-color: #fdefc3;
+    color: #555;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 50%;
+    font-size: 14px;
+    margin-left: auto;
+    /* ทำให้ปุ่ม Update ชิดขวา */
+}
+
+.cancel-profile {
+    background-color: #fdefc3;
+    color: #555;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 50%;
+    font-size: 14px;
+}
+
+.update-profile:hover {
+    background-color: #f8d878;
+}
+
+.cancel-profile:hover {
+    background-color: #f8d878;
+}
+
+#uploadBtn {
+    display: none !important;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#profilePreview {
+   cursor: pointer;
+}
+
+/* ลบไอคอนแสดงรหัสผ่านที่เบราว์เซอร์เพิ่มเอง */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-webkit-contacts-auto-fill-button,
+input[type="password"]::-webkit-credentials-auto-fill-button {
+    display: none !important;
+    appearance: none;
+}
+
+/* โมดอลพื้นหลัง */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* พื้นหลังดำจาง */
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* กล่องโมดอล */
+.modal-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* ปุ่มปิดโมดอล */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #999;
+}
+
+.close:hover {
+    color: #333;
+}
+
+
+/* ✅ Popup พื้นฐาน */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn2 0.3s ease-in-out;
+}
+
+/* ✅ กล่อง Popup */
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: slideDown 0.3s ease-in-out;
+}
+
+/* ✅ สีเริ่มต้น (แดง) */
+.popup-content.error {
+    border: 3px solid #E53935;
+}
+
+/* ✅ สีเขียวเมื่อสำเร็จ */
+.popup-content.success {
+    border: 3px solid #4CAF50;
+}
+
+/* ✅ หัวข้อ Popup */
+.popup-content h2 {
+    font-size: 20px;
+    color: #FF6B6B;
+}
+
+/* ✅ หัวข้อเมื่อสำเร็จ */
+.popup-content.success h2 {
+    color: #4CAF50;
+}
+
+/* ✅ ปุ่ม */
+.btn {
+    background-color: #FF6B6B;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* ✅ ปุ่มเมื่อสำเร็จ */
+.btn.success {
+    background-color: #4CAF50;
+}
+
+.btn.success:hover {
+    background-color: #388E3C;
+}
+
+/* เอฟเฟกต์เปิดโมดอล */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -55%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    to {
+        opacity: 0;
+        transform: translate(-50%, -55%);
+    }
+}
+
+/* ✅ Animation */
+@keyframes fadeIn2 {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.update-password {
+    background-color: #fdefc3;
+    color: #555;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.update-password:hover {
+    background-color: #f8d878;
+}
+
+
+/* กล่องสำหรับช่องรหัสผ่าน */
+.password-container {
+    background-color: white;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+/* ฟอร์มกรอกรหัสผ่าน */
+.password-field {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* ช่องกรอกรหัสผ่าน */
+.password-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    color: #5F5F5F;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ไอคอนแสดง/ซ่อนรหัสผ่าน */
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #999;
+}
+
+.password-toggle:hover {
+    color: #555;
+}
+
+
+.spinner {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.uploadbtn {
+    background-color: #fdefc3;
+    color: #555;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.uploadbtn:hover {
+    background-color: #f8d878;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+    .profile-container {
+        
+        margin: 0 auto;
+    }
+
+    .profile-picture {
+        width: 120px; /* กำหนดขนาดรูป */
+        height: 120px;
+        top: -70px;  /* ย้ายรูปขึ้นให้ทับขอบกล่อง */
+        left: 10px; /* ขยับไปด้านซ้ายเพื่อให้ดูสมดุล */
+    }
+
+    .profile-title {
+        left: 140px;
+    }
+}

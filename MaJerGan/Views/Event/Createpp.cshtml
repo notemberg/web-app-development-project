@@ -1,0 +1,104 @@
+@model MaJerGan.Models.Event
+
+@{
+    ViewData["Title"] = "Create Event";
+    ViewData["ShowHeader"] = "True";
+    ViewData["ShowNavCarousel"] = "True";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event</title>
+    <link rel="stylesheet" href="~/css/Event/create.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<script src="~/js/Tag.js"></script>
+<script Src="~/js/closeAutoFill.js"></script>
+<script Src="~/js/Event/showPics.js"></script>
+<script Src="~/js/Event/dateCheck.js"></script>
+<body>
+    <div class="content">
+        <h2>Create Post</h2>
+        
+        <form asp-action="Create" method="post">
+
+<div class="test">
+ <div class="title-container">
+    <!-- Title Input -->
+    <input type="text" class="title-input" placeholder="Title*" required>
+
+
+    <!-- Date & Time Inputs (Moves to the Right) -->
+    <div class="date-time-container">
+        <div class="date-input">
+            <label for="event-date">
+                 @* <i class="fa-solid fa-calendar"></i>  *@
+                <input type="date" id="event-date" required>
+            </label>
+            @* <input type="date" id="event-date" required> *@
+        </div>
+
+        <div class="time-input">
+            <label for="event-time">
+                 @* <i class="fa-solid fa-clock"></i> *@
+                <input type="time" id="event-time" required>
+            </label>
+            @* <input type="time" id="event-time" required> *@
+        </div>
+    </div>
+   
+</div>
+    <!-- Participants Input -->
+    <div class="participants-container">
+        <i class="fa-solid fa-user"></i>
+        <input type="number" id="participants" min="1" max="100" placeholder="" required>
+    </div>
+</div>
+
+
+
+            <div class="description-container">
+                <textarea class="description-input" placeholder="Description.....  (Optional)"></textarea>
+                <div class="camera-icon">
+                    <img src="/image/upload-pic2.png" alt="Add Image" id="image-preview">
+                    @* <input type="file" id="image-upload" accept="image/*"> *@
+                </div>
+
+            </div>
+<div class="tag-container">
+    <!-- ปุ่ม Add Tag -->
+    <button type="button" id="add-tag-btn" class="add-tag-btn">+ Add Tag</button>
+
+    <!-- ✅ Floating Search Box -->
+    <div id="tag-search-container" class="tag-search-container">
+        <input type="text" id="custom-tag-input" placeholder="Search...">
+    </div>
+
+    <!-- ✅ แสดงแท็กที่เลือก (อยู่ข้างล่างปุ่ม Add Tag) -->
+    <div id="selected-tags-container" class="selected-tags-container"></div>
+    <input type="hidden" id="selected-tags">
+</div>
+
+
+    <!-- ✅ ปุ่มเลือกสถานที่ (อยู่ใต้แท็ก) -->
+    <button type="button" id="choose-location-btn" class="location-btn">
+        Choose Location (Required)
+    </button>
+    
+            <!-- ✅ ปุ่ม Submit -->
+            <button type="submit" class="submit-btn">Create Post</button>
+
+        
+        </form> <!-- ✅ ปิด form ตรงนี้ถูกต้อง -->
+
+    </div> <!-- ✅ ปิด div .content ถูกต้อง -->
+</body>
+
+</html>

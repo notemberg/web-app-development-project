@@ -1,0 +1,215 @@
+* {
+    font-family: "IBM Plex Sans Thai Looped", serif;
+}
+
+.ibm-plex-sans-thai-looped-regular {
+    font-family: "IBM Plex Sans Thai Looped", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .ibm-plex-sans-thai-looped-medium {
+    font-family: "IBM Plex Sans Thai Looped", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .ibm-plex-sans-thai-looped-semibold {
+    font-family: "IBM Plex Sans Thai Looped", serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+.upcoming-event-container {
+    display: flex; /* ใช้ Flexbox */
+    flex-direction: column; 
+    background-color: white; /* เปลี่ยนสีพื้นหลังให้อ่านง่ายขึ้น */
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+}
+.upcoming-event-container-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.upcoming-event-card {
+     
+    background: rgb(255, 255, 255);
+    padding-left: 10px;
+  
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+    
+    /* 🔹 กำหนดขนาดที่แน่นอน */
+    width: 100%; /* กำหนดความกว้าง */
+    height: 10%; 
+
+    
+    cursor: pointer;
+
+    transition: background-color 0.3s ease-in-out;
+
+}
+.title-name {
+    font-size: 18px;
+    color: deeppink; 
+    white-space: nowrap;  
+    overflow: hidden;  
+    text-overflow: ellipsis;  
+    /* border: 1px solid #000000;
+    background-color: bisque; */
+    
+}
+
+/* 
+.Time {
+   
+    font-size: xx-small;
+    color: rgb(108, 255, 177);
+}
+.event-info{
+    font-size: xx-small;
+} */
+h3 {
+    margin: 0;
+    padding: 0;
+}
+.upcoming-event-card:hover {
+    background-color: rgba(255, 244, 147,0.7);
+    
+    
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.event-details {
+ 
+    color: #FFB6CF;
+    font-size: 12px;
+    text-decoration: none;
+    position: absolute;
+    bottom: 10px; /* ✅ จัดไปที่ขอบล่าง */
+    right: 10px; /* ✅ จัดไปที่ขอบขวา */
+}
+
+.event-info {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    display: flex; /* ✅ ทำให้เป็น flex container */
+    flex-wrap: wrap; /* ✅ ทำให้สามารถขึ้นบรรทัดใหม่เมื่อพื้นที่ไม่พอ */
+}
+
+.event-creator {
+    color: #666;
+}
+
+.toggle-view-button {
+    background-color: transparent;
+    font-size: 14px;
+    white-space: nowrap;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: letter-spacing 0.3s ease, background-color 0.3s ease;
+    color: #ff8bb4;
+}
+
+.toggle-view-button:hover {
+    cursor: pointer;
+    letter-spacing: 1px; /* Adjust this value for more/less spreading */
+  
+}
+@media (max-width:1200px) {
+    .event-title{
+        flex-direction: column;
+    }
+    .event-info {
+        flex-direction: column;
+        align-items: flex-start; /* ✅ จัดชิดซ้ายให้สวยงาม */
+    }
+    .title-name{
+        max-width: 100%;
+    }
+    
+}
+@media (max-width:1050px) {
+    .title-name{
+        max-width: 50%;
+    }
+}
+@media (max-width:768px){
+    .upcoming-event-container{
+        margin-top: 20px;
+    }
+
+    
+    .title-name {
+        max-width: 100%; /* ให้ขยายเต็มขอบของ .upcoming-event-card */
+        white-space: normal; /* อนุญาตให้ขึ้นบรรทัดใหม่ */
+        overflow: visible; /* แสดงเนื้อหาทั้งหมด */
+        text-overflow: unset; /* ปิด ellipsis */
+    }
+    }
+    
+
+
+@media  (max-width: 600px) {
+    .upcoming-event-container{
+        margin-top: 20px;
+    }
+    .upcoming-event-card {
+        min-height: 124px;
+        background: white;
+        padding: 15px;
+        /* border-radius: 15px; */
+        /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+        margin-bottom: 32px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        /* border: 1px solid #ddd; */
+        width: 100%;
+        cursor: pointer;
+        
+    }
+    
+    .upcoming-event-card:hover {
+        scale: 1.02;
+    }
+    
+    .event-details {
+        color: purple;
+        font-size: 12px;
+        text-decoration: none;
+        position: absolute;
+        bottom: 10px; /* ✅ จัดไปที่ขอบล่าง */
+        right: 10px; /* ✅ จัดไปที่ขอบขวา */
+    }
+    
+    .event-info {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .event-title{
+        font-size: 24px;
+        font-weight: bold;
+        width: 100%;
+    }
+
+    .Time{
+        font-size: 16px;
+        font-weight: bold;
+    }
+}

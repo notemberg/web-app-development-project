@@ -1,0 +1,89 @@
+@{
+    ViewData["Title"] = "Sign Up";
+    ViewData["ShowHeader"] = "False";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="~/css/Auth/register.css">
+
+</head>
+
+<script src="~/js/Auth/Register.js"></script>
+
+<body>
+
+    <div class="header">Meet <span style="color: #FF6B6B;">ME!</span></div>
+
+
+    <div class="signup-container">
+        <h2>Sign up</h2>
+
+        <div class="input-group">
+            <input type="text" id="username" placeholder=" " required>
+            <label for="username">Username</label>
+        </div>
+
+        <div class="input-group">
+            <input type="email" id="email" placeholder=" " required>
+            <label for="email">Email</label>
+        </div>
+
+        <div class="input-group">
+            <input type="password" id="password" placeholder=" " required>
+            <label for="password">Password</label>
+        </div>
+
+        <div class="input-group">
+            <input type="password" id="confirm-password" placeholder=" " required>
+            <label for="confirm-password">Confirm Password</label>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="phone" placeholder=" " required>
+            <label for="name">phone</label>
+        </div>
+
+        <div class="DateAndSex-container">
+            <div class="input-group">
+                <input type="date" id="dateofbirth" required>
+                <label for="dateofbirth">Date of birth</label>
+            </div>
+
+            <div class="input-group-select">
+                <select id="gender" required>
+                    <option value="" disabled selected></option> <!-- ค่าเริ่มต้นว่าง -->
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label for="gender">Sex</label> <!-- เพิ่ม Label แบบ Floating -->
+            </div>
+            <p>Your birthdate and gender cannot be changed after registration. Please enter it correctly.</p>
+        </div>
+
+
+        <button class="signup-btn" onclick="validateForm2()">Next</button>
+        <a href="/auth/login" class="login-link">Already have an account?</a>
+    </div>
+
+    <!-- Popup Custom -->
+    <div id="customPopup" class="popup">
+        <div class="popup-content">
+            <h2 id="popupTitle">แจ้งเตือน</h2>
+            <p id="popupText"></p>
+
+            <div class="popup-buttons">
+                <button id="popupOkBtn" class="btn" onclick="closePopup()">OK</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

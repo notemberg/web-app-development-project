@@ -1,0 +1,217 @@
+@model MaJerGan.Models.Event
+
+@{
+    ViewData["Title"] = "Create Event";
+    ViewData["ShowHeader"] = "True";
+    ViewData["ShowNavCarousel"] = "True";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event</title>
+    <link rel="stylesheet" href="~/css/Event/createpp.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+
+        #modalContainer {
+            display: none;
+            /* ซ่อนโมดัลเริ่มต้น */
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        .close-btn {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        #selectedLocation {
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+@* <script src="~/js/Tag.js"></script> *@
+<script Src="~/js/Event/Create.js"></script>
+<script Src="~/js/closeAutoFill.js"></script>
+<script Src="~/js/Event/dateCheck.js"></script>
+<script Src="~/js/Event/Map.js"></script>
+
+<body>
+    <div class="content">
+        <h2>Create Post</h2>
+
+        <form asp-action="Create" method="post">
+
+            <div class="test">
+
+                <div class="title-container">
+                    <!-- Title Input -->
+                    <input asp-for="Title" type="text" class="title-input" placeholder="Title*" required>
+
+                    <!-- ✅ Date & Time Picker อยู่ขวา -->
+                    <div class="date-time-container date-time-desktop">
+                        <div class="date-input">
+                            <input type="date" id="event-date" required>
+                        </div>
+                        <div class="time-input">
+                            <input type="time" id="event-time" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ✅ Input ซ่อน เพื่อรวม Date + Time ก่อนส่ง -->
+                <input type="hidden" asp-for="EventTime" id="event-datetime">
+
+                @* <input type="hidden" asp-for="ExpiryDate" value="2025-05-05T02:21:00" /> *@
+                <!-- Participants Input -->
+                <div class="participants-container">
+                    <i class="fa-solid fa-user"></i>
+                    <input asp-for="MaxParticipants" type="number" id="participants" min="1" max="100" placeholder=""
+                        required>
+                </div>
+            </div>
+
+            <div>
+                <label>Registration End</label>
+                <input asp-for="ExpiryDate" type="datetime-local" id="expiry-date"required />
+            </div>
+
+
+
+            <div class="description-container">
+                <textarea asp-for="Description" class="description-input" placeholder="Description(required)"
+                    required></textarea>
+
+            </div>
+            <div class="tag-container">
+                <!-- ปุ่ม Add Tag -->
+                <button type="button" id="add-tag-btn" class="add-tag-btn">+ Add Tag</button>
+
+                <!-- Floating Search Box -->
+                <div id="tag-search-container" class="tag-search-container">
+                    <input type="text" id="custom-tag-input" placeholder="Search...">
+                    <div id="tag-carousel"></div> <!-- ✅ ตำแหน่งของแท็ก -->
+                </div>
+
+                <!-- ✅ แสดงแท็กที่เลือก (อยู่ข้างล่างปุ่ม Add Tag) -->
+                <div id="selected-tags-container" class="selected-tags-container"></div>
+                <input type="hidden" name="selectedTags" id="selected-tags" />
+            </div>
+
+
+            <!-- ✅ ปุ่มเลือกสถานที่ (อยู่ใต้แท็ก) -->
+            <button type="button" id="choose-location-btn" class="location-btn">
+                Choose Location (Required)
+            </button>
+
+            <!-- ✅ ส่วนแสดงข้อมูลสถานที่ -->
+            <div id="location-info" class="location-info" style="display: none;">
+                <div class="location-card">
+                    <img id="location-image" src="" alt="สถานที่" class="location-img">
+                    <div class="location-details">
+                        <h3 id="location-name">ชื่อสถานที่</h3>
+                        <p>
+                            <span class="badge">Address</span>
+                            <span id="location-address">ที่อยู่สถานที่</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ✅ advanced -->
+
+            <div class="advanced-settings">
+                <h3>Advanced Settings(Optional)</h3>
+
+                <!-- ✅ ปุ่มเปิด/ปิดระบบยืนยันก่อนเข้าร่วม -->
+                <div class="toggle-container">
+                    <label class="switch">
+                        @* <input type="hidden" asp-for="RequiresConfirmation" value="false"> *@
+                        <input type="checkbox" asp-for="RequiresConfirmation" name="RequiresConfirmation">
+                        <span class="slider round"></span>
+                    </label>
+                    <span>Joining needs confirmation</span>
+                </div>
+
+                <!-- ✅ ปุ่มเปิด/ปิดการจำกัดเพศ (ให้ Gender Restricted และตัวเลือกเพศอยู่ในบรรทัดเดียวกัน) -->
+                <div class="toggle-container gender-restriction-container">
+                    <label class="switch">
+                        <input type="checkbox" asp-for="IsGenderRestricted" name="IsGenderRestricted">
+                        <span class="slider round"></span>
+                    </label>
+                    <span>Gender Restricted</span>
+
+                    <!-- ✅ ตัวเลือกเพศ (ซ่อนอยู่หากไม่ได้เลือก Gender Restricted) -->
+                    <div id="genderSelection" class="gender-selection">
+                        <input type="checkbox" id="gender-male" name="AllowedGender" value="Male" hidden>
+                        <label for="gender-male" class="gender-option male">Male</label>
+
+                        <input type="checkbox" id="gender-female" name="AllowedGender" value="Female" hidden>
+                        <label for="gender-female" class="gender-option female">Female</label>
+
+                        <input type="checkbox" id="gender-other" name="AllowedGender" value="Other" hidden>
+                        <label for="gender-other" class="gender-option other">Other</label>
+                    </div>
+                </div>
+            </div>
+
+            <input asp-for="AllowedGenders" type="hidden" id="allowedGendersInput" value="Male,Female,Other" required>
+
+
+
+            <input asp-for="Location" type="hidden" id="locationInput" required>
+            <input asp-for="LocationName" type="hidden" id="locationNameInput" required>
+            <input asp-for="LocationAddress" type="hidden" id="locationAddressInput" required>
+            <input asp-for="LocationImage" type="hidden" id="locationImageInput" required>
+
+            <!-- Popup Modal -->
+            <div id="modalContainer">
+                <div class="modal-content">
+                    <span class="close-btn" onclick="closeModal()">&times;</span>
+                    <h2>เลือกสถานที่</h2>
+                    <input id="searchBoxLocation" type="text" placeholder="ค้นหาสถานที่...">
+                    <div id="map"></div>
+                    <button id="saveLocationButton" type="button">บันทึก</button>
+                </div>
+            </div>
+
+            <!-- ✅ ปุ่ม Submit -->
+            <button type="submit" class="submit-btn" id="submit-btn">Create Post</button>
+
+
+        </form> <!-- ✅ ปิด form ตรงนี้ถูกต้อง -->
+
+    </div> <!-- ✅ ปิด div .content ถูกต้อง -->
+
+</body>
+
+</html>

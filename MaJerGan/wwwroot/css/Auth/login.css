@@ -1,0 +1,235 @@
+/* ชื่อเว็ป */
+.header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    font-family: 'Suez One';
+}
+
+/* ตั้งค่าพื้นหลังไล่สี */
+body {
+    /* font-family: Arial, sans-serif; */
+    font-family: 'Sulphur Point';
+    background: linear-gradient(to bottom left, #ffaab8, #C1FFC1);
+    flex-flow: column-reverse;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh; /* ใช้ min-height แทน height */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* กล่องสมัครสมาชิก */
+.login-container {
+    margin: auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* หัวข้อ */
+h2 {
+    font-family: 'Sulphur Point';
+    color: #FF6B6B;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* กำหนด Floating Label */
+.input-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+/* ช่องกรอกข้อมูล */
+.input-group input {
+    width: 100%;
+    padding: 12px 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #ffffff;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    outline: none;
+}
+
+/* ปรับแต่ง Label ให้ดูเนียนขึ้น */
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #aaa;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    background: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+/* เมื่อ input ถูก focus หรือมีข้อมูล */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: 0px;
+    font-size: 12px;
+    color: #FF6B6B;
+    padding: 0 5px;
+}
+
+/* กล่อง Password & Confirm Password */
+.password-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.password-container .input-group {
+    width: 48%;
+    box-sizing: border-box;
+}
+
+/* ปุ่มสมัคร */
+.login-btn {
+    background: #FF6B6B;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* ลิงก์เข้าสู่ระบบ */
+.signup-link {
+    display: block;
+    margin-top: 12px;
+    color: #FF6B6B;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: left;
+}
+
+.signup-link:hover {
+    text-decoration: underline;
+}
+
+/* ✅ Popup พื้นฐาน */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* ✅ กล่อง Popup */
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: slideDown 0.3s ease-in-out;
+}
+
+/* ✅ สีเริ่มต้น (แดง) */
+.popup-content.error {
+    border: 3px solid #E53935;
+}
+
+/* ✅ สีเขียวเมื่อสำเร็จ */
+.popup-content.success {
+    border: 3px solid #4CAF50;
+}
+
+/* ✅ หัวข้อ Popup */
+.popup-content h2 {
+    font-size: 20px;
+    color: #FF6B6B;
+}
+
+/* ✅ หัวข้อเมื่อสำเร็จ */
+.popup-content.success h2 {
+    color: #4CAF50;
+}
+
+/* ✅ ปุ่ม */
+.btn {
+    background-color: #FF6B6B;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* ✅ ปุ่มเมื่อสำเร็จ */
+.btn.success {
+    background-color: #4CAF50;
+}
+
+.btn.success:hover {
+    background-color: #388E3C;
+}
+
+#loading-indicator {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #ff6b81; /* ใช้สีเดียวกับปุ่ม Login */
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    animation: spin 1s linear infinite;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loading-text {
+    font-size: 16px;
+    color: #444;
+    margin-top: 10px;
+}
+
+
+
+/* ✅ Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}

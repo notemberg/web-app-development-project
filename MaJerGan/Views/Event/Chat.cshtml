@@ -1,0 +1,79 @@
+@model int // ใช้เก็บ EventId ของกิจกรรมนี้
+
+<div class="chat-container">
+    <div class="chat-box" id="chat-box"></div>
+
+    <div class="chat-input">
+        <input type="text" id="messageInput" placeholder="พิมพ์ข้อความ..." />
+        <button onclick="sendMessage()">📩 ส่ง</button>
+    </div>
+</div>
+
+<script>
+    let eventId = @Model; // ดึง EventId จาก Model
+
+    async function loadMessages() {
+        const response = await fetch(`/Chat/GetMessages?eventId=${eventId}`);
+        const messages = await response.json();
+        const chatBox = document.getElementById("chat-box");
+
+        chatBox.innerHTML = messages.map(m =>
+            `<p><strong>${m.userName}:</strong> ${m.content}</p>`
+        ).join("");
+    }
+
+    async function sendMessage() {
+        let content = document.getElementById("messageInput").value;
+        if (!content.trim()) return;
+
+        await fetch(`/Chat/SendMessage`, {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `eventId=${eventId}&content=${encodeURIComponent(content)}`
+        });
+
+        document.getElementById("messageInput").value = "";
+        loadMessages(); // โหลดแชทใหม่หลังจากส่งข้อความ
+    }
+
+    setInterval(loadMessages, 3000); // โหลดข้อความใหม่ทุก 3 วินาที
+    loadMessages(); // โหลดแชทเมื่อเปิดหน้า
+</script>
+
+<style>
+    .chat-container {
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 8px;
+        background: #f9f9f9;
+    }
+
+    .chat-box {
+        height: 300px;
+        overflow-y: auto;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 10px;
+    }
+
+    .chat-input {
+        display: flex;
+        gap: 10px;
+    }
+
+    .chat-input input {
+        flex: 1;
+        padding: 8px;
+    }
+
+    .chat-input button {
+        background: #007bff;
+        color: white;
+        padding: 8px 15px;
+        border: none;
+        cursor: pointer;
+    }
+</style>

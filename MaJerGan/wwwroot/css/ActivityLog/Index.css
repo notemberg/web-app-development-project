@@ -1,0 +1,340 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Sulphur Point';
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #FF7BA8;
+}
+
+.container {
+    width: 80%;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 180px;
+}
+
+.activity-log-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.profile-content {
+    display: flex;
+    align-items: flex-start; /* Align items to the start */
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-picture {
+    width: 20%;
+    display: flex;
+    flex-direction: column; /* Stack profile picture and info vertically */
+    align-items: center;
+}
+
+.profile-picture img {
+    width: 150px;
+    height: auto;
+    border-radius: 100px;
+    border: 1px solid rgb(109, 109, 109);
+    /* background-color: #e4e4e4; */
+    /* padding: 5px; */
+}
+
+.profile-info {
+    margin-top: 20px; /* Add margin to the top */
+    text-align: center; /* Center align the text */
+    font-weight: bold;
+    color : #797979;
+}
+
+.Gender {
+    font-size: 16px;
+    color: #FF6B6B;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.log-section {
+    margin-left: 20px; /* Add margin to the left */
+    width: 80%;
+}
+
+.activity-category h2{
+    color: #FF7BA8;
+}
+
+
+.event-card {
+    min-height: 124px;
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid #ddd;
+    width: 100%;
+    cursor: pointer;
+}
+
+.event-card:hover {
+    scale: 1.02;
+}
+
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+.event-card .event-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.event-body {
+    font-size: 14px;
+    color: gray;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.creator {
+    width: auto;
+    font-size: 16px;
+}
+
+
+.fa-user {
+    color: #666;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.bi-envelope {
+    font-size: 16px;
+    color: #666;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.bi-telephone {
+    font-size: 16px;
+    color: #666;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.fa-pencil{
+    font-size: 16px;;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.participants {
+    width: auto;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    /* margin-top: 5px; */
+}
+
+.tags-container {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    white-space: nowrap;
+    flex-grow: 1;
+    padding-bottom: 5px;
+    min-width: 100px;
+}
+
+.tag-button {
+    color: #333;
+    background: #ddd;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin-right: 5px;
+    font-size: 12px;
+    cursor: default;
+    transition: 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.tag-button:hover {
+    background-color: #BDBDBD;
+}
+
+.location {
+    width: 40%;  
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* ถ้ายาวเกิน ให้ขึ้น "..." */
+    font-size: 14px;
+    font-weight: normal;
+    color: #555;
+}
+.event-card-link {
+    text-decoration: none; /* ไม่มีขีดเส้นใต้ */
+    color: black; /* สีข้อความ */
+}
+
+.event-card-link:hover {
+    background-color: #f0f0f0; /* สีพื้นหลังเมื่อ hover */
+}
+
+.event-card {
+    cursor: pointer; /* ทำให้การ์ดสามารถคลิกได้ */
+}
+
+.info {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+}
+
+.Time {
+    width: 30%;
+    font-size: 24px;
+    color: gray;
+    font-weight: normal;
+}
+
+.toggle-button {
+    display: block;
+    margin: 10px auto;
+    background: none;
+    border: none;
+    color: #FF7BA8;
+    font-size: 16px; /* Increase font size */
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.toggle-button:hover {
+    color: gray;
+}
+
+.profile-link {
+    display: block;
+    margin-top: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.profile-link:hover {
+    scale : 1.05;
+    text-decoration: underline;
+}
+
+@media (max-width: 820px) {
+    .activity-log-container {
+        padding: 20px;
+    }
+
+    .profile-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-picture {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .log-section {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .event-card {
+        padding: 10px;
+    }
+
+    .event-card .event-title {
+        font-size: 24px;
+    }
+
+    .event-body {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .Time {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .location {
+        width: 100%;
+    }
+
+    .tags-container {
+        flex-wrap: wrap; /* Allow tags to wrap to the next line */
+    }
+}
+
+@media (max-width: 480px) {
+    .activity-log-container {
+        padding: 15px;
+    }
+
+    .event-card .event-title {
+        font-size: 18px;
+    }
+
+    .Time {
+        font-size: 16px;
+    }
+
+    .participants, .creator {
+        font-size: 14px;
+    }
+
+    .tag-button {
+        font-size: 10px;
+        padding: 3px 7px;
+    }
+
+    .tags-container {
+        flex-wrap: wrap; /* Allow tags to wrap to the next line */
+    }
+}

@@ -1,0 +1,59 @@
+@{
+    ViewData["Title"] = "Login";
+    ViewData["ShowHeader"] = "False";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/Auth/Login.css">
+
+</head>
+<script src="~/js/Auth/Login.js"></script>
+
+<body>
+
+    <div class="header">Meet <span style="color: #FF6B6B;">ME!</span></div>
+
+    <div class="login-container">
+        <h2>Login</h2>
+
+        <div class="input-group">
+            <input type="text" id="identifier" placeholder=" " required>
+            <label for="username">Username</label>
+        </div>
+
+        <div class="input-group">
+            <input type="password" id="password" placeholder=" " required>
+            <label for="password">Password</label>
+        </div>
+
+        <button class="login-btn" onclick="login()">Login</button>
+
+        <a href="/auth/register" class="signup-link">Don't have an account?</a>
+
+        <!-- Popup Custom -->
+        <div id="customPopup" class="popup">
+            <div class="popup-content">
+                <h2 id="popupTitle">แจ้งเตือน</h2>
+                <p id="popupText"></p>
+
+                <div class="popup-buttons">
+                    <button id="popupOkBtn" class="btn" onclick="closePopup()">OK</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="loading-indicator">
+    <div class="loader"></div>
+    <p id="loading-text">กำลังเข้าสู่ระบบ...</p>
+</div>
+
+    </div>
+</body>
+
+</html>

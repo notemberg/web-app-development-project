@@ -1,0 +1,55 @@
+@{
+    ViewData["Title"] = "Sign Up";
+    ViewData["ShowHeader"] = "false";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="~/css/Auth/Interests.css">
+
+</head>
+
+<script src="~/js/closeAutoFill.js"></script>
+<body>
+
+    <div class="header">Meet <span style="color: #FF6B6B;">ME!</span></div>
+
+    <div class="interests-container">
+        <div class="back-button" onclick="goBack()">← back</div>
+        <h2>choose your interests</h2>
+
+        <div id="tag-container">
+            <div class="search-container">
+                <input type="text" id="search-tags" placeholder="Search interests..." onkeyup="showSuggestions()">
+                <div id="suggestions" class="suggestion-box"></div>
+            </div>
+            <div id="tag-carousel-interest"></div>
+            <button class="create-account" id="createAccountBtn">Create Account</button>
+        </div>
+    </div>
+
+    <!-- Popup Custom -->
+    <div id="customPopup" class="popup">
+        <div class="popup-content">
+            <h2 id="popupTitle">แจ้งเตือน</h2>
+            <p id="popupText"></p>
+
+            <div class="popup-buttons">
+                <button id="popupOkBtn" class="btn" onclick="closePopup()">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ ย้าย script มาที่ท้าย body -->
+    <script src="~/js/Auth/Register.js"></script>
+    <script src="~/js/Auth/Interests.js"></script>
+
+</body>
+
+
+</html>

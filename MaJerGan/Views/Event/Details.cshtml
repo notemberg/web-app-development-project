@@ -1,0 +1,221 @@
+@model MaJerGan.Models.Event
+
+@{
+    ViewData["Title"] = Model.Title;
+    ViewData["ShowHeader"] = "True";
+    ViewData["ShowNavCarousel"] = "True";
+    var currentUserId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Model.Title</title>
+    <link rel="stylesheet" href="~/css/Event/create.css" />
+    <link rel="stylesheet" href="~/css/Event/comments.css" />
+</head>
+
+<script src="~/js/Tag.js"></script>
+<script src="~/js/closeAutoFill.js"></script>
+
+<body>
+
+    <div class="content">
+        <div class="form-container">
+            <h2>✨ รายละเอียดกิจกรรม ✨</h2>
+
+            <div>
+                <label>📌 ชื่อกิจกรรม:</label>
+                <p>@Model.Title</p>
+            </div>
+
+            <div>
+                <label>📝 รายละเอียด:</label>
+                <p style="white-space: pre-line;">@Model.Description</p>
+            </div>
+
+            <div>
+                <label>👥 จำนวนสมาชิกที่รับ:</label>
+                <p>@Model.MaxParticipants</p>
+            </div>
+
+            <div>
+                <label>⚧️ เพศที่สามารถเข้าร่วมได้:</label>
+                <p>
+                    @if (!Model.IsGenderRestricted)
+                    {
+                        <span>ทุกเพศสามารถเข้าร่วมได้</span>
+                    }
+                    else
+                    {
+                        <span>@Model.AllowedGenders</span>
+                    }
+                </p>
+            </div>
+
+            <div>
+                <h3>✅ อนุมัติแล้ว</h3>
+                @if (Model.Participants.Any(p => p.Status == ParticipationStatus.Approved))
+                {
+                    <ul>
+                        @foreach (var participant in Model.Participants.Where(p => p.Status ==
+                                            ParticipationStatus.Approved))
+                        {
+                            <li>@participant.User.Username</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p>ไม่มีผู้เข้าร่วมที่ได้รับอนุมัติ</p>
+                }
+            </div>
+
+            <div>
+                <h3>⌛ รออนุมัติ</h3>
+                @if (Model.Participants.Any(p => p.Status == ParticipationStatus.Pending))
+                {
+                    <ul>
+                        @foreach (var participant in Model.Participants.Where(p => p.Status == ParticipationStatus.Pending))
+                        {
+                            <li>
+                                @participant.User.Username
+                                @if (Model.CreatedBy.ToString() == currentUserId)
+                                {
+                                    <form asp-action="Approve" asp-controller="Event" method="post" style="display:inline;">
+                                        <input type="hidden" name="eventId" value="@Model.Id" />
+                                        <input type="hidden" name="userId" value="@participant.User.Id" />
+                                        <button type="submit" class="btn btn-success btn-sm">✅ อนุมัติ</button>
+                                    </form>
+
+                                    <form asp-action="Reject" asp-controller="Event" method="post" style="display:inline;">
+                                        <input type="hidden" name="eventId" value="@Model.Id" />
+                                        <input type="hidden" name="userId" value="@participant.User.Id" />
+                                        <button type="submit" class="btn btn-danger btn-sm">❌ ปฏิเสธ</button>
+                                    </form>
+                                }
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <p>ไม่มีผู้เข้าร่วมที่รออนุมัติ</p>
+                }
+            </div>
+
+            @if (Model.CreatedBy.ToString() == currentUserId)
+            {
+                <div>
+                    <h3>⚠️ การจัดการ Event (สำหรับ Host เท่านั้น)</h3>
+
+                    <form asp-action="DeleteEvent" asp-controller="Event" method="post">
+                        <input type="hidden" name="eventId" value="@Model.Id" />
+                        <button type="submit" class="btn btn-danger">🗑️ ลบกิจกรรม</button>
+                    </form>
+                </div>
+            }
+
+
+            <div class="comment-section">
+                <h3>💬 ความคิดเห็น</h3>
+
+                <!-- ✅ ช่องกรอกความคิดเห็น -->
+                <div class="comment-input">
+                    <textarea id="commentContent" placeholder="เพิ่มความคิดเห็น..."></textarea>
+                    <button id="postCommentBtn" data-eventid="@Model.Id">📩 ส่งความคิดเห็น</button>
+                </div>
+
+                <!-- ✅ แสดงความคิดเห็น -->
+                <div id="commentsContainer">
+                    <p>กำลังโหลดความคิดเห็น...</p>
+                </div>
+            </div>
+
+            <form asp-action="Join" asp-controller="Event" method="post">
+                <input type="hidden" name="eventId" value="@Model.Id" />
+                <button type="submit" class="join-btn">🚀 เข้าร่วมกิจกรรม</button>
+            </form>
+
+            <a href="@Url.Action("Chat", "Event", new { id = Model.Id })" class="btn btn-primary">💬 เข้าสู่แชท</a>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const eventId = @Model.Id;
+    const commentsContainer = document.getElementById("commentsContainer");
+    const commentInput = document.getElementById("commentContent");
+    const postButton = document.getElementById("postCommentBtn");
+
+    // ✅ โหลดความคิดเห็น
+    function loadComments() {
+        fetch(`/Event/GetComments?eventId=${eventId}`)
+        .then(response => response.json())
+        .then(comments => {
+            commentsContainer.innerHTML = "";
+            if (comments.length === 0) {
+                commentsContainer.innerHTML = "<p>ยังไม่มีความคิดเห็น</p>";
+                return;
+            }
+
+            comments.forEach(comment => {
+                const commentElement = document.createElement("div");
+                commentElement.classList.add("comment-item");
+                commentElement.innerHTML = `
+                    <div class="comment-box">
+                        <img src="${comment.profileImg}" class="profile-image" alt="${comment.username}">
+                        <div class="comment-content">
+                            <p><strong>${comment.username}</strong> - 
+                            <span class="comment-time">${comment.createdAt}</span></p>
+                            <p>${comment.content}</p>
+                        </div>
+                    </div>
+                `;
+                commentsContainer.appendChild(commentElement);
+            });
+        })
+        .catch(error => {
+            console.error("❌ Error loading comments:", error);
+        });
+    }
+
+    // ✅ โพสต์ความคิดเห็น
+    postButton.addEventListener("click", function () {
+        const content = commentInput.value.trim();
+        if (content === "") {
+            alert("❌ กรุณากรอกความคิดเห็นก่อนส่ง");
+            return;
+        }
+
+        fetch("/Event/PostComment", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: `eventId=${eventId}&content=${encodeURIComponent(content)}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            if (data.success) {
+                commentInput.value = "";
+                loadComments(); // ✅ โหลดคอมเมนต์ใหม่
+            }
+        })
+        .catch(error => {
+            console.error("❌ Error posting comment:", error);
+        });
+    });
+
+    loadComments(); // ✅ โหลดคอมเมนต์ทันทีเมื่อหน้าเว็บโหลด
+});
+</script>

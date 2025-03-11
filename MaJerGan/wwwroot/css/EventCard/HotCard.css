@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
+
+
+/* ✅ ปรับการ์ดให้มีระยะห่างจากขอบ */
+.hot-event-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    padding-top: 0px;
+    padding-right: 2px;
+    padding-left: 45px;
+    margin-bottom: 16px;
+    width: 100%;
+    min-height: 120px; /* ป้องกันสูงเกินไป */
+    justify-content: flex-start;
+    cursor: pointer;
+}
+
+.hot-event-card:hover {
+    scale: 1.02;
+}
+
+.hot-container {
+    display: flex;
+    flex-wrap: wrap; /* ให้ปรับขนาดอัตโนมัติถ้าพื้นที่ไม่พอ */
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+
+.hot-picture {
+    /* flex: 0 0 auto; ป้องกันการยืดของ container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 40%; /* ปรับสัดส่วนใน container */
+    margin-top: 16px;
+}
+
+.hot-info-container {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    font-size: 16px;
+    
+    flex: 1; /* ทำให้ขยายเต็มที่ */
+    width: 100%; /* ให้แน่ใจว่ายืดเต็ม */
+    overflow: hidden; /* ซ่อนส่วนที่ล้นออก */
+    word-wrap: break-word; /* บังคับให้ขึ้นบรรทัดใหม่หากข้อความยาวเกิน */
+    white-space: normal; /* อนุญาตให้ขึ้นบรรทัดใหม่ */
+}
+
+/* ✅ ทำให้วงกลมลอยออกจากการ์ด */
+.hot-rank {
+    font-family: 'Caprasimo';
+    position: absolute;
+    top: -10px;
+    /* ขยับขึ้น */
+    left: -10px;
+    /* ขยับไปซ้าย */
+  
+    color: #F1AEC5;
+    font-weight: bold;
+    font-size: 26px;
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ✅ พื้นที่ของเนื้อหากิจกรรม */
+.hot-event-content {
+
+    flex-grow: 1;
+}
+
+/* ✅ ส่วนหัวของการ์ด (ชื่อกิจกรรม + views) */
+.event-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* ✅ ชื่อกิจกรรม */
+.event-title {
+    font-family: 'Sulphur Point';
+    text-overflow: ellipsis;
+    width: 70%;
+    text-align: left;
+    margin-top: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+}
+.home-event-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff4081;
+    white-space: nowrap; /* ป้องกันการขึ้นบรรทัดใหม่ */
+    overflow: hidden;
+    text-overflow: ellipsis; /* เพิ่ม "..." เมื่อข้อความยาวเกิน */
+    max-width: 100%;
+    display: block;
+}
+
+
+/* ✅ จำนวน Views */
+.event-views {
+    font-size: 14px;
+    font-weight: bold;
+    color: #28a745;
+    /* สีเขียว */
+}
+
+/* ✅ ชื่อผู้สร้าง */
+
+
+.event-body {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ✅ จำนวนผู้เข้าร่วม */
+.participants {
+    font-family: 'Sulphur Point';
+    font-size: 14px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0px;
+}
+
+/* ✅ แท็กกิจกรรม */
+.tags-container {
+    font-family: 'Sulphur Point';
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    /* margin-top: 4px; */
+}
+
+/* ✅ ปรับแท็กให้เป็นสีเทาโค้งมน */
+.tag-button {
+    background-color: #E0E0E0;
+    color: #333;
+    border: none;
+    border-radius: 12px;
+    padding: 6px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    font-weight: bold;
+}
+
+.tag-button:hover {
+    background-color: #BDBDBD;
+}
+
+
+@media screen and (max-width: 900px) {
+    .hot-event-card {
+        padding: 16px;
+        padding-top: 0px;
+        padding-right: 2px;
+        padding-left: 30px;
+        margin-bottom: 16px;
+        width: 100%;
+        max-width: none;
+        justify-content: flex-start;
+        cursor: pointer;
+    }
+
+    .hot-event-card:hover {
+        scale: 1.02;
+    }
+
+    .hot-rank {
+        font-family: 'Caprasimo';
+        position: absolute;
+        top: -10px;
+        /* ขยับขึ้น */
+        left: -15px;
+        /* ขยับไปซ้าย */
+        background: #FFF493;
+        color: #F1AEC5;
+        font-weight: bold;
+        font-size: 22px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 50%;
+        text-align: center;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .hot-event-content {
+
+        flex-grow: 1;
+    }
+
+    .event-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 16px;
+        font-weight: bold;
+        width: 100%;
+    }
+
+    .event-title {
+      
+        text-overflow: ellipsis;
+        width: 70%;
+        text-align: left;
+        margin-top: 5px;
+        font-size: 30px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 4px;
+    }
+
+    .event-views {
+        font-size: 14px;
+        font-weight: bold;
+        color: #28a745;
+        /* สีเขียว */
+    }
+
+    .hot-event-card .creator {
+      
+        font-size: 14px;
+        color: rgb(0, 0, 0);
+        font-weight: normal;
+    }
+
+    .hot-event-content > .event-body > .participants {
+        
+        font-size: 14px;
+        color: #666;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 0px;
+        width: 100%;
+    }
+}
+
+
+/* ✅ เมื่อจอเล็กกว่า 500px ให้ hot-picture อยู่ข้างบน hot-info-container */
+@media (max-width: 500px) {
+    .hot-container {
+        flex-direction: column; /* เรียงเป็นแนวตั้ง */
+        align-items: left; /* จัดให้อยู่ตรงกลาง */
+    }
+
+    .hot-picture {
+        max-width: 100%; /* ให้รูปขยายเต็ม */
+        order: -1; /* ✅ ทำให้ hot-picture อยู่บนสุด */
+    }
+
+    .hot-info-container {
+        width: 100%; /* ให้เนื้อหาเต็มพื้นที่ */
+        text-align: left; /* ปรับให้อยู่ตรงกลาง */
+    }
+    .hot-event-card{
+        padding-left: 0px;
+    }
+}
