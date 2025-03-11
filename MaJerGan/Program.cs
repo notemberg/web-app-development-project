@@ -7,12 +7,19 @@ using MaJerGan.Middleware;
 using MaJerGan.Services;
 using MaJerGan.Hubs;
 using MaJerGan.Repositories;
+using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
 
+Env.Load();
+var apiKey = Environment.GetEnvironmentVariable("GOOGLE_MAPS_API_KEY");
+Console.WriteLine($"Loaded API Key: {apiKey}"); // Debug ตรวจสอบค่า
 
 
+builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddHostedService<EventCleanupService>();
+// builder.Services.AddHostedService<EventImageUpdateService>(); // อัปเดตรูปภาพทุก 24 ชั่วโมง
+
 builder.Services.AddSingleton<EmailService>();
 builder.Services.AddSingleton<CloudinaryService>();
 // ✅ ลงทะเบียน WebSocket Handler

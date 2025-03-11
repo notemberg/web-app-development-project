@@ -39,6 +39,7 @@ namespace MaJerGan.Controllers
 
             var hostedActivities = _context.Events
                                            .Where(e => e.CreatedBy == id)
+                                           .OrderByDescending(e => e.EventTime)
                                            .Select(e => new ActivityLogViewModel
                                            {
                                                Id = e.Id, // Set the Id property
@@ -55,6 +56,7 @@ namespace MaJerGan.Controllers
 
             var pendingActivities = _context.EventParticipants
                                             .Where(ep => ep.UserId == id && ep.Status == ParticipationStatus.Pending)
+                                            .OrderByDescending(ep => ep.JoinedAt)
                                             .Select(ep => new ActivityLogViewModel
                                             {
                                                 Id = ep.Event.Id, // Set the Id property
@@ -71,6 +73,7 @@ namespace MaJerGan.Controllers
 
             var approvedActivities = _context.EventParticipants
                                              .Where(ep => ep.UserId == id && ep.Status == ParticipationStatus.Approved && ep.UserId != ep.Event.CreatedBy)
+                                             .OrderByDescending(ep => ep.JoinedAt)
                                              .Select(ep => new ActivityLogViewModel
                                              {
                                                  Id = ep.Event.Id, // Set the Id property

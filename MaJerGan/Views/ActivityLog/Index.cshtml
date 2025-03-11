@@ -1,4 +1,3 @@
-<!-- add things accord to figma -- ask oat for status -->
 @model MaJerGan.Models.ActivityLogIndexViewModel
 
 @{
@@ -41,158 +40,206 @@
 
             <div class="log-section">
                 <!-- Hosted Events -->
-                <h3>Host</h3>
-                @if (!Model.HostedActivities.Any())
-                {
-                    <p style="margin-top: 10px; margin-bottom: 10px;">User did not host any events.</p>
-                }
-                else
-                {
-                    @foreach (var activity in Model.HostedActivities)
+                <div class="activity-category">
+                    <h3>Host</h3>
+                    @if (!Model.HostedActivities.Any())
                     {
-                        <a href="@Url.Action("Details", "Event", new { id = activity.Id })" class="event-card-link">
-                            <div class="event-card">
-                                <div class="event-content">
-                                    <div class="event-header">
-                                        <h3 class="event-title">@activity.EventTitle
-                                            <span class="Time">@activity.EventTime.ToString("MM/dd/yyyy") at
-                                                @activity.EventTime.ToString("hh:mm tt")</span>
-                                        </h3>
-                                    </div>
-                                    <div class="event-body">
-                                        <div class="info">
-                                            <div class="creator">Host By: @activity.HostName</div>
-                                            <div class="participants">
-                                                <i class="fa-solid fa-user"></i> @activity.ApprovedParticipants/@activity.MaxParticipants
-                                            </div>
-                                            <div class="location"> @@@activity.LocationName</div>
+                        <p style="margin-top: 10px; margin-bottom: 10px;">User did not host any events.</p>
+                    }
+                    else
+                    {
+                        @foreach (var activity in Model.HostedActivities)
+                        {
+                            <a href="@Url.Action("Details", "Event", new { id = activity.Id })" class="event-card-link">
+                                <div class="event-card">
+                                    <div class="event-content">
+                                        <div class="event-header">
+                                            <h3 class="event-title">@activity.EventTitle
+                                                <span class="Time">@activity.EventTime.ToString("MM/dd/yyyy") at
+                                                    @activity.EventTime.ToString("hh:mm tt")</span>
+                                            </h3>
                                         </div>
-                                        <div class="tags-container">
-                                            @if (!string.IsNullOrEmpty(activity.Tags))
-                                            {
-                                                var tags = activity.Tags.Split(',');
-                                                foreach (var tag in tags)
+                                        <div class="event-body">
+                                            <div class="info">
+                                                <div class="creator">Host By: @activity.HostName</div>
+                                                <div class="participants">
+                                                    <i class="fa-solid fa-user"></i> @activity.ApprovedParticipants/@activity.MaxParticipants
+                                                </div>
+                                                <div class="location"> @@@activity.LocationName</div>
+                                            </div>
+                                            <div class="tags-container">
+                                                @if (!string.IsNullOrEmpty(activity.Tags))
                                                 {
-                                                    <button class="tag-button">@tag.Trim()</button>
+                                                    var tags = activity.Tags.Split(',');
+                                                    foreach (var tag in tags)
+                                                    {
+                                                        <button class="tag-button">@tag.Trim()</button>
+                                                    }
                                                 }
-                                            }
-                                            else
-                                            {
-                                                <span>ไม่มีแท็ก</span>
-                                            }
+                                                else
+                                                {
+                                                    <span>ไม่มีแท็ก</span>
+                                                }
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        }
+                        <div style="text-align: center;">
+                            <button class="toggle-button" data-expanded="false">View ALL</button>
+                        </div>
                     }
                     <hr style="border-bottom: 1px solid #ddd; margin-bottom: 20px;" /> <!-- Add border-bottom with margin-bottom -->
-                }
-                
+                </div>
 
                 <!-- Pending Events -->
-                <h3>Pending Events</h3>
-                @if (!Model.PendingActivities.Any())
-                {
-                    <p style="margin-top: 10px; margin-bottom: 10px;">User did not have any pending request.</p>
-                }
-                else
-                {
-                    @foreach (var activity in Model.PendingActivities)
+                <div class="activity-category">
+                    <h3>Pending Events</h3>
+                    @if (!Model.PendingActivities.Any())
                     {
-                        <a href="@Url.Action("Details", "Event", new { id = activity.Id })" class="event-card-link">
-                            <div class="event-card">
-                                <div class="event-content">
-                                    <div class="event-header">
-                                        <h3 class="event-title">@activity.EventTitle
-                                            <span class="Time">@activity.EventTime.ToString("MM/dd/yyyy") at
-                                                @activity.EventTime.ToString("hh:mm tt")</span>
-                                        </h3>
-                                    </div>
-                                    <div class="event-body">
-                                        <div class="info">
-                                            <div class="creator">Host By: @activity.HostName</div>
-                                            <div class="participants">
-                                                <i class="fa-solid fa-user"></i> @activity.ApprovedParticipants/@activity.MaxParticipants
-                                            </div>
-                                            <div class="location"> @@@activity.LocationName</div>
+                        <p style="margin-top: 10px; margin-bottom: 10px;">User did not have any pending request.</p>
+                    }
+                    else
+                    {
+                        @foreach (var activity in Model.PendingActivities)
+                        {
+                            <a href="@Url.Action("Details", "Event", new { id = activity.Id })" class="event-card-link">
+                                <div class="event-card">
+                                    <div class="event-content">
+                                        <div class="event-header">
+                                            <h3 class="event-title">@activity.EventTitle
+                                                <span class="Time">@activity.EventTime.ToString("MM/dd/yyyy") at
+                                                    @activity.EventTime.ToString("hh:mm tt")</span>
+                                            </h3>
                                         </div>
-                                        <div class="tags-container">
-                                            @if (!string.IsNullOrEmpty(activity.Tags))
-                                            {
-                                                var tags = activity.Tags.Split(',');
-                                                foreach (var tag in tags)
+                                        <div class="event-body">
+                                            <div class="info">
+                                                <div class="creator">Host By: @activity.HostName</div>
+                                                <div class="participants">
+                                                    <i class="fa-solid fa-user"></i> @activity.ApprovedParticipants/@activity.MaxParticipants
+                                                </div>
+                                                <div class="location"> @@@activity.LocationName</div>
+                                            </div>
+                                            <div class="tags-container">
+                                                @if (!string.IsNullOrEmpty(activity.Tags))
                                                 {
-                                                    <button class="tag-button">@tag.Trim()</button>
+                                                    var tags = activity.Tags.Split(',');
+                                                    foreach (var tag in tags)
+                                                    {
+                                                        <button class="tag-button">@tag.Trim()</button>
+                                                    }
                                                 }
-                                            }
-                                            else
-                                            {
-                                                <span>ไม่มีแท็ก</span>
-                                            }
+                                                else
+                                                {
+                                                    <span>ไม่มีแท็ก</span>
+                                                }
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        }
+                        <div style="text-align: center;">
+                            <button class="toggle-button" data-expanded="false">View ALL</button>
+                        </div>
                     }
                     <hr style="border-bottom: 1px solid #ddd; margin-bottom: 20px;" /> <!-- Add border-bottom with margin-bottom -->
-                }
-                
+                </div>
 
                 <!-- Approved Events -->
-                <h3>Approved Events</h3>
-                @if (!Model.ApprovedActivities.Any())
-                {
-                    <p style="margin-top: 10px; margin-bottom: 10px;">User struggles with social acceptance.</p>
-                }
-                else
-                {
-                    @foreach (var activity in Model.ApprovedActivities)
+                <div class="activity-category">
+                    <h3>Approved Events</h3>
+                    @if (!Model.ApprovedActivities.Any())
                     {
-                        <a href="@Url.Action("Details", "Event", new { id = activity.Id })" class="event-card-link">
-                            <div class="event-card">
-                                <div class="event-content">
-                                    <div class="event-header">
-                                        <h3 class="event-title">@activity.EventTitle
-                                            <span class="Time">@activity.EventTime.ToString("MM/dd/yyyy") at
-                                                @activity.EventTime.ToString("hh:mm tt")</span>
-                                        </h3>
-                                    </div>
-                                    <div class="event-body">
-                                        <div class="info">
-                                            <div class="creator">Host By: @activity.HostName</div>
-                                            <div class="participants">
-                                                <i class="fa-solid fa-user"></i> @activity.ApprovedParticipants/@activity.MaxParticipants
-                                            </div>
-                                            <div class="location"> @@@activity.LocationName</div>
+                        <p style="margin-top: 10px; margin-bottom: 10px;">User struggles with social acceptance.</p>
+                    }
+                    else
+                    {
+                        @foreach (var activity in Model.ApprovedActivities)
+                        {
+                            <a href="@Url.Action("Details", "Event", new { id = activity.Id })" class="event-card-link">
+                                <div class="event-card">
+                                    <div class="event-content">
+                                        <div class="event-header">
+                                            <h3 class="event-title">@activity.EventTitle
+                                                <span class="Time">@activity.EventTime.ToString("MM/dd/yyyy") at
+                                                    @activity.EventTime.ToString("hh:mm tt")</span>
+                                            </h3>
                                         </div>
-                                        <div class="tags-container">
-                                            @if (!string.IsNullOrEmpty(activity.Tags))
-                                            {
-                                                var tags = activity.Tags.Split(',');
-                                                foreach (var tag in tags)
+                                        <div class="event-body">
+                                            <div class="info">
+                                                <div class="creator">Host By: @activity.HostName</div>
+                                                <div class="participants">
+                                                    <i class="fa-solid fa-user"></i> @activity.ApprovedParticipants/@activity.MaxParticipants
+                                                </div>
+                                                <div class="location"> @@@activity.LocationName</div>
+                                            </div>
+                                            <div class="tags-container">
+                                                @if (!string.IsNullOrEmpty(activity.Tags))
                                                 {
-                                                    <button class="tag-button">@tag.Trim()</button>
+                                                    var tags = activity.Tags.Split(',');
+                                                    foreach (var tag in tags)
+                                                    {
+                                                        <button class="tag-button">@tag.Trim()</button>
+                                                    }
                                                 }
-                                            }
-                                            else
-                                            {
-                                                <span>ไม่มีแท็ก</span>
-                                            }
+                                                else
+                                                {
+                                                    <span>ไม่มีแท็ก</span>
+                                                }
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        }
+                        <div style="text-align: center;">
+                            <button class="toggle-button" data-expanded="false">View ALL</button>
+                        </div>
                     }
                     <hr style="border-bottom: 1px solid #ddd; margin-bottom: 20px;" /> <!-- Add border-bottom with margin-bottom -->
-                }
-                
                 </div>
             </div>
         </div>
     </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".activity-category").forEach(category => {
+            const activities = category.querySelectorAll(".event-card");
+            const toggleButton = category.querySelector(".toggle-button");
+
+            if (toggleButton) {
+                if (activities.length > 3) {
+                    // Hide activities beyond the first three
+                    activities.forEach((activity, index) => {
+                        if (index >= 3) activity.style.display = "none";
+                    });
+
+                    // Add event listener for toggling
+                    toggleButton.addEventListener("click", function () {
+                        const isExpanded = toggleButton.getAttribute("data-expanded") === "true";
+
+                        activities.forEach((activity, index) => {
+                            if (index >= 3) {
+                                activity.style.display = isExpanded ? "none" : "block";
+                            }
+                        });
+
+                        // Toggle button text and state
+                        toggleButton.innerHTML = isExpanded ? "View ALL" : "View less";
+                        toggleButton.setAttribute("data-expanded", isExpanded ? "false" : "true");
+                    });
+                } else {
+                    // Hide the button if there are 3 or fewer activities
+                    toggleButton.style.display = "none";
+                }
+            }
+        });
+    });
+    </script>
 </body>
 
 </html>
+
+

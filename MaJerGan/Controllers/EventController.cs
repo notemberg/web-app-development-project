@@ -98,6 +98,28 @@ namespace MaJerGan.Controllers
             return RedirectToAction("Details", new { id = model.Id });
         }
 
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var eventItem = _context.Events.Find(id);
+            if (eventItem == null)
+            {
+                return NotFound();
+            }
+            return View(eventItem);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Event model)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Events.Update(model);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
 
 
         [HttpGet]
@@ -182,41 +204,6 @@ namespace MaJerGan.Controllers
 
         [Authorize]
         [HttpPost]
-        // public async Task<IActionResult> Join(int eventId)
-        // {
-        //     var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
-        //     if (userIdClaim == null)
-        //     {
-        //         return Unauthorized();
-        //     }
-
-        //     int userId = int.Parse(userIdClaim.Value);
-
-        //     var existingParticipation = await _context.EventParticipants
-        //         .FirstOrDefaultAsync(p => p.EventId == eventId && p.UserId == userId);
-
-        //     if (existingParticipation != null)
-        //     {
-        //         return BadRequest("คุณได้เข้าร่วมกิจกรรมนี้แล้ว");
-        //     }
-
-        //     var participation = new EventParticipant
-        //     {
-        //         EventId = eventId,
-        //         UserId = userId,
-        //         // Status = 1 // ✅ อนุมัติอัตโนมัติ
-        //     };
-
-        //     _context.EventParticipants.Add(participation);
-        //     await _context.SaveChangesAsync();
-
-        //     await WebSocketHandler.BroadcastMessage("Event Joined!");
-
-        //     return RedirectToAction("Details", new { id = eventId });
-        // }
-
-        [Authorize]
-        [HttpPost]
         public async Task<IActionResult> Join(int eventId)
         {
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
@@ -281,7 +268,7 @@ namespace MaJerGan.Controllers
             }
 
             Console.WriteLine($"🔍 Event RequiresConfirmation: {eventDetails.RequiresConfirmation}");
-            if(existingParticipation != null && existingParticipation.Status == ParticipationStatus.Rejected)
+            if (existingParticipation != null && existingParticipation.Status == ParticipationStatus.Rejected)
             {
                 existingParticipation.Status = ParticipationStatus.Pending;
                 await _context.SaveChangesAsync();
@@ -301,36 +288,43 @@ namespace MaJerGan.Controllers
             int hostId = eventDetails.CreatedBy; // ✅ Host ของ Event
 
             string hostMessage;
+            string hosttype;
             if (eventDetails.RequiresConfirmation)
             {
-                hostMessage = $"📩 มีผู้ใช้ ID {user.Username} ขอเข้าร่วมกิจกรรม {eventDetails.Title}";
+                hostMessage = $"มีผู้ใช้ {user.Username} ขอเข้าร่วมกิจกรรม {eventDetails.Title}";
+                hosttype = "GetJoinRequest";
             }
             else
             {
-                hostMessage = $"📩 ผู้ใช้ ID {user.Username} ได้เข้าร่วมกิจกรรม {eventDetails.Title}";
+                hostMessage = $"ผู้ใช้ {user.Username} ได้เข้าร่วมกิจกรรม {eventDetails.Title}";
+                hosttype = "JoinConfirmation";
             }
 
             var notificationForHost = new Notification
             {
                 UserId = hostId,
+                receiverId = userId,
                 EventId = eventId,
                 Message = hostMessage,
-                Type = "JoinRequest",
+                Type = hosttype,
                 Status = "Unread"
             };
 
             _context.Notifications.Add(notificationForHost);
-
+            await _context.SaveChangesAsync();
             await NotificationWebSocketHandler.SendNotificationToUser(hostId, hostMessage);
 
             string userMessage;
+            string usertype;
             if (eventDetails.RequiresConfirmation)
             {
-                userMessage = $"📩 คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณถูกส่งไปแล้ว";
+                userMessage = $"คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณถูกส่งไปแล้ว";
+                usertype = "SendJoinRequest";
             }
             else
             {
-                userMessage = $"📩 คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณได้รับการอนุมัติแล้ว";
+                userMessage = $"คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณได้รับการอนุมัติแล้ว";
+                usertype = "JoinConfirmation";
             }
 
             var notificationForUser = new Notification
@@ -338,18 +332,17 @@ namespace MaJerGan.Controllers
                 UserId = userId,
                 EventId = eventId,
                 Message = userMessage,
-                Type = "JoinRequest",
+                Type = usertype,
                 Status = "Unread"
             };
 
             _context.Notifications.Add(notificationForUser);
-
+            await _context.SaveChangesAsync();
             await NotificationWebSocketHandler.SendNotificationToUser(userId, userMessage);
 
 
             await WebSocketHandler.BroadcastMessage($"User {userId} joined event {eventId}");
 
-            await _context.SaveChangesAsync();
 
             return RedirectToAction("Details", new { id = eventId });
         }
@@ -382,10 +375,12 @@ namespace MaJerGan.Controllers
             return RedirectToAction("Details", new { id = eventId });
         }
 
-        [Authorize]
+        // [Authorize]
         [HttpPost]
         public async Task<IActionResult> Approve( int eventId, int userId)
         {
+            Console.WriteLine(eventId);
+            Console.WriteLine(userId);
             var eventDetails = await _context.Events.FindAsync(eventId);
             if (eventDetails == null)
             {
@@ -405,7 +400,7 @@ namespace MaJerGan.Controllers
                 return BadRequest("ผู้ใช้นี้ได้รับการอนุมัติแล้ว");
             }
 
-            if(eventDetails.MaxParticipants > 0)
+            if (eventDetails.MaxParticipants > 0)
             {
                 var currentParticipants = await _context.EventParticipants
                     .CountAsync(p => p.EventId == eventId && p.Status == ParticipationStatus.Approved);
@@ -419,7 +414,7 @@ namespace MaJerGan.Controllers
             participation.Status = ParticipationStatus.Approved;
             await _context.SaveChangesAsync();
 
-            string userMessage = $"📩 คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณได้รับการอนุมัติแล้ว";
+            string userMessage = $"คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณได้รับการอนุมัติแล้ว";
 
             var notificationForUser = new Notification
             {
@@ -434,7 +429,7 @@ namespace MaJerGan.Controllers
             await _context.SaveChangesAsync();
 
             await NotificationWebSocketHandler.SendNotificationToUser(userId, userMessage);
-        
+
             return RedirectToAction("Details", new { id = eventId });
         }
 
@@ -456,6 +451,11 @@ namespace MaJerGan.Controllers
                 return NotFound("ไม่พบผู้ใช้นี้ในรายชื่อเข้าร่วม");
             }
 
+            if (participation.Status == ParticipationStatus.Approved)
+            {
+                return BadRequest("ผู้ใช้นี้ได้รับการอนุมัติแล้ว");
+            }
+
             if (participation.Status == ParticipationStatus.Rejected)
             {
                 return BadRequest("ผู้ใช้นี้ถูกปฏิเสธแล้ว");
@@ -465,7 +465,7 @@ namespace MaJerGan.Controllers
             participation.RejectedReason = "test";
             await _context.SaveChangesAsync();
 
-            string userMessage = $"📩 คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณถูกปฏิเสธ: test";
+            string userMessage = $"คำขอเข้าร่วมกิจกรรม {eventDetails.Title} ของคุณถูกปฏิเสธ";
 
             var notificationForUser = new Notification
             {
@@ -480,7 +480,7 @@ namespace MaJerGan.Controllers
             await _context.SaveChangesAsync();
 
             await NotificationWebSocketHandler.SendNotificationToUser(userId, userMessage);
-            
+
 
             return RedirectToAction("Details", new { id = eventId });
         }
@@ -503,7 +503,11 @@ namespace MaJerGan.Controllers
                     e.MaxParticipants,
                     e.Location,
                     CurrentParticipants = e.Participants != null ? e.Participants.Count(p => p.Status == ParticipationStatus.Approved) : 0,
-                    creator = e.Creator.Username // ✅ เพิ่มชื่อผู้สร้าง
+                    creator = e.Creator.Username, // ✅ เพิ่มชื่อผู้สร้าง
+                    e.EventTime,
+                    e.AllowedGenders,
+                    e.LocationImage,
+                    e.LocationName
                 })
                 .ToListAsync();
 
@@ -525,8 +529,8 @@ namespace MaJerGan.Controllers
                 .AsQueryable();
 
             var orderedEvents = isAscending
-                ? await eventsQuery.OrderBy(e => e.CreatedAt).Take(3).ToListAsync()
-                : await eventsQuery.OrderByDescending(e => e.CreatedAt).Take(3).ToListAsync();
+                ? await eventsQuery.OrderBy(e => e.CreatedAt).Take(5).ToListAsync()
+                : await eventsQuery.OrderByDescending(e => e.CreatedAt).Take(5).ToListAsync();
 
             // ✅ Debug เช็คจำนวน Event ที่โหลดมาได้
             Console.WriteLine($"🟢 Events Loaded: {orderedEvents.Count}");
@@ -550,7 +554,10 @@ namespace MaJerGan.Controllers
                     Location = string.IsNullOrEmpty(e.Location) ? "No Location" : e.LocationName, // ✅ ป้องกัน null
                     e.CreatedAt,
                     CurrentParticipants = e.Participants?.Count(p => p.Status == ParticipationStatus.Approved) ?? 0, // ✅ ป้องกัน null
-                    Creator = e.Creator?.Username ?? "Unknown Creator" // ✅ ป้องกัน null
+                    Creator = e.Creator?.Username ?? "Unknown Creator", // ✅ ป้องกัน null
+                    e.LocationImage,
+                    e.LocationName,
+                    e.AllowedGenders
                 })
                 .ToList();
 
@@ -584,6 +591,7 @@ namespace MaJerGan.Controllers
                     e.Title,
                     e.EventTime,
                     e.Location,
+                    e.LocationName,
                     CurrentParticipants = e.Participants.Count(p => p.Status == ParticipationStatus.Approved),
                     Creator = e.Creator != null ? e.Creator.Username : "Unknown"
                 })
@@ -703,7 +711,7 @@ namespace MaJerGan.Controllers
                 .Where(c => c.EventId == eventId)
                 .Include(c => c.User)
                 .OrderByDescending(c => c.CreatedAt)
-                .Select(c => new 
+                .Select(c => new
                 {
                     Username = c.User.Username,
                     ProfileImg = c.User.ProfilePicturee,
@@ -745,6 +753,86 @@ namespace MaJerGan.Controllers
 
             return Json(new { success = true, message = "✅ แสดงความคิดเห็นสำเร็จ!" });
         }
+
+        [HttpGet("Event/UpcomingEvents")]
+        public async Task<IActionResult> UpcomingEvents(string searchQuery)
+        {
+            ViewBag.Tags = _context.Tags.ToList(); // ✅ โหลดแท็กทั้งหมด
+
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized("❌ กรุณาเข้าสู่ระบบก่อนแสดงความคิดเห็น");
+            }
+
+            int userId = int.Parse(userIdClaim.Value);
+            var events = _context.Events
+                .Include(e => e.Creator)
+                .Include(e => e.Participants)
+                .Include(e => e.EventTags)
+                .ThenInclude(et => et.Tag)
+                .Where(e => e.ExpiryDate >= DateTime.UtcNow) // ✅ กรองเฉพาะกิจกรรมที่ยังไม่หมดอายุ
+                .Where(e => e.Participants.Any(p => p.UserId == userId && p.Status == ParticipationStatus.Approved)) // ✅ เฉพาะกิจกรรมที่ผู้ใช้เข้าร่วมและได้รับการอนุมัติ
+
+                .AsQueryable();
+
+
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                events = events.Where(e => e.Title.Contains(searchQuery) || e.Description.Contains(searchQuery));
+            }
+
+            var eventList = await events.ToListAsync();
+
+            Console.WriteLine($"🔍 Found {eventList.Count} events for query: {searchQuery}");
+
+            return View("UpcomingEvents", eventList); // ✅ โหลด `Search.cshtml` พร้อมผลลัพธ์
+        }
+
+
+
+        [HttpGet("Event/UpcomingEventsResults")]
+        public async Task<IActionResult> UpcomingEventsResults(string searchQuery, List<int> selectedTags)
+        {
+
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized("❌ กรุณาเข้าสู่ระบบก่อนแสดงความคิดเห็น");
+            }
+
+            int userId = int.Parse(userIdClaim.Value);
+            var events = _context.Events
+                .Include(e => e.Creator)
+                .Include(e => e.Participants)
+                .Include(e => e.EventTags)
+                .ThenInclude(et => et.Tag)
+                .Where(e => e.ExpiryDate >= DateTime.UtcNow) // ✅ กรองเฉพาะกิจกรรมที่ยังไม่หมดอายุ
+                .Where(e => e.Participants.Any(p => p.UserId == userId && p.Status == ParticipationStatus.Approved)) // ✅ เฉพาะกิจกรรมที่ผู้ใช้เข้าร่วมและได้รับการอนุมัติ
+
+                .AsQueryable();
+
+            // ✅ ใช้ `searchQuery` และ `selectedTags` พร้อมกัน
+            if (!string.IsNullOrEmpty(searchQuery))
+            {
+                events = events.Where(e => e.Title.Contains(searchQuery) || e.Description.Contains(searchQuery));
+            }
+
+            if (selectedTags != null && selectedTags.Count > 0)
+            {
+                events = events.Where(e => selectedTags.All(tagId => e.EventTags.Any(et => et.TagId == tagId)));
+            }
+
+
+
+            var eventList = await events.ToListAsync();
+
+            return PartialView("_UpcomingEventsResults", eventList);
+        }
+
+
+
+
 
     }
 }

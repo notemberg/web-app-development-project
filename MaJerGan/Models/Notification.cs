@@ -20,6 +20,8 @@ namespace MaJerGan.Models
         [ForeignKey("EventId")]
         public virtual Event Event { get; set; } // ความสัมพันธ์กับตาราง Event
 
+        public int? receiverId { get; set; } 
+
         [Required]
         [MaxLength(255)]
         public string Message { get; set; } // ข้อความแจ้งเตือน
