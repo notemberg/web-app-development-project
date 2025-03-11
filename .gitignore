@@ -71,3 +71,6 @@ MaJerGan/obj/Debug/net9.0/
 **/bin/Release/
 **/obj/Debug/
 **/obj/Release/
+
+# Ignore publish folder
+publish/

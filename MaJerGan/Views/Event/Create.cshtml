@@ -88,15 +88,6 @@
                     </div>
                 </div>
 
-                <div class="date-time-container date-time-mobile">
-                    <div class="date-input">
-                        @* <input type="date" id="event-date-mobile" required> *@
-                    </div>
-                    <div class="time-input">
-                        @* <input type="time" id="event-time-mobile" required> *@
-                    </div>
-                </div>
-
                 <!-- ✅ Input ซ่อน เพื่อรวม Date + Time ก่อนส่ง -->
                 <input type="hidden" asp-for="EventTime" id="event-datetime">
 
@@ -110,7 +101,7 @@
             </div>
 
             <div>
-                <label>ExpiryDate</label>
+                <label>Registration End</label>
                 <input asp-for="ExpiryDate" type="datetime-local" id="expiry-date"required />
             </div>
 

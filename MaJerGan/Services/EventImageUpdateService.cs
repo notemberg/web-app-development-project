@@ -16,7 +16,7 @@ namespace MaJerGan.Services
     {
         private readonly IServiceScopeFactory _scopeFactory;
         private static readonly HttpClient httpClient = new HttpClient();
-        private const string ApiKey = "AIzaSyDJ0BrjaeMYo-Ib0n3r4RK1zO-u4v-XpBQ"; // 🔹 ใช้ API Key ของคุณ
+        private const string ApiKey = ""; // 🔹 ใช้ API Key ของคุณ
 
         public EventImageUpdateService(IServiceScopeFactory scopeFactory)
         {

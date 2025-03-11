@@ -47,35 +47,6 @@ body {
     margin: 0;
 }
 
-/* Header */
-/* header {
-    position: fixed;  
-    top: 0;
-    left: 0;
-    width: 100%;  
-    background-color: #333;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    z-index: 1000; ให้ Header อยู่ด้านหน้าสุด 
-} */
-
-/* input[type="text"] {
-    padding: 8px;
-    width: 300px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-} */
-
-/* .container {
-    width: 100%;
-    height: 100;
-    background-color: white;
-    padding-top: 50px;  
-} */
-
 .container {
     flex: 1;
     /* ✅ ทำให้ container ขยายเต็มพื้นที่ที่เหลือ */
