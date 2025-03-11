@@ -14,7 +14,6 @@ namespace MaJerGan.Controllers
     public class EventController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly string _googleMapsApiKey = "AIzaSyDJ0BrjaeMYo-Ib0n3r4RK1zO-u4v-XpBQ";  // ใส่ API Key ของคุณที่นี่
         public EventController(ApplicationDbContext context)
         {
             _context = context;
@@ -336,10 +335,11 @@ namespace MaJerGan.Controllers
             return RedirectToAction("Details", new { id = eventId });
         }
 
-        // [Authorize]
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Approve(int eventId, int userId)
         {
+            
             Console.WriteLine(eventId);
             Console.WriteLine(userId);
             var eventDetails = await _context.Events.FindAsync(eventId);

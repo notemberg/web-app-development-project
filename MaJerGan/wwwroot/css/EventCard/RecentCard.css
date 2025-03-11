@@ -104,7 +104,7 @@
     font-family: "IBM Plex Sans Thai Looped", serif;
     font-weight: 600;
     font-style: bold;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .Time {

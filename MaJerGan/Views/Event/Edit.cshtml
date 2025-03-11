@@ -222,7 +222,7 @@
                     <!-- ✅ Date & Time Picker อยู่ขวา -->
                     <div class="date-time-container date-time-desktop">
                         <div class="date-input">
-                            <input type="date" id="event-date"  value="@Model.EventTime.ToString("yyyy-MM-dd")" required>
+                            <input type="date" id="event-date" value="@Model.EventTime.ToString("yyyy-MM-dd")" required>
                         </div>
                         <div class="time-input">
                             <input type="time" id="event-time" value="@Model.EventTime.ToString("HH:mm")" required>
@@ -244,7 +244,7 @@
 
             <div>
                 <label>Registration End</label>
-                <input asp-for="ExpiryDate" type="datetime-local" id="expiry-date"required />
+                <input asp-for="ExpiryDate" type="datetime-local" id="expiry-date" required />
             </div>
 
 
@@ -276,14 +276,14 @@
             </button>
 
             <!-- ✅ ส่วนแสดงข้อมูลสถานที่ -->
-            <div id="location-info" class="location-info" style="display: none;">
+            <div id="location-info" class="location-info">
                 <div class="location-card">
-                    <img id="location-image" src="" alt="สถานที่" class="location-img">
+                    <img id="location-image" src="@Model.LocationImage" alt="สถานที่" class="location-img">
                     <div class="location-details">
-                        <h3 id="location-name">ชื่อสถานที่</h3>
+                        <h3 id="location-name">@Model.LocationName</h3>
                         <p>
                             <span class="badge">Address</span>
-                            <span id="location-address">ที่อยู่สถานที่</span>
+                            <span id="location-address">@Model.LocationAddress</span>
                         </p>
                     </div>
                 </div>
@@ -313,17 +313,18 @@
                     <span>Gender Restricted</span>
 
                     <!-- ✅ ตัวเลือกเพศ (ซ่อนอยู่หากไม่ได้เลือก Gender Restricted) -->
-                    <div id="genderSelection" class="gender-selection" style="display:@(Model.IsGenderRestricted ? "flex" : "none")">
-                        <input type="checkbox" id="gender-male" name="AllowedGender" value="Male" 
-                            @(Model.AllowedGenders.Contains("Male") ? "checked" : "")>
+                    <div id="genderSelection" class="gender-selection"
+                        style="display:@(Model.IsGenderRestricted ? "flex" : "none")">
+                        <input type="checkbox" id="gender-male" name="AllowedGender" value="Male" hidden 
+                            @(Model.AllowedGenders.Contains("Male") ? "checked" : "") />
                         <label for="gender-male" class="gender-option male">Male</label>
 
-                        <input type="checkbox" id="gender-female" name="AllowedGender" value="Female"
-                            @(Model.AllowedGenders.Contains("Female") ? "checked" : "")>
+                        <input type="checkbox" id="gender-female" name="AllowedGender" value="Female" hidden 
+                            @(Model.AllowedGenders.Contains("Female") ? "checked" : "") />
                         <label for="gender-female" class="gender-option female">Female</label>
 
-                        <input type="checkbox" id="gender-other" name="AllowedGender" value="Other"
-                            @(Model.AllowedGenders.Contains("Other") ? "checked" : "")>
+                        <input type="checkbox" id="gender-other" name="AllowedGender" value="Other" hidden 
+                            @(Model.AllowedGenders.Contains("Other") ? "checked" : "") />
                         <label for="gender-other" class="gender-option other">Other</label>
                     </div>
                 </div>
@@ -350,7 +351,7 @@
             </div>
 
             <!-- ✅ ปุ่ม Submit -->
-            <button type="submit" class="submit-btn" id="submit-btn">Create Post</button>
+            <button type="submit" class="submit-btn" id="submit-btn">EDIT POST</button>
 
 
         </form> <!-- ✅ ปิด form ตรงนี้ถูกต้อง -->
