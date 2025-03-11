@@ -680,7 +680,7 @@ namespace MaJerGan.Controllers
                 .Include(e => e.Creator)
                 .Include(e => e.Participants)
                 .Include(e => e.EventTags) // โหลดแท็กของ Event
-                    .ThenInclude(et => et.Tag)
+                .ThenInclude(et => et.Tag)
                 .Where(e => e.EventTime > today); // ✅ อีเวนต์ต้องอยู่ในอนาคต
 
             // ✅ ถ้าผู้ใช้ล็อกอิน กรอง Event ตาม UserTag ที่สนใจ

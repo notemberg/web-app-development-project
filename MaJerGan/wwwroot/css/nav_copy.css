@@ -140,7 +140,6 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-
   position: fixed;
   top: 0;
   left: 0;
@@ -150,6 +149,7 @@ body {
 }
 
 .nav-carousel {
+  
   overflow: hidden;
   width: 60%;
   gap: 10px;
@@ -240,9 +240,9 @@ body {
   text-align: center;
   font-size: 16px;
   font-weight: bold;
-  text-overflow: ellipsis;
-  /* ✅ ทำให้ข้อความที่ยาวเกินไปแสดง ... */
   text-decoration: none;
+  font-family: "IBM Plex Sans Thai Looped", serif;
+
 }
 
 /* .nav-tag-btn:hover {

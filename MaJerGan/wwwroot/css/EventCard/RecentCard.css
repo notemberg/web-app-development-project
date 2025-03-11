@@ -253,7 +253,7 @@
     .Time, .event-time {
         width: 100%;
         text-align: left;
-        margin-top: 5px;
+        margin-top: 3px;
     }
 
     .event-body {
