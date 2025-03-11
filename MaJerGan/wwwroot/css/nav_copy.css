@@ -1,5 +1,4 @@
 /* ✅ Reset */
-
 body {
   margin: 0;
   padding: 0;
@@ -398,7 +397,6 @@ body {
   padding: 10px;
   border-radius: 8px;
   color: white;
-
 }
 
 .notification-menu.show {

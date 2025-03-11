@@ -103,71 +103,8 @@ a {
 .event-info {
     margin-top: 5px;
     margin-bottom: 5px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #666;
-    display: flex; /* ✅ ทำให้เป็น flex container */
-    flex-wrap: wrap; /* ✅ ทำให้สามารถขึ้นบรรทัดใหม่เมื่อพื้นที่ไม่พอ */
 }
-
-.event-creator {
-    color: #666;
-}
-
-.toggle-view-button {
-    background-color: transparent;
-    font-size: 14px;
-    white-space: nowrap;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: letter-spacing 0.3s ease, background-color 0.3s ease;
-    color: #ff8bb4;
-}
-
-.toggle-view-button:hover {
-    cursor: pointer;
-    letter-spacing: 1px; /* Adjust this value for more/less spreading */
-  
-}
-@media (max-width:1200px) {
-    .event-title{
-        flex-direction: column;
-    }
-    .event-info {
-        flex-direction: column;
-        align-items: flex-start; /* ✅ จัดชิดซ้ายให้สวยงาม */
-    }
-    .title-name{
-        max-width: 100%;
-    }
-    
-}
-@media (max-width:1050px) {
-    .title-name{
-        max-width: 50%;
-    }
-}
-@media (max-width:768px){
-    .upcoming-event-container{
-        margin-top: 20px;
-    }
-
-    
-    .title-name {
-        max-width: 100%; /* ให้ขยายเต็มขอบของ .upcoming-event-card */
-        white-space: normal; /* อนุญาตให้ขึ้นบรรทัดใหม่ */
-        overflow: visible; /* แสดงเนื้อหาทั้งหมด */
-        text-overflow: unset; /* ปิด ellipsis */
-    }
-    }
-    
-
-
 @media  (max-width: 600px) {
-    .upcoming-event-container{
-        margin-top: 20px;
-    }
     .upcoming-event-card {
         min-height: 124px;
         background: white;
@@ -181,7 +118,6 @@ a {
         /* border: 1px solid #ddd; */
         width: 100%;
         cursor: pointer;
-        
     }
     
     .upcoming-event-card:hover {
