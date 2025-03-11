@@ -7,9 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
               return;
           }
 
-          // โหลด Google Maps API
+          // โหลด Google Maps API แบบ callback เพื่อให้แน่ใจว่า initMap ถูกเรียกหลังจากโหลดเสร็จ
           const script = document.createElement('script');
-          script.src = `https://maps.googleapis.com/maps/api/js?key=${data.apiKey}&libraries=places`;
+          script.src = `https://maps.googleapis.com/maps/api/js?key=${data.apiKey}&libraries=places&callback=initMap`;
           script.async = true;
           script.defer = true;
           document.head.appendChild(script);
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let marker;
   let selectedPlace = null;
 
-  function initMap() {
+  window.initMap = function () {
     map = new google.maps.Map(document.getElementById("map"), {
       center: { lat: 13.7563, lng: 100.5018 },
       zoom: 14,
@@ -180,7 +180,6 @@ document.addEventListener("DOMContentLoaded", function () {
     tryLoadImage();
   }
 
-  window.onload = initMap;
 });
 
 function closeModal() {
