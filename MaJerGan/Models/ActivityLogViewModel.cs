@@ -24,5 +24,9 @@ namespace MaJerGan.Models
         public string UserName { get; set; } // Add the username property
         public int UserId { get; set; } // Add the user ID property
         public string ProfilePicture { get; set; } // Add the profile picture property
+        public string Email { get; set; } // Add the email property
+        public string Phone { get; set; } // Add the telephone property
+        public string Gender { get; set; }
+        public bool IsOwner { get; set; } // Add the IsOwner property
     }
 }
