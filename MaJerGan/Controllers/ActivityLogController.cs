@@ -23,12 +23,12 @@ namespace MaJerGan.Controllers
         {
             if (id == null)
             {
-                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                if (userId == null)
+                var UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (UserId == null)
                 {
                     return Unauthorized("User not logged in.");
                 }
-                id = int.Parse(userId);
+                id = int.Parse(UserId);
             }
 
             var user = _context.Users.FirstOrDefault(u => u.Id == id);
@@ -88,6 +88,9 @@ namespace MaJerGan.Controllers
                                              })
                                              .ToList();
 
+            var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var isOwner = currentUserId != null && int.Parse(currentUserId) == id;
+
             var model = new ActivityLogIndexViewModel
             {
                 HostedActivities = hostedActivities,
@@ -95,7 +98,11 @@ namespace MaJerGan.Controllers
                 ApprovedActivities = approvedActivities,
                 UserId = id.Value,
                 UserName = user.Username, // Pass the username to the view
-                ProfilePicture = user.ProfilePicturee // Pass the profile picturee to the view
+                ProfilePicture = user.ProfilePicturee, // Pass the profile picture to the view
+                Email = user.Email, // Pass the email to the view
+                Phone = user.Phone, // Pass the telephone to the view
+                Gender = user.Gender,
+                IsOwner = isOwner // Pass the IsOwner property to the view
             };
 
             return View(model);
