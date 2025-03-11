@@ -20,4 +20,11 @@
     font-size: 18px; /* ขนาดตัวอักษร */
     font-weight: bold;
     padding: 15px;
+    transition: background-color 0.3s ease;
+}
+
+#end-registration-btn:hover {
+    background-color: #ff4d4d;
+    color: white;
+   
 }

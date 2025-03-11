@@ -115,7 +115,7 @@ namespace MaJerGan.Controllers
             {
                 return Unauthorized();
             }
-            
+
             if (eventItem == null)
             {
                 return NotFound();
@@ -142,7 +142,7 @@ namespace MaJerGan.Controllers
             {
                 return Unauthorized();
             }
-            
+
             if (existingEvent == null)
             {
                 return NotFound();
@@ -407,6 +407,37 @@ namespace MaJerGan.Controllers
 
             return RedirectToAction("Details", new { id = eventId });
         }
+
+        [Authorize]
+        [HttpPost]
+        [Route("Event/CloseEvent/{eventId}")]
+        public async Task<IActionResult> CloseEvent(int eventId)
+        {
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            int userId = int.Parse(userIdClaim.Value);
+
+            var eventDetails = await _context.Events.FindAsync(eventId);
+            if (eventDetails == null)
+            {
+                return NotFound("ไม่พบกิจกรรมนี้");
+            }
+
+            if (eventDetails.CreatedBy != userId)
+            {
+                return Unauthorized();
+            }
+
+            eventDetails.IsClosed = true;
+            await _context.SaveChangesAsync();
+
+            return Ok(new { success = true, message = "กิจกรรมถูกปิดเรียบร้อยแล้ว" });
+        }
+
 
         [Authorize]
         [HttpPost]
@@ -763,7 +794,7 @@ namespace MaJerGan.Controllers
                 EventId = eventId,
                 UserId = userId,
                 Content = content,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.Now
             };
 
             _context.Comments.Add(comment);
