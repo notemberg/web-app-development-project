@@ -81,6 +81,7 @@ body {
 }
 
 .main-body>.main-header>#search-form>#search-bar {
+  margin-top: 0px;
   flex-grow: 1;
   padding: 10px;
   padding-right: 30px;
@@ -90,6 +91,7 @@ body {
   font-size: 16px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   height: 40px;
+  font-family: "IBM Plex Sans Thai Looped", serif;
 }
 
 /* search bar */
@@ -376,7 +378,7 @@ h4 {
   color: black;
 }
 
-.badge {
+.nav-badge {
   background-color: red;
   color: white;
   border-radius: 50%;

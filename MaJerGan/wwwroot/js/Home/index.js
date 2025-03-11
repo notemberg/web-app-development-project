@@ -7,7 +7,7 @@
 });
 document.addEventListener("DOMContentLoaded", function () {
   function fetchTopEventForEachTag() {
-    fetch("/Event/GetRecentEvents")
+    fetch("/Event/GetEventForyou")
       .then((response) => response.json())
       .then((events) => {
         const forYouContent = document.querySelector(".foryou-events-section");
@@ -24,58 +24,78 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         let tagMap = new Map();
+        let displayedEvents = new Set(); // Track displayed events
 
         events.forEach((event) => {
           if (!event.tags) return; // Ensure tags exist
-          let tagsArray = (event.tags || "").split(",").map(tag => tag.trim());
+          let tagsArray = (event.tags || "")
+            .split(",")
+            .map((tag) => tag.trim());
 
-          tagsArray.forEach(tag => {
-            if (!tagMap.has(tag)) {
+          tagsArray.forEach((tag) => {
+            if (!tagMap.has(tag) && !displayedEvents.has(event.id)) {
               tagMap.set(tag, event); // Store only the first event per tag
+              displayedEvents.add(event.id); // Mark event as displayed
             }
           });
         });
 
-        tagMap.forEach((event, tag) => {
+        displayedEvents.forEach((eventId) => {
+          const event = events.find((e) => e.id === eventId);
           if (!event) return;
           const eventCard = document.createElement("div");
           eventCard.classList.add("hot-event-card"); // Match Hot Event format
           eventCard.dataset.eventId = event.id;
-          const formattedGender = getGenderIndicators(event.allowedGenders)
+          const formattedGender = getGenderIndicators(event.allowedGenders);
           const formattedEventTime = formatEventTime(event.eventTime);
           let tagsArray = (event.tags || "").split(",");
-          let limitedTags = tagsArray.slice(0, 3).map(tag => `<button class="tag-button">${tag.trim()}</button>`).join(" ");
+          let limitedTags = tagsArray
+            .slice(0, 3)
+            .map((tag) => `<button class="tag-button">${tag.trim()}</button>`)
+            .join(" ");
 
           if (tagsArray.length > 3) {
-              limitedTags += `<span class="more-tags"> +${tagsArray.length - 3} more</span>`;
+            limitedTags += `<span class="more-tags"> +${
+              tagsArray.length - 3
+            } more</span>`;
           }
 
           eventCard.innerHTML = `
-            <div class="hot-container">
-                <div class="hot-picture">
-                    <img src="${event.locationImage}" width="200" height="200" />
-                </div>
-                <div class="hot-info-container">
-                    <h3 class="home-event-title">${event.title}</h3>
-                    <div>
-                        <span class="home-host-event">Host: ${event.creator}</span>
-                    </div>
-                    <div>
-                        <span class="home-time-event">Event Date: ${formattedEventTime} <br></span>
-                    </div>
-                    <div>
-                        <i class="fa-solid fa-user"></i> ${event.currentParticipants || 0} / ${event.maxParticipants || 0}&ensp;${formattedGender}
-                    </div>
-                    <div>
-                        <span class="location"><i class="fa-solid fa-location-dot"></i> ${event.locationName || "Unknown"}</span>
-                    </div>
-                    <div>
-                        <span class="">Tags: ${limitedTags}</span> 
-                    </div>
-                </div>
-            </div>
-          `;
-          
+              <div class="hot-container">
+                  <div class="hot-picture">
+                      <img src="${
+                        event.locationImage
+                      }" width="200" height="200" />
+                  </div>
+                  <div class="hot-info-container">
+                      <h3 class="home-event-title">${event.title}</h3>
+                      <div>
+                          <span class="home-host-event">Host: ${
+                            event.creator
+                          }</span>
+                      </div>
+                      <div>
+                          <span class="home-time-event">Event Date: ${formattedEventTime} <br></span>
+                      </div>
+                      <div>
+                          <i class="fa-solid fa-user"></i> ${
+                            event.currentParticipants || 0
+                          } / ${
+            event.maxParticipants || 0
+          }&ensp;${formattedGender}
+                      </div>
+                      <div>
+                          <span class="location"><i class="fa-solid fa-location-dot"></i> ${
+                            event.locationName || "Unknown"
+                          }</span>
+                      </div>
+                      <div>
+                          <span class="">Tags: ${limitedTags}</span> 
+                      </div>
+                  </div>
+              </div>
+            `;
+
           forYouContent.appendChild(eventCard);
         });
 
@@ -138,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const formattedTime = timeAgo(new Date(event.createdAt));
 
         const formattedEventTime = formatEventTime(event.eventTime);
-        const formattedGender = getGenderIndicators(event.allowedGenders)
+        const formattedGender = getGenderIndicators(event.allowedGenders);
         eventCard.innerHTML = `
                  <div class="hot-container">
                     <div class="hot-picture">
@@ -168,9 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   
                 `;
 
-                
-          
-          console.log(event)
+        console.log(event);
         hotContent.appendChild(eventCard);
       });
 
@@ -233,14 +251,15 @@ document.addEventListener("DOMContentLoaded", function () {
           const eventCard = document.createElement("div");
           eventCard.classList.add("recent-event-card");
           eventCard.dataset.eventId = event.id;
-          
-    // จำกัดความยาวของชื่ออีเวนต์
-          let titleDisplay = event.title.length > 20 
-          ? event.title.substring(0, 20) + "..." 
-          : event.title;
 
-      // จำกัดความยาวของสถานที่
-        
+          // จำกัดความยาวของชื่ออีเวนต์
+          let titleDisplay =
+            event.title.length > 20
+              ? event.title.substring(0, 20) + "..."
+              : event.title;
+
+          // จำกัดความยาวของสถานที่
+
           // ✅ จำกัดจำนวนแท็กที่แสดง (3 อันแรก)
           let tagsArray = (event.tags || "").split(",");
           let limitedTags = tagsArray.slice(0, 3);
@@ -270,12 +289,12 @@ document.addEventListener("DOMContentLoaded", function () {
           const formattedTime = timeAgo(new Date(event.createdAt));
 
           const formattedEventTime = formatEventTime(event.eventTime);
-      //     <h3 class="event-title">
-      //     <span class="title-name">${event.title}</span> 
-      //     <span class="Time">${formattedEventTime}</span>
-      // </h3>
+          //     <h3 class="event-title">
+          //     <span class="title-name">${event.title}</span>
+          //     <span class="Time">${formattedEventTime}</span>
+          // </h3>
 
-      eventCard.innerHTML = `
+          eventCard.innerHTML = `
       <div class="recent-event-content">
           <div class="event-header">
               <h3 class="event-title">
@@ -376,7 +395,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // ✅ Initial view (show 3 events)
       updateEventList(false);
-    
     })
     .catch((error) => console.error("❌ Error fetching events:", error));
 });
@@ -482,23 +500,23 @@ function getGenderIndicators(allowedGenders) {
   let indicators = [];
 
   if (genders.includes("Male")) {
-      indicators.push(
-          `<div style="display: inline-block; width: 30px; height: 30px; border-radius: 50%; background-color: rgba(22, 188, 0, 0.7); color:white; text-align: center; line-height: 30px; font-weight: bold; border: 3px solid rgba(0, 0, 0, 0.1);margin-right: 5px;">M</div>`
-      );
+    indicators.push(
+      `<div style="display: inline-block; width: 30px; height: 30px; border-radius: 50%; background-color: rgba(22, 188, 0, 0.7); color:white; text-align: center; line-height: 30px; font-weight: bold; border: 3px solid rgba(0, 0, 0, 0.1);margin-right: 5px;">M</div>`
+    );
   }
   if (genders.includes("Female")) {
-      indicators.push(
-          `<div style="display: inline-block; width: 30px; height: 30px; border-radius: 50%; background-color: rgba(253, 56, 56, 0.7); color: white; text-align: center; line-height: 30px; font-weight: bold; border: 3px solid rgba(0, 0, 0, 0.1); margin-right: 5px;">F</div>
+    indicators.push(
+      `<div style="display: inline-block; width: 30px; height: 30px; border-radius: 50%; background-color: rgba(253, 56, 56, 0.7); color: white; text-align: center; line-height: 30px; font-weight: bold; border: 3px solid rgba(0, 0, 0, 0.1); margin-right: 5px;">F</div>
 `
-      );
+    );
   }
   if (genders.includes("Other")) {
-      indicators.push(
-          `<div style="display: inline-block; width: 60px; height: 30px; border-radius: 15px; background-color: #F5F5F5; color:rgb(92, 92, 92); text-align: center; line-height: 30px; font-weight: normal;border: 3px solid rgba(0, 0, 0, 0.1); ">
+    indicators.push(
+      `<div style="display: inline-block; width: 60px; height: 30px; border-radius: 15px; background-color: #F5F5F5; color:rgb(92, 92, 92); text-align: center; line-height: 30px; font-weight: normal;border: 3px solid rgba(0, 0, 0, 0.1); ">
   OTH
 </div>
 `
-      );
+    );
   }
 
   return indicators.join(""); // Join elements with no separator (they have margin for spacing)
