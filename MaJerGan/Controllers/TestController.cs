@@ -69,10 +69,12 @@ namespace MaJerGan.Controllers
     <div class='content'>
         <div class='title'>สวัสดี คุณ {recipient.Username},</div>
         <p>{request.ActivityName} ได้ปิดรับสมาชิกแล้ว</p>
-        <p>ซึ่งคุณจะมีนัดหมาย วันที่ {request.ActivityDate?.ToString("dd/MM/yyyy")} เวลา {request.ActivityTime}</p>
+        <p>ซึ่งคุณจะมีนัดหมายในวันที่ {request.ActivityDate?.ToString("dd/MM/yyyy")} เวลา {request.ActivityTime}</p>
+        <p>เจอกันที่ {request.LocationName}</p>
     </div>
     <div class='footer'>
-        <p>เจอกันที่ {request.LocationName}</p>
+        
+         <p>Meet ME</p>
     </div>
 </body>
 </html>
@@ -114,7 +116,7 @@ namespace MaJerGan.Controllers
         <p>{request.ActivityName} มีการอัพเดต โปรดตรวจสอบรายละเอียดเพิ่มเติม</p>
     </div>
     <div class='footer'>
-        <p>Thank You</p>
+        <p>Meet ME</p>
     </div>
 </body>
 </html>
