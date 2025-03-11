@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const selectedTagsContainer = document.getElementById(
     "selected-tags-container"
   );
+
   const selectedTagsInput = document.getElementById("selected-tags");
   const tagCarousel = document.getElementById("tag-carousel");
 
@@ -155,6 +156,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 200);
   }
 
+  function loadSelectedTags() {
+    if (selectedTagsInput.value.trim() !== "") {
+      let tags = selectedTagsInput.value.split(",").map((t) => t.trim());
+      tags.forEach((tag) => {
+        selectedTags.add(tag);
+        addTagToUI(tag);
+        updateTags();
+      });
+    }
+  }
+
+  function addTagToUI(tag) {
+    let tagElement = document.createElement("div");
+    tagElement.className = "selected-tag";
+    tagElement.innerHTML = `${tag} <span class="remove-tag" data-tag="${tag}">❌</span>`;
+    selectedTagsContainer.appendChild(tagElement);
+  }
+
+  // ✅ โหลดแท็กที่เลือกไว้ตอน Edit
+  loadSelectedTags();
+
   // ✅ โหลดแท็กจากฐานข้อมูล
   loadTags();
 });
@@ -165,10 +187,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const dateTimeInput = document.getElementById("event-datetime");
 
   function updateDateTime() {
-      if (dateInput.value && timeInput.value) {
-          dateTimeInput.value = `${dateInput.value}T${timeInput.value}:00`;
-          console.log("✅ Updated DateTime:", dateTimeInput.value);
-      }
+    if (dateInput.value && timeInput.value) {
+      dateTimeInput.value = `${dateInput.value}T${timeInput.value}:00`;
+      console.log("✅ Updated DateTime:", dateTimeInput.value);
+    }
   }
 
   // ✅ อัปเดตค่าแบบ Real-time ทุกครั้งที่มีการเปลี่ยนแปลง
@@ -176,53 +198,43 @@ document.addEventListener("DOMContentLoaded", function () {
   timeInput.addEventListener("input", updateDateTime);
 });
 
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   const genderRestrictedCheckbox = document.getElementById("isGenderRestricted");
-//   const genderSelection = document.getElementById("genderSelection");
-
-//   // ✅ ซ่อนตัวเลือกเพศถ้า Gender Restricted ไม่ได้ถูกเลือก
-//   genderRestrictedCheckbox.addEventListener("change", function () {
-//       if (this.checked) {
-//           genderSelection.style.display = "flex";
-//       } else {
-//           genderSelection.style.display = "none";
-//       }
-//   });
-// });
-
 document.addEventListener("DOMContentLoaded", function () {
-    const genderRestrictedCheckbox = document.getElementById("IsGenderRestricted");
-    const genderSelection = document.getElementById("genderSelection");
-    const genderCheckboxes = document.querySelectorAll("input[name='AllowedGender']");
-    const hiddenGenderInput = document.getElementById("allowedGendersInput");
+  const genderRestrictedCheckbox =
+    document.getElementById("IsGenderRestricted");
+  const genderSelection = document.getElementById("genderSelection");
+  const genderCheckboxes = document.querySelectorAll(
+    "input[name='AllowedGender']"
+  );
+  const hiddenGenderInput = document.getElementById("allowedGendersInput");
 
-    // ✅ ซ่อน/แสดงตัวเลือกเพศเมื่อกดปุ่ม Gender Restricted
-    genderRestrictedCheckbox.addEventListener("change", function () {
-        genderSelection.style.display = this.checked ? "flex" : "none";
-        if (!this.checked) {
-            genderCheckboxes.forEach(checkbox => checkbox.checked = false);
-            hiddenGenderInput.value = "Male,Female,Other"; // ล้างค่าถ้าปิด Gender Restricted
-        }
-        
-    });
-
-    // ✅ อัปเดตค่าใน hidden input เมื่อตัวเลือกเพศเปลี่ยนแปลง
-    function updateHiddenGenderInput() {
-        let selectedGenders = Array.from(genderCheckboxes)
-            .filter(cb => cb.checked)
-            .map(cb => cb.value);
-        hiddenGenderInput.value = selectedGenders.join(",");
-        console.log("✅ Updated AllowedGenders:", hiddenGenderInput.value);
+  // ✅ ซ่อน/แสดงตัวเลือกเพศเมื่อกดปุ่ม Gender Restricted
+  genderRestrictedCheckbox.addEventListener("change", function () {
+    genderSelection.style.display = this.checked ? "flex" : "none";
+    if (!this.checked) {
+      genderCheckboxes.forEach((checkbox) => (checkbox.checked = false));
+      hiddenGenderInput.value = "Male,Female,Other"; // ล้างค่าถ้าปิด Gender Restricted
     }
+  });
 
-    genderCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener("change", updateHiddenGenderInput);
-    });
+  // ✅ อัปเดตค่าใน hidden input เมื่อตัวเลือกเพศเปลี่ยนแปลง
+  function updateHiddenGenderInput() {
+    let selectedGenders = Array.from(genderCheckboxes)
+      .filter((cb) => cb.checked)
+      .map((cb) => cb.value);
+    hiddenGenderInput.value = selectedGenders.join(",");
+    console.log("✅ Updated AllowedGenders:", hiddenGenderInput.value);
+  }
 
-    // ✅ อัปเดตค่าก่อนส่งฟอร์ม
-    document.querySelector("form").addEventListener("submit", function () {
-        updateHiddenGenderInput(); // ✅ อัปเดตค่าก่อนส่งฟอร์ม
-        console.log("🚀 Final AllowedGenders before submit:", hiddenGenderInput.value);
-    });
+  genderCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", updateHiddenGenderInput);
+  });
+
+  // ✅ อัปเดตค่าก่อนส่งฟอร์ม
+  document.querySelector("form").addEventListener("submit", function () {
+    updateHiddenGenderInput(); // ✅ อัปเดตค่าก่อนส่งฟอร์ม
+    console.log(
+      "🚀 Final AllowedGenders before submit:",
+      hiddenGenderInput.value
+    );
+  });
 });

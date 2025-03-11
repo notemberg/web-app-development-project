@@ -14,7 +14,6 @@ namespace MaJerGan.Controllers
     public class EventController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly string _googleMapsApiKey = "AIzaSyDJ0BrjaeMYo-Ib0n3r4RK1zO-u4v-XpBQ";  // ใส่ API Key ของคุณที่นี่
         public EventController(ApplicationDbContext context)
         {
             _context = context;
@@ -98,10 +97,25 @@ namespace MaJerGan.Controllers
             return RedirectToAction("Details", new { id = model.Id });
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult Edit(int id)
         {
             var eventItem = _context.Events.Find(id);
+
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            int userId = int.Parse(userIdClaim.Value);
+
+            if (eventItem.CreatedBy != userId)
+            {
+                return Unauthorized();
+            }
+
             if (eventItem == null)
             {
                 return NotFound();
@@ -110,15 +124,73 @@ namespace MaJerGan.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(Event model)
+        public async Task<IActionResult> Edit(int id, Event model, string selectedTags)
         {
-            if (ModelState.IsValid)
+            var existingEvent = await _context.Events
+                .Include(e => e.EventTags)
+                .FirstOrDefaultAsync(e => e.Id == id);
+
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
             {
-                _context.Events.Update(model);
-                _context.SaveChanges();
-                return RedirectToAction("Index");
+                return Unauthorized();
             }
-            return View(model);
+
+            int userId = int.Parse(userIdClaim.Value);
+
+            if (existingEvent.CreatedBy != userId)
+            {
+                return Unauthorized();
+            }
+
+            if (existingEvent == null)
+            {
+                return NotFound();
+            }
+
+            // ✅ อัปเดตข้อมูลพื้นฐานของ Event
+            existingEvent.Title = model.Title;
+            existingEvent.Description = model.Description;
+            existingEvent.EventTime = model.EventTime;
+            existingEvent.Location = model.Location;
+            existingEvent.MaxParticipants = model.MaxParticipants;
+            existingEvent.AllowedGenders = model.AllowedGenders;
+            existingEvent.RequiresConfirmation = model.RequiresConfirmation;
+
+            // ✅ ลบ EventTags เก่าทั้งหมดก่อนเพิ่มแท็กใหม่
+            var existingTags = _context.EventTags.Where(et => et.EventId == id);
+            _context.EventTags.RemoveRange(existingTags);
+            await _context.SaveChangesAsync(); // ✅ บันทึกการลบก่อนเพิ่มใหม่
+
+            // ✅ เพิ่มแท็กใหม่ตาม `selectedTags`
+            if (!string.IsNullOrEmpty(selectedTags))
+            {
+                var tagNames = selectedTags.Split(',').Select(t => t.Trim()).ToList();
+                foreach (var tagName in tagNames)
+                {
+                    var tag = await _context.Tags.FirstOrDefaultAsync(t => t.Name == tagName);
+                    if (tag == null)
+                    {
+                        tag = new Tag { Name = tagName };
+                        _context.Tags.Add(tag);
+                        await _context.SaveChangesAsync();
+                    }
+
+                    _context.EventTags.Add(new EventTag { EventId = id, TagId = tag.Id });
+                }
+                await _context.SaveChangesAsync(); // ✅ บันทึก EventTags ใหม่
+            }
+
+            // ✅ อัปเดต `Tags` ให้ตรงกับฐานข้อมูล
+            existingEvent.Tags = string.Join(", ", _context.EventTags
+                .Where(et => et.EventId == id)
+                .Select(et => et.Tag.Name)
+                .ToList());
+
+            _context.Events.Update(existingEvent); // ✅ บอก EF Core ให้อัปเดต Event
+            await _context.SaveChangesAsync(); // ✅ บันทึกข้อมูล Event ที่แก้ไขแล้ว
+
+            return RedirectToAction("Details", new { id = id });
         }
 
 
@@ -162,41 +234,6 @@ namespace MaJerGan.Controllers
             await WebSocketHandler.BroadcastMessage("Event Deleted!");
             return RedirectToAction("Index");
         }
-
-        [Authorize]
-        [HttpPost]
-        // public async Task<IActionResult> Join(int eventId)
-        // {
-        //     var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
-        //     if (userIdClaim == null)
-        //     {
-        //         return Unauthorized();
-        //     }
-
-        //     int userId = int.Parse(userIdClaim.Value);
-
-        //     var existingParticipation = await _context.EventParticipants
-        //         .FirstOrDefaultAsync(p => p.EventId == eventId && p.UserId == userId);
-
-        //     if (existingParticipation != null)
-        //     {
-        //         return BadRequest("คุณได้เข้าร่วมกิจกรรมนี้แล้ว");
-        //     }
-
-        //     var participation = new EventParticipant
-        //     {
-        //         EventId = eventId,
-        //         UserId = userId,
-        //         // Status = 1 // ✅ อนุมัติอัตโนมัติ
-        //     };
-
-        //     _context.EventParticipants.Add(participation);
-        //     await _context.SaveChangesAsync();
-
-        //     await WebSocketHandler.BroadcastMessage("Event Joined!");
-
-        //     return RedirectToAction("Details", new { id = eventId });
-        // }
 
         [Authorize]
         [HttpPost]
@@ -371,10 +408,42 @@ namespace MaJerGan.Controllers
             return RedirectToAction("Details", new { id = eventId });
         }
 
-        // [Authorize]
+        [Authorize]
+        [HttpPost]
+        [Route("Event/CloseEvent/{eventId}")]
+        public async Task<IActionResult> CloseEvent(int eventId)
+        {
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            int userId = int.Parse(userIdClaim.Value);
+
+            var eventDetails = await _context.Events.FindAsync(eventId);
+            if (eventDetails == null)
+            {
+                return NotFound("ไม่พบกิจกรรมนี้");
+            }
+
+            if (eventDetails.CreatedBy != userId)
+            {
+                return Unauthorized();
+            }
+
+            eventDetails.IsClosed = true;
+            await _context.SaveChangesAsync();
+
+            return Ok(new { success = true, message = "กิจกรรมถูกปิดเรียบร้อยแล้ว" });
+        }
+
+
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Approve(int eventId, int userId)
         {
+
             Console.WriteLine(eventId);
             Console.WriteLine(userId);
             var eventDetails = await _context.Events.FindAsync(eventId);
@@ -725,7 +794,7 @@ namespace MaJerGan.Controllers
                 EventId = eventId,
                 UserId = userId,
                 Content = content,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.Now
             };
 
             _context.Comments.Add(comment);

@@ -15,8 +15,9 @@ body {
 
 .title {
     text-align: center;
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
+    color: #FF7BA8;
 }
 
 .container {
@@ -53,19 +54,33 @@ body {
 .profile-picture img {
     width: 150px;
     height: auto;
-    border-radius: 25px;
-    background-color: #e4e4e4;
-    padding: 5px;
+    border-radius: 100px;
+    border: 1px solid rgb(109, 109, 109);
+    /* background-color: #e4e4e4; */
+    /* padding: 5px; */
 }
 
 .profile-info {
     margin-top: 20px; /* Add margin to the top */
     text-align: center; /* Center align the text */
+    font-weight: bold;
+    color : #797979;
+}
+
+.Gender {
+    font-size: 16px;
+    color: #FF6B6B;
+    margin-top: 5px;
+    font-weight: bold;
 }
 
 .log-section {
     margin-left: 20px; /* Add margin to the left */
     width: 80%;
+}
+
+.activity-category h2{
+    color: #FF7BA8;
 }
 
 
@@ -125,6 +140,26 @@ body {
     margin-top: 5px;
 }
 
+.bi-envelope {
+    font-size: 16px;
+    color: #666;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.bi-telephone {
+    font-size: 16px;
+    color: #666;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.fa-pencil{
+    font-size: 16px;;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
 .participants {
     width: auto;
     display: flex;
@@ -158,12 +193,6 @@ body {
 
 .tag-button:hover {
     background-color: #BDBDBD;
-}
-
-.fa-user {
-    color: #666;
-    margin-right: 5px;
-    margin-bottom: 5px;
 }
 
 .location {
@@ -219,7 +248,19 @@ body {
     color: gray;
 }
 
-@media (max-width: 768px) {
+.profile-link {
+    display: block;
+    margin-top: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.profile-link:hover {
+    scale : 1.05;
+    text-decoration: underline;
+}
+
+@media (max-width: 820px) {
     .activity-log-container {
         padding: 20px;
     }

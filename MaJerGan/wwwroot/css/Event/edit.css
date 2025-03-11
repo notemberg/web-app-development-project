@@ -1,0 +1,30 @@
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #47a0ff;
+    color: white;
+}
+
+.rounded-pill {
+    border-radius: 8px;
+}
+
+#end-registration-btn {
+    margin-top: 20px; /* ให้มีระยะห่างจากองค์ประกอบอื่น */
+    width: 100%; /* ให้ขยายตามขนาดของพื้นที่ */
+    font-size: 18px; /* ขนาดตัวอักษร */
+    font-weight: bold;
+    padding: 15px;
+    transition: background-color 0.3s ease;
+}
+
+#end-registration-btn:hover {
+    background-color: #ff4d4d;
+    color: white;
+   
+}

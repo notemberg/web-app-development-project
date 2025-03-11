@@ -34,14 +34,21 @@
                 }
                 <div class="profile-info">
                     <h3>@Model.UserName</h3>
+                    <p class="Gender">[@Model.Gender]</p>
                     <p>ID: @Model.UserId</p>
+                    <p><i class="bi bi-envelope"></i>@Model.Email</p> <!-- Add email -->
+                    <p><i class="bi bi-telephone"></i>@Model.Phone</p> <!-- Add telephone -->
+                    @if (Model.IsOwner)
+                    {
+                        <a href="/Profile" class="profile-link"><i class="fa-solid fa-pencil"></i>Edit Profile</a>
+                    }
                 </div>
             </div>
 
             <div class="log-section">
                 <!-- Hosted Events -->
                 <div class="activity-category">
-                    <h3>Host</h3>
+                    <h2>Host</h2>
                     @if (!Model.HostedActivities.Any())
                     {
                         <p style="margin-top: 10px; margin-bottom: 10px;">User did not host any events.</p>
@@ -95,7 +102,7 @@
 
                 <!-- Pending Events -->
                 <div class="activity-category">
-                    <h3>Pending Events</h3>
+                    <h2>Pending Events</h2>
                     @if (!Model.PendingActivities.Any())
                     {
                         <p style="margin-top: 10px; margin-bottom: 10px;">User did not have any pending request.</p>
@@ -149,7 +156,7 @@
 
                 <!-- Approved Events -->
                 <div class="activity-category">
-                    <h3>Approved Events</h3>
+                    <h2>Approved Events</h2>
                     @if (!Model.ApprovedActivities.Any())
                     {
                         <p style="margin-top: 10px; margin-bottom: 10px;">User struggles with social acceptance.</p>

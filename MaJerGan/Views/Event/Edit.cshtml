@@ -1,145 +1,3 @@
-@* @model MaJerGan.Models.Event
-
-@{
-    ViewData["Title"] = "Edit Event";
-    ViewData["ShowHeader"] = "True";
-    ViewData["ShowNavCarousel"] = "True";
-}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Event</title>
-    <link rel="stylesheet" href="~/css/Event/createpp.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@400;500;600&display=swap"
-        rel="stylesheet">
-</head>
-
-<script Src="~/js/Event/Edit.js"></script>
-<script Src="~/js/Event/dateCheck.js"></script>
-<script Src="~/js/Event/Map.js"></script>
-
-<body>
-    <div class="content">
-        <h2>Edit Event</h2>
-
-        <form asp-action="Edit" method="post">
-            <input type="hidden" asp-for="Id" /> <!-- จำเป็นต้องมี ID เพื่ออัปเดตข้อมูล -->
-
-            <div class="title-container">
-                <input asp-for="Title" type="text" class="title-input" placeholder="Title*" value="@Model.Title" required>
-
-                <div class="date-time-container date-time-desktop">
-                    <div class="date-input">
-                        <input type="date" id="event-date" value="@Model.EventTime.ToString("yyyy-MM-dd")" required>
-                    </div>
-                    <div class="time-input">
-                        <input type="time" id="event-time" value="@Model.EventTime.ToString("HH:mm")" required>
-                    </div>
-                </div>
-            </div>
-
-            <input type="hidden" asp-for="EventTime" id="event-datetime">
-
-            <div>
-                <label>Registration End</label>
-                <input asp-for="ExpiryDate" type="datetime-local" id="expiry-date" value="@Model.ExpiryDate.ToString("yyyy-MM-ddTHH:mm")" required />
-            </div>
-
-            <div class="description-container">
-                <textarea asp-for="Description" class="description-input" required>@Model.Description</textarea>
-            </div>
-
-            <div class="participants-container">
-                <input asp-for="MaxParticipants" type="number" min="1" max="100" value="@Model.MaxParticipants" required>
-            </div>
-
-            <!-- Tag Section -->
-            <div class="tag-container">
-                <button type="button" id="add-tag-btn" class="add-tag-btn">+ Add Tag</button>
-                <div id="selected-tags-container" class="selected-tags-container">
-                    @foreach (var tag in Model.Tags) {
-                        <span class="tag">@tag</span>
-                    }
-                </div>
-                <input type="hidden" name="selectedTags" id="selected-tags" value="@string.Join(",", Model.Tags)" />
-            </div>
-
-            <!-- Location Section -->
-            <button type="button" id="choose-location-btn" class="location-btn">
-                Choose Location (Required)
-            </button>
-
-            <div id="location-info" class="location-info">
-                <div class="location-card">
-                    <img id="location-image" src="@Model.LocationImage" alt="สถานที่" class="location-img">
-                    <div class="location-details">
-                        <h3 id="location-name">@Model.LocationName</h3>
-                        <p>
-                            <span class="badge">Address</span>
-                            <span id="location-address">@Model.LocationAddress</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <input asp-for="Location" type="hidden" id="locationInput" value="@Model.Location">
-            <input asp-for="LocationName" type="hidden" id="locationNameInput" value="@Model.LocationName">
-            <input asp-for="LocationAddress" type="hidden" id="locationAddressInput" value="@Model.LocationAddress">
-            <input asp-for="LocationImage" type="hidden" id="locationImageInput" value="@Model.LocationImage">
-
-            <!-- Advanced Settings -->
-            <div class="advanced-settings">
-                <h3>Advanced Settings(Optional)</h3>
-
-                <div class="toggle-container">
-                    <label class="switch">
-                        <input type="checkbox" asp-for="RequiresConfirmation" name="RequiresConfirmation"
-                            checked="@(Model.RequiresConfirmation)">
-                        <span class="slider round"></span>
-                    </label>
-                    <span>Joining needs confirmation</span>
-                </div>
-
-                <div class="toggle-container gender-restriction-container">
-                    <label class="switch">
-                        <input type="checkbox" asp-for="IsGenderRestricted" name="IsGenderRestricted"
-                            checked="@(Model.IsGenderRestricted)">
-                        <span class="slider round"></span>
-                    </label>
-                    <span>Gender Restricted</span>
-
-                    <div id="genderSelection" class="gender-selection" style="display:@(Model.IsGenderRestricted ? "block" : "none")">
-                        <input type="checkbox" id="gender-male" name="AllowedGender" value="Male" 
-                            @(Model.AllowedGenders.Contains("Male") ? "checked" : "")>
-                        <label for="gender-male" class="gender-option male">Male</label>
-
-                        <input type="checkbox" id="gender-female" name="AllowedGender" value="Female"
-                            @(Model.AllowedGenders.Contains("Female") ? "checked" : "")>
-                        <label for="gender-female" class="gender-option female">Female</label>
-
-                        <input type="checkbox" id="gender-other" name="AllowedGender" value="Other"
-                            @(Model.AllowedGenders.Contains("Other") ? "checked" : "")>
-                        <label for="gender-other" class="gender-option other">Other</label>
-                    </div>
-                </div>
-            </div>
-
-            <input asp-for="AllowedGenders" type="hidden" id="allowedGendersInput" value="@string.Join(",", Model.AllowedGenders)" required>
-
-            <button type="submit" class="submit-btn" id="submit-btn">Update Event</button>
-
-        </form>
-    </div>
-
-</body>
-</html> *@
-
 @model MaJerGan.Models.Event
 
 @{
@@ -156,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Event</title>
     <link rel="stylesheet" href="~/css/Event/createpp.css" />
+    <link rel="stylesheet" href="~/css/Event/edit.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -201,18 +60,20 @@
     </style>
 
 </head>
-@* <script src="~/js/Tag.js"></script> *@
 <script Src="~/js/Event/Create.js"></script>
 <script Src="~/js/closeAutoFill.js"></script>
 <script Src="~/js/Event/dateCheck.js"></script>
 <script Src="~/js/Event/Map.js"></script>
+<script Src="~/js/Event/edit.js"></script>
 
 <body>
     <div class="content">
-        <h2>Create Post</h2>
+        <h2>Edit Post</h2>
 
         <form asp-action="edit" method="post">
-
+            <input type="hidden" asp-for="Id" value="@Model.Id" /> <!-- จำเป็นต้องมี ID เพื่ออัปเดตข้อมูล -->
+            <input type="hidden" asp-for="CreatedBy" value="@Model.CreatedBy" />
+            <input type="hidden" asp-for="Creator" value="@Model.Creator" />
             <div class="test">
 
                 <div class="title-container">
@@ -222,7 +83,7 @@
                     <!-- ✅ Date & Time Picker อยู่ขวา -->
                     <div class="date-time-container date-time-desktop">
                         <div class="date-input">
-                            <input type="date" id="event-date"  value="@Model.EventTime.ToString("yyyy-MM-dd")" required>
+                            <input type="date" id="event-date" value="@Model.EventTime.ToString("yyyy-MM-dd")" required>
                         </div>
                         <div class="time-input">
                             <input type="time" id="event-time" value="@Model.EventTime.ToString("HH:mm")" required>
@@ -230,11 +91,8 @@
                     </div>
                 </div>
 
-                <!-- ✅ Input ซ่อน เพื่อรวม Date + Time ก่อนส่ง -->
                 <input type="hidden" asp-for="EventTime" id="event-datetime">
 
-                @* <input type="hidden" asp-for="ExpiryDate" value="2025-05-05T02:21:00" /> *@
-                <!-- Participants Input -->
                 <div class="participants-container">
                     <i class="fa-solid fa-user"></i>
                     <input asp-for="MaxParticipants" type="number" id="participants" min="1" max="100" placeholder=""
@@ -244,7 +102,7 @@
 
             <div>
                 <label>Registration End</label>
-                <input asp-for="ExpiryDate" type="datetime-local" id="expiry-date"required />
+                <input asp-for="ExpiryDate" type="datetime-local" id="expiry-date" required />
             </div>
 
 
@@ -255,7 +113,6 @@
 
             </div>
             <div class="tag-container">
-                <!-- ปุ่ม Add Tag -->
                 <button type="button" id="add-tag-btn" class="add-tag-btn">+ Add Tag</button>
 
                 <!-- Floating Search Box -->
@@ -264,9 +121,10 @@
                     <div id="tag-carousel"></div> <!-- ✅ ตำแหน่งของแท็ก -->
                 </div>
 
-                <!-- ✅ แสดงแท็กที่เลือก (อยู่ข้างล่างปุ่ม Add Tag) -->
-                <div id="selected-tags-container" class="selected-tags-container"></div>
-                <input type="hidden" name="selectedTags" id="selected-tags" />
+                <input type="hidden" id="selected-tags" name="selectedTags" value="@Model.Tags" />
+                <div id="selected-tags-container" class="selected-tags-container">
+                </div>
+
             </div>
 
 
@@ -276,14 +134,14 @@
             </button>
 
             <!-- ✅ ส่วนแสดงข้อมูลสถานที่ -->
-            <div id="location-info" class="location-info" style="display: none;">
+            <div id="location-info" class="location-info">
                 <div class="location-card">
-                    <img id="location-image" src="" alt="สถานที่" class="location-img">
+                    <img id="location-image" src="@Model.LocationImage" alt="สถานที่" class="location-img">
                     <div class="location-details">
-                        <h3 id="location-name">ชื่อสถานที่</h3>
+                        <h3 id="location-name">@Model.LocationName</h3>
                         <p>
                             <span class="badge">Address</span>
-                            <span id="location-address">ที่อยู่สถานที่</span>
+                            <span id="location-address">@Model.LocationAddress</span>
                         </p>
                     </div>
                 </div>
@@ -313,17 +171,18 @@
                     <span>Gender Restricted</span>
 
                     <!-- ✅ ตัวเลือกเพศ (ซ่อนอยู่หากไม่ได้เลือก Gender Restricted) -->
-                    <div id="genderSelection" class="gender-selection" style="display:@(Model.IsGenderRestricted ? "flex" : "none")">
-                        <input type="checkbox" id="gender-male" name="AllowedGender" value="Male" 
-                            @(Model.AllowedGenders.Contains("Male") ? "checked" : "")>
+                    <div id="genderSelection" class="gender-selection"
+                        style="display:@(Model.IsGenderRestricted ? "flex" : "none")">
+                        <input type="checkbox" id="gender-male" name="AllowedGender" value="Male" hidden
+                            @(Model.AllowedGenders.Contains("Male") ? "checked" : "") />
                         <label for="gender-male" class="gender-option male">Male</label>
 
-                        <input type="checkbox" id="gender-female" name="AllowedGender" value="Female"
-                            @(Model.AllowedGenders.Contains("Female") ? "checked" : "")>
+                        <input type="checkbox" id="gender-female" name="AllowedGender" value="Female" hidden
+                            @(Model.AllowedGenders.Contains("Female") ? "checked" : "") />
                         <label for="gender-female" class="gender-option female">Female</label>
 
-                        <input type="checkbox" id="gender-other" name="AllowedGender" value="Other"
-                            @(Model.AllowedGenders.Contains("Other") ? "checked" : "")>
+                        <input type="checkbox" id="gender-other" name="AllowedGender" value="Other" hidden
+                            @(Model.AllowedGenders.Contains("Other") ? "checked" : "") />
                         <label for="gender-other" class="gender-option other">Other</label>
                     </div>
                 </div>
@@ -341,7 +200,7 @@
             <!-- Popup Modal -->
             <div id="modalContainer">
                 <div class="modal-content">
-                    <span class="close-btn" onclick="closeModal()">&times;</span>
+                    <span class="close-btn2" onclick="closeModal()">&times;</span>
                     <h2>เลือกสถานที่</h2>
                     <input id="searchBoxLocation" type="text" placeholder="ค้นหาสถานที่...">
                     <div id="map"></div>
@@ -349,8 +208,14 @@
                 </div>
             </div>
 
+            <button id="end-registration-btn" class="btn btn-primary rounded-pill" type="button">
+                End Registration
+            </button>
+
+
             <!-- ✅ ปุ่ม Submit -->
-            <button type="submit" class="submit-btn" id="submit-btn">Create Post</button>
+            <button type="submit" class="submit-btn" id="submit-btn">EDIT POST</button>
+
 
 
         </form> <!-- ✅ ปิด form ตรงนี้ถูกต้อง -->

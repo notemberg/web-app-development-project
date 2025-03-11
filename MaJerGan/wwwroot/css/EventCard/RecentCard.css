@@ -104,7 +104,7 @@
     font-family: "IBM Plex Sans Thai Looped", serif;
     font-weight: 600;
     font-style: bold;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .Time {
@@ -225,7 +225,7 @@
     }
     
 }
-@media (max-width: 1200px) {
+@media (max-width: 1700px) {
     .recent-event-card, .upcoming-event-card {
         display: flex;
         flex-direction: column; /* จัดเรียงเป็นแนวตั้ง */
@@ -260,12 +260,14 @@
         display: flex;
         flex-direction: column; /* เรียงแนวตั้ง */
         width: 100%;
+        gap: 0px; /* ระยะห่างระหว่างองค์ประกอบ */
     }
 
     .creator, .participants, .location, .tags-container {
         width: 100%; /* ขยายเต็ม */
         text-align: left; /* ชิดซ้าย */
-        margin-top: 5px;
+        /* margin-top: 5px; */
+        margin-top: 0px;
     }
 
     .tags-container {
@@ -354,7 +356,8 @@
         color: #7a7a7a;
         font-weight: 500;
         white-space: nowrap;
-        padding: 2px 5px;
+        /* padding: 2px 5px; */
+        padding: 0px;
         display: block;
     
     }
