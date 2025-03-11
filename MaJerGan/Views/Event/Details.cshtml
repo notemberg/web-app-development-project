@@ -49,21 +49,23 @@
                     <p>@Model.EventTime.ToString("📅 dd/MMM/yyyy")</p>
                     <p>@Model.EventTime.ToString("🕒 hh:mm")</p>
                     <div class="timeleft">
-                        <p id="timeUntilExpiry">⏳ Calculating...</p>
+                        <p id="timeUntilEvent">⏳ Calculating...</p>
                     </div>
                 </div>
-                <div id="eventId" data-id="@Model.Id"></div>
+                <div id="eventId" data-id="@Model.Id"></div> <!-- ✅ Event ID stored here -->
                 <div class="information-detail">
                     <div class="information-detail-text">
                         <span>@Model.Description.Trim()</span>
                     </div>
                 </div>
+
                 <div class="tag-list">
                     @foreach (var tag in Model.Tags.Split(','))
                     {
                         <div class="tag-each">@tag.Trim()</div>
                     }
                 </div>
+
                 <form asp-action="Join" asp-controller="Event" method="post">
                     <input type="hidden" name="eventId" value="@Model.Id" />
                     <button type="submit" class="join-btn">🚀 เข้าร่วมกิจกรรม</button>
@@ -79,8 +81,10 @@
                     }
                 </p>
                 <a href="@Url.Action("Chat", "Event", new { id = Model.Id })" class="btn btn-primary">💬 เข้าสู่แชท</a>
+                <p id="timeUntilExpiry">⏳ Calculating...</p>
                 <h3>Comment</h3>
                 <div class="comment-section">
+                    <div id="eventContainer" data-event-id="@Model.Id"></div>
                     <!-- ✅ ช่องกรอกความคิดเห็น -->
                     <div class="comment-input">
                         <textarea id="commentContent" placeholder="เพิ่มความคิดเห็น..."></textarea>
@@ -90,7 +94,7 @@
                     <div id="commentsContainer"><p>กำลังโหลดความคิดเห็น...</p></div>
                 </div>
             </div>
-            <div class="participant"> 
+            <div class="participant" id="participantSection"> 
                 <div class="participant-head">
                     <div class="participant-head-text">
                         <span>Participants</span>
@@ -100,70 +104,14 @@
                     </div>
                 </div>
                 <div class="participant-content"> 
-                    @*
-                    <div class="participant-list">
-                   
-                    @if (Model.Participants.Any(p => p.Status == ParticipationStatus.Approved))
-                    {
-                    <ul>
-                        @foreach (var participant in Model.Participants.Where(p => p.Status == ParticipationStatus.Approved))
-                        {
-                            <div class="participant-box">@participant.User.Username</div>
-                        }
-                    </ul>
-                    }
-                    @if (Model.Participants.Any(p => p.Status == ParticipationStatus.Pending))
-                    {
-                        <ul class="participant-section">
-                            @foreach (var participant in Model.Participants.Where(p => p.Status == ParticipationStatus.Pending))
-                            {
-                                <div class="participant-box waiting">
-                                    <span>@participant.User.Username</span>
-                                    @if (Model.CreatedBy.ToString() == currentUserId)
-                                    {
-                                        <div class="approval-buttons">
-                                            <form asp-action="Approve" asp-controller="Event" method="post">
-                                                <input type="hidden" name="eventId" value="@Model.Id" />
-                                                <input type="hidden" name="userId" value="@participant.User.Id" />
-                                                <button type="submit" class="btn btn-success btn-sm">✅ Approve</button>
-                                            </form>
-                                            <form asp-action="Reject" asp-controller="Event" method="post">
-                                                <input type="hidden" name="eventId" value="@Model.Id" />
-                                                <input type="hidden" name="userId" value="@participant.User.Id" />
-                                                <button type="submit" class="btn btn-danger btn-sm">❌ Reject</button>
-                                            </form>
-                                        </div>
-                                    }
-                                </div>
-                            }
-                        </ul>
-                    }
-                    </div>
-                    *@
                     <div id="approvedParticipants" class="participant-list"></div>
                     <div id="pendingParticipants" class="participant-list-pending"></div>
                 </div>
             </div>
+            
         </div>
     </section>
-    @* <div class="content">
-        <div class="container">
-            <h2>✨ รายละเอียดกิจกรรม ✨</h2>
-
-            <div>
-                <label>📌 ชื่อกิจกรรม:</label>
-                <p>@Model.Title</p>
-            </div>
-
-            <div>
-                <label>📝 รายละเอียด:</label>
-                <p style="white-space: pre-line;">@Model.Description</p>
-            </div>
-
-            <div>
-                <label>👥 จำนวนสมาชิกที่รับ:</label>
-                <p>@Model.MaxParticipants</p>
-            </div>
+    @*
 
             <div>
                 <label>⚧️ เพศที่สามารถเข้าร่วมได้:</label>
@@ -242,22 +190,6 @@
                 </div>
             }
 
-
-            <div class="comment-section">
-                <h3>💬 ความคิดเห็น</h3>
-
-                <!-- ✅ ช่องกรอกความคิดเห็น -->
-                <div class="comment-input">
-                    <textarea id="commentContent" placeholder="เพิ่มความคิดเห็น..."></textarea>
-                    <button id="postCommentBtn" data-eventid="@Model.Id">📩 ส่งความคิดเห็น</button>
-                </div>
-
-                <!-- ✅ แสดงความคิดเห็น -->
-                <div id="commentsContainer">
-                    <p>กำลังโหลดความคิดเห็น...</p>
-                </div>
-            </div>
-
             <form asp-action="Join" asp-controller="Event" method="post">
                 <input type="hidden" name="eventId" value="@Model.Id" />
                 <button type="submit" class="join-btn">🚀 เข้าร่วมกิจกรรม</button>
@@ -273,73 +205,3 @@
 
 </html>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const eventId = @Model.Id;
-    const commentsContainer = document.getElementById("commentsContainer");
-    const commentInput = document.getElementById("commentContent");
-    const postButton = document.getElementById("postCommentBtn");
-
-    // ✅ โหลดความคิดเห็น
-    function loadComments() {
-        fetch(`/Event/GetComments?eventId=${eventId}`)
-        .then(response => response.json())
-        .then(comments => {
-            commentsContainer.innerHTML = "";
-            if (comments.length === 0) {
-                commentsContainer.innerHTML = "<p>ยังไม่มีความคิดเห็น</p>";
-                return;
-            }
-
-            comments.forEach(comment => {
-                const commentElement = document.createElement("div");
-                commentElement.classList.add("comment-item");
-                commentElement.innerHTML = `
-                    <div class="comment-box">
-                        <img src="${comment.profileImg}" class="profile-image" alt="${comment.username}">
-                        <div class="comment-content">
-                            <p><strong>${comment.username}</strong> - 
-                            <span class="comment-time">${comment.createdAt}</span></p>
-                            <p>${comment.content}</p>
-                        </div>
-                    </div>
-                `;
-                commentsContainer.appendChild(commentElement);
-            });
-        })
-        .catch(error => {
-            console.error("❌ Error loading comments:", error);
-        });
-    }
-
-    // ✅ โพสต์ความคิดเห็น
-    postButton.addEventListener("click", function () {
-        const content = commentInput.value.trim();
-        if (content === "") {
-            alert("❌ กรุณากรอกความคิดเห็นก่อนส่ง");
-            return;
-        }
-
-        fetch("/Event/PostComment", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: `eventId=${eventId}&content=${encodeURIComponent(content)}`
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert(data.message);
-            if (data.success) {
-                commentInput.value = "";
-                loadComments(); // ✅ โหลดคอมเมนต์ใหม่
-            }
-        })
-        .catch(error => {
-            console.error("❌ Error posting comment:", error);
-        });
-    });
-
-    loadComments(); // ✅ โหลดคอมเมนต์ทันทีเมื่อหน้าเว็บโหลด
-});
-</script>

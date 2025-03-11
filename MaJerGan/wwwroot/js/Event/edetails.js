@@ -1,3 +1,89 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const commentsContainer = document.getElementById("commentsContainer");
+    const commentInput = document.getElementById("commentContent");
+    const postButton = document.getElementById("postCommentBtn");
+
+    // ✅ Move participant section based on screen size
+    function moveParticipant() {
+        const participantSection = document.getElementById("participantSection");
+        const infoDetail = document.querySelector(".information-detail");
+        const content = document.querySelector(".pre");
+    
+        if (!participantSection || !infoDetail) {
+            console.error("❌ participantSection or infoDetail not found!");
+            return;
+        }
+    
+        if (window.innerWidth <= 767) {
+            if (participantSection.parentNode !== infoDetail.parentNode) {
+                console.log("✅ Moved participant BELOW information-detail.");
+                infoDetail.after(participantSection); // ✅ Move only if not already moved
+            }
+        } else {
+            const content = document.querySelector(".pre");
+            if (participantSection.parentNode !== content) {
+                console.log("✅ Moved participant BACK to original position.");
+                content.appendChild(participantSection); // ✅ Move back to original position
+            }
+        }
+    }
+
+    // ✅ Load comments
+    function loadComments() {
+        fetch(`/Event/GetComments?eventId=${eventId}`)
+        .then(response => response.json())
+        .then(comments => {
+            commentsContainer.innerHTML = comments.length === 0 
+                ? "<p>ยังไม่มีความคิดเห็น</p>" 
+                : comments.map(comment => `
+                    <div class="comment-item">
+                        <div class="comment-box">
+                            <img src="${comment.profileImg}" class="profile-image" alt="${comment.username}">
+                            <div class="comment-content">
+                                <p><strong>${comment.username}</strong> - 
+                                <span class="comment-time">${comment.createdAt}</span></p>
+                                <p>${comment.content}</p>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+        })
+        .catch(error => console.error("❌ Error loading comments:", error));
+    }
+
+    // ✅ Post comment
+    postButton.addEventListener("click", function () {
+        const content = commentInput.value.trim();
+        if (!content) {
+            alert("❌ กรุณากรอกความคิดเห็นก่อนส่ง");
+            return;
+        }
+
+        fetch("/Event/PostComment", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `eventId=${eventId}&content=${encodeURIComponent(content)}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            if (data.success) {
+                commentInput.value = "";
+                loadComments();
+            }
+        })
+        .catch(error => console.error("❌ Error posting comment:", error));
+    });
+
+    // ✅ Run functions on page load and window resize
+    loadComments();
+    moveParticipant();
+    window.addEventListener("resize", moveParticipant);
+
+    const observer = new MutationObserver(moveParticipant);
+    observer.observe(document.body, { childList: true, subtree: true });
+});
+
 
 async function fetchEventDetails(eventId) {
     try {
@@ -8,10 +94,12 @@ async function fetchEventDetails(eventId) {
 
         // Convert eventTime and expiryDate to Date objects
         const expiryDate = new Date(event.expiryDate);
+        const evevntDate = new Date(event.eventTime);
         const now = new Date();
 
         // Calculate time remaining until the event starts
         const timeUntilExpiry = expiryDate - now;
+        const timeUntilEvent = evevntDate - now
 
         // Convert milliseconds to a readable format
         function formatTime(ms) {
@@ -23,6 +111,7 @@ async function fetchEventDetails(eventId) {
         }
         // Display data on the page (example)
         document.getElementById("timeUntilExpiry").textContent = formatTime(timeUntilExpiry);
+        document.getElementById("timeUntilEvent").textContent = formatTime(timeUntilEvent);
     } catch (error) {
         console.error("Error fetching event:", error.message);
     }
@@ -104,7 +193,7 @@ async function updateParticipantStatus(userId, eventId, action, participantEleme
             participantElement.style.border = "2px solid #FFB6CF"; // Solid border for approved
             document.getElementById("approvedParticipants").appendChild(participantElement);
         } else {
-            participantElement.remove(); // Remove rejected participant
+            participantElement.remove(); 
         }
 
     } catch (error) {
