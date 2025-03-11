@@ -98,6 +98,28 @@ namespace MaJerGan.Controllers
             return RedirectToAction("Details", new { id = model.Id });
         }
 
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var eventItem = _context.Events.Find(id);
+            if (eventItem == null)
+            {
+                return NotFound();
+            }
+            return View(eventItem);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Event model)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Events.Update(model);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
 
 
         [HttpGet]
@@ -140,41 +162,6 @@ namespace MaJerGan.Controllers
             await WebSocketHandler.BroadcastMessage("Event Deleted!");
             return RedirectToAction("Index");
         }
-
-        [Authorize]
-        [HttpPost]
-        // public async Task<IActionResult> Join(int eventId)
-        // {
-        //     var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
-        //     if (userIdClaim == null)
-        //     {
-        //         return Unauthorized();
-        //     }
-
-        //     int userId = int.Parse(userIdClaim.Value);
-
-        //     var existingParticipation = await _context.EventParticipants
-        //         .FirstOrDefaultAsync(p => p.EventId == eventId && p.UserId == userId);
-
-        //     if (existingParticipation != null)
-        //     {
-        //         return BadRequest("คุณได้เข้าร่วมกิจกรรมนี้แล้ว");
-        //     }
-
-        //     var participation = new EventParticipant
-        //     {
-        //         EventId = eventId,
-        //         UserId = userId,
-        //         // Status = 1 // ✅ อนุมัติอัตโนมัติ
-        //     };
-
-        //     _context.EventParticipants.Add(participation);
-        //     await _context.SaveChangesAsync();
-
-        //     await WebSocketHandler.BroadcastMessage("Event Joined!");
-
-        //     return RedirectToAction("Details", new { id = eventId });
-        // }
 
         [Authorize]
         [HttpPost]
@@ -285,7 +272,7 @@ namespace MaJerGan.Controllers
             };
 
             _context.Notifications.Add(notificationForHost);
-           await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
             await NotificationWebSocketHandler.SendNotificationToUser(hostId, hostMessage);
 
             string userMessage;
@@ -352,7 +339,7 @@ namespace MaJerGan.Controllers
         // [Authorize]
         [HttpPost]
         public async Task<IActionResult> Approve(int eventId, int userId)
-        {   
+        {
             Console.WriteLine(eventId);
             Console.WriteLine(userId);
             var eventDetails = await _context.Events.FindAsync(eventId);
