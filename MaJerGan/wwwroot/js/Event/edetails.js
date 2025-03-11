@@ -1,13 +1,63 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const eventId = document.getElementById("eventId").dataset.id;
+    fetchEventDetails(eventId);
+    loadParticipants(eventId);
+
+    // Refresh both event details and participants every 5 seconds
+    setInterval(() => {
+        fetchEventDetails(eventId);
+        loadParticipants(eventId);
+    }, 5000);
+
+    console.log("✅ JavaScript is running..."); // Debugging check
+    const joinContainer = document.getElementById("joinContainerss");
+
+    // ✅ Check if `joinContainer` exists before adding the button
+    if (!joinContainer) {
+        console.error("❌ Error: joinContainer not found!");
+        return;
+    }
+
+    // ✅ Create Join Button
+    const button = document.createElement("button");
+    button.classList.add("join-btn");
+    button.innerHTML = "🚀 เข้าร่วมกิจกรรม";
+    button.type = "button"; // Prevents page reload
+
+    // ✅ Append Button to Container
+    joinContainer.appendChild(button);
+    console.log("✅ Button added successfully!"); // Debugging check
+
+    // ✅ AJAX Join Request with `alert()`
+    button.addEventListener("click", function () {
+        fetch("/Event/Join", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: `eventId=${eventId}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("✅ Server Response:", data);
+            alert(data.success ? "✅ เข้าร่วมแล้ว!" : "❌ ไม่สามารถเข้าร่วมกิจกรรมได้: " + data.message);
+        })
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
     const commentsContainer = document.getElementById("commentsContainer");
     const commentInput = document.getElementById("commentContent");
     const postButton = document.getElementById("postCommentBtn");
+    const eventElement = document.getElementById("eventId");
+    const eventId = eventElement ? eventElement.getAttribute("data-id") : null;
+
 
     // ✅ Move participant section based on screen size
     function moveParticipant() {
         const participantSection = document.getElementById("participantSection");
         const infoDetail = document.querySelector(".information-detail");
-        const content = document.querySelector(".pre");
+        const content = document.querySelector(".content");
     
         if (!participantSection || !infoDetail) {
             console.error("❌ participantSection or infoDetail not found!");
@@ -20,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 infoDetail.after(participantSection); // ✅ Move only if not already moved
             }
         } else {
-            const content = document.querySelector(".pre");
+            const content = document.querySelector(".content");
             if (participantSection.parentNode !== content) {
                 console.log("✅ Moved participant BACK to original position.");
                 content.appendChild(participantSection); // ✅ Move back to original position
@@ -30,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ✅ Load comments
     function loadComments() {
+
         fetch(`/Event/GetComments?eventId=${eventId}`)
         .then(response => response.json())
         .then(comments => {
@@ -125,6 +176,8 @@ async function loadParticipants(eventId) {
         const participants = await response.json();
         const approvedContainer = document.getElementById("approvedParticipants");
         const pendingContainer = document.getElementById("pendingParticipants");
+        const userElement = document.getElementById("currentUser");
+        const currentUserId = userElement ? userElement.getAttribute("data-user-id") : null;
 
         approvedContainer.innerHTML = "";
         pendingContainer.innerHTML = "";
@@ -148,7 +201,9 @@ async function loadParticipants(eventId) {
                 <span class="participant-name">${participant.username}</span>
             `;
             // If participant is pending, add Approve and Reject buttons
-            if (participant.status === "Pending") {
+
+            if (participant.status === "Pending" && (String(currentUserId) === String(participant.creator))) {
+                console.log("insideeeeeeeeeeeeeeeeee")
                 const approveButton = document.createElement("button");
                 approveButton.innerHTML = "✅";
                 approveButton.classList.add("btn", "btn-success", "btn-sm");
@@ -200,15 +255,3 @@ async function updateParticipantStatus(userId, eventId, action, participantEleme
         console.error(`❌ Error while ${action}ing participant:`, error);
     }
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-    const eventId = document.getElementById("eventId").dataset.id;
-    fetchEventDetails(eventId);
-    loadParticipants(eventId);
-
-    // Refresh both event details and participants every 5 seconds
-    setInterval(() => {
-        fetchEventDetails(eventId);
-        loadParticipants(eventId);
-    }, 5000);
-});

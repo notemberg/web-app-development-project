@@ -221,11 +221,11 @@ namespace MaJerGan.Controllers
             {
                 if (existingParticipation.Status == ParticipationStatus.Pending)
                 {
-                    return BadRequest("คำขอเข้าร่วมกิจกรรมนี้อยู่ระหว่างพิจารณาอยู่แล้ว");
+                    return Json(new { message = "คำขอเข้าร่วมกิจกรรมนี้อยู่ระหว่างพิจารณาอยู่แล้ว" });
                 }
                 if (existingParticipation.Status == ParticipationStatus.Approved)
                 {
-                    return BadRequest("คุณได้เข้าร่วมกิจกรรมนี้แล้ว");
+                    return Json(new { message = "คุณได้เข้าร่วมกิจกรรมนี้แล้ว" });
                 }
             }
 
@@ -237,7 +237,7 @@ namespace MaJerGan.Controllers
 
             if (eventDetails.IsClosed)
             {
-                return BadRequest("กิจกรรมนี้ปิดรับสมัครแล้ว");
+                return Json(new { message = "กิจกรรมนี้ปิดรับสมัครแล้ว" });
             }
 
             if (eventDetails.MaxParticipants > 0)
@@ -247,7 +247,7 @@ namespace MaJerGan.Controllers
 
                 if (currentParticipants >= eventDetails.MaxParticipants)
                 {
-                    return BadRequest("กิจกรรมนี้เต็มแล้ว");
+                    return Json(new { message = "กิจกรรมนี้เต็มแล้ว" });
                 }
             }
 
@@ -257,13 +257,13 @@ namespace MaJerGan.Controllers
             {
                 if (string.IsNullOrEmpty(eventDetails.AllowedGenders))
                 {
-                    return BadRequest("❌ กิจกรรมนี้ถูกจำกัดเพศ แต่ไม่ได้กำหนด AllowedGenders");
+                    return Json(new { message = "❌ กิจกรรมนี้ถูกจำกัดเพศ แต่ไม่ได้กำหนด AllowedGenders" });
                 }
 
                 var allowedGenders = eventDetails.AllowedGenders.Split(',').Select(g => g.Trim()).ToList();
                 if (user.Gender == null || !allowedGenders.Contains(user.Gender))
                 {
-                    return BadRequest("❌ คุณไม่สามารถเข้าร่วมกิจกรรมนี้ได้ เนื่องจากเพศของคุณไม่ได้รับอนุญาต");
+                    return Json(new { message = "❌ คุณไม่สามารถเข้าร่วมกิจกรรมนี้ได้ เนื่องจากเพศของคุณไม่ได้รับอนุญาต" });
                 }
             }
 
@@ -697,7 +697,9 @@ namespace MaJerGan.Controllers
                     username = p.User.Username,
                     profileImg = p.User.ProfilePicturee ?? "/images/default-profile.png", // Default image
                     userid = p.UserId,
-                    status = p.Status.ToString() // Approved or Pending
+                    status = p.Status.ToString(), // Approved or Pending
+                    Creator = p.Event.Creator.Id
+
                 })
                 .ToList();
 
