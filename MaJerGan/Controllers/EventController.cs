@@ -695,6 +695,7 @@ namespace MaJerGan.Controllers
 
             return Json(participants);
         }
+        
         [HttpGet]
         public async Task<IActionResult> GetComments(int eventId)
         {

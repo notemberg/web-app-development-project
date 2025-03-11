@@ -87,9 +87,7 @@
                         <button id="postCommentBtn" data-eventid="@Model.Id">📩 ส่งความคิดเห็น</button>
                     </div>
                     <!-- ✅ แสดงความคิดเห็น -->
-                    <div id="commentsContainer">
-                        <p>กำลังโหลดความคิดเห็น...</p>
-                    </div>
+                    <div id="commentsContainer"><p>กำลังโหลดความคิดเห็น...</p></div>
                 </div>
             </div>
             <div class="participant"> 
@@ -97,7 +95,7 @@
                     <div class="participant-head-text">
                         <span>Participants</span>
                         <div class="participant-head-number">
-                            <span>👥@Model.Participants.Count()/@Model.MaxParticipants</span>
+                            <span>👥@Model.Participants.Where(p => p.Status == ParticipationStatus.Approved).Count()/@Model.MaxParticipants</span>
                         </div>
                     </div>
                 </div>

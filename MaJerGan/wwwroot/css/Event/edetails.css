@@ -213,7 +213,10 @@ body {
     flex-direction: column;
     gap: 10px;
     overflow-y: auto; /* Enables vertical scrolling */
+    overflow-x: hidden; 
     height: 220px;
+    width: 100%;
+    box-sizing: border-box;
 }
 .participant-list-pending {
     display: flex;

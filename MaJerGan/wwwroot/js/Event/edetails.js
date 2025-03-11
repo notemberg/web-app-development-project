@@ -46,11 +46,9 @@ async function loadParticipants(eventId) {
         }
 
         participants.forEach(participant => {
-            console.log(participant);
             const participantElement = document.createElement("div");
             participantElement.classList.add("participant-box");
 
-            
             if (participant.status === "Pending") {
                 participantElement.classList.add("waiting");
                 participantElement.style.border = "2px dashed #FFB6CF"; // Add dashed border for pending
@@ -78,7 +76,7 @@ async function loadParticipants(eventId) {
 
             if (participant.status === "Approved") {
                 approvedContainer.appendChild(participantElement);
-            } else {
+            } else if (participant.status === "Pending") {
                 pendingContainer.appendChild(participantElement);
             }
         });
