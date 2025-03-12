@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(() => {
         fetchEventDetails(eventId);
         loadParticipants(eventId);
-    }, 5000);
+    }, 100000);
 
     console.log("✅ JavaScript is running..."); // Debugging check
     const joinContainer = document.getElementById("joinContainerss");
@@ -197,13 +197,17 @@ async function loadParticipants(eventId) {
             }
             
             participantElement.innerHTML = `
-                <img src="${participant.profileImg}" class="profile-images" alt="${participant.username}">
-                <span class="participant-name">${participant.username}</span>
+                <div class="participant-item">
+                    <img src="${participant.profileImg}" class="profile-images" alt="${participant.username}">
+                    <span class="participant-name" title="${participant.username}">${participant.username}</span>
+                    <div class="participant-actions"></div>
+                </div>
             `;
             // If participant is pending, add Approve and Reject buttons
 
+            const actionsContainer = participantElement.querySelector(".participant-actions");
+
             if (participant.status === "Pending" && (String(currentUserId) === String(participant.creator))) {
-                console.log("insideeeeeeeeeeeeeeeeee")
                 const approveButton = document.createElement("button");
                 approveButton.innerHTML = "✅";
                 approveButton.classList.add("btn", "btn-success", "btn-sm");
@@ -214,8 +218,8 @@ async function loadParticipants(eventId) {
                 rejectButton.classList.add("btn", "btn-danger", "btn-sm");
                 rejectButton.onclick = () => updateParticipantStatus(participant.userid, eventId, "Reject", participantElement);
 
-                participantElement.appendChild(approveButton);
-                participantElement.appendChild(rejectButton);
+                actionsContainer.appendChild(approveButton);
+                actionsContainer.appendChild(rejectButton);
             }
 
             if (participant.status === "Approved") {
@@ -255,3 +259,5 @@ async function updateParticipantStatus(userId, eventId, action, participantEleme
         console.error(`❌ Error while ${action}ing participant:`, error);
     }
 }
+
+

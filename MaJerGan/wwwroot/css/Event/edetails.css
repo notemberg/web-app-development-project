@@ -41,8 +41,10 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    max-width: 900px;
+    max-width: 1200px;
     padding: 10px;
+    background-color: #ffffff;
+    border-radius: 50px;
 }
 
 
@@ -51,23 +53,29 @@ body {
     .content {
         display: flex;
         flex-direction: row;
-        
-    }
 
+    }
+    .head {
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
     .information {
         flex: 2;
-        min-width: 400px;
+        min-width: 600px;
         padding: 20px;
         gap: 10px;
     }
-
+    .information-detail-text{
+        font-size: 20px;
+    }
     .participant {
         flex: 1;
         min-width: 300px;
         margin: 20px;
     }
     .event-head {
-        flex-direction: column;
+        flex-direction: row;
 
     }
 }
@@ -88,8 +96,9 @@ body {
         flex: 2;
         gap: 10px;
     }
-
-
+    .information-detail-text{
+        font-size: 16px;
+    }
 
     .event-head {
         flex-direction: column;
@@ -145,7 +154,7 @@ body {
     color: #ffffff;   
     border: 3px solid #E3E3E3 ;
     background: #ffffff; 
-    border-radius: 30px;
+    border-radius: 20px;
 }
 
 .event-head-host-text {
@@ -169,7 +178,7 @@ body {
 .information {
     display: flex;
     flex-direction: column;
-    border-radius: 30px;
+    border-radius: 20px;
     margin: 10px;
 }
 
@@ -191,7 +200,6 @@ body {
     white-space: pre-line; /* Preserves new lines */
     flex: 1;
     background: transparent;
-    font-size: 20px;
     color: #2d2d2d;
     font-weight: 400;
     padding: 10px;
@@ -233,12 +241,11 @@ body {
     display: flex;
     flex-direction: column;
     height: 500px;
-    border-radius: 50px;
-    max-width: 400px; 
+    border-radius: 20px;
+    max-width: 400px;
     min-height: 200px;
-    max-height: 400px;
-    overflow: hidden; 
-    max-height: 40vh; 
+    max-height: 40vh;
+    overflow: hidden;
     
 }
 
@@ -268,6 +275,35 @@ body {
     color: #333;  
 }
   
+.participant-list,
+.participant-list-pending {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto; /* Enables scrolling */
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.participant-list-pending {
+    height: 120px;
+}
+
+.participant-box {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: 2px solid #FFB6CF;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
 .participant-content {
     flex-grow: 1;
     display: flex;
@@ -285,46 +321,16 @@ body {
     
 }
 
-.participant-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    overflow-y: auto; /* Enables vertical scrolling */
-    overflow-x: hidden; 
-    width: 100%;
-    box-sizing: border-box;
-}
-.participant-list-pending {
-    display: flex;
-    flex-direction: column;
-
-    gap: 10px;
-    overflow-y: auto; /* Enables vertical scrolling */
-    overflow-x: hidden; 
-    height: 120px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.participant-box {
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 10px 20px;
-    border: 2px solid #FFB6CF;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    text-align: left;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    width: 100%;
-}
-
 .participant-item.waiting {
     border: 2px dashed #FFB6CF; /* Dashed border for pending participants */
     color: #777;
+}
+.participant-item {
+    display: flex; /* Arrange items in a row */
+    align-items: space-between; /* Align vertically in the center */
+    gap: 10px; /* Add space between elements */
+    padding: 8px; /* Add padding */
+    width: 100%;
 }
 
 .participant-section {
@@ -336,41 +342,83 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-}
-.btn {
-    cursor: pointer;
-    padding: 5px 10px;
-    margin-left: 10px;
-    border: none;
-    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 10px;
 }
 
-.btn-box{
-    min-width: 15px;
+.participant-name {
+    flex-grow: 1; /* Allows it to take up remaining space */
+    font-size: 16px;
+    color: #333;
+    white-space: nowrap; /* Prevents multi-line */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds "..." if too long */
 }
+
+.participant-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease;
+}
+
 .btn-success {
-    background-color: #28a745;
+    background: #28a745;
     color: white;
     min-width: 40px;
 }
 
 .btn-danger {
-    background-color: #dc3545;
+    background: #dc3545;
     color: white;
     min-width: 40px;
 }
 
+.join-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* ✅ Aligns all elements vertically */
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 15px;
+    background: #f9f9f9; /* ✅ Light gray background */
+    border-radius: 20px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1); /* ✅ Soft shadow */
+    gap: 15px; /* ✅ Adds space between items */
+}
+
 .join-btn {
-    background-color: #ff6b6b; /* Red theme */
+    background-color: #ff6b6b;
     color: white;
-    padding: 12px 20px;
+    padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
     border: none;
-    border-radius: 8px;
+    border-radius:10px;
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
-    display: inline-block;
+    flex: 1; /* ✅ Make the button flexible */
 }
 
+.join-gender {
+    flex: 1; /* ✅ Let it grow naturally */
+    font-size: 14px;
+    color: #555;
+    text-align: center; /* ✅ Align text */
+}
+
+.join-time-left {
+    flex: 1; /* ✅ Let it grow */
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+    text-align: right; /* ✅ Align to the right */
+}

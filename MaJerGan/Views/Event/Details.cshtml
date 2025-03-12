@@ -24,6 +24,7 @@
 
 <body>
     <section class="pre">
+    
         <div class="content">
 
             <div class="information">
@@ -64,7 +65,7 @@
                 <div class="join-container">
                     <div id="joinContainerss"></div>
 
-                    <span class="gender-info">
+                    <span class="join-gender">
                         @if (!Model.IsGenderRestricted)
                         {
                             <span>ทุกเพศสามารถเข้าร่วมได้</span>
@@ -75,7 +76,7 @@
                         }
                     </span>
 
-                    <span id="timeUntilExpiry" class="expiry-time">⏳ Calculating...</span>
+                    <span id="timeUntilExpiry" class="join-time-left">⏳ Calculating...</span>
                 </div>
                 <h3>Comment</h3>
                 <div class="comment-section">
@@ -103,6 +104,10 @@
                     <div id="pendingParticipants" class="participant-list-pending"></div>
                 </div>
             </div>
+            @if (currentUserId == Model.Creator.Id.ToString()) 
+            {
+                <a href="@Url.Action("Edit", "Event", new { id = Model.Id })" class="edit-button">⚙</a>
+            }
         </div>
     </section>        
 </body>
