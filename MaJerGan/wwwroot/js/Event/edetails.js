@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(() => {
         fetchEventDetails(eventId);
         loadParticipants(eventId);
-    }, 100000);
+    }, 5000);
 
     console.log("✅ JavaScript is running..."); // Debugging check
     const joinContainer = document.getElementById("joinContainerss");

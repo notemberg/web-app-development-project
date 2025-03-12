@@ -244,9 +244,7 @@ body {
     border-radius: 20px;
     max-width: 400px;
     min-height: 200px;
-    max-height: 40vh;
-    overflow: hidden;
-    
+    max-height: 60vh;
 }
 
 .participant-head {
@@ -285,7 +283,9 @@ body {
     width: 100%;
     box-sizing: border-box;
 }
-
+.participant-list{
+    height: 240px;
+}
 .participant-list-pending {
     height: 120px;
 }
@@ -311,7 +311,6 @@ body {
     gap: 20px;
     padding: 20px;
     text-align: start;
-    background: #ffffff;
     border-left: 3px solid #E3E3E3 ;
     border-right: 3px solid #E3E3E3 ;
     border-bottom: 3px solid #E3E3E3 ;
@@ -421,4 +420,56 @@ body {
     font-weight: bold;
     color: red;
     text-align: right; /* ✅ Align to the right */
+}
+
+.location-info {
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    width: 100%;
+}
+
+.location-card {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between image and text */
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 0 15px;
+    width: 100%;
+}
+
+.location-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.location-details {
+    flex: 1; /* Take remaining space */
+}
+
+.location-details h3 {
+    font-size: 18px;
+    margin: 0;
+    color: #333;
+}
+
+.location-details p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.badge {
+    background: #007bff;
+    color: white;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-weight: bold;
 }
