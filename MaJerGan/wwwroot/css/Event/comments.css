@@ -19,12 +19,25 @@ textarea#commentContent {
     border-top-right-radius: 30px;
     box-sizing: border-box; /* Include padding and border in the total width/height */
     color: rgb(0, 0, 0);
+    
 }
 
+.comment-content{
+    width: 100%;
+    overflow: hidden; /* Prevents content from spilling outside */
+
+}
 .comment-input {
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
+}
+
+.comment-item p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
 }
 
 .comment-input textarea {
@@ -52,6 +65,10 @@ textarea#commentContent {
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 8px;
+    width: 100%; /* Ensures the comment box fills the available space */
+    max-width: 100%; /* Prevents exceeding the container */
+    overflow-wrap: break-word; /* Breaks long words */
+    word-wrap: break-word;
 }
 
 .comment-time {
@@ -61,10 +78,14 @@ textarea#commentContent {
 
 .comment-box {
     display: flex;
-    align-items: center;
+    flex-direction: row;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 8px;
+    width: 100%;
+    max-width: 100%; /* Ensures it doesn’t go beyond container */
+    word-break: break-word; /* Forces text wrapping */
+    
 }
 
 .profile-image {
