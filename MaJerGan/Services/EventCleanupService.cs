@@ -33,8 +33,7 @@ namespace MaJerGan.Services
                     // หา Event ที่ควรปิด: หมดอายุ (ExpiryDate < now) หรือ EventTime < now และ IsClosed ยังเป็น false
                     var expiredEvents = await dbContext.Events
                         .Where(e =>
-                            ((e.ExpiryDate < now) || (e.EventTime < now))
-                            && !e.IsClosed
+                            e.ExpiryDate < now && !e.IsClosed
                         )
                         .ToListAsync();
 

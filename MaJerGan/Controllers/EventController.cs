@@ -102,7 +102,7 @@ namespace MaJerGan.Controllers
         {
             var eventItem = _context.Events
                 .Include(e => e.Participants) // ✅ Ensure Participants are included
-                .ThenInclude(p => p.User)  
+                .ThenInclude(p => p.User)
                 .FirstOrDefault(e => e.Id == id);
 
             if (eventItem == null)
@@ -410,6 +410,43 @@ namespace MaJerGan.Controllers
             await NotificationWebSocketHandler.SendNotificationToUser(userId, $"📩 คุณได้ออกจากกิจกรรม ID {eventId}");
 
             return RedirectToAction("Details", new { id = eventId });
+        }
+
+
+
+        [Authorize]
+        [HttpPost]
+        [Route("Event/CloseEvent/{eventId}")]
+        public async Task<IActionResult> CloseEvent(int eventId)
+        {
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            if (userIdClaim == null)
+            {
+                return Unauthorized();
+            }
+
+            int userId = int.Parse(userIdClaim.Value);
+
+            var eventDetails = await _context.Events.FindAsync(eventId);
+            if (eventDetails == null)
+            {
+                return NotFound("ไม่พบกิจกรรมนี้");
+            }
+
+            if (eventDetails.CreatedBy != userId)
+            {
+                return Unauthorized();
+            }
+
+            if (eventDetails.IsClosed)
+            {
+                return BadRequest("กิจกรรมนี้ถูกปิดแล้ว");
+            }
+
+            eventDetails.IsClosed = true;
+            await _context.SaveChangesAsync();
+
+            return Ok(new { success = true, message = "กิจกรรมถูกปิดเรียบร้อยแล้ว" });
         }
 
         [Authorize]

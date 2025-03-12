@@ -14,13 +14,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (result.success) {
         alert(result.message);
-        window.location.reload(); // รีเฟรชหน้าเพื่อแสดงการเปลี่ยนแปลง
+        window.location.href = `/Event/Details/${eventId}`; // ย้ายไปที่หน้า MyEvent
       } else {
         alert("เกิดข้อผิดพลาดในการปิดกิจกรรม");
       }
     } catch (error) {
       console.error("Error closing event:", error);
       alert("เกิดข้อผิดพลาดในการปิดกิจกรรม");
+      window.location.href = `/Event/Details/${eventId}`; // ย้ายไปที่หน้า MyEvent
     }
   }
 
