@@ -14,7 +14,7 @@ body {
 .main-body .main-header {
   width: 100%;
   height: 80px;
-  background-color: #4A4A4A;
+  background-color: #ff4081;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -135,7 +135,7 @@ body {
   width: 100%;
   margin-top: 80px;
   height: 70px;
-  background-color: #4A4A4A;
+  background-color: #ff4081;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -425,7 +425,7 @@ h4 {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background: #f8d7da;
+  background: #9c9c9c;
   padding: 15px;
   margin-bottom: 8px;
   border-radius: 8px;
@@ -435,7 +435,7 @@ h4 {
 
 /* ✅ เปลี่ยนสีถ้ายังไม่ได้อ่าน */
 .notification-item.unread {
-  background: #fde8e8;
+  background: #faefef;
 }
 
 /* ✅ ไอคอนแจ้งเตือน */

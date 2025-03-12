@@ -94,7 +94,7 @@ textarea:focus {
 /* ✅ ปุ่มในฟอร์ม */
 .container .submit-btn {
     width: 100%;
-    background-color: #F1AEC5;
+    background-color: #ff72a1;
     color: white;
     padding: 15px;
     border: none;
@@ -138,7 +138,7 @@ textarea:focus {
 .title-container {
     display: flex;
     align-items: center;
-    background-color: #F1AEC5;
+    background-color: #ff72a1;
     border-radius: 20px;
     padding: 10px 30px;
     min-height: 70px;
@@ -416,7 +416,7 @@ textarea:focus {
 
 /* ✅ ปุ่มเลือกสถานที่ */
 .location-btn {
-    background: #ff9ecb;
+    background: #ff72a1;
     /* สีชมพู */
     border: none;
     padding: 12px 30px;

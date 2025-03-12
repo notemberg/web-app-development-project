@@ -29,6 +29,7 @@
 
             <div class="information">
                 <div class="event-head">
+                    
                     <div class="event-head-text">
                         <span>@Model.Title</span>
                     </div>
@@ -37,6 +38,11 @@
                             <span>Host By : @Model.Creator.Username</span>  
                         </div>
                     </div>
+                    @if (currentUserId == Model.Creator.Id.ToString()) 
+                {
+                <a class="edit-btn-event"href="@Url.Action("Edit", "Event", new { id = Model.Id })" class="edit-button">⚙</a>
+                }
+                    
                 </div>
                 <div class="head">
                     <p>@Model.EventTime.ToString("📅 dd/MMM/yyyy")</p>
@@ -75,9 +81,11 @@
                         <div class="tag-each">@tag.Trim()</div>
                     }
                 </div>
-
+            
                 <div class="join-container">
-                    <div id="joinContainerss"></div>
+
+                    @* <div id="joinContainerss"></div> *@
+                    <div id="joinContainerss" style="@(Model.IsClosed ? "display: none;" : "display: block;")"></div>
 
                     <span class="join-gender">
                         @if (!Model.IsGenderRestricted)
@@ -90,7 +98,11 @@
                         }
                     </span>
 
-                    <span id="timeUntilExpiry" class="join-time-left">⏳ Calculating...</span>
+                    <span id="timeUntilExpiry" class="join-time-left" style="@(Model.IsClosed ? "display: none;" : "display: block;")" >⏳ Calculating...</span>
+                    @if (Model.IsClosed)
+                    {
+                        <span class="join-closed">🔒 ปิดรับสมัครแล้ว</span>
+                    }
                 </div>
                 <h3>Comment</h3>
                 <div class="comment-section">
@@ -118,10 +130,10 @@
                     <div id="pendingParticipants" class="participant-list-pending"></div>
                 </div>
             </div>
-            @if (currentUserId == Model.Creator.Id.ToString()) 
+            @* @if (currentUserId == Model.Creator.Id.ToString()) 
             {
                 <a href="@Url.Action("Edit", "Event", new { id = Model.Id })" class="edit-button">⚙</a>
-            }
+            } *@
         </div>
     </section>        
 </body>

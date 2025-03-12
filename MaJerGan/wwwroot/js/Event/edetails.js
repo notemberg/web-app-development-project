@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(() => {
         fetchEventDetails(eventId);
         loadParticipants(eventId);
-    }, 100000);
+    }, 2000);
 
     console.log("✅ JavaScript is running..."); // Debugging check
     const joinContainer = document.getElementById("joinContainerss");
@@ -197,11 +197,12 @@ async function loadParticipants(eventId) {
             }
             
             participantElement.innerHTML = `
+            <a href="/ActivityLog/${participant.userid}">
                 <div class="participant-item">
                     <img src="${participant.profileImg}" class="profile-images" alt="${participant.username}">
                     <span class="participant-name" title="${participant.username}">${participant.username}</span>
                     <div class="participant-actions"></div>
-                </div>
+                </div></a>
             `;
             // If participant is pending, add Approve and Reject buttons
 

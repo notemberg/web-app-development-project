@@ -197,7 +197,7 @@ namespace MaJerGan.Controllers
             return RedirectToAction("Details", new { id = id });
         }
 
-
+        [Authorize]
         [HttpGet]
         [Route("Event/Details/{id}")]
         public async Task<IActionResult> Details(int id)
@@ -711,6 +711,7 @@ namespace MaJerGan.Controllers
                 eventDetails.ExpiryDate,
                 eventDetails.Location,
                 eventDetails.MaxParticipants,
+                eventDetails.IsClosed,
                 CurrentParticipants = eventDetails.Participants.Count,
                 Tags = eventDetails.Tags.Split(','), // Assuming tags are stored as CSV
                 Creator = new
