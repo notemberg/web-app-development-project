@@ -1,0 +1,424 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Arial', sans-serif; */
+    font-family: 'Sulphur Point';
+}
+
+html{
+    background-color: #F0F0F4;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.pb-3{
+    width: 100%;
+}
+.container {
+    /* ✅ ทำให้ container ขยายเต็มพื้นที่ที่เหลือ */
+    width: 100vw;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    /* ✅ ให้ footer อยู่ล่างสุด */
+    padding-top: 100px;
+    width: 100%;
+}
+
+.pre {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+.content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 50px;
+}
+
+
+/* ---------- Desktop Layout (Two Columns) ---------- */
+@media (min-width: 768px)  {
+    .content {
+        display: flex;
+        flex-direction: row;
+
+    }
+    .head {
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
+    .information {
+        flex: 2;
+        min-width: 600px;
+        padding: 20px;
+        gap: 10px;
+    }
+    .information-detail-text{
+        font-size: 20px;
+    }
+    .participant {
+        flex: 1;
+        min-width: 300px;
+        margin: 20px;
+    }
+    .event-head {
+        flex-direction: row;
+
+    }
+}
+/* ---------- Mobile Layout (Stacked) ---------- */
+@media (max-width: 767px) {
+    .content {
+        display: flex;
+        flex-direction: column;
+    
+    }
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .information {
+        padding-top: 10vh;
+        flex: 2;
+        gap: 10px;
+    }
+    .information-detail-text{
+        font-size: 16px;
+    }
+
+    .event-head {
+        flex-direction: column;
+        font-size: 24px;
+
+    }
+
+    .event-head-host-text {
+        flex-direction: column;
+        font-size: 24px;
+
+    }
+    .head {
+        flex-direction: column;
+        text-align: start;
+    }
+
+    .participant {
+        width: 100%;
+        margin: 0px;
+    }
+    .participant-list {
+        height: 140px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+}
+
+.event-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFB6CF;
+    border-radius: 50px;
+    font-size: 30px;
+    border: 3px solid #E3E3E3;
+    padding: 20px;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.event-head-text {
+    color: #ffffff;   
+    font-size: 30px;     
+    white-space: nowrap;  
+    overflow: hidden;  
+    text-overflow: ellipsis;  
+    max-width: 60%; 
+}
+
+.event-head-host{
+    color: #ffffff;   
+    border: 3px solid #E3E3E3 ;
+    background: #ffffff; 
+    border-radius: 20px;
+}
+
+.event-head-host-text {
+    color: #000000; 
+    margin: 0px 20px;
+}
+
+.head {
+    display: flex;
+    padding: 0 50px;
+    font-size: 20px;
+    line-height: 12px;
+}
+
+.timeleft {
+    color: green;
+    justify-self: right;
+    padding: 0 10px;
+}
+
+.information {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.information-detail {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 15px;
+    min-height: 250px;
+    width: 100%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+    
+}
+
+.information-detail-text{
+    overflow-wrap: break-word; /* Breaks long words */
+    white-space: pre-line; /* Preserves new lines */
+    flex: 1;
+    background: transparent;
+    color: #2d2d2d;
+    font-weight: 400;
+    padding: 10px;
+    padding-left: 10px;
+    padding-left: 30px;
+    min-height: 180px;
+}
+
+.tag-list {
+    border-radius: 50px;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    overflow-x: auto; /* Enables horizontal scrolling if necessary */
+    white-space: nowrap;
+}
+
+.tag-each {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: 2px solid #FFB6CF;
+    font-size: 18px;
+    overflow: hidden;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    white-space: nowrap; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; 
+}
+
+.participant {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    border-radius: 20px;
+    max-width: 400px;
+    min-height: 200px;
+    max-height: 40vh;
+    overflow: hidden;
+    
+}
+
+.participant-head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #FFB6CF;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    padding: 20px 20px;
+    height: 80px;
+    border-top: 3px solid #E3E3E3 ;
+    border-left: 3px solid #E3E3E3 ;
+    border-right: 3px solid #E3E3E3 ;
+}
+
+.participant-head-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    width: 100%;
+    color: #ffffff;  
+}
+
+.participant-head-number {
+    color: #333;  
+}
+  
+.participant-list,
+.participant-list-pending {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto; /* Enables scrolling */
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.participant-list-pending {
+    height: 120px;
+}
+
+.participant-box {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: 2px solid #FFB6CF;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+.participant-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    text-align: start;
+    background: #ffffff;
+    border-left: 3px solid #E3E3E3 ;
+    border-right: 3px solid #E3E3E3 ;
+    border-bottom: 3px solid #E3E3E3 ;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    
+}
+
+.participant-item.waiting {
+    border: 2px dashed #FFB6CF; /* Dashed border for pending participants */
+    color: #777;
+}
+.participant-item {
+    display: flex; /* Arrange items in a row */
+    align-items: space-between; /* Align vertically in the center */
+    gap: 10px; /* Add space between elements */
+    padding: 8px; /* Add padding */
+    width: 100%;
+}
+
+.participant-section {
+    margin: 10px 0;
+    padding: 0;
+}
+
+.profile-images {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.participant-name {
+    flex-grow: 1; /* Allows it to take up remaining space */
+    font-size: 16px;
+    color: #333;
+    white-space: nowrap; /* Prevents multi-line */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds "..." if too long */
+}
+
+.participant-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease;
+}
+
+.btn-success {
+    background: #28a745;
+    color: white;
+    min-width: 40px;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+    min-width: 40px;
+}
+
+.join-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* ✅ Aligns all elements vertically */
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 15px;
+    background: #f9f9f9; /* ✅ Light gray background */
+    border-radius: 20px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1); /* ✅ Soft shadow */
+    gap: 15px; /* ✅ Adds space between items */
+}
+
+.join-btn {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius:10px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    flex: 1; /* ✅ Make the button flexible */
+}
+
+.join-gender {
+    flex: 1; /* ✅ Let it grow naturally */
+    font-size: 14px;
+    color: #555;
+    text-align: center; /* ✅ Align text */
+}
+
+.join-time-left {
+    flex: 1; /* ✅ Let it grow */
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+    text-align: right; /* ✅ Align to the right */
+}

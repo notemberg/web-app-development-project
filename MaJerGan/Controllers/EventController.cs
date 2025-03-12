@@ -258,11 +258,11 @@ namespace MaJerGan.Controllers
             {
                 if (existingParticipation.Status == ParticipationStatus.Pending)
                 {
-                    return BadRequest("คำขอเข้าร่วมกิจกรรมนี้อยู่ระหว่างพิจารณาอยู่แล้ว");
+                    return Json(new { message = "คำขอเข้าร่วมกิจกรรมนี้อยู่ระหว่างพิจารณาอยู่แล้ว" });
                 }
                 if (existingParticipation.Status == ParticipationStatus.Approved)
                 {
-                    return BadRequest("คุณได้เข้าร่วมกิจกรรมนี้แล้ว");
+                    return Json(new { message = "คุณได้เข้าร่วมกิจกรรมนี้แล้ว" });
                 }
             }
 
@@ -274,7 +274,7 @@ namespace MaJerGan.Controllers
 
             if (eventDetails.IsClosed)
             {
-                return BadRequest("กิจกรรมนี้ปิดรับสมัครแล้ว");
+                return Json(new { message = "กิจกรรมนี้ปิดรับสมัครแล้ว" });
             }
 
             if (eventDetails.MaxParticipants > 0)
@@ -284,7 +284,7 @@ namespace MaJerGan.Controllers
 
                 if (currentParticipants >= eventDetails.MaxParticipants)
                 {
-                    return BadRequest("กิจกรรมนี้เต็มแล้ว");
+                    return Json(new { message = "กิจกรรมนี้เต็มแล้ว" });
                 }
             }
 
@@ -294,13 +294,13 @@ namespace MaJerGan.Controllers
             {
                 if (string.IsNullOrEmpty(eventDetails.AllowedGenders))
                 {
-                    return BadRequest("❌ กิจกรรมนี้ถูกจำกัดเพศ แต่ไม่ได้กำหนด AllowedGenders");
+                    return Json(new { message = "❌ กิจกรรมนี้ถูกจำกัดเพศ แต่ไม่ได้กำหนด AllowedGenders" });
                 }
 
                 var allowedGenders = eventDetails.AllowedGenders.Split(',').Select(g => g.Trim()).ToList();
                 if (user.Gender == null || !allowedGenders.Contains(user.Gender))
                 {
-                    return BadRequest("❌ คุณไม่สามารถเข้าร่วมกิจกรรมนี้ได้ เนื่องจากเพศของคุณไม่ได้รับอนุญาต");
+                    return Json(new { message = "❌ คุณไม่สามารถเข้าร่วมกิจกรรมนี้ได้ เนื่องจากเพศของคุณไม่ได้รับอนุญาต" });
                 }
             }
 
@@ -688,6 +688,65 @@ namespace MaJerGan.Controllers
             return View(id); // ส่ง EventId ไปที่ View
         }
 
+
+        [HttpGet]
+        [Route("Event/Details/s{id}")]
+        public async Task<IActionResult> GetEventById(int id)
+        {
+            var eventDetails = await _context.Events
+                .Include(e => e.Creator)
+                .Include(e => e.Participants)
+                .ThenInclude(p => p.User)
+                .FirstOrDefaultAsync(e => e.Id == id);
+
+            if (eventDetails == null)
+                return NotFound(new { message = "Event not foundDD" });
+
+            var response = new
+            {
+                eventDetails.Id,
+                eventDetails.Title,
+                eventDetails.Description,
+                eventDetails.EventTime,
+                eventDetails.ExpiryDate,
+                eventDetails.Location,
+                eventDetails.MaxParticipants,
+                CurrentParticipants = eventDetails.Participants.Count,
+                Tags = eventDetails.Tags.Split(','), // Assuming tags are stored as CSV
+                Creator = new
+                {
+                    eventDetails.Creator.Id,
+                    eventDetails.Creator.Username
+                },
+                Participants = eventDetails.Participants.Select(p => new
+                {
+                    p.User.Id,
+                    p.User.Username
+                }).ToList()
+            };
+
+            return Ok(response);
+        }
+
+        [HttpGet]
+        public IActionResult GetParticipants(int eventId)
+        {
+            var participants = _context.EventParticipants
+                .Where(p => p.EventId == eventId)
+                .Select(p => new
+                {
+                    username = p.User.Username,
+                    profileImg = p.User.ProfilePicturee ?? "/images/default-profile.png", // Default image
+                    userid = p.UserId,
+                    status = p.Status.ToString(), // Approved or Pending
+                    Creator = p.Event.Creator.Id
+
+                })
+                .ToList();
+
+            return Json(participants);
+        }
+
         [HttpGet("Event/SearchPage")]
         public async Task<IActionResult> SearchPage(string searchQuery, string sortOrder)
         {
@@ -848,6 +907,80 @@ namespace MaJerGan.Controllers
             return View("UpcomingEvents", eventList); // ✅ โหลด `Search.cshtml` พร้อมผลลัพธ์
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetEventForyou()
+        {
+            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            bool isAuthenticated = userIdClaim != null;
+
+            int? userId = isAuthenticated ? int.Parse(userIdClaim.Value) : null;
+
+            Console.WriteLine(isAuthenticated ? $"🆔 Authenticated User ID: {userId}" : "❌ User not authenticated");
+
+            var today = DateTime.UtcNow;
+            IQueryable<Event> eventQuery = _context.Events
+                .Include(e => e.Creator)
+                .Include(e => e.Participants)
+                .Include(e => e.EventTags) // โหลดแท็กของ Event
+                    .ThenInclude(et => et.Tag)
+                .Where(e => e.EventTime > today); // ✅ อีเวนต์ต้องอยู่ในอนาคต
+
+            // ✅ ถ้าผู้ใช้ล็อกอิน กรอง Event ตาม UserTag ที่สนใจ
+            if (isAuthenticated)
+            {
+                // ดึงแท็กที่ User สนใจจาก UserTags
+                var userTags = await _context.UserTags
+                    .Where(ut => ut.UserId == userId)
+                    .Select(ut => ut.Tag)
+                    .ToListAsync();
+
+                if (userTags.Any())
+                {
+                    // กรองเฉพาะ Event ที่มีแท็กที่ User สนใจ และยังไม่ได้เข้าร่วม
+                    eventQuery = eventQuery
+                        .Where(e => e.EventTags.Any(et => userTags.Contains(et.Tag.Name))) // กรองตาม Tag ที่ผู้ใช้สนใจ
+                        .Where(e => !e.Participants.Any(p => p.UserId == userId)) // ยังไม่ได้เข้าร่วม
+                        .OrderByDescending(e => e.ViewCount); // เรียงตามจำนวนผู้ชม
+                }
+                else
+                {
+                    // ถ้าไม่มี UserTag ให้แสดง Event ปกติที่ยังไม่ได้เข้าร่วม
+                    eventQuery = eventQuery
+                        .Where(e => !e.Participants.Any(p => p.UserId == userId))
+                        .OrderByDescending(e => e.ViewCount);
+                }
+            }
+            else
+            {
+                // ✅ ถ้าผู้ใช้ **ไม่ได้ล็อกอิน** ให้สุ่มอีเวนต์ 5 อัน
+                eventQuery = eventQuery
+                    .OrderBy(e => Guid.NewGuid()) // ✅ ใช้ Guid.NewGuid() เพื่อสุ่มข้อมูล
+                    .Take(5);
+            }
+
+            // ✅ ดึงข้อมูล Event และแปลงเป็น JSON
+            var events = await eventQuery
+                .Select(e => new
+                {
+                    e.Id,
+                    e.Title,
+                    e.EventTime,
+                    e.Location,
+                    e.LocationName,
+                    e.ViewCount, // ✅ เพิ่มจำนวนผู้ชม
+                    Tags = string.IsNullOrEmpty(e.Tags) ? "No Tags" : e.Tags,
+                    CurrentParticipants = e.Participants.Count(p => p.Status == ParticipationStatus.Approved),
+                    Creator = e.Creator != null ? e.Creator.Username : "Unknown",
+                    e.LocationImage,
+                    e.AllowedGenders,
+                    e.MaxParticipants
+
+                    
+                })
+                .ToListAsync();
+
+            return Json(events);
+        }
 
 
         [HttpGet("Event/UpcomingEventsResults")]
