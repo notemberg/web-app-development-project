@@ -45,9 +45,23 @@
                         <p id="timeUntilEvent">⏳ Calculating...</p>
                     </div>
                 </div>
+                <a href="@Model.Location">
+                <div id="location-info" class="location-info">
+                <div class="location-card">
+                    <img id="location-image" src="@Model.LocationImage" alt="สถานที่" class="location-img">
+                    <div class="location-details">
+                        <h3 id="location-name">@Model.LocationName</h3>
+                        <p>
+                            <span class="badge">Address</span>
+                            <span id="location-address">@Model.LocationAddress</span>
+                        </p>
+                    </div>
+                </div>
+                </div></a>
+
                 
                 <div id="eventId" data-id="@Model.Id"></div> <!-- ✅ Event ID stored here --> 
-                <div id="currentUser" data-user-id="@currentUserId"></div>
+                <div id="currentUser" data-user-id="@currentUserId"></div><!-- ✅ Event ID stored here --> 
 
                 <div class="information-detail">
                     <div class="information-detail-text">

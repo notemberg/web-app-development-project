@@ -244,9 +244,7 @@ body {
     border-radius: 20px;
     max-width: 400px;
     min-height: 200px;
-    max-height: 40vh;
-    overflow: hidden;
-    
+    max-height: 60vh;
 }
 
 .participant-head {
@@ -285,7 +283,9 @@ body {
     width: 100%;
     box-sizing: border-box;
 }
-
+.participant-list{
+    height: 240px;
+}
 .participant-list-pending {
     height: 120px;
 }
@@ -311,7 +311,6 @@ body {
     gap: 20px;
     padding: 20px;
     text-align: start;
-    background: #ffffff;
     border-left: 3px solid #E3E3E3 ;
     border-right: 3px solid #E3E3E3 ;
     border-bottom: 3px solid #E3E3E3 ;
@@ -421,4 +420,92 @@ body {
     font-weight: bold;
     color: red;
     text-align: right; /* ✅ Align to the right */
+}
+
+/* ✅ ปรับขอบมนและเงาของกล่อง */
+.location-info {
+    background: white;
+    border-radius: 20px;
+    /* ✅ ทำให้ขอบมนขึ้น */
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    /* ✅ เงาเบาๆ */
+    margin-top: 10px;
+    width: 100%;
+    /* max-width: 600px; */
+    border: 1px solid #eee;
+    /* ✅ ปรับขอบบางๆ */
+}
+
+/* ✅ สไตล์ของกล่อง */
+.location-card {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* ✅ ปรับขนาดและขอบของรูปภาพ */
+.location-img {
+    width: 250px;
+    height: 200px;
+    border-radius: 15px;
+    /* ✅ ทำให้รูปโค้ง */
+    object-fit: cover;
+    margin-right: 20px;
+    /* ✅ เพิ่มช่องว่างระหว่างรูปกับข้อความ */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ ปรับรายละเอียดให้เหมือนต้นฉบับ */
+.location-details {
+    flex-grow: 1;
+}
+
+/* ✅ ปรับขนาดและน้ำหนักของชื่อสถานที่ */
+.location-details h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+}
+
+/* ✅ ปรับสไตล์ Address */
+.location-details p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #555;
+    display: flex;
+    flex-direction: column;
+    /* ✅ จัดให้ Badge อยู่ด้านบน */
+    align-items: flex-start;
+    /* ✅ ชิดด้านซ้าย */
+}
+
+/* ✅ ปรับ Badge ให้เหมือนต้นฉบับ */
+/* ✅ ปรับให้ Badge "Address" อยู่ด้านบน */
+.location-details p {
+    font-size: 14px;
+    margin: 5px 0;
+    color: #555;
+    display: flex;
+    flex-direction: column;
+    /* ✅ จัดให้ Badge อยู่ด้านบน */
+    align-items: flex-start;
+    /* ✅ ชิดด้านซ้าย */
+}
+
+/* ✅ ปรับ Badge ให้อยู่แยกบรรทัด */
+.badge {
+    background: #888;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    margin-bottom: 4px;
+    /* ✅ เพิ่มช่องว่างด้านล่างให้สวยขึ้น */
 }
