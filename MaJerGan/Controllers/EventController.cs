@@ -96,12 +96,19 @@ namespace MaJerGan.Controllers
 
             return RedirectToAction("Details", new { id = model.Id });
         }
-
         [Authorize]
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var eventItem = _context.Events.Find(id);
+            var eventItem = _context.Events
+                .Include(e => e.Participants) // ✅ Ensure Participants are included
+                .ThenInclude(p => p.User)  
+                .FirstOrDefault(e => e.Id == id);
+
+            if (eventItem == null)
+            {
+                return NotFound();
+            }
 
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
             if (userIdClaim == null)
@@ -116,12 +123,9 @@ namespace MaJerGan.Controllers
                 return Unauthorized();
             }
 
-            if (eventItem == null)
-            {
-                return NotFound();
-            }
             return View(eventItem);
         }
+
 
         [HttpPost]
         public async Task<IActionResult> Edit(int id, Event model, string selectedTags)
@@ -410,37 +414,6 @@ namespace MaJerGan.Controllers
 
         [Authorize]
         [HttpPost]
-        [Route("Event/CloseEvent/{eventId}")]
-        public async Task<IActionResult> CloseEvent(int eventId)
-        {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
-            if (userIdClaim == null)
-            {
-                return Unauthorized();
-            }
-
-            int userId = int.Parse(userIdClaim.Value);
-
-            var eventDetails = await _context.Events.FindAsync(eventId);
-            if (eventDetails == null)
-            {
-                return NotFound("ไม่พบกิจกรรมนี้");
-            }
-
-            if (eventDetails.CreatedBy != userId)
-            {
-                return Unauthorized();
-            }
-
-            eventDetails.IsClosed = true;
-            await _context.SaveChangesAsync();
-
-            return Ok(new { success = true, message = "กิจกรรมถูกปิดเรียบร้อยแล้ว" });
-        }
-
-
-        [Authorize]
-        [HttpPost]
         public async Task<IActionResult> Approve(int eventId, int userId)
         {
 
@@ -665,82 +638,6 @@ namespace MaJerGan.Controllers
             return Json(events);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetEventForyou()
-        {
-            var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
-            bool isAuthenticated = userIdClaim != null;
-
-            int? userId = isAuthenticated ? int.Parse(userIdClaim.Value) : null;
-
-            Console.WriteLine(isAuthenticated ? $"🆔 Authenticated User ID: {userId}" : "❌ User not authenticated");
-
-            var today = DateTime.UtcNow;
-            IQueryable<Event> eventQuery = _context.Events
-                .Include(e => e.Creator)
-                .Include(e => e.Participants)
-                .Include(e => e.EventTags) // โหลดแท็กของ Event
-                .ThenInclude(et => et.Tag)
-                .Where(e => e.EventTime > today); // ✅ อีเวนต์ต้องอยู่ในอนาคต
-
-            // ✅ ถ้าผู้ใช้ล็อกอิน กรอง Event ตาม UserTag ที่สนใจ
-            if (isAuthenticated)
-            {
-                // ดึงแท็กที่ User สนใจจาก UserTags
-                var userTags = await _context.UserTags
-                    .Where(ut => ut.UserId == userId)
-                    .Select(ut => ut.Tag)
-                    .ToListAsync();
-
-                if (userTags.Any())
-                {
-                    // กรองเฉพาะ Event ที่มีแท็กที่ User สนใจ และยังไม่ได้เข้าร่วม
-                    eventQuery = eventQuery
-                        .Where(e => e.EventTags.Any(et => userTags.Contains(et.Tag.Name))) // กรองตาม Tag ที่ผู้ใช้สนใจ
-                        .Where(e => !e.Participants.Any(p => p.UserId == userId)) // ยังไม่ได้เข้าร่วม
-                        .OrderByDescending(e => e.ViewCount); // เรียงตามจำนวนผู้ชม
-                }
-                else
-                {
-                    // ถ้าไม่มี UserTag ให้แสดง Event ปกติที่ยังไม่ได้เข้าร่วม
-                    eventQuery = eventQuery
-                        .Where(e => !e.Participants.Any(p => p.UserId == userId))
-                        .OrderByDescending(e => e.ViewCount);
-                }
-            }
-            else
-            {
-                // ✅ ถ้าผู้ใช้ **ไม่ได้ล็อกอิน** ให้สุ่มอีเวนต์ 5 อัน
-                eventQuery = eventQuery
-                    .OrderBy(e => Guid.NewGuid()) // ✅ ใช้ Guid.NewGuid() เพื่อสุ่มข้อมูล
-                    .Take(5);
-            }
-
-            // ✅ ดึงข้อมูล Event และแปลงเป็น JSON
-            var events = await eventQuery
-                .Select(e => new
-                {
-                    e.Id,
-                    Title = string.IsNullOrEmpty(e.Title) ? "No Title" : e.Title, // ✅ ป้องกัน null
-                    Description = string.IsNullOrEmpty(e.Description) ? "No Description" : e.Description, // ✅ ป้องกัน null
-                    e.EventTime,
-                    Tags = string.IsNullOrEmpty(e.Tags) ? "No Tags" : e.Tags, // ✅ ป้องกัน null
-                                                                              //e.ViewCount,
-                    e.MaxParticipants,
-                    Location = string.IsNullOrEmpty(e.Location) ? "No Location" : e.LocationName, // ✅ ป้องกัน null
-                    e.CreatedAt,
-                    CurrentParticipants = e.Participants.Count(p => p.Status == ParticipationStatus.Approved), 
-                    Creator = e.Creator.Username,
-                    e.LocationImage,
-                    e.LocationName,
-                    e.AllowedGenders
-                })
-                .ToListAsync();
-
-            return Json(events);
-        }
-
-
         [Authorize]
         [HttpGet]
         public IActionResult Chat(int id)
@@ -870,7 +767,7 @@ namespace MaJerGan.Controllers
                 EventId = eventId,
                 UserId = userId,
                 Content = content,
-                CreatedAt = DateTime.Now
+                CreatedAt = DateTime.UtcNow
             };
 
             _context.Comments.Add(comment);

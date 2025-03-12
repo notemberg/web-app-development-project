@@ -354,10 +354,8 @@ document.addEventListener("DOMContentLoaded", function () {
           eventContainer.appendChild(createEventCard(event));
         });
 
-        // ✅ Toggle button text
       }
 
-      // ✅ Initial view (show 3 events)
       updateEventList(false);
     })
     .catch((error) => console.error("❌ Error fetching events:", error));
@@ -369,10 +367,7 @@ function createEventCard(event) {
   eventCard.classList.add("upcoming-event-card");
 
   const formattedEventTime = formatEventTime(event.eventTime);
-  // let locationDisplay =
-  //   event.location.length > 20
-  //     ? event.location.substring(0, 20) + "..."
-  //     : event.location;
+
 
   eventCard.innerHTML = `
   <a href="/Event/Details/${event.id}">

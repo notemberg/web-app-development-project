@@ -64,7 +64,6 @@
 <script Src="~/js/closeAutoFill.js"></script>
 <script Src="~/js/Event/dateCheck.js"></script>
 <script Src="~/js/Event/Map.js"></script>
-<script Src="~/js/Event/edit.js"></script>
 
 <body>
     <div class="content">
@@ -75,7 +74,6 @@
             <input type="hidden" asp-for="CreatedBy" value="@Model.CreatedBy" />
             <input type="hidden" asp-for="Creator" value="@Model.Creator" />
             <div class="test">
-
                 <div class="title-container">
                     <!-- Title Input -->
                     <input asp-for="Title" type="text" class="title-input" placeholder="Title*" required>
@@ -208,15 +206,75 @@
                 </div>
             </div>
 
-            <button id="end-registration-btn" class="btn btn-primary rounded-pill" type="button">
+            <button id="end-registration-btn" class="btn btn-primary rounded-pill" type="button" onclick="sendClosedMail()">
                 End Registration
             </button>
 
 
             <!-- ✅ ปุ่ม Submit -->
-            <button type="submit" class="submit-btn" id="submit-btn">EDIT POST</button>
+            <button type="submit" class="submit-btn" id="submit-btn" onclick="sendUpdateMail()">EDIT POST</button>
 
 
+            @section Scripts {
+                <script>
+                    // เริ่ม recipients เป็น Array เปล่า
+                    var recipients = [];
+
+                // ใช้ Razor Loop เพื่อ push เข้า array
+                @foreach (var participant in Model.Participants)
+                        {
+                            <text>
+                                recipients.push({
+                                email: "@participant.User.Email",
+                                username: "@participant.User.Username"
+                                });
+                            </text>
+                    }
+
+                var dataToSend = {
+                        recipients: recipients,
+                        templateType: "updated",
+                        activityName: "@Model.Title",
+                        activityDate: "@Model.EventTime.ToString("yyyy-MM-dd")",
+                        activityTime: "@Model.EventTime.ToString("HH:mm")",
+                        locationName: "@Model.LocationName"
+                    };
+
+                    console.log("dataToSend =", dataToSend);
+
+                    var dataForClosed = {
+                        recipients: recipients,
+                        templateType: "closed",
+                        activityName: "@Model.Title",
+                        activityDate: "@Model.EventTime.ToString("yyyy-MM-dd")",
+                        activityTime: "@Model.EventTime.ToString("HH:mm")",
+                        locationName: "@Model.LocationName"
+                    };
+                    // ฟังก์ชันตัวอย่างส่ง fetch
+                    function sendUpdateMail() {
+                        fetch("http://localhost:5182/api/test/send-emails", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(dataToSend)
+                        })
+                            .then(res => res.text())
+                            .then(resp => {
+                                alert("Response: " + resp);
+                            })
+                    }
+                    function sendClosedMail() {
+                        fetch("/api/test/send-emails", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(dataForClosed)
+                        })
+                            .then(res => res.text())
+                            .then(resp => alert("Closed Mail Response: " + resp))
+                    }
+                </script>
+            }
 
         </form> <!-- ✅ ปิด form ตรงนี้ถูกต้อง -->
 
